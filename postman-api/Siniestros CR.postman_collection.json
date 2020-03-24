@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "bef57120-a4ce-44fc-9792-23db4b9aeda3",
+		"name": "Siniestros CR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user - list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/listar-usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"listar-usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"tipo_identificacion\": \"Física\",\n\t\"identificacion\": \"0207690679\",\n\t\"primer_nombre\": \"Arelys\",\n\t\"segundo_nombre\": \"María\",\n\t\"primer_apellido\": \"Oconitrillo\",\n\t\"segundo_apellido\": \"Chaves\",\n\t\"genero\": \"femenino\",\n\t\"correo\": \"aoconitrilloc@gmail.com\",\n\t\"telefono\": 60177081,\n\t\"fotografia\": \"imgs/perfiles/arelys.jpg\",\n\t\"rol\": \"administrador\",\n\t\"codigo_activacion\": \"aa1111\",\n\t\"contrasena\": \"contraseña1\",\n\t\"estado\": \"activo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/registrar-usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"registrar-usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"5e76e4d53f69eb6699fe8be3\",\n    \"rol\": \"especializado\",\n    \"contrasena\": \"contraseña2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/modificar-usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"modificar-usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"5e796a26e916903322af1617\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/eliminar-usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eliminar-usuario"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
