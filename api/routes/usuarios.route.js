@@ -79,4 +79,23 @@ router.put('/modificar-usuario', function(req, res) {
     });
 });
 
+router.delete('/eliminar-usuario', function(req, res) {
+    let body = req.body;
+
+    Usuario.deleteOne({_id: body._id}).then(resultado => {
+        
+        if (resultado.deletedCount == 1) {
+            res.json({
+                resultado: true,
+                msg: 'Se eliminó el usuario'
+            });
+        } else {
+            res.json({
+                resultado: false,
+                msj: 'No se pudo eliminar el usuario'
+            });
+        }
+    });
+});
+
 module.exports = router;
