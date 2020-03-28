@@ -4,13 +4,12 @@ hacer el limpiar
 funcion para mostrar los campos dependiendo del rol seleccionado
 funcion que devuelva un numero random de 5 digitos
 funcion que envie un email para la activacion del usuario
+campos de ced juridica*/
 
 'use strict';
 
-/*let validar = () => {
+let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
-    let input_tipo_moneda = document.querySelector('#tipo-moneda input[type=radio]:checked');
-    let input_terminos = document.querySelector('#terminos input[type=checkbox]:checked');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
@@ -21,56 +20,11 @@ funcion que envie un email para la activacion del usuario
             campos_requeridos[i].classList.remove('input-error');
         }
     }
-
-    if (!input_tipo_moneda) {
-        error = true;
-        document.querySelector('#tipo-moneda').classList.add('input-error');
-    } else {
-        document.querySelector('#tipo-moneda').classList.remove('input-error');
-    }
-
-    if (!input_terminos) {
-        error = true;
-        document.querySelector('#terminos').classList.add('input-error');
-    } else {
-        document.querySelector('#terminos').classList.remove('input-error');
-    }
     
     error = validarEmail(error);
-    error = validarFechas(error);
-
 
     return error;
       
-};
-
-let validarFechas = (pError) => {
-    let arrayEntrada = txtEntrada.value.split("-");
-    let arraySalida = txtSalida.value.split("-");
-    let fecha_actual = new Date();
-    let fecha_entrada = new Date(parseInt(arrayEntrada[0]), parseInt(arrayEntrada[1]) - 1, parseInt(arrayEntrada[2]), 23, 59, 59);
-    let fecha_salida = new Date(parseInt(arraySalida[0]), parseInt(arraySalida[1]) - 1, parseInt(arraySalida[2])); 
-    let error = pError;
-
-    if(arrayEntrada.length == 3){
-        if(fecha_entrada < fecha_actual){
-            document.querySelector('#txtEntrada').classList.add('input-error');
-            error = true;
-        } else{
-            document.querySelector('#txtEntrada').classList.remove('input-error');
-        }
-    }
-
-    if(arraySalida.length == 3){
-        if(fecha_salida <= fecha_actual || fecha_salida <= fecha_entrada){
-            document.querySelector('#txtSalida').classList.add('input-error');
-            error = true;
-        } else{
-            document.querySelector('#txtSalida').classList.remove('input-error');
-        }
-    }
-
-    return error;
 };
 
 let validarEmail = (pError) => {
@@ -90,20 +44,22 @@ let validarEmail = (pError) => {
 };
 
 let limpiar = () => {
-    txtNombre.value = "";
-    txtEntrada.value = "";
-    txtSalida.value = "";
+    txtPrimerNombre.value = "";
+    txtSegundoNombre.value = "";
+    txtPrimerApellido.value = "";
+    txtSegundoApellido.value = "";
     txtEmail.value = "";
     txtTelefono.value = "";
-    rbtDolares.checked = false;
-    rbtColones.checked = false;
-    rbtEuros.checked = false;
-    chbTerminos.checked = false;
-};*/
+    sltTipoIdentificacion.value = "";
+    txtIdentificacion.value = "";
+    txtFotografia.value = "";
+    sltGenero.value = "";
+    sltRol = "";
+};
 
 let obtener_datos = async() => {
-    //let error_validacion = validar();
-    let error_validacion = false;
+    let error_validacion = validar();
+    //let error_validacion = false;
     if (error_validacion) {
         Swal.fire({
             'title': 'Sus datos no se pudieron enviar',
@@ -142,7 +98,7 @@ let obtener_datos = async() => {
                     'text': 'Sus datos se enviaron adecuadamente',
                     'icon': 'success'
                 }).then(() => {
-                    //limpiar();
+                    limpiar();
                     console.log("limpiar");
                 });
             } else {
