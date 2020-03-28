@@ -24,12 +24,12 @@ router.post('/registrar-usuario', (req, res) => {
         estado: body.estado
     });
 
-    nuevo_usuario.save((err, usuarioDB) => {
-        if (err) {
+    nuevo_usuario.save((error, usuarioDB) => {
+        if (error) {
             res.json({
                 resultado: false,
                 msj: 'No se pudo registrar el usuario, ocurrió el siguiente error:',
-                err
+                error
             });
         } else {
             res.json({
@@ -44,12 +44,12 @@ router.post('/registrar-usuario', (req, res) => {
 });
 
 router.get('/listar-usuarios', (req, res) => {
-    Usuario.find((err, lista_usuarios) => {
-        if (err) {
+    Usuario.find((error, lista_usuarios) => {
+        if (error) {
             res.json({
                 resultado: false,
                 msj: 'No se pudieron registrar los usuarios',
-                err
+                error
             });
         } else {
             res.json({
@@ -69,7 +69,7 @@ router.put('/modificar-usuario', function(req, res) {
             res.json({
                 resultado: false,
                 msg: 'No se pudo modificar el usuario',
-                err 
+                error 
             });
         } else {
             res.json({
@@ -104,20 +104,20 @@ router.put('/agregar-especializado', function(req, res) {
         Usuario.updateOne({ _id: req.body._id }, { $set: req.body }, function(error) { 
             if (error) { 
                 return res.json({ 
-                    success: false, 
+                    resultado: false, 
                     msj: 'No se pudo agregar el usuario especializado', 
                     error 
                 }); 
             } else { 
                 return res.json({ 
-                    success: true, 
+                    resultado: true, 
                     msj: 'Se agregó correctamente el usuario especializado' 
                 }); 
             } 
         } ) 
     } else { 
         return res.json({ 
-            success: false, 
+            resultado: false, 
             msj: 'No se pudo agregar el usuario especializado, por favor verifique que el _id sea correcto' 
         }); 
     } 

@@ -1,3 +1,7 @@
+.default-hidden{
+    display: none;
+}
+
 .input-error{
     border: 2px solid #ff0000
 }

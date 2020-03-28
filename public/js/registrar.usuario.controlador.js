@@ -6,6 +6,14 @@ funcion que envie un email para la activacion del usuario*/
 
 'use strict';
 
+let mostrar_campos_especializado = () => {
+
+}
+
+let mostrar_campos_ced_juridica = () => {
+
+}
+
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
     let error = false;
@@ -52,10 +60,39 @@ let limpiar = () => {
     txtIdentificacion.value = "";
     txtFotografia.value = "";
     sltGenero.value = "";
-    sltRol = "";
+
+    if(sltRol.value == "especializado"){
+        sltRol.value = "";
+        sltTipo.value = "";
+        sltProvincia.value = "";
+        sltCanton.value = "";
+        sltDistrito.value = "";
+        txtSenas.value = "";
+    }
+    
+    if(sltRol.value == "encargadoRuta"){
+        sltRol.value = "";
+    }
 };
 
-let obtener_datos = async() => {
+let agregar_usuario_especializado = async(p_response) => {
+    let response = registrar_especializado(p_response.data.usuarioDB._id, sltTipo.value, sltProvincia.value, sltCanton.value, sltDistrito.value, txtSenas.value)
+    .then(function (response) {
+        if(response.data.resultado){
+            Swal.fire({
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos se enviaron adecuadamente',
+                'icon': 'success'
+            }).then(() => {
+                limpiar();
+            });
+        } else {
+            console.log(response.data.msj);
+        }
+    });
+}
+
+let agregar_usuario = async() => {
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({
@@ -64,40 +101,20 @@ let obtener_datos = async() => {
             'icon': 'warning'
         });
     } else {
-        await axios({
-            method: 'post',
-            url: 'http://localhost:3000/api/registrar-usuario',
-            headers: {},
-            data: {
-                tipo_identificacion: sltTipoIdentificacion.value,
-                identificacion: txtIdentificacion.value,
-                primer_nombre: txtPrimerNombre.value,
-                segundo_nombre: txtSegundoNombre.value,
-                primer_apellido: txtPrimerApellido.value,
-                segundo_apellido: txtSegundoApellido.value,
-                genero: sltGenero.value,
-                correo: txtEmail.value,
-                telefono: txtTelefono.value,
-                fotografia: txtFotografia.value,
-                rol: sltRol.value,
-                usuario_especializado: 'especializado',
-                codigo_activacion: ' ',
-                contrasena: ' ',
-                estado: 'inactivo'
-            }
-               
-        })
+        let response = registrar_usuario()
         .then(function (response) {
-            console.log(response);
             if(response.data.resultado){
-                Swal.fire({
-                    'title': 'Proceso realizado con éxito',
-                    'text': 'Sus datos se enviaron adecuadamente',
-                    'icon': 'success'
-                }).then(() => {
-                    limpiar();
-                    console.log("limpiar");
-                });
+                if(sltRol.value == "especializado"){
+                    agregar_usuario_especializado(response);
+                } else {
+                    Swal.fire({
+                        'title': 'Proceso realizado con éxito',
+                        'text': 'Sus datos se enviaron adecuadamente',
+                        'icon': 'success'
+                    }).then(() => {
+                        limpiar();
+                    });
+                }
             } else {
                 Swal.fire({
                     'title': 'No se registró el usuario',
@@ -114,5 +131,5 @@ let obtener_datos = async() => {
 };
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
-botonRegistrar.addEventListener('click', obtener_datos);
+botonRegistrar.addEventListener('click', agregar_usuario);
 
