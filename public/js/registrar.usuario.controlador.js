@@ -1,10 +1,8 @@
 /*TO DO
-hacer las validaciones
-hacer el limpiar
 funcion para mostrar los campos dependiendo del rol seleccionado
+funcion para mostrar los campos de ced juridica
 funcion que devuelva un numero random de 5 digitos
-funcion que envie un email para la activacion del usuario
-campos de ced juridica*/
+funcion que envie un email para la activacion del usuario*/
 
 'use strict';
 
@@ -59,7 +57,6 @@ let limpiar = () => {
 
 let obtener_datos = async() => {
     let error_validacion = validar();
-    //let error_validacion = false;
     if (error_validacion) {
         Swal.fire({
             'title': 'Sus datos no se pudieron enviar',

@@ -14,7 +14,15 @@ const schema_usuario = new mongoose.Schema({
     telefono: { type: Number, required: true, unique: false },
     fotografia: { type: String, required: true, unique: false },
     rol: { type: String, required: true, unique: false },
-    usuario_especializado: { type: String, required: false, unique: false },
+    usuario_especializado: { 
+        tipo: { type: String, required: false, unique: false },
+        direccion: {
+            provincia: { type: String, required: true, unique: false },
+            canton: { type: String, required: true, unique: false },
+            distrito: { type: String, required: true, unique: false },
+            otras_senas: { type: String, required: true, unique: false }
+        } 
+    },
     codigo_activacion: { type: String, required: true, unique: false },
     contrasena: { type: String, required: true, unique: false },
     estado: { type: String, required: true, unique: false }

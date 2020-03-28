@@ -99,4 +99,42 @@ router.delete('/eliminar-usuario', function(req, res) {
     });
 });
 
+router.post('/agregar-especializado', function(req, res) { 
+    if (req.body._id) { 
+        Usuario.update({ _id: req.body._id }, { 
+                $push: {
+                    'usuario_especializado': { 
+                        tipo: req.body.tipo, 
+                        'direccion': {
+                            provincia: req.body.provincia,
+                            canton: req.body.canton,
+                            distrito: req.body.distrito,
+                            otras_senas: req.body.otras_senas
+                        } 
+                    } 
+                } 
+            }, 
+            function(error) { 
+                if (error) { 
+                    return res.json({ 
+                        success: false, 
+                        msj: 'No se pudo agregar el usuario especializado', 
+                        err 
+                    }); 
+                } else { 
+                    return res.json({ 
+                        success: true, 
+                        msj: 'Se agregó correctamente el usuario especializado' 
+                    }); 
+                } 
+            } 
+        ) 
+    } else { 
+        return res.json({ 
+            success: false, 
+            msj: 'No se pudo agregar el usuario especializado, por favor verifique que el _id sea correcto' 
+        }); 
+    } 
+});
+
 module.exports = router;
