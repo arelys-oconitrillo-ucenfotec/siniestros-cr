@@ -14,6 +14,7 @@ const schema_usuario = new mongoose.Schema({
     telefono: { type: Number, required: true, unique: false },
     fotografia: { type: String, required: true, unique: false },
     rol: { type: String, required: true, unique: false },
+    usuario_especializado: { type: String, required: false, unique: false },
     codigo_activacion: { type: String, required: true, unique: false },
     contrasena: { type: String, required: true, unique: false },
     estado: { type: String, required: true, unique: false }

@@ -18,6 +18,7 @@ router.post('/registrar-usuario', (req, res) => {
         telefono: body.telefono,
         fotografia: body.fotografia,
         rol: body.rol,
+        usuario_especializado: body.usuario_especializado,
         codigo_activacion: body.codigo_activacion,
         contrasena: body.contrasena,
         estado: body.estado
