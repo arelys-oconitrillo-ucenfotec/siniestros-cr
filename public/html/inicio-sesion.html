@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="/public/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/public/css/inicio_sesion.css">
 </head>
 <main>
     <section id="main">
-        <form action="">
-            <div>
-                <label for="">Correo: </label>
-                <input type="text" id="txtCorreo">
+        <form id="frm-iniciosesion" action="">
+            <div class="encabezado">
+                <h3>Inicio de Sesión</h3>
+                <br>
+                <p>Ingrese sus datos</p>
+                <br>
             </div>
             <div>
-                <label for="">Contraseña: </label>
-                <input type="password" id="txtContrasena">
+                <label for=""></label>
+                <input type="text" id="txtCorreo" placeholder="Correo:">
+            </div>
+            <div>
+                <label for=""></label>
+                <input type="password" id="txtContrasena" placeholder="Contraseña">
             </div>
             <button type="button" id="btnIngresar">Ingresar</button>
         </form>
