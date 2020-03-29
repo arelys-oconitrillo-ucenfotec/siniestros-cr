@@ -101,7 +101,7 @@ router.delete('/eliminar-usuario', function (req, res) {
                 resultado: false,
                 msj: 'No se pudo eliminar el usuario'
             });
-        } //
+        }
     });
 });
 
@@ -132,5 +132,36 @@ router.put('/agregar-especializado', function (req, res) {
         });
     }
 });
+
+router.post('/validar_credenciales', function (req, res) {
+    let body = req.body;
+
+    Usuario.findOne({
+        correo: req.body.correo
+    }).then(
+        function (usuario) {
+            if (usuario) {
+                if (usuario.contrasena == req.body.contrasena) {
+                    res.json({
+                        success: true,
+                        usuario: usuario
+                    });
+                } else {
+                    res.json({
+                        success: false,
+                        msg: 'Clave incorrecta'
+                    });
+                }
+
+            } else {
+                res.json({
+                    success: false,
+                    msg: 'Usuario no existe'
+                });
+            }
+        }
+    )
+});
+
 
 module.exports = router;
