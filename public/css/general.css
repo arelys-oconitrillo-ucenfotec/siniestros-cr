@@ -1,7 +1,89 @@
+body {
+    font-family: 'Cabin', sans-serif;
+}
+
 .default-hidden{
     display: none;
 }
 
 .input-error{
     border: 2px solid #ff0000
+}
+
+#usuarios {
+    background-color: #ffffff;
+    height: 475px;
+}
+
+#frm-registro {
+    width: 100%;
+    padding: 30px 50px 0px 50px;
+}
+
+#contenedor-registro {
+    background-color: #EFE4D9;
+    box-sizing: border-box;
+    border: 1px solid #71323D;
+    border-radius: 15px; 
+    width: 350px;
+}
+
+.encabezado h3 {
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 65px;
+}
+.w3-col {
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.borde {
+    border: solid;
+    border: 1px solid #71323D; 
+    border-radius: 5px;
+    width: 60%;
+    height: 30px;
+}
+select {
+    color: #818181;
+    
+    
+}
+
+#btnRegistrar {
+    background-color: #ffffff;
+    border: solid;
+    border: 2px solid #71323D; 
+    border-radius: 5px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+/*.margen, select {
+    background-color: #f5f5f5;
+    border: 1px #dedede;
+    border-radius: 10px;
+    color: #686868;
+    box-sizing: border-box;
+    height: 50px;
+    margin-right: 50px;
+    margin-bottom: 2px;
+    padding: 12px 20px;
+    width: 100%;
+}*/
+
+textarea {
+    width: 40%;
+    height: 320px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 0px solid #ffffff;
+    border-radius: 4px;
+    background-color: #eceaea;
+    font-size: 16px;
+    resize: none;
 }
