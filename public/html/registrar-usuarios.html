@@ -8,55 +8,59 @@
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
     <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <main>
         <section id="usuarios" class="w3-container fondo-negro blanco">
-            <h3>Registrar Usuarios</h3>
             <form id="frm-registro" class="w3-row">
-                <div class="w3-col l12 campo-frm">
-                    <label for="txtPrimerNombre">Primer nombre</label>
-                    <input type="text" id="txtPrimerNombre" required>
+            <div id="contenedor-registro">
+                <div class="encabezado">
+                <h3>Registrar Usuarios</h3>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtSegundoNombre">Segundo nombre</label>
-                    <input type="text" id="txtSegundoNombre">
+                    <label for="txtPrimerNombre"></label>
+                    <input type="text" id="txtPrimerNombre" class="borde" placeholder="Primer Nombre" required>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtPrimerApellido">Primer apellido</label>
-                    <input type="text" id="txtPrimerApellido" required>
+                    <label for="txtSegundoNombre"></label>
+                    <input type="text" id="txtSegundoNombre" class="borde" placeholder="Segundo Nombre">
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtSegundoApellido">Segundo apellido</label>
-                    <input type="text" id="txtSegundoApellido">
+                    <label for="txtPrimerApellido"></label>
+                    <input type="text" id="txtPrimerApellido" class="borde" placeholder="Primer apellido"required>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <select id="sltTipoIdentificacion" required>
+                    <label for="txtSegundoApellido"></label>
+                    <input type="text" id="txtSegundoApellido" class="borde" placeholder="Segundo apellido">
+                </div>
+                <div class="w3-col l12 campo-frm">
+                    <select id="sltTipoIdentificacion" class="borde" required>
                         <option value="">Tipo Identificación</option>
                         <option value="fisica">Física</option>
                         <option value="juridica">Jurídica</option>
                     </select>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtIdentificacion">Identificación</label>
-                    <input type="text" id="txtIdentificacion" required>
+                    <label for="txtIdentificacion"></label>
+                    <input type="text" id="txtIdentificacion" class="borde" placeholder="Identificación" required>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtTelefono">Número telefónico</label>
-                     <input type="tel" id="txtTelefono" min="0" required>
+                    <label for="txtTelefono"></label>
+                     <input type="tel" id="txtTelefono" min="0" class="borde" placeholder="Número telefónico" required>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtEmail">Correo electrónico</label>
-                    <input type="email" id="txtEmail" required>
+                    <label for="txtEmail"></label>
+                    <input type="email" id="txtEmail" class="borde" placeholder="Correo electrónico" required>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <label for="txtFotografia">Fotografía</label>
-                    <input type="text" id="txtFotografia" required>
+                    <label for="txtFotografia"></label>
+                    <input type="text" id="txtFotografia" class="borde" placeholder="Fotografía" required>
                 </div>
                 <div class="w3-col l12 campo-frm">
-                    <select id="sltGenero" required>
+                    <select id="sltGenero" class="borde" required>
                         <option value="">Género</option>
                         <option value="femenino">Femenino</option>
                         <option value="masculino">Masculino</option>
@@ -68,10 +72,11 @@
                         <option value="especializado">Especializado</option>
                         <option value="encargadoRuta">Encargado de ruta</option>
                     </select>
-                </div>
+            </div>
             </form>
             <div class="btn1">
                 <button type="button" id="btnRegistrar">Registrar</button>
+            </div>
             </div>
         </section>
     </main>
