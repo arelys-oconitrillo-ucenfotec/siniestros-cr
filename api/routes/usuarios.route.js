@@ -61,15 +61,19 @@ router.get('/listar-usuarios', (req, res) => {
     });
 });
 
-router.put('/modificar-usuario', function(req, res) {
+router.put('/modificar-usuario', function (req, res) {
     let body = req.body;
 
-    Usuario.updateOne({ _id: body._id }, { $set: req.body }, function(error, info){
+    Usuario.updateOne({
+        _id: body._id
+    }, {
+        $set: req.body
+    }, function (error, info) {
         if (error) {
             res.json({
                 resultado: false,
                 msg: 'No se pudo modificar el usuario',
-                error 
+                error
             });
         } else {
             res.json({
@@ -80,11 +84,13 @@ router.put('/modificar-usuario', function(req, res) {
     });
 });
 
-router.delete('/eliminar-usuario', function(req, res) {
+router.delete('/eliminar-usuario', function (req, res) {
     let body = req.body;
 
-    Usuario.deleteOne({_id: body._id}).then(resultado => {
-        
+    Usuario.deleteOne({
+        _id: body._id
+    }).then(resultado => {
+
         if (resultado.deletedCount == 1) {
             res.json({
                 resultado: true,
@@ -99,28 +105,63 @@ router.delete('/eliminar-usuario', function(req, res) {
     });
 });
 
-router.put('/agregar-especializado', function(req, res) { 
-    if (req.body._id) { 
-        Usuario.updateOne({ _id: req.body._id }, { $set: req.body }, function(error) { 
-            if (error) { 
-                return res.json({ 
-                    resultado: false, 
-                    msj: 'No se pudo agregar el usuario especializado', 
-                    error 
-                }); 
-            } else { 
-                return res.json({ 
-                    resultado: true, 
-                    msj: 'Se agregó correctamente el usuario especializado' 
-                }); 
-            } 
-        } ) 
-    } else { 
-        return res.json({ 
-            resultado: false, 
-            msj: 'No se pudo agregar el usuario especializado, por favor verifique que el _id sea correcto' 
-        }); 
-    } 
+router.put('/agregar-especializado', function (req, res) {
+    if (req.body._id) {
+        Usuario.updateOne({
+            _id: req.body._id
+        }, {
+            $set: req.body
+        }, function (error) {
+            if (error) {
+                return res.json({
+                    resultado: false,
+                    msj: 'No se pudo agregar el usuario especializado',
+                    error
+                });
+            } else {
+                return res.json({
+                    resultado: true,
+                    msj: 'Se agregó correctamente el usuario especializado'
+                });
+            }
+        })
+    } else {
+        return res.json({
+            resultado: false,
+            msj: 'No se pudo agregar el usuario especializado, por favor verifique que el _id sea correcto'
+        });
+    }
 });
+
+router.post('/validar_credenciales', function (req, res) {
+    let body = req.body;
+
+    Usuario.findOne({
+        correo: req.body.correo
+    }).then(
+        function (usuario) {
+            if (usuario) {
+                if (usuario.contrasena == req.body.contrasena) {
+                    res.json({
+                        success: true,
+                        usuario: usuario
+                    });
+                } else {
+                    res.json({
+                        success: false,
+                        msg: 'Clave incorrecta'
+                    });
+                }
+
+            } else {
+                res.json({
+                    success: false,
+                    msg: 'Usuario no existe'
+                });
+            }
+        }
+    )
+});
+
 
 module.exports = router;
