@@ -26,6 +26,7 @@ body {
     border: 1px solid #71323D;
     border-radius: 15px; 
     width: 350px;
+    height: 525px;
 }
 
 .encabezado h3 {
@@ -47,8 +48,6 @@ body {
 }
 select {
     color: #818181;
-    
-    
 }
 
 #btnRegistrar {
@@ -59,9 +58,22 @@ select {
     color: #000000;
     font-weight: bold;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 180px;
     margin-bottom: 20px;
+}
+
+.btn1 {
+    margin-left: 250px;
+}
+
+#contenedor-registroAdmin {
+    background-color: #EFE4D9;
+    box-sizing: border-box;
+    border: 1px solid #71323D;
+    border-radius: 15px; 
+    width: 650px;
+    height: 780px;
 }
 /*.margen, select {
     background-color: #f5f5f5;
