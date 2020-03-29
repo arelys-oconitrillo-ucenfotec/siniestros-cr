@@ -41,7 +41,7 @@ body {
 
 .borde {
     border: solid;
-    border: 1px solid #71323D; 
+    border: 1px solid #585551; 
     border-radius: 5px;
     width: 60%;
     height: 30px;
@@ -68,33 +68,30 @@ select {
 }
 
 #contenedor-registroAdmin {
+    
     background-color: #EFE4D9;
     box-sizing: border-box;
     border: 1px solid #71323D;
     border-radius: 15px; 
     width: 650px;
-    height: 780px;
+    height: 840px;
 }
-/*.margen, select {
-    background-color: #f5f5f5;
-    border: 1px #dedede;
-    border-radius: 10px;
-    color: #686868;
-    box-sizing: border-box;
-    height: 50px;
-    margin-right: 50px;
-    margin-bottom: 2px;
-    padding: 12px 20px;
-    width: 100%;
-}*/
+
+#contenedor-registroAdmin .borde {
+    width: 40%;
+}
+
+.flotarDerecha {
+
+}
 
 textarea {
     width: 40%;
-    height: 320px;
+    height: 110px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 0px solid #ffffff;
-    border-radius: 4px;
+    border: 1px solid#585551;
+    border-radius: 5px;
     background-color: #eceaea;
     font-size: 16px;
     resize: none;

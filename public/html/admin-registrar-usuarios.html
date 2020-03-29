@@ -79,41 +79,45 @@
                             <option value="policia">Policía</option>
                         </select>
                     </div>
-                    <div class="w3-col l12 campo-frm">
-                        <select id="sltProvincia" class="borde" required>
-                            <option value="">Provincia</option>
-                            <option value="ajuela">Alajuela</option>
-                            <option value="cartago">Cartago</option>
-                            <option value="heredia">Heredia</option>
-                            <option value="Limon">Limón</option>
-                            <option value="puntarenas">Puntarenas</option>
-                            <option value="san jose">San José</option>
-                        </select>
+                    <div class="direccion">
+                        <div>
+                            <div class="w3-col l12 campo-frm">
+                                <select id="sltProvincia" class="borde" required>
+                                    <option value="">Provincia</option>
+                                    <option value="ajuela">Alajuela</option>
+                                    <option value="cartago">Cartago</option>
+                                    <option value="heredia">Heredia</option>
+                                    <option value="Limon">Limón</option>
+                                    <option value="puntarenas">Puntarenas</option>
+                                    <option value="san jose">San José</option>
+                                </select>
+                            </div>
+                            <div class="w3-col l12 campo-frm">
+                                <select id="sltCanton" class="borde" required>
+                                    <option value="">Cantón</option>
+                                    <option value="poas">Poás</option>
+                                    <option value="central">Central</option>
+                                </select>
+                            </div>
+                            <div class="w3-col l12 campo-frm">
+                                <select id="sltDistrito" class="borde" required>
+                                    <option value="">Distrito</option>
+                                    <option value="carrillos">Carrillos</option>
+                                    <option value="san rafael">San Rafael</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w3-col l12 campo-frm">
+                            <label for="txtSenas"></label>
+                            <textarea name="txtSenas" id="txtSenas" rows="3" placeholder="Otras señas" required></textarea>
+                        </div>
                     </div>
-                    <div class="w3-col l12 campo-frm">
-                        <select id="sltCanton" class="borde" required>
-                            <option value="">Cantón</option>
-                            <option value="poas">Poás</option>
-                            <option value="central">Central</option>
-                        </select>
-                    </div>
-                    <div class="w3-col l12 campo-frm">
-                        <select id="sltDistrito" class="borde" required>
-                            <option value="">Distrito</option>
-                            <option value="carrillos">Carrillos</option>
-                            <option value="san rafael">San Rafael</option>
-                        </select>
-                    </div>
-                    <div class="w3-col l12 campo-frm">
-                        <label for="txtSenas"></label>
-                        <textarea name="txtSenas" id="txtSenas" rows="3" placeholder="Otras señas" required></textarea>
-                    </div>
-                    <div class="btn1">
+                    <div class="btn1 flotarDerecha">
                         <button type="button" id="btnRegistrar">Registrar</button>
                     </div>
+                    
                 </div>
             </form>
-
         </section>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
