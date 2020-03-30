@@ -1,13 +1,79 @@
+/*---------------------GLOBAL-----------------------*/
 body {
     font-family: 'Cabin', sans-serif;
 }
 
-.default-hidden{
-    display: none;
-}
-
 .input-error{
     border: 2px solid #ff0000
+}
+
+/*--------------------- FIN GLOBAL-----------------------*/
+
+/*---------------------VARIABLES-----------------------*/
+
+/*COLORES DE FONDO*/
+.tan {
+    background: #dec3af;
+}
+
+.beige {
+    background: #efe4d9;
+}
+
+.sienna {
+    background: #71323d;
+}
+
+.rosy-brown {
+    background: #a5796d;
+}
+
+.dim-gray {
+    background: #585551;
+}
+
+.blanco {
+    background: #fff;
+}
+
+/*COLOR DE LA LETRA*/
+
+.tan-letra {
+    color: #dec3af;
+}
+
+.beige-letra {
+    color: #efe4d9;
+}
+
+.sienna-letra {
+    color: #71323d;
+}
+
+.rosy-brown-letra {
+    color: #a5796d;
+}
+
+.dim-gray-letra {
+    color: #585551;
+}
+
+.blanco-letra {
+    color: #fff;
+}
+
+/*---------------------FIN VARIABLES-----------------------*/
+
+/*---------------------CSS INICIO SESION-------------------*/
+
+
+/*---------------------FIN CSS INICIO SESION-------------------*/
+
+/*---------------------CSS REGISTRAR TODOS LOS USUARIOS-------------------*/
+
+
+.ocultar {
+    display: none;
 }
 
 #usuarios {
@@ -81,10 +147,6 @@ select {
     width: 40%;
 }
 
-.flotarDerecha {
-
-}
-
 textarea {
     width: 70%;
     height: 110px;
@@ -96,3 +158,11 @@ textarea {
     font-size: 16px;
     resize: none;
 }
+/*---------------------FIN CSS REGISTRAR TODOS LOS USUARIOS-------------------*/
+
+/*---------------------CSS LISTAR LOS USUARIOS-------------------*/
+
+
+/*---------------------FIN CSS LISTAR LOS USUARIOS-------------------*/
+
+
