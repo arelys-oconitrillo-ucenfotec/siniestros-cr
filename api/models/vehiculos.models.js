@@ -35,7 +35,8 @@ const schema_vehiculo = new mongoose.Schema({
                 required: true,
                 unique: false
             }
-    }]
+    }],
+    estado: String
 });
 
 module.exports = mongoose.model('Vehiculo', schema_vehiculo, 'vehiculo');

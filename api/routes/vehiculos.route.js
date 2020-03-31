@@ -33,4 +33,66 @@ router.post('/registrar-vehiculo', (req, res) => {
     });
 });
 
+router.get('/listar-vehiculos', (req, res) => {
+    Vehiculo.find((error, lista_vehiculo) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se pudieron listar los vheiculos',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                msj: 'Los vehiculos se listaron adecuadamente',
+                lista_vehiculo
+            });
+        }
+    });
+});
+
+router.delete('/eliminar-vehiculo', function (req, res) {
+    let body = req.body;
+
+    Vehiculo.deleteOne({
+        _id: body._id
+    }).then(resultado => {
+
+        if (resultado.deletedCount == 1) {
+            res.json({
+                resultado: true,
+                msg: 'Se eliminó el vhehiculo'
+            });
+        } else {
+            res.json({
+                resultado: false,
+                msj: 'No se pudo eliminar el vehiculo'
+            });
+        }
+    });
+});
+
+router.put('/modificar-vehiculo', function (req, res) {
+    let body = req.body;
+
+    Vehiculo.updateOne({
+        _id: body._id
+    }, {
+        $set: req.body
+    }, function (error, info) {
+        if (error) {
+            res.json({
+                resultado: false,
+                msg: 'No se pudo modificar el vehiculo',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        }
+    });
+});
+
 module.exports = router;
