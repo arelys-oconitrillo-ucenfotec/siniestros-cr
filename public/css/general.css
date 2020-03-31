@@ -4,34 +4,45 @@
 }
 
 body {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Cabin', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+    font-family: 'Cabin', sans-serif !important;
 }
 
 h1 {
-
+    font-size: 40px !important;
+    font-weight: bold;
 }
 
 h2 {
-
+    font-size: 35px !important;
+    font-weight: bold;
 }
 
+
 h3 {
-    font-size: 25px;
+    font-size: 30px !important;
     font-weight: bold;
-    padding-left: 65px;
 }
 
 h4 {
-
+    font-size: 25px !important;
 }
 
 h5 {
-
+    font-size: 20px !important;
 }
 
 h6{
-
+    font-size: 15px !important;
 }
+
+.ocultar {
+    display: none;
+}
+
 /*--------------------- FIN GLOBAL-----------------------*/
 
 /*---------------------VARIABLES-----------------------*/
@@ -104,13 +115,33 @@ h6{
 
 /*---------------------CSS REGISTRAR TODOS LOS USUARIOS-------------------*/
 
+/*----------------------HEADER----------------------------------*/
 
-.ocultar {
-    display: none;
+header {
+    height: 82px;
 }
+
+/*----------------------FIN HEADER----------------------------------*/
+
+
+
 
 #usuarios {
     height: 475px;
+}
+
+#usuarios h2 {
+    text-align: center;
+}
+
+#usuarios p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.img-registro img {
+    height: 500px;
+    width: 400px;
 }
 
 #frm-registro {
@@ -124,11 +155,6 @@ h6{
     border-radius: 15px; 
     width: 350px;
     height: 525px;
-}
-
-.w3-col {
-    margin-top: 10px;
-    margin-left: 70px;
 }
 
 .borde {
