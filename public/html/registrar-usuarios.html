@@ -23,11 +23,14 @@
             </div>
         </header>
         <main>
-            <section id="usuarios" class="w3-container blanco">
+            <section id="registro" class="blanco">
                 <div class="w3-row">
                     <div class="w3-col l6 w3-right">
                         <h2>REGISTRATE</h2>
-                        <p>Es rápido y fácil</p>
+                        <p class="p1-registro">Es rápido y fácil</p>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
                     </div>
                 </div>
                 <div class="w3-row">
@@ -38,62 +41,58 @@
                     </div>
                     <div class="w3-col l6">
                         <form id="frm-registro">
-                            <div class="beige" id="contenedor-registro">
-                                <div class="encabezado">
+                            <div class="w3-row campo-frm">
+                                <input type="text" id="txtPrimerNombre" placeholder="Primer Nombre" required>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <input type="text" id="txtSegundoNombre" placeholder="Segundo Nombre">
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <input type="text" id="txtPrimerApellido" placeholder="Primer apellido"required>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <input type="text" id="txtSegundoApellido" placeholder="Segundo apellido">
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <select id="sltTipoIdentificacion" required>
+                                    <option value="">Tipo Identificación</option>
+                                    <option value="fisica">Física</option>
+                                    <option value="juridica">Jurídica</option>
+                                </select>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <input type="text" id="txtIdentificacion" placeholder="Identificación" required>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <input type="tel" id="txtTelefono" min="0" placeholder="Número telefónico" required>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <input type="email" id="txtEmail" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <label for="txtFotografia"></label>
+                                <input type="text" id="txtFotografia" placeholder="Fotografía" required>
+                            </div>
+                            <fieldset>
+                                <p>Género</p>
+                                <div class="radio">
+                                    <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
+                                    <label for="rbtFemenino">Femenino</label>
                                 </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="text" id="txtPrimerNombre" class="borde" placeholder="Primer Nombre" required>
+                                <div class="radio">
+                                    <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
+                                    <label for="rbtMasculino">Masculino</label>
                                 </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="text" id="txtSegundoNombre" class="borde" placeholder="Segundo Nombre">
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="text" id="txtPrimerApellido" class="borde" placeholder="Primer apellido"required>
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="text" id="txtSegundoApellido" class="borde" placeholder="Segundo apellido">
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <select id="sltTipoIdentificacion" class="borde" required>
-                                        <option value="">Tipo Identificación</option>
-                                        <option value="fisica">Física</option>
-                                        <option value="juridica">Jurídica</option>
-                                    </select>
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="text" id="txtIdentificacion" class="borde" placeholder="Identificación" required>
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="tel" id="txtTelefono" min="0" class="borde" placeholder="Número telefónico" required>
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <input type="email" id="txtEmail" class="borde" placeholder="Correo electrónico" required>
-                                </div>
-                                <div class="w3-col l12 campo-frm">
-                                    <label for="txtFotografia"></label>
-                                    <input type="text" id="txtFotografia" class="borde" placeholder="Fotografía" required>
-                                </div>
-                                <fieldset>
-                                    <p>Género</p>
-                                    <div class="radio">
-                                        <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
-                                        <label for="rbtFemenino">Femenino</label>
-                                    </div>
-                                    <div class="radio">
-                                        <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
-                                        <label for="rbtMasculino">Masculino</label>
-                                    </div>
-                                </fieldset>
-                                <div class="w3-col l12 campo-frm ocultar">
-                                    <select id="sltRol">
-                                        <option value="normal">Rol</option>
-                                        <option value="especializado">Especializado</option>
-                                        <option value="encargadoRuta">Encargado de ruta</option>
-                                    </select>
-                                </div>
-                                <div class="btn2">
-                                    <button type="button" class="blanco negro-letra" id="btnRegistrar">Registrar</button>
-                                </div>
+                            </fieldset>
+                            <div class="w3-col l12 ocultar">
+                                <select id="sltRol">
+                                    <option value="normal">Rol</option>
+                                    <option value="especializado">Especializado</option>
+                                    <option value="encargadoRuta">Encargado de ruta</option>
+                                </select>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="blanco negro-letra" id="btnRegistrar">Registrar</button>
                             </div>
                         </form>
                     </div>

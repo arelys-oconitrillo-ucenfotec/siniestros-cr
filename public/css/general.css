@@ -40,7 +40,7 @@ h6{
 }
 
 .ocultar {
-    display: none;
+    display: none !important;
 }
 
 /*--------------------- FIN GLOBAL-----------------------*/
@@ -123,46 +123,68 @@ header {
 
 /*----------------------FIN HEADER----------------------------------*/
 
+/*----------------------REGISTRO----------------------------------*/
 
-
-
-#usuarios {
+#registro {
     height: 475px;
 }
 
-#usuarios h2 {
+#registro h2 {
     text-align: center;
+    margin-right: 125px;
+    margin-bottom: 0px;
 }
 
-#usuarios p {
+.p1-registro {
     text-align: center;
     font-size: 25px;
+    margin-right: 145px;
+    margin-bottom: 10px;
+}
+
+.p2-registro {
+    text-align: center;
+    margin-right: 210px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.img-registro {
+    display: flex;
+    justify-content: center;
 }
 
 .img-registro img {
     height: 500px;
-    width: 400px;
+    width: 600px;
 }
+
+
 
 #frm-registro {
-    width: 100%;
-    padding: 30px 50px 0px 50px;
+    display: flex;
+    flex-direction: column;
 }
 
-#contenedor-registro {
-    box-sizing: border-box;
-    border: 1px solid #71323D;
-    border-radius: 15px; 
-    width: 350px;
-    height: 525px;
+.campo-frm {
+    display: flex;
+    justify-content: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
 
-.borde {
-    border: solid;
-    border: 1px solid #585551; 
-    border-radius: 5px;
-    width: 60%;
-    height: 30px;
+.campo-frm input {
+    height: 35px;
+    width: 300px;
+    border-radius: 3px;
+    border: 1px solid #71323d; 
+}
+
+.campo-frm select {
+    height: 35px;
+    width: 300px;
+    border-radius: 3px;
+    border: 1px solid #71323d;  
 }
 
 #btnRegistrar {
@@ -179,6 +201,12 @@ header {
 .btn1 {
     margin-left: 240px;
 }
+
+
+/*----------------------FIN REGISTRO----------------------------------*/
+
+
+
 
 #contenedor-registroAdmin {
     box-sizing: border-box;
