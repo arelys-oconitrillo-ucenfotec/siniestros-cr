@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrar usuarios</title>
         <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/select.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
         <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
@@ -42,16 +43,28 @@
                     <div class="w3-col l6">
                         <form id="frm-registro">
                             <div class="w3-row campo-frm">
-                                <input type="text" id="txtPrimerNombre" placeholder="Primer Nombre" required>
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Primer Nombre" name="txtPrimerNombre" id="txtPrimerNombre"  required>
+                                    <label for="txtPrimerNombre" class="form__label dim-gray-letra">Primer Nombre</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
-                                <input type="text" id="txtSegundoNombre" placeholder="Segundo Nombre">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Segundo Nombre" name="txtSegundoApellido" id="txtSegundoNombre">
+                                    <label for="txtSegundoNombre" class="form__label dim-gray-letra">Segundo Nombre</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
-                                <input type="text" id="txtPrimerApellido" placeholder="Primer apellido"required>
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Primer apellido" name="txtPrimerApellido" id="txtPrimerApellido" required>
+                                    <label for="txtPrimerApellido" class="form__label dim-gray-letra">Primer Apellido</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
-                                <input type="text" id="txtSegundoApellido" placeholder="Segundo apellido">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Segundo apellido" name="txtSegundoApellido" id="txtSegundoApellido">
+                                    <label for="txtSegundoApellido" class="form__label dim-gray-letra">Segundo Apellido</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
                                 <select id="sltTipoIdentificacion" required>
@@ -61,17 +74,66 @@
                                 </select>
                             </div>
                             <div class="w3-row campo-frm">
-                                <input type="text" id="txtIdentificacion" placeholder="Identificación" required>
+                                <div class="campo-frm-select">
+                                    <div class="contenedor-relative">
+                                        <div id="app-cover">
+                                            <div id="select-box">
+                                                <input type="checkbox" id="options-view-button">
+                                                <div id="select-button" class="brd">
+                                                    <div id="selected-value">
+                                                        <span>Select a platform</span>
+                                                    </div>
+                                                    <div id="chevrons">
+                                                        <i class="fas fa-chevron-up"></i>
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </div>
+                                                </div>
+                                                <div id="options">
+                                                    <div class="option">
+                                                        <input class="s-c top" type="radio" name="platform" value="fisica">
+                                                        <input class="s-c bottom" type="radio" name="platform" value="fisica">
+                                                        <i class="fab fa-codepen"></i>
+                                                        <span class="label">CodePen</span>
+                                                        <span class="opt-val">CodePen</span>
+                                                    </div>
+                                                    <div class="option">
+                                                        <input class="s-c top" type="radio" name="platform" value="juridica">
+                                                        <input class="s-c bottom" type="radio" name="platform" value="juridica">
+                                                        <i class="fab fa-dribbble"></i>
+                                                        <span class="label">Dribbble</span>
+                                                        <span class="opt-val">Dribbble</span>
+                                                    </div>
+                                                    <div id="option-bg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
-                                <input type="tel" id="txtTelefono" min="0" placeholder="Número telefónico" required>
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Identificación" name="txtIdentificacion" id="txtIdentificacion" required>
+                                    <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
-                                <input type="email" id="txtEmail" placeholder="Correo electrónico" required>
+                                <div class="form__group field">
+                                    <input type="tel" class="form__field dim-gray-letra" min="0" placeholder="Número Telefónico" name="txtTelefono" id="txtTelefono" required>
+                                    <label for="txtTelefono" class="form__label dim-gray-letra">Número Telefónico</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="email" class="form__field dim-gray-letra" placeholder="Correo Electrónico" name="txtEmail" id="txtEmail" required>
+                                    <label for="txtEmail" class="form__label dim-gray-letra">Correo Electrónico</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
                                 <label for="txtFotografia"></label>
-                                <input type="text" id="txtFotografia" placeholder="Fotografía" required>
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Fotografía" name="txtFotografia" id="txtFotografia" required>
+                                    <label for="txtFotografia" class="form__label dim-gray-letra">Fotografía</label>
+                                </div>
                             </div>
                             <div class="radio-genero">
                                 <fieldset class="fieldset-registro">
