@@ -199,7 +199,12 @@ header {
     margin-top: 15px;
 }
 
-#btnRegistrar {
+.btn2 {
+    display: flex;
+}
+
+.btn2-registro {
+    justify-content: center;
     border: solid;
     border: 2px solid #71323D; 
     border-radius: 5px;
