@@ -73,17 +73,21 @@
                                 <label for="txtFotografia"></label>
                                 <input type="text" id="txtFotografia" placeholder="Fotografía" required>
                             </div>
-                            <fieldset>
-                                <p>Género</p>
-                                <div class="radio">
-                                    <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
-                                    <label for="rbtFemenino">Femenino</label>
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
-                                    <label for="rbtMasculino">Masculino</label>
-                                </div>
-                            </fieldset>
+                            <div class="radio-genero">
+                                <fieldset class="fieldset-registro">
+                                    <p>Género</p>
+                                    <div class="w3-row">
+                                        <div class="w3-col l6 radio">
+                                            <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
+                                            <label for="rbtFemenino">Femenino</label>
+                                        </div>
+                                        <div class="w3-col l6 radio">
+                                            <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
+                                            <label for="rbtMasculino">Masculino</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
                             <div class="w3-col l12 ocultar">
                                 <select id="sltRol">
                                     <option value="normal">Rol</option>

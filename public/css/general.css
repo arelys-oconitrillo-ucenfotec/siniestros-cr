@@ -159,8 +159,6 @@ header {
     width: 600px;
 }
 
-
-
 #frm-registro {
     display: flex;
     flex-direction: column;
@@ -176,15 +174,29 @@ header {
 .campo-frm input {
     height: 35px;
     width: 300px;
-    border-radius: 3px;
-    border: 1px solid #71323d; 
+    border: none;
+    border-bottom: 1px solid #71323d; 
 }
 
 .campo-frm select {
     height: 35px;
     width: 300px;
-    border-radius: 3px;
-    border: 1px solid #71323d;  
+    border: none;
+    border-bottom: 1px solid #71323d; 
+}
+
+.fieldset-registro{
+    height: 75px;
+    width: 300px;
+    border: none;
+}
+
+.radio-genero {
+    display: flex;
+    justify-content: center;
+}
+.radio input {
+    margin-top: 15px;
 }
 
 #btnRegistrar {
@@ -193,9 +205,6 @@ header {
     border-radius: 5px;
     font-weight: bold;
     font-size: 16px;
-    margin-top: 20px;
-    margin-left: 180px;
-    margin-bottom: 20px;
 }
 
 .btn1 {
