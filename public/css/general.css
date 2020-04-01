@@ -192,7 +192,7 @@ header {
 /*----------------------REGISTRO----------------------------------*/
 
 #registro {
-    height: 475px;
+    height: 1000px;
 }
 
 #registro h2 {
@@ -265,20 +265,18 @@ header {
 
 .btn2 {
     display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .btn2-registro {
-    justify-content: center;
-    border: solid;
-    border: 2px solid #71323D; 
+    height: 55px;
+    width: 100px;
     border-radius: 5px;
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
+    background: linear-gradient(180deg, #dec3af 0%, #71323D 100%);
 }
 
-.btn1 {
-    margin-left: 240px;
-}
 
 
 /*----------------------FIN REGISTRO----------------------------------*/
