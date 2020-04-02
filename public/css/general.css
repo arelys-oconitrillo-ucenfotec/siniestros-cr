@@ -197,7 +197,7 @@ header {
 /*----------------------REGISTRO----------------------------------*/
 
 #registro {
-    height: 1000px;
+    height: 1150px;
 }
 
 #registro h2 {
@@ -259,6 +259,16 @@ header {
     width: 50%;
 }
 
+.campo-frm textarea {
+    width: 320px;
+    height: 110px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #585551;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
 .fieldset-registro{
     height: 85px;
     width: 340px;
@@ -316,17 +326,6 @@ header {
     grid-template-columns: auto auto;
 }
 
-
-textarea {
-    width: 70%;
-    height: 110px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 1px solid#585551;
-    border-radius: 5px;
-    font-size: 16px;
-    resize: none;
-}
 .btn1 {
     display: flex;
     justify-content: center;
