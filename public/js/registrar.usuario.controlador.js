@@ -16,8 +16,7 @@ let mostrar_campos_ced_juridica = () => {
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
-    let input_tipo_moneda = document.querySelector('#tipo-moneda input[type=radio]:checked');
-    let input_terminos = document.querySelector('#terminos input[type=checkbox]:checked');
+    let input_genero = document.querySelector('#field-genero input[type=radio]:checked');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
@@ -28,6 +27,13 @@ let validar = () => {
         } else {
             label_campo_requerido.classList.remove('label-error');
         }
+    }
+
+    if (!input_genero) {
+        error = true;
+        document.querySelector('#field-genero').classList.add('input-error');
+    } else {
+        document.querySelector('#field-genero').classList.remove('input-error');
     }
     
     error = validarEmail(error);

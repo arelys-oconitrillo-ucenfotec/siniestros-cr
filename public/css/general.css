@@ -1,6 +1,6 @@
 /*---------------------GLOBAL-----------------------*/
 .input-error{
-    border: 2px solid #ff0000
+    border: 2px solid #ff0000 !important;
 }
 
 .label-error {
@@ -205,6 +205,7 @@ header {
     text-align: center;
     margin-right: 125px;
     margin-bottom: 0px;
+    color: #585551;
 }
 
 .p1-registro {
@@ -259,8 +260,9 @@ header {
 }
 
 .fieldset-registro{
-    height: 75px;
-    width: 300px;
+    height: 85px;
+    width: 340px;
+    font-size: 1.3rem;
     border: none;
 }
 
