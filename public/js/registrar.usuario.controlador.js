@@ -16,14 +16,17 @@ let mostrar_campos_ced_juridica = () => {
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
+    let input_tipo_moneda = document.querySelector('#tipo-moneda input[type=radio]:checked');
+    let input_terminos = document.querySelector('#terminos input[type=checkbox]:checked');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
+        let label_campo_requerido = document.querySelector('[for="' + campos_requeridos[i].id + '"]');
         if (campos_requeridos[i].value == '') {
-            campos_requeridos[i].classList.add('input-error');
+            label_campo_requerido.classList.add('label-error');
             error = true;
         } else {
-            campos_requeridos[i].classList.remove('input-error');
+            label_campo_requerido.classList.remove('label-error');
         }
     }
     
