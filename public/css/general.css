@@ -278,6 +278,14 @@ header {
     background: linear-gradient(180deg, #dec3af 0%, #71323D 100%);
 }
 
+.btn2-registro:hover {
+    height: 60px;
+    width: 105px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: linear-gradient(180deg, #dec3af 0%, #71323D 100%);
+}
+
 
 
 /*----------------------FIN REGISTRO----------------------------------*/
