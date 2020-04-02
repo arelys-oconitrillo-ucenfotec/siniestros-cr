@@ -10,79 +10,34 @@ body {
     border: 2px solid #ff0000
 }
 
-#usuarios {
-    background-color: #ffffff;
-    height: 475px;
-}
+/*Aqui empieza la configuración de 
+admin-registrar-usuarios.html*/
 
 #frm-registro {
-    width: 100%;
-    padding: 30px 50px 0px 50px;
-}
-
-#contenedor-registro {
     background-color: #EFE4D9;
     box-sizing: border-box;
     border: 1px solid #71323D;
     border-radius: 15px; 
-    width: 350px;
-    height: 525px;
+    width: 850px;
+    height: 500px;
 }
-
+.contenedor-registroAdmin {
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 16px;
+    width: 100%;
+}
 .encabezado h3 {
-  font-size: 25px;
-  font-weight: bold;
-  padding-left: 65px;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 65px;
 }
-.w3-col {
-    margin-top: 10px;
-    margin-left: 70px;
-}
-
 .borde {
     border: solid;
     border: 1px solid #585551; 
     border-radius: 5px;
-    width: 60%;
+    /*width: 80%;*/
     height: 30px;
-}
-select {
-    color: #818181;
-}
-
-#btnRegistrar {
-    background-color: #ffffff;
-    border: solid;
-    border: 2px solid #71323D; 
-    border-radius: 5px;
-    color: #000000;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 20px;
-    margin-left: 180px;
-    margin-bottom: 20px;
-}
-
-.btn1 {
-    margin-left: 240px;
-}
-
-#contenedor-registroAdmin {
-    
-    background-color: #EFE4D9;
-    box-sizing: border-box;
-    border: 1px solid #71323D;
-    border-radius: 15px; 
-    width: 650px;
-    height: 840px;
-}
-
-#contenedor-registroAdmin .borde {
-    width: 40%;
-}
-
-.flotarDerecha {
-
 }
 
 textarea {
@@ -95,4 +50,37 @@ textarea {
     background-color: #eceaea;
     font-size: 16px;
     resize: none;
+}
+#btnRegistrar {
+    background-color: #ffffff;
+    border: solid;
+    border: 2px solid #71323D; 
+    border-radius: 5px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 30px;
+    float: right;
+    
+}
+
+input {
+   
+}
+
+/*Aqui empieza la configuración de 
+registrar-usuarios normales.html*/
+#frm-registro_usuario {
+    background-color: #EFE4D9;
+    box-sizing: border-box;
+    border: 1px solid #71323D;
+    border-radius: 15px; 
+    padding: 0px 0px 0px 10px;
+    width: 450px;
+    height: 380px;
+}
+
+.contenedor-registro {
+    width: 100%;
 }

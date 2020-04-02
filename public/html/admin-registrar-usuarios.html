@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar usuarios</title>
-    <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/general.css">
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
 </head>
@@ -15,66 +15,71 @@
     <main>
         <section id="usuariosAdmin" class="w3-container fondo-beige blanco">
             <form id="frm-registro" class="w3-row">
-                <div id="contenedor-registroAdmin">
-                    <div class="encabezado">
-                        <h3>Registrar Usuarios</h3>
+                <div class="encabezado">
+                    <h3>Registrar Usuarios</h3>
+                </div>
+                <div class="contenedor-registroAdmin">
+                    
+                    <div class="w3-col l12 campo-frm">
+                        <label for="txtPrimerNombre">Primer Nombre</label>
+                        <input type="text" id="txtPrimerNombre" class="borde" required>
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtPrimerNombre"></label>
-                        <input type="text" id="txtPrimerNombre" class="borde" placeholder="Primer Nombre" required>
+                        <label for="txtSegundoNombre">Segundo nombre</label>
+                        <input type="text" id="txtSegundoNombre" class="borde" >
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtSegundoNombre"></label>
-                        <input type="text" id="txtSegundoNombre" class="borde" placeholder="Segundo nombre">
+                        <label for="txtPrimerApellido">Primer apellido</label>
+                        <input type="text" id="txtPrimerApellido" class="borde" required>
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtPrimerApellido"></label>
-                        <input type="text" id="txtPrimerApellido" class="borde" placeholder="Primer apellido" required>
+                        <label for="txtSegundoApellido">Segundo apellido</label>
+                        <input type="text" id="txtSegundoApellido"  class="borde" >
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtSegundoApellido"></label>
-                        <input type="text" id="txtSegundoApellido"  class="borde" placeholder="Segundo apellido">
-                    </div>
-                    <div class="w3-col l12 campo-frm">
+                        <label for="sltTipoIdentification">Tipo Identificación</label><br>
                         <select id="sltTipoIdentificacion" class="borde" required>
-                            <option value="">Tipo Identificación</option>
+                            <option value=""></option>
                             <option value="fisica">Física</option>
                             <option value="juridica">Jurídica</option>
                         </select>
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtIdentificacion"></label>
-                        <input type="text" id="txtIdentificacion" class="borde" placeholder="Identificación" required>
+                        <label for="txtIdentificacion">Identificación</label>
+                        <input type="text" id="txtIdentificacion" class="borde" required>
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtTelefono"></label>
-                        <input type="tel" id="txtTelefono" min="0"  class="borde" placeholder="Número telefónico" required>
+                        <label for="txtTelefono">Número telefónico</label>
+                        <input type="tel" id="txtTelefono" min="0"  class="borde" required>
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtEmail"></label>
-                        <input type="email" id="txtEmail" class="borde" placeholder="Correo electrónico" required>
+                        <label for="txtEmail">Correo electrónico</label>
+                        <input type="email" id="txtEmail" class="borde" required>
                     </div>
                     <div class="w3-col l12 campo-frm">
-                        <label for="txtFotografia"></label>
-                        <input type="text" id="txtFotografia" class="borde" placeholder="Fotografía" required>
+                        <label for="txtFotografia">Fotografía</label>
+                        <input type="text" id="txtFotografia" class="borde" required>
                     </div>
                     <div class="w3-col l12 campo-frm">
+                        <Label for="sltGenero">Género</Label>
                         <select id="sltGenero" class="borde" required>
-                            <option value="">Género</option>
+                            <option value=""></option>
                             <option value="femenino">Femenino</option>
                             <option value="masculino">Masculino</option>
                         </select>
                     </div>
                     <div class="w3-col l12 campo-frm">
+                        <label for="sltRol">Rol</label>
                         <select id="sltRol" class="borde" required>
-                            <option value="">Rol</option>
+                            <option value=""></option>
                             <option value="especializado">Especializado</option>
                             <option value="encargadoRuta">Encargado de ruta</option>
                         </select>
                     </div>
                     <div class="w3-col l12 campo-frm">
+                        <label for="sltTipo">Tipo</label>
                         <select id="sltTipo" class="borde" required>
-                            <option value="">Tipo</option>
+                            <option value=""></option>
                             <option value="bombero">Bombero</option>
                             <option value="policia">Policía</option>
                         </select>
@@ -82,8 +87,9 @@
                     <div class="direccion">
                         <div>
                             <div class="w3-col l12 campo-frm">
+                                <label for="sltProvincia">Provincia</label>
                                 <select id="sltProvincia" class="borde" required>
-                                    <option value="">Provincia</option>
+                                    <option value=""></option>
                                     <option value="ajuela">Alajuela</option>
                                     <option value="cartago">Cartago</option>
                                     <option value="heredia">Heredia</option>
@@ -92,16 +98,18 @@
                                     <option value="san jose">San José</option>
                                 </select>
                             </div>
-                            <div class="w3-col l12 campo-frm">
+                            <div class="w3-col l10 campo-frm">
+                                <label for="sltCanton">Cantón</label>
                                 <select id="sltCanton" class="borde" required>
-                                    <option value="">Cantón</option>
+                                    <option value=""></option>
                                     <option value="poas">Poás</option>
                                     <option value="central">Central</option>
                                 </select>
                             </div>
                             <div class="w3-col l12 campo-frm">
+                                <label for="sltDistrito">Distrito</label>
                                 <select id="sltDistrito" class="borde" required>
-                                    <option value="">Distrito</option>
+                                    <option value=""></option>
                                     <option value="carrillos">Carrillos</option>
                                     <option value="san rafael">San Rafael</option>
                                 </select>
@@ -112,10 +120,10 @@
                             <textarea name="txtSenas" id="txtSenas" rows="3" placeholder="Otras señas" required></textarea>
                         </div>
                     </div>
-                    <div class="btn1 flotarDerecha">
-                        <button type="button" id="btnRegistrar">Registrar</button>
-                    </div>
-                    
+                                        
+                </div>
+                <div class="btn1 flotarDerecha">
+                    <button type="button" id="btnRegistrar">Registrar</button>
                 </div>
             </form>
         </section>
