@@ -1,92 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar usuarios</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/general.css">
-    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
-    <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar usuarios</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/select.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
 
-<body>
-    <main>
-        <section id="usuarios" class="w3-container fondo-negro blanco">
-            <form id="frm-registro_usuario" class="w3-row">
-                <div class="encabezado">
-                    <h3>Registrar Usuarios</h3>
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
                 </div>
-                <div class="contenedor-registro">
+                <div class="w3-col l8"></div>
+            </div>
+        </header>
+        <main>
+            <section id="registro" class="beige">
+                <div class="w3-row">
+                    <div class="w3-col l6 w3-right">
+                        <h2>REGISTRATE</h2>
+                        <p class="p1-registro">Es rápido y fácil</p>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l6">
+                        <div class="img-registro">
+                            <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+                        </div>
+                    </div>
+                    <div class="w3-col l6">
+                        <form id="frm-registro">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Primer Nombre" name="txtPrimerNombre" id="txtPrimerNombre"  required>
+                                    <label for="txtPrimerNombre" class="form__label dim-gray-letra">Primer Nombre</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Segundo Nombre" name="txtSegundoApellido" id="txtSegundoNombre">
+                                    <label for="txtSegundoNombre" class="form__label dim-gray-letra">Segundo Nombre</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Primer apellido" name="txtPrimerApellido" id="txtPrimerApellido" required>
+                                    <label for="txtPrimerApellido" class="form__label dim-gray-letra">Primer Apellido</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Segundo apellido" name="txtSegundoApellido" id="txtSegundoApellido">
+                                    <label for="txtSegundoApellido" class="form__label dim-gray-letra">Segundo Apellido</label>
+                                </div>
+                            </div>
+                            <!-- <div class="w3-row campo-frm">
+                                <select id="sltTipoIdentificacion" required>
+                                    <option value="">Tipo Identificación</option>
+                                    <option value="fisica">Física</option>
+                                    <option value="juridica">Jurídica</option>
+                                </select>
+                            </div> -->
+                            <div class="w3-row campo-frm">
+                                <div class="campo-frm-select">
+                                    <div class="contenedor-relative">
+                                        <div id="app-cover">
+                                            <div id="select-box">
+                                                <input type="checkbox" id="options-view-button" value="">
+                                                <div id="select-button" class="brd">
+                                                    <div id="selected-value">
+                                                        <span>Tipo Identificación</span>
+                                                    </div>
+                                                    <div id="chevrons">
+                                                        <i class="fas fa-chevron-up"></i>
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </div>
+                                                </div>
+                                                <div id="options">
+                                                    <div class="option">
+                                                        <input class="s-c top" type="radio" name="platform" value="fisica">
+                                                        <i class="fas fa-user"></i>
+                                                        <span class="label">Física</span>
+                                                        <span class="opt-val">Física</span>
+                                                    </div>
+                                                    <div class="option">
+                                                        <input class="s-c top" type="radio" name="platform" value="juridica">
+                                                        <i class="fas fa-building"></i>
+                                                        <span class="label">Jurídica</span>
+                                                        <span class="opt-val">Jurídica</span>
+                                                    </div>
+                                                    <div id="option-bg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Identificación" name="txtIdentificacion" id="txtIdentificacion" required>
+                                    <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="tel" class="form__field dim-gray-letra" min="0" placeholder="Número Telefónico" name="txtTelefono" id="txtTelefono" required>
+                                    <label for="txtTelefono" class="form__label dim-gray-letra">Número Telefónico</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="email" class="form__field dim-gray-letra" placeholder="Correo Electrónico" name="txtEmail" id="txtEmail" required>
+                                    <label for="txtEmail" class="form__label dim-gray-letra">Correo Electrónico</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Fotografía" name="txtFotografia" id="txtFotografia" required>
+                                    <label for="txtFotografia" class="form__label dim-gray-letra">Fotografía</label>
+                                </div>
+                            </div>
+                            <div class="radio-genero">
+                                <fieldset class="fieldset-registro">
+                                    <p>Género</p>
+                                    <div class="w3-row">
+                                        <div class="w3-col l6 radio">
+                                            <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
+                                            <label for="rbtFemenino">Femenino</label>
+                                        </div>
+                                        <div class="w3-col l6 radio">
+                                            <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
+                                            <label for="rbtMasculino">Masculino</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="w3-col l12 ocultar">
+                                <select id="sltRol">
+                                    <option value="normal">Rol</option>
+                                    <option value="especializado">Especializado</option>
+                                    <option value="encargadoRuta">Encargado de ruta</option>
+                                </select>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                     
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtPrimerNombre">Primer Nombre</label>
-                        <input type="text" id="txtPrimerNombre" class="borde" required>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtSegundoNombre">Segundo Nombre</label>
-                        <input type="text" id="txtSegundoNombre" class="borde" >
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtPrimerApellido">Primer apellido</label>
-                        <input type="text" id="txtPrimerApellido" class="borde" required>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtSegundoApellido">Segundo apellido</label>
-                        <input type="text" id="txtSegundoApellido" class="borde">
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="sltTipoIdentificacion">Tipo Identificación</label>
-                        <select id="sltTipoIdentificacion" class="borde" required>
-                            <option value=""></option>
-                            <option value="fisica">Física</option>
-                            <option value="juridica">Jurídica</option>
-                        </select>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtIdentificacion">Identificación</label>
-                        <input type="text" id="txtIdentificacion" class="borde" required>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtTelefono">Número telefónico</label>
-                        <input type="tel" id="txtTelefono" min="0" class="borde" required>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtEmail">Correo electrónico</label>
-                        <input type="email" id="txtEmail" class="borde" required>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="txtFotografia">Fotografía</label>
-                        <input type="text" id="txtFotografia" class="borde" required>
-                    </div>
-                    <div class="w3-col l6 campo-frm">
-                        <label for="sltGenero">Género</label> <br>
-                        <select id="sltGenero" class="borde" required>
-                            <option value=""></option>
-                            <option value="femenino">Femenino</option>
-                            <option value="masculino">Masculino</option>
-                        </select>
-                    </div>
-                    <div class="w3-col l6 campo-frm default-hidden">
-                        <select id="sltRol">
-                            <option value="normal">Rol</option>
-                            <option value="especializado">Especializado</option>
-                            <option value="encargadoRuta">Encargado de ruta</option>
-                        </select>
-                    </div>
-                    <div class="btn2">
-                        <button type="button" id="btnRegistrar">Registrar</button>
-                    </div>
-                </div>
-            </form>
-        </section>
-    </main>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="../js/registrar.usuario.servicio.js"></script>
-    <script src="../js/registrar.usuario.controlador.js"></script>
-</body>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../js/registrar.usuario.servicio.js"></script>
+        <script src="../js/registrar.usuario.controlador.js"></script>
+    </body>
 
 </html>

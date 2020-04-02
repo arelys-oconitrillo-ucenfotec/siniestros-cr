@@ -1,0 +1,387 @@
+/*---------------------SELECT STYLE------------------------*/
+*
+{
+    user-select: none;
+}
+
+*:focus
+{
+    outline: none;
+}
+
+.brd
+{
+    border-bottom: 2px solid #9b9b9b;
+}
+
+#app-cover
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+}
+
+#select-button
+{
+    position: relative;
+    padding: 12px 0;
+    background-color: #efe4d9;
+    cursor: pointer;
+}
+
+#options-view-button
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+#selected-value
+{
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-right: 26px;
+}
+
+#selected-value span
+{
+    color: #585551;
+}
+
+#selected-value i
+{
+    color: #585551;
+}
+
+.option i
+{
+    width: 16px;
+    height: 16px;
+}
+
+.option, .label
+{
+    color: #585551;
+    font-size: 1.3rem;
+}
+
+#chevrons
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    padding: 9px 30px;
+}
+
+#chevrons i
+{
+    display: block;
+    height: 50%;
+    color: #585551;
+    font-size: 12px;
+    text-align: right;
+}
+
+#options-view-button:checked + #select-button #chevrons i
+{
+    color: #585551;
+}
+
+.options
+{
+    position: absolute;
+    left: 0;
+    width: 250px;
+}
+
+#options
+{
+    position: absolute;
+    top: 45px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #efe4d9;
+    z-index: 1;
+}
+
+#options-view-button:checked ~ #options
+{
+    /*border-bottom: 2px solid #9b9b9b;*/
+    border: 0;
+}
+
+.option
+{
+    position: relative;
+    line-height: 1;
+    transition: 0.3s ease all;
+    z-index: 2;
+}
+
+.option i
+{
+    position: absolute;
+    left: 14px;
+    padding: 0;
+    display: none;
+}
+
+#options-view-button:checked ~ #options .option i
+{
+    display: block;
+    padding: 13px 0;
+}
+
+.label
+{
+    display: none;
+    padding: 0;
+    margin-left: 27px;
+}
+
+#options-view-button:checked ~ #options .label
+{
+    display: block;
+    padding: 13px 14px;    
+}
+
+.s-c
+{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.s-c.top
+{
+    top: 0;
+}
+
+#select-box input[type="radio"]
+{
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.s-c:hover ~ i
+{
+    color: #fff;
+    opacity: 0;
+}
+
+.s-c:hover
+{
+    height: 100%;
+    z-index: 1;
+}
+
+.s-c.top:hover ~ i
+{
+    top: -25px;
+    animation: movedown 0.3s ease 0.1s forwards;
+}
+
+@keyframes moveup
+{
+    0%{ bottom: -25px; opacity: 0;}
+    100%{ bottom: 0; opacity: 1;}
+}
+
+@keyframes movedown
+{
+    0%{ top: -25px; opacity: 0;}
+    100%{ top: 0; opacity: 1;}
+}
+
+.label
+{
+    transition: 0.3s ease all;
+}
+
+.opt-val
+{
+    line-height: 2.5;
+    position: absolute;
+    left: 0;
+    width: 85%;
+    height: 42px;
+    opacity: 0;
+    background-color: #efe4d9;
+    transform: scale(0);
+}
+
+.option input[type="radio"]:checked ~ .opt-val
+{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.option input[type="radio"]:checked ~ i
+{
+    top: 0;
+    bottom: auto;
+    opacity: 1;
+    animation: unset;
+}
+
+.option input[type="radio"]:checked ~ i, .option input[type="radio"]:checked ~ .label
+{
+    color:#fff;
+}
+
+.option input[type="radio"]:checked ~ .label:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#options-view-button:not(:checked) ~ #options .option input[type="radio"]:checked ~ .opt-val
+{
+    top: -44px;
+}
+
+.option:nth-child(1) input[type="radio"]:checked ~ .label:before
+{
+    background-color: #a5796d;
+}
+
+.option:nth-child(1) input[type="radio"]:checked ~ .opt-val
+{
+    top: -44px;
+}
+
+.option:nth-child(2) input[type="radio"]:checked ~ .label:before
+{
+    background-color: #dec3af;
+}
+
+.option:nth-child(2) input[type="radio"]:checked ~ .opt-val
+{
+    top: -90px;
+}
+
+.option:nth-child(3) input[type="radio"]:checked ~ .label:before
+{
+    background-color: #0057ff;
+}
+
+.option:nth-child(3) input[type="radio"]:checked ~ .opt-val
+{
+    top: -111px;
+}
+
+.option:nth-child(4) input[type="radio"]:checked ~ .label:before
+{
+    background-color: #32c766;
+}
+
+.option:nth-child(4) input[type="radio"]:checked ~ .opt-val
+{
+    top: -151px;
+}
+
+.option:nth-child(5) input[type="radio"]:checked ~ .label:before
+{
+    background-color: #f48024;
+}
+
+.option:nth-child(5) input[type="radio"]:checked ~ .opt-val
+{
+    top: -191px;
+}
+
+.option:nth-child(6) input[type="radio"]:checked ~ .label:before
+{
+    background-color: #006400;
+}
+
+.option:nth-child(6) input[type="radio"]:checked ~ .opt-val
+{
+    top: -231px;
+}
+
+#option-bg
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 42px;
+    transition: 0.3s ease all;
+    z-index: 1;
+    display: none;
+}
+
+#options-view-button:checked ~ #options #option-bg
+{
+    display: block;
+}
+
+.option:hover .label
+{
+    color: #fff;
+}
+
+.option:nth-child(1):hover ~ #option-bg
+{
+    top: 0;
+    background-color: #a5796d;
+}
+
+.option:nth-child(2):hover ~ #option-bg
+{
+    top: 46px;
+    background-color: #dec3af;
+}
+
+.option:nth-child(3):hover ~ #option-bg
+{
+    top: 80px;
+    background-color: #0057ff;
+}
+
+.option:nth-child(4):hover ~ #option-bg
+{
+    top: 120px;
+    background-color: #32c766;
+}
+
+.option:nth-child(5):hover ~ #option-bg
+{
+    top: 160px;
+    background-color: #f48024;
+}
+
+.option:nth-child(6):hover ~ #option-bg
+{
+    top: 200px;
+    background-color: #006400;
+}
+/*---------------------FIN SELECT STYLE--------------------*/
