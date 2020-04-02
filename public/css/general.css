@@ -127,7 +127,7 @@ h6{
     border: 0;
     border-bottom: 2px solid #9b9b9b;
     outline: 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
@@ -196,12 +196,14 @@ header {
 }
 
 #registro h2 {
+    font-weight: bold;
     text-align: center;
     margin-right: 125px;
     margin-bottom: 0px;
 }
 
 .p1-registro {
+    font-weight: bold;
     text-align: center;
     font-size: 25px;
     margin-right: 145px;
@@ -221,8 +223,9 @@ header {
 }
 
 .img-registro img {
+    margin-top: 50px;
     margin-left: 100px;
-    height: 620px;
+    height: auto;
     width: 620px;
 }
 
@@ -234,8 +237,8 @@ header {
 .campo-frm {
     display: flex;
     justify-content: center;
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 /*.campo-frm input {

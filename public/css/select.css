@@ -22,14 +22,14 @@
     right: 0;
     left: 0;
     width: 100%;
-    height: 42px;
+    height: 45px;
 }
 
 #select-button
 {
     position: relative;
     padding: 12px 0;
-    background-color: #fff;
+    background-color: #efe4d9;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -56,6 +56,16 @@
     margin-right: 26px;
 }
 
+#selected-value span
+{
+    color: #585551;
+}
+
+#selected-value i
+{
+    color: #585551;
+}
+
 .option i
 {
     width: 16px;
@@ -65,7 +75,7 @@
 .option, .label
 {
     color: #585551;
-    font-size: 16px;
+    font-size: 1.3rem;
 }
 
 #chevrons
@@ -82,7 +92,7 @@
 {
     display: block;
     height: 50%;
-    color: #d1dede;
+    color: #585551;
     font-size: 12px;
     text-align: right;
 }
@@ -107,8 +117,9 @@
     left: 0;
     width: 100%;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #efe4d9;
     border-radius: 4px;
+    z-index: 1;
 }
 
 #options-view-button:checked ~ #options
@@ -136,7 +147,7 @@
 #options-view-button:checked ~ #options .option i
 {
     display: block;
-    padding: 12px 0;
+    padding: 13px 0;
 }
 
 .label
@@ -149,7 +160,7 @@
 #options-view-button:checked ~ #options .label
 {
     display: block;
-    padding: 12px 14px;    
+    padding: 13px 14px;    
 }
 
 .s-c
@@ -225,12 +236,17 @@
 
 .opt-val
 {
+    line-height: 2.5;
     position: absolute;
-    left: 14px;
+    /*left: 14px;
     width: 217px;
-    height: 21px;
+    height: 21px;*/
+    left: 0;
+    width: 85%;
+    /*height: 99%;*/
+    height: 44px;
     opacity: 0;
-    background-color: #fff;
+    background-color: #efe4d9;
     transform: scale(0);
 }
 
@@ -266,7 +282,7 @@
 
 #options-view-button:not(:checked) ~ #options .option input[type="radio"]:checked ~ .opt-val
 {
-    top: -30px;
+    top: -44px;
 }
 
 .option:nth-child(1) input[type="radio"]:checked ~ .label:before
@@ -277,7 +293,7 @@
 
 .option:nth-child(1) input[type="radio"]:checked ~ .opt-val
 {
-    top: -31px;
+    top: -44px;
 }
 
 .option:nth-child(2) input[type="radio"]:checked ~ .label:before
@@ -287,7 +303,7 @@
 
 .option:nth-child(2) input[type="radio"]:checked ~ .opt-val
 {
-    top: -71px;
+    top: -90px;
 }
 
 .option:nth-child(3) input[type="radio"]:checked ~ .label:before
@@ -331,43 +347,13 @@
     top: -231px;
 }
 
-.option .fa-codepen
-{
-    color: #000;
-}
-
-.option .fa-dribbble
-{
-    color: #ea4c89;
-}
-
-.option .fa-behance
-{
-    color: #0057ff;
-}
-
-.option .fa-hackerrank
-{
-    color: #32c766;
-}
-
-.option .fa-stack-overflow
-{
-    color: #f48024;
-}
-
-.option .fa-free-code-camp
-{
-    color: #006400;
-}
-
 #option-bg
 {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
-    height: 40px;
+    height: 44px;
     transition: 0.3s ease all;
     z-index: 1;
     display: none;
@@ -392,7 +378,7 @@
 
 .option:nth-child(2):hover ~ #option-bg
 {
-    top: 40px;
+    top: 46px;
     background-color: #ea4c89;
 }
 
