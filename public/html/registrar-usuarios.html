@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<<<<<<< HEAD
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar usuarios</title>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+    <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+=======
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +22,36 @@
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
         <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
         <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+>>>>>>> f6fa0035949e99b6aa31776e6546b8e3423db41c
 
-    </head>
+</head>
 
-    <body>
-        <header class="header-registro sienna">
-            <div class="w3-row">
-                <div class="w3-col l4 w3-center tan-letra">
-                    <h1>Siniestros Viales CR</h1>
-                </div>
-                <div class="w3-col l8"></div>
+<body>
+    <header class="header-registro sienna">
+        <div class="w3-row">
+            <div class="w3-col l4 w3-center tan-letra">
+                <h1>Siniestros Viales CR</h1>
             </div>
+            <div class="w3-col l8"></div>
+        </div>
+    </header>
+    <main>
+        <section id="registro" class="blanco">
+            <div class="w3-row">
+                <div class="w3-col l6 w3-right">
+                    <h2>REGISTRATE</h2>
+                    <p class="p1-registro">Es rápido y fácil</p>
+                </div>
+                <div class="w3-col l6 w3-left">
+                    <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                </div>
+            </div>
+<<<<<<< HEAD
+            <div class="w3-row">
+                <div class="w3-col l6">
+                    <div class="img-registro">
+                        <img src="../css/imgs/map-car.jpg" alt="imagen de registro">
+=======
         </header>
         <main>
             <section id="registro" class="beige">
@@ -32,13 +62,78 @@
                     </div>
                     <div class="w3-col l6 w3-left">
                         <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+>>>>>>> f6fa0035949e99b6aa31776e6546b8e3423db41c
                     </div>
                 </div>
+<<<<<<< HEAD
+                <div class="w3-col l6">
+                    <form id="frm-registro">
+                        <div class="w3-row campo-frm">
+                            <input type="text" id="txtPrimerNombre" placeholder="Primer Nombre" required>
+                        </div>
+<<<<<<< HEAD
+                        <div class="w3-row campo-frm">
+                            <input type="text" id="txtSegundoNombre" placeholder="Segundo Nombre">
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <input type="text" id="txtPrimerApellido" placeholder="Primer apellido" required>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <input type="text" id="txtSegundoApellido" placeholder="Segundo apellido">
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <select id="sltTipoIdentificacion" required>
+                                <option value="">Tipo Identificación</option>
+                                <option value="fisica">Física</option>
+                                <option value="juridica">Jurídica</option>
+                            </select>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <input type="text" id="txtIdentificacion" placeholder="Identificación" required>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <input type="tel" id="txtTelefono" min="0" placeholder="Número telefónico" required>
+=======
                 <div class="w3-row">
                     <div class="w3-col l6">
                         <div class="img-registro">
                             <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+>>>>>>> f2780deeb18aa0d792a5923b8fc7b18989261fdc
                         </div>
+                        <div class="w3-row campo-frm">
+                            <input type="email" id="txtEmail" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <label for="txtFotografia"></label>
+                            <input type="text" id="txtFotografia" placeholder="Fotografía" required>
+                        </div>
+                        <div class="radio-genero">
+                            <fieldset class="fieldset-registro">
+                                <p>Género</p>
+                                <div class="w3-row">
+                                    <div class="w3-col l6 radio">
+                                        <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
+                                        <label for="rbtFemenino">Femenino</label>
+                                    </div>
+                                    <div class="w3-col l6 radio">
+                                        <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
+                                        <label for="rbtMasculino">Masculino</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="w3-col l12 ocultar">
+                            <select id="sltRol">
+                                <option value="normal">Rol</option>
+                                <option value="especializado">Especializado</option>
+                                <option value="encargadoRuta">Encargado de ruta</option>
+                            </select>
+                        </div>
+                        <div class="btn2">
+                            <button type="button" class="btn2-registro blanco negro-letra" id="btnRegistrar">Registrar</button>
+                        </div>
+                    </form>
+=======
                     </div>
                     <div class="w3-col l6">
                         <form id="frm-registro">
@@ -159,14 +254,16 @@
                             </div>
                         </form>
                     </div>
+>>>>>>> f6fa0035949e99b6aa31776e6546b8e3423db41c
                 </div>
-                    
-            </section>
-        </main>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script src="../js/registrar.usuario.servicio.js"></script>
-        <script src="../js/registrar.usuario.controlador.js"></script>
-    </body>
+            </div>
+
+        </section>
+    </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="../js/registrar.usuario.servicio.js"></script>
+    <script src="../js/registrar.usuario.controlador.js"></script>
+</body>
 
 </html>
