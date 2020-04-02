@@ -11,8 +11,7 @@
 
 .brd
 {
-    border: 1px solid #e2eded;
-    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+    border-bottom: 2px solid #9b9b9b;
 }
 
 #app-cover
@@ -30,7 +29,6 @@
     position: relative;
     padding: 12px 0;
     background-color: #efe4d9;
-    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -118,14 +116,13 @@
     width: 100%;
     margin: 0 auto;
     background-color: #efe4d9;
-    border-radius: 4px;
     z-index: 1;
 }
 
 #options-view-button:checked ~ #options
 {
-    border: 1px solid #e2eded;
-    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+    /*border-bottom: 2px solid #9b9b9b;*/
+    border: 0;
 }
 
 .option
@@ -176,11 +173,6 @@
     top: 0;
 }
 
-.s-c.bottom
-{
-    bottom: 0;
-}
-
 #select-box input[type="radio"]
 {
     position: absolute;
@@ -203,12 +195,6 @@
 {
     height: 100%;
     z-index: 1;
-}
-
-.s-c.bottom:hover + i
-{
-    bottom: -25px;
-    animation: moveup 0.3s ease 0.1s forwards;
 }
 
 .s-c.top:hover ~ i
@@ -238,13 +224,9 @@
 {
     line-height: 2.5;
     position: absolute;
-    /*left: 14px;
-    width: 217px;
-    height: 21px;*/
     left: 0;
     width: 85%;
-    /*height: 99%;*/
-    height: 44px;
+    height: 42px;
     opacity: 0;
     background-color: #efe4d9;
     transform: scale(0);
@@ -287,8 +269,7 @@
 
 .option:nth-child(1) input[type="radio"]:checked ~ .label:before
 {
-    background-color: #000;
-    border-radius: 4px 4px 0 0;
+    background-color: #a5796d;
 }
 
 .option:nth-child(1) input[type="radio"]:checked ~ .opt-val
@@ -298,7 +279,7 @@
 
 .option:nth-child(2) input[type="radio"]:checked ~ .label:before
 {
-    background-color: #ea4c89;
+    background-color: #dec3af;
 }
 
 .option:nth-child(2) input[type="radio"]:checked ~ .opt-val
@@ -339,7 +320,6 @@
 .option:nth-child(6) input[type="radio"]:checked ~ .label:before
 {
     background-color: #006400;
-    border-radius: 0 0 4px 4px;
 }
 
 .option:nth-child(6) input[type="radio"]:checked ~ .opt-val
@@ -353,7 +333,7 @@
     top: 0;
     right: 0;
     left: 0;
-    height: 44px;
+    height: 42px;
     transition: 0.3s ease all;
     z-index: 1;
     display: none;
@@ -372,14 +352,13 @@
 .option:nth-child(1):hover ~ #option-bg
 {
     top: 0;
-    background-color: #000;
-    border-radius: 4px 4px 0 0;
+    background-color: #a5796d;
 }
 
 .option:nth-child(2):hover ~ #option-bg
 {
     top: 46px;
-    background-color: #ea4c89;
+    background-color: #dec3af;
 }
 
 .option:nth-child(3):hover ~ #option-bg
@@ -404,6 +383,5 @@
 {
     top: 200px;
     background-color: #006400;
-    border-radius: 0 0 4px 4px;
 }
 /*---------------------FIN SELECT STYLE--------------------*/
