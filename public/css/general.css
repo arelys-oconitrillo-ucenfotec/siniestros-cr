@@ -221,8 +221,9 @@ header {
 }
 
 .img-registro img {
-    height: 500px;
-    width: 600px;
+    margin-left: 100px;
+    height: 620px;
+    width: 620px;
 }
 
 #frm-registro {
