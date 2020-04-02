@@ -298,21 +298,22 @@ header {
 
 /*----------------------FIN REGISTRO----------------------------------*/
 
+/*---------------------FIN CSS REGISTRAR TODOS LOS USUARIOS-------------------*/
 
+/*---------------REGISTRO USUARIOS ESPECIALIZADOS Y ENCARGADOS DE RUTA-----*/
 
+.header-registro-admin {
+    height: 100px;
+}
+#registroAdmin {
+
+}
 
 #contenedor-registroAdmin {
-    box-sizing: border-box;
-    border: 1px solid #71323D;
-    border-radius: 15px; 
-    padding: 0px 0px 0px 10px;
-    width: 450px;
-    height: 380px;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
-#contenedor-registroAdmin .borde {
-    width: 40%;
-}
 
 textarea {
     width: 70%;
@@ -324,7 +325,14 @@ textarea {
     font-size: 16px;
     resize: none;
 }
-/*---------------------FIN CSS REGISTRAR TODOS LOS USUARIOS-------------------*/
+.btn1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/*---------------FIN CSS REGISTRO USUARIOS ESPECIALIZADOS Y ENCARGADOS DE RUTA-----*/
+
 
 /*---------------------CSS LISTAR LOS USUARIOS-------------------*/
 
