@@ -23,6 +23,7 @@ let validar = () => {
         let label_campo_requerido = document.querySelector('[for="' + campos_requeridos[i].id + '"]');
         if (campos_requeridos[i].value == '') {
             label_campo_requerido.classList.add('label-error');
+            campos_requeridos[i].classList.add('input-error');
             error = true;
         } else {
             label_campo_requerido.classList.remove('label-error');
