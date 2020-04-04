@@ -40,7 +40,7 @@ h5 {
     font-size: 20px !important;
 }
 
-h6{
+h6 {
     font-size: 15px !important;
 }
 
@@ -259,6 +259,7 @@ header {
     width: 50%;
 }
 
+
 .campo-frm textarea {
     width: 320px;
     height: 110px;
@@ -325,8 +326,6 @@ h2 {
     font-weight: bold;
 }
 
-
-
 h4 {
     font-size: 25px !important;
 }
@@ -335,16 +334,19 @@ h5 {
     font-size: 20px !important;
 }
 
-h6{
+h6 {
     font-size: 15px !important;
 }
 
 .header-registro-admin {
     height: 100px;
 }
+
 #registroAdmin {
     background-color: #a5796d;
+    height: 600px;
 }
+
 .header-registro-admin h3 {
         font-size: 28px !important;
         font-weight: bold;
@@ -355,9 +357,84 @@ h6{
     grid-template-columns: auto auto;
 }
 
-.btn1 {
+.img-registroAdmin {
     display: flex;
     justify-content: center;
+}
+
+.img-registroAdmin img {
+    margin-top: 70px;
+    margin-left: 90px;
+    margin-right: 50px;
+    height: auto;
+    width: 620px;
+}
+
+.frm_campo {
+    position: relative;
+    padding: 5px 0 5px 10px;
+    width: 50%;
+}
+.campo-frm select {
+    height: 45px;
+    width: 50%;
+}
+
+.frm__field::placeholder {
+    color: transparent;
+}
+
+.frm__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 15px;
+}
+
+.frm__field {
+    font-family: inherit;
+    width: 80%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.0rem;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+.frm__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #71323d, #dec3af);
+    border-image-slice: 1;
+}
+.frm__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #71323d;
+    font-weight: 700;
+}
+  /* reset input */
+.frm__field:required, .frm__field:invalid {
+    box-shadow: none;
+}
+
+.frm_campo textarea {
+    width: 320px;
+    height: 110px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #585551;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.btn1 {
+    display: flex;
+    justify-content: left;
     margin-top: 40px;
 }
 
