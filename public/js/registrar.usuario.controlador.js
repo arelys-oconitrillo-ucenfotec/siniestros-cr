@@ -6,14 +6,6 @@ funcion que envie un email para la activacion del usuario*/
 
 'use strict';
 
-let mostrar_campos_especializado = () => {
-
-}
-
-let mostrar_campos_ced_juridica = () => {
-
-}
-
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
     let input_genero = document.querySelector('#field-genero input[type=radio]:checked');
@@ -139,6 +131,75 @@ let agregar_usuario = async() => {
         });
     }
 };
+
+let mostrar_campos_especializado = () => {
+
+}
+
+let ocultar_opciones_identificacion = () => {
+    let opciones_identificacion = document.querySelectorAll('#identificationOptions .label');
+    let iconos_identificacion = document.querySelectorAll('#identificationOptions i');
+
+    for (let i = 0; i < opciones_identificacion.length; i++) {
+        opciones_identificacion[i].classList.remove('mostrar-block');
+        iconos_identificacion[i].classList.remove('mostrar-block');
+        opciones_identificacion[i].classList.add('ocultar');
+        iconos_identificacion[i].classList.add('ocultar');
+    }
+}
+
+let mostrar_opciones_identificacion = () => {
+    document.querySelector('#option-bg').classList.add('mostrar-block');
+    let opciones_identificacion = document.querySelectorAll('#identificationOptions .label');
+    let iconos_identificacion = document.querySelectorAll('#identificationOptions i');
+    let opciones_val = document.querySelectorAll('#identificationOptions .opt-val');
+
+    for(let i= 0; i < opciones_val.length; i++){
+        opciones_val[i].classList.remove('opt-selected-opacity');
+    }
+
+    for (let i = 0; i < opciones_identificacion.length; i++) {
+        opciones_identificacion[i].classList.remove('ocultar');
+        iconos_identificacion[i].classList.remove('ocultar');
+        opciones_identificacion[i].classList.add('mostrar-block');
+        iconos_identificacion[i].classList.add('mostrar-block');
+    }
+}
+
+let reiniciar_formulario = () => {
+    let contenedores_juridica = document.querySelectorAll('.contenedor-juridica');
+    for(let i = 0; i < contenedores_juridica.length; i++){
+        contenedores_juridica[i].classList.add('ocultar');
+    }
+}
+
+let establecer_identificacion_fisica = () => {
+    reiniciar_formulario();
+    sltTipoIdentificacion.value = document.querySelector('#rbtFisica').value;
+    document.querySelector('#optValFisica').classList.add('opt-selected-opacity');
+    ocultar_opciones_identificacion();
+}
+
+let mostrar_campos_ced_juridica = () => {
+    reiniciar_formulario();
+    sltTipoIdentificacion.value = document.querySelector('#rbtJuridica').value;
+    document.querySelector('#optValJuridica').classList.add('opt-selected-opacity');
+    ocultar_opciones_identificacion();
+
+    let contenedores_juridica = document.querySelectorAll('.contenedor-juridica');
+    for(let i = 0; i < contenedores_juridica.length; i++){
+        contenedores_juridica[i].classList.remove('ocultar');
+    }
+}
+
+let botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
+botonIdentificacion.addEventListener('click', mostrar_opciones_identificacion);
+
+let botonIdentificacionFisica = document.querySelector('#rbtFisica');
+botonIdentificacionFisica.addEventListener('click', establecer_identificacion_fisica);
+
+let botonIdentificacionJuridica = document.querySelector('#rbtJuridica');
+botonIdentificacionJuridica.addEventListener('click', mostrar_campos_ced_juridica);
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 botonRegistrar.addEventListener('click', agregar_usuario);

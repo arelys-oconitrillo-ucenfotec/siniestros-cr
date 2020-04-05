@@ -78,28 +78,28 @@
                                     <div class="contenedor-relative">
                                         <div id="app-cover">
                                             <div id="select-box">
-                                                <input type="checkbox" id="options-view-button" value="">
+                                                <input type="checkbox" id="sltTipoIdentificacion" value="" required>
                                                 <div id="select-button" class="brd">
                                                     <div id="selected-value">
-                                                        <span>Tipo Identificación</span>
+                                                        <label for="sltTipoIdentificacion">Tipo Identificación</label>
                                                     </div>
                                                     <div id="chevrons">
                                                         <i class="fas fa-chevron-up"></i>
                                                         <i class="fas fa-chevron-down"></i>
                                                     </div>
                                                 </div>
-                                                <div id="options">
+                                                <div id="identificationOptions">
                                                     <div class="option">
-                                                        <input class="s-c top" type="radio" name="platform" value="fisica">
-                                                        <i class="fas fa-user"></i>
-                                                        <span class="label">Física</span>
-                                                        <span class="opt-val">Física</span>
+                                                        <input class="s-c top" type="radio" id="rbtFisica" name="rbt-identificacion" value="fisica">
+                                                        <i class="fas fa-user ocultar"></i>
+                                                        <span class="label ocultar">Física</span>
+                                                        <span id="optValFisica" class="opt-val">Física</span>
                                                     </div>
                                                     <div class="option">
-                                                        <input class="s-c top" type="radio" name="platform" value="juridica">
-                                                        <i class="fas fa-building"></i>
-                                                        <span class="label">Jurídica</span>
-                                                        <span class="opt-val">Jurídica</span>
+                                                        <input class="s-c top" type="radio" id="rbtJuridica" name="rbt-identificacion" value="juridica">
+                                                        <i class="fas fa-building ocultar"></i>
+                                                        <span class="label ocultar">Jurídica</span>
+                                                        <span id="optValJuridica" class="opt-val">Jurídica</span>
                                                     </div>
                                                     <div id="option-bg"></div>
                                                 </div>
@@ -108,25 +108,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="w3-row campo-frm">
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
                                 <div class="form__group field">
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Razón social" name="txtRazonSocial" id="txtRazonSocial" required>
                                     <label for="txtRazonSocial" class="form__label dim-gray-letra">Razón Social</label>
                                 </div>
                             </div>
-                            <div class="w3-row campo-frm">
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
                                 <div class="form__group field">
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Nombre Comercial" name="txtNombreComercial" id="txtNombreComercial" required>
                                     <label for="txtNombreComercial" class="form__label dim-gray-letra">Nombre Comercial</label>
                                 </div>
                             </div>
-                            <div class="w3-row campo-frm">
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
                                 <div class="form__group field">
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Identificación Jurídica" name="txtIdenJuridica" id="txtIdenJuridica" required>
                                     <label for="txtIdenJuridica" class="form__label dim-gray-letra">Identificación Jurídica</label>
                                 </div>
                             </div>
-                            <div class="w3-row campo-frm">
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
                                 <div class="form__group field">
                                     <label class="form__label dim-gray-letra" for="txtInfoAponderado"></label>
                                     <textarea name="txtInfoAponderado" id="txtInfoAponderado" rows="3" placeholder="Información general del aponderado" class="dim-gray-letra beige" required></textarea>

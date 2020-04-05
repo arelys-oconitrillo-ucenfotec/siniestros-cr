@@ -48,6 +48,10 @@ h6 {
     display: none !important;
 }
 
+.mostrar-block {
+    display: block !important;
+}
+
 .contenedor-relative {
     position: relative;
     height: 100%;

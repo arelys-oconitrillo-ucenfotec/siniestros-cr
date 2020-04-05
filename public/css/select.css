@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 
-#options-view-button
+#sltTipoIdentificacion
 {
     position: absolute;
     top: 0;
@@ -55,6 +55,11 @@
 }
 
 #selected-value span
+{
+    color: #585551;
+}
+
+#selected-value label
 {
     color: #585551;
 }
@@ -95,7 +100,12 @@
     text-align: right;
 }
 
-#options-view-button:checked + #select-button #chevrons i
+/*#sltTipoIdentificacion:checked + #select-button #chevrons i
+{
+    color: #585551;
+}*/
+
+#select-button #chevrons i
 {
     color: #585551;
 }
@@ -107,7 +117,7 @@
     width: 250px;
 }
 
-#options
+#identificationOptions
 {
     position: absolute;
     top: 45px;
@@ -115,14 +125,9 @@
     left: 0;
     width: 100%;
     margin: 0 auto;
+    border: 0;
     background-color: #efe4d9;
     z-index: 1;
-}
-
-#options-view-button:checked ~ #options
-{
-    /*border-bottom: 2px solid #9b9b9b;*/
-    border: 0;
 }
 
 .option
@@ -138,25 +143,23 @@
     position: absolute;
     left: 14px;
     padding: 0;
-    display: none;
+    /* display: none; */
 }
 
-#options-view-button:checked ~ #options .option i
+#identificationOptions .option i
 {
-    display: block;
     padding: 13px 0;
 }
 
 .label
 {
-    display: none;
+    /* display: none; */
     padding: 0;
     margin-left: 27px;
 }
 
-#options-view-button:checked ~ #options .label
+#identificationOptions .label
 {
-    display: block;
     padding: 13px 14px;    
 }
 
@@ -179,7 +182,7 @@
     right: 0;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 75%;
     margin: 0;
     opacity: 0;
     cursor: pointer;
@@ -232,8 +235,7 @@
     transform: scale(0);
 }
 
-.option input[type="radio"]:checked ~ .opt-val
-{
+.opt-selected-opacity {
     opacity: 1;
     transform: scale(1);
 }
@@ -262,11 +264,6 @@
     z-index: -1;
 }
 
-#options-view-button:not(:checked) ~ #options .option input[type="radio"]:checked ~ .opt-val
-{
-    top: -44px;
-}
-
 .option:nth-child(1) input[type="radio"]:checked ~ .label:before
 {
     background-color: #a5796d;
@@ -284,7 +281,7 @@
 
 .option:nth-child(2) input[type="radio"]:checked ~ .opt-val
 {
-    top: -90px;
+    top: -44px;
 }
 
 .option:nth-child(3) input[type="radio"]:checked ~ .label:before
@@ -337,11 +334,6 @@
     transition: 0.3s ease all;
     z-index: 1;
     display: none;
-}
-
-#options-view-button:checked ~ #options #option-bg
-{
-    display: block;
 }
 
 .option:hover .label
