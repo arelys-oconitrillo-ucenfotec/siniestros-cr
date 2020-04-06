@@ -13,134 +13,216 @@
 </head>
 
 <body>
-    <header class="header-registro-admin sienna">
+    <header class="header-registro sienna">
         <div class="w3-row">
-            <div class="w3-col l8 w3-center tan-letra">
-                <h1>Siniestro Viales CR</h1>
+            <div class="w3-col l4 w3-center tan-letra">
+                <h1>Siniestros Viales CR</h1>
             </div>
-            
+            <div class="w3-col l8"></div>
         </div>
     </header>
     <main>
-        <section id="registroAdmin" class="w3-container blanco">
-            <div class="w3-col l6">
-                <div class="img-registroAdmin">
-                    <img src="../css/imgs/ambulancia.jpg" alt="imagen de registro">
+        <section id="registroAdmin" class="beige">
+            <div class="w3-row">
+                <div class="w3-col l6 w3-right">
+                    <h2>REGISTRO USUARIOS</h2>
+                    <p class="p1-registro dim-gray-letra">Especializado y de Ruta</p>
+                </div>
+                <div class="w3-col l6 w3-left">
+                    <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
                 </div>
             </div>
-            <form id="frm-registro" class="w3-row">
-                <div class="encabezado">
-                    <h3>Registrar Usuarios</h3>
-                </div>         
-                <div class="beige" id="contenedor-registroAdmin">
-                    
-                    <div class="w3-col l12 frm_campo">
-                        <input type="text" id="txtPrimerNombre" class="frm__field dim-gray-letra" placeholder="Primer Nombre" required>
-                        <label for="txtPrimerNombre" class="form__label dim-gray-letra">Primer Nombre</label>
+            <div class="w3-row">
+                <div class="w3-col l6">
+                    <div class="img-registro">
+                        <img src="../css/imgs/ambulancia.jpg" alt="imagen de registro">
                     </div>
-                    <div class="w3-col l12 frm_campo">
-                        <input type="text" id="txtSegundoNombre" class="frm__field dim-gray-letra" placeholder="Segundo Nombre">
-                        <label for="txtSegundoNombre" class="form__label dim-gray-letra">Segundo Nombre</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <input type="text" id="txtPrimerApellido" class="frm__field dim-gray-letra" placeholder="Primer Apellido" required>
-                        <label for="txtPrimerApellido" class="form__label dim-gray-letra">Primer Apellido</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <input type="text" id="txtSegundoApellido"  class="frm__field dim-gray-letra" placeholder="Segundo Apellido">
-                        <label for="txtSegundoApellido" class="form__label dim-gray-letra">Segundo Apellido</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <label for="sltTipoIdentification" ></label>
-                        <select id="sltTipoIdentificacion" class="frm__field dim-gray-letra" placeholder="Tipo Identificación" required>
-                            <option value="">Tipo Identificación</option>
-                            <option value="fisica">Física</option>
-                            <option value="juridica">Jurídica</option>
-                        </select>
+                </div>
+                <div class="w3-col l6">
+                    <form id="frm-registro">
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Primer Nombre" name="txtPrimerNombre" id="txtPrimerNombre"  required>
+                                <label for="txtPrimerNombre" class="form__label dim-gray-letra">Primer Nombre</label>
+                            </div>
                         </div>
-                    <div class="w3-col l12 frm_campo">
-                        <input type="text" id="txtIdentificacion" class="frm__field dim-gray-letra" placeholder="Identificación" required>
-                        <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        
-                        <input type="tel" id="txtTelefono" min="0"  class="frm__field dim-gray-letra" placeholder="Número telefónico" required>
-                        <label for="txtTelefono" class="form__label dim-gray-letra">Teléfono</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <input type="email" id="txtEmail" class="frm__field dim-gray-letra"placeholder="Correo electrónico" required>
-                        <label for="txtEmail" class="form__label dim-gray-letra">Correo Electrónico</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <input type="text" id="txtFotografia" class="frm__field dim-gray-letra" placeholder="Fotografía" required>
-                        <label for="txtFotografia" class="form__label dim-gray-letra">Fotografía</label>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <Label for="sltGenero"></Label>
-                        <select id="sltGenero" class="frm__field dim-gray-letra" placeholder="Género" required>
-                            <option value="">Género</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="masculino">Masculino</option>
-                        </select>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <label for="sltRol"></label>
-                        <select id="sltRol" class="frm__field dim-gray-letra" placeholder="" required>
-                            <option value="">Tipo de Rol</option>
-                            <option value="especializado">Especializado</option>
-                            <option value="encargadoRuta">Encargado de ruta</option>
-                        </select>
-                    </div>
-                    <div class="w3-col l12 frm-campo">
-                        <label for="sltTipo"></label>
-                        <select id="sltTipo" class="frm__field dim-gray-letra" placeholder="" required>
-                            <option value="">Rol</option>
-                            <option value="bombero">Bombero</option>
-                            <option value="policia">Policía</option>
-                            <option value="grua">Grua</option>
-                            <option value="ambulancia">Ambulancia</option>
-                        </select>
-                    </div>
-                    <div>
-                        <div class="w3-col l12 frm_campo">
-                            <label for="sltProvincia"></label>
-                            <select id="sltProvincia" class="frm__field dim-gray-letra" placeholder="" required>
-                                <option value="">Provincia</option>
-                                <option value="ajuela">Alajuela</option>
-                                <option value="cartago">Cartago</option>
-                                <option value="heredia">Heredia</option>
-                                <option value="Limon">Limón</option>
-                                <option value="puntarenas">Puntarenas</option>
-                                <option value="san jose">San José</option>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Segundo Nombre" name="txtSegundoApellido" id="txtSegundoNombre">
+                                <label for="txtSegundoNombre" class="form__label dim-gray-letra">Segundo Nombre</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Primer apellido" name="txtPrimerApellido" id="txtPrimerApellido" required>
+                                <label for="txtPrimerApellido" class="form__label dim-gray-letra">Primer Apellido</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Segundo apellido" name="txtSegundoApellido" id="txtSegundoApellido">
+                                <label for="txtSegundoApellido" class="form__label dim-gray-letra">Segundo Apellido</label>
+                            </div>
+                        </div>
+                        <!-- <div class="w3-row campo-frm">
+                            <select id="sltTipoIdentificacion" required>
+                                <option value="">Tipo Identificación</option>
+                                <option value="fisica">Física</option>
+                                <option value="juridica">Jurídica</option>
+                            </select>
+                        </div> -->
+                        <div class="w3-row campo-frm">
+                            <div class="campo-frm-select">
+                                <div class="contenedor-relative">
+                                    <div id="app-cover">
+                                        <div id="select-box">
+                                            <input type="checkbox" id="options-view-button" value="">
+                                            <div id="select-button" class="brd">
+                                                <div id="selected-value">
+                                                    <span>Tipo Identificación</span>
+                                                </div>
+                                                <div id="chevrons">
+                                                    <i class="fas fa-chevron-up"></i>
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </div>
+                                            </div>
+                                            <div id="options">
+                                                <div class="option">
+                                                    <input class="s-c top" type="radio" name="platform" value="fisica">
+                                                    <i class="fas fa-user"></i>
+                                                    <span class="label">Física</span>
+                                                    <span class="opt-val">Física</span>
+                                                </div>
+                                                <div class="option">
+                                                    <input class="s-c top" type="radio" name="platform" value="juridica">
+                                                    <i class="fas fa-building"></i>
+                                                    <span class="label">Jurídica</span>
+                                                    <span class="opt-val">Jurídica</span>
+                                                </div>
+                                                <div id="option-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Razón social" name="txtRazonSocial" id="txtRazonSocial" required>
+                                <label for="txtRazonSocial" class="form__label dim-gray-letra">Razón Social</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Nombre Comercial" name="txtNombreComercial" id="txtNombreComercial" required>
+                                <label for="txtNombreComercial" class="form__label dim-gray-letra">Nombre Comercial</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Identificación Jurídica" name="txtIdenJuridica" id="txtIdenJuridica" required>
+                                <label for="txtIdenJuridica" class="form__label dim-gray-letra">Identificación Jurídica</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <label class="form__label dim-gray-letra" for="txtInfoAponderado"></label>
+                                <textarea name="txtInfoAponderado" id="txtInfoAponderado" rows="3" placeholder="Información general del apoderado" class="dim-gray-letra beige" required></textarea>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Identificación" name="txtIdentificacion" id="txtIdentificacion" required>
+                                <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="tel" class="form__field dim-gray-letra" min="0" placeholder="Número Telefónico" name="txtTelefono" id="txtTelefono" required>
+                                <label for="txtTelefono" class="form__label dim-gray-letra">Número Telefónico</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="email" class="form__field dim-gray-letra" placeholder="Correo Electrónico" name="txtEmail" id="txtEmail" required>
+                                <label for="txtEmail" class="form__label dim-gray-letra">Correo Electrónico</label>
+                            </div>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <div class="form__group field">
+                                <input type="text" class="form__field dim-gray-letra" placeholder="Fotografía" name="txtFotografia" id="txtFotografia" required>
+                                <label for="txtFotografia" class="form__label dim-gray-letra">Fotografía</label>
+                            </div>
+                        </div>
+                        <div class="radio-genero">
+                            <fieldset id="field-genero" class="fieldset-registro dim-gray-letra">
+                                <p>Género</p>
+                                <div class="w3-row">
+                                    <div class="w3-col l6 radio">
+                                        <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
+                                        <label for="rbtFemenino">Femenino</label>
+                                    </div>
+                                    <div class="w3-col l6 radio">
+                                        <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
+                                        <label for="rbtMasculino">Masculino</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="w3-row campo-frm">
+                            <label for="sltRol"></label>
+                            <select id="sltRol" class="form__field dim-gray-letra" placeholder="" required>
+                                <option value="">Tipo de Rol</option>
+                                <option value="especializado">Especializado</option>
+                                <option value="encargadoRuta">Encargado de ruta</option>
                             </select>
                         </div>
-                        <div class="w3-col l10 frm_campo">
-                             <label for="sltCanton"></label>
-                             <select id="sltCanton" class="frm__field dim-gray-letra" placeholder="" required>
-                                <option value="">Cantón</option>
-                                <option value="poas">Poás</option>
-                                <option value="central">Central</option>
-                             </select>
-                        </div>
-                        <div class="w3-col l12 frm_campo">
-                            <label for="sltDistrito"></label>
-                            <select id="sltDistrito" class="frm__field dim-gray-letra" placeholder="" required>
-                                <option value="">Distrito</option>
-                                <option value="carrillos">Carrillos</option>
-                                <option value="san rafael">San Rafael</option>
+                        <div class="w3-row campo-frm">
+                            <label for="sltTipo"></label>
+                            <select id="sltTipo" class="form__field dim-gray-letra" placeholder="" required>
+                                <option value="">Rol</option>
+                                <option value="bombero">Bombero</option>
+                                <option value="policia">Policía</option>
+                                <option value="grua">Grua</option>
+                                <option value="ambulancia">Ambulancia</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="w3-col l12 frm_campo">
-                        <label for="txtSenas"></label>
-                        <textarea name="txtSenas" id="txtSenas" rows="3" placeholder="Otras señas" class="blanco" required></textarea>
-                    </div>
-                                     
+                        <div>
+                            <div class="w3-row campo-frm">
+                                <label for="sltProvincia"></label>
+                                <select id="sltProvincia" class="form__field dim-gray-letra" placeholder="" required>
+                                    <option value="">Provincia</option>
+                                    <option value="alajuela">Alajuela</option>
+                                    <option value="cartago">Cartago</option>
+                                    <option value="heredia">Heredia</option>
+                                    <option value="limon">Limón</option>
+                                    <option value="puntarenas">Puntarenas</option>
+                                    <option value="san jose">San José</option>
+                                </select>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                 <label for="sltCanton"></label>
+                                 <select id="sltCanton" class="form__field dim-gray-letra" placeholder="" required>
+                                    <option value="">Cantón</option>
+                                    <option value="poas">Poás</option>
+                                    <option value="central">Central</option>
+                                 </select>
+                            </div>
+                            <div class="w3-col l12 campo-frm">
+                                <label for="sltDistrito"></label>
+                                <select id="sltDistrito" class="form__field dim-gray-letra" placeholder="" required>
+                                    <option value="">Distrito</option>
+                                    <option value="carrillos">Carrillos</option>
+                                    <option value="san rafael">San Rafael</option>
+                                </select>
+                            </div>
+                        <div class="btn2">
+                            <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="btn1 flotarDerecha">
-                    <button type="button" class="btn1-registro" id="btnRegistrar">Registrar</button>
-                </div>
-            </form>
+            </div>
+                
         </section>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
