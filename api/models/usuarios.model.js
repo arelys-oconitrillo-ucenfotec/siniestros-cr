@@ -28,4 +28,4 @@ const schema_usuario = new mongoose.Schema({
     estado: { type: String, required: true, unique: false }
 });
 
-module.exports = mongoose.model('Usuario', schema_usuario, 'usuarios');
+module.exports = mongoose.model('usuario', schema_usuario, 'usuarios');

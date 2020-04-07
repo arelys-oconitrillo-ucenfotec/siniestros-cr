@@ -39,4 +39,4 @@ const schema_vehiculo = new mongoose.Schema({
     estado: String
 });
 
-module.exports = mongoose.model('Vehiculo', schema_vehiculo, 'vehiculo');
+module.exports = mongoose.model('vehiculo', schema_vehiculo, 'vehiculos');

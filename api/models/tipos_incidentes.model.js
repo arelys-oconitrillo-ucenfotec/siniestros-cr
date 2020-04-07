@@ -7,4 +7,4 @@ const schema_incidentes = new mongoose.Schema({
    icono: { type: String, required: true, unique: true }
 });
 
-module.exports = mongoose.model('Incidente', schema_incidente, 'incidentes');
+module.exports = mongoose.model('tipoIncidente', schema_incidente, 'tipo_incidentes');
