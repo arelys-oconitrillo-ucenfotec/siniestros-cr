@@ -1,12 +1,10 @@
 'use strict';
 
-let botonReservar = document.querySelector('#btnReservar');
+let botonReservar = document.querySelector('#btnIncidentes');
 botonReservar.addEventListener('click', obtenerDatos);
 
 let validar = () => {
-    let campos_requeridos = document.querySelectorAll('#frm-reservaciones [required]');
-    let input_tipo_moneda = document.querySelector('#tipo-moneda input[type=radio]:checked');
-    let input_terminos = document.querySelector('#terminos input[type=checkbox]:checked');
+    let campos_requeridos = document.querySelectorAll('#frm-incidentes [required]');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
@@ -18,27 +16,13 @@ let validar = () => {
         }
     }
 
-    if (!input_tipo_moneda) {
-        error = true;
-        document.querySelector('#tipo-moneda').classList.add('input-error');
-    } else {
-        document.querySelector('#tipo-moneda').classList.remove('input-error');
-    }
-
     return error;
       
 };
 
 let limpiar = () => {
-    txtNombre.value = "";
-    txtEntrada.value = "";
-    txtSalida.value = "";
-    txtEmail.value = "";
-    txtTelefono.value = "";
-    rbtDolares.checked = false;
-    rbtColones.checked = false;
-    rbtEuros.checked = false;
-    chbTerminos.checked = false;
+    txtNombreSiniestro.value = "";
+    txtIcono.value = "";
 };
 
 function obtenerDatos(){
@@ -50,15 +34,8 @@ function obtenerDatos(){
             'icon': 'warning'
         });
     } else {
-        console.log(txtNombre.value);
-        console.log(txtEntrada.value);
-        console.log(txtSalida.value);
-        console.log(txtEmail.value);
-        console.log(txtTelefono.value);
-        console.log(rbtDolares.value);
-        console.log(rbtColones.value);
-        console.log(rbtEuros.value);
-        console.log(terminos.value);
+        console.log(txtNombreSiniestro.value);
+        console.log(txtIcono.value);
         Swal.fire({
             'title': 'Proceso realizado con éxito',
             'text': 'Sus datos se enviaron adecuadamente',
