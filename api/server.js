@@ -65,3 +65,6 @@ app.use('/api', usuarios);
 
 const vehiculo = require('./routes/vehiculos.route');
 app.use('/api', vehiculo);
+
+const tipo_incidente = require('./routes/tipos_incidentes.route');
+app.use('/api', tipo_incidente);

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar usuarios</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/select.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l8"></div>
+            </div>
+        </header>
+        <main>
+            <section id="lista-tipo-incidente"> 
+                <table id="tbl-tipo-incidente" class="tabla-informacion">
+                    <thead>
+                        <tr>
+                            <th>Nombre Siniestro</th>
+                            <th>Icono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../js/admin.tipo_incidentes.servicio.js"></script>
+        <script src="../js/admin.tipos_incidentes.controlador.js"></script>
+    </body>
+
+</html>
