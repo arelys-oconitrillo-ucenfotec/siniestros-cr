@@ -2,16 +2,16 @@
 
 const express = require('express');
 const router = express.Router();
-const Incidente= require('../models/incidentes.model');
+const TipoIncidente= require('../models/tipos_incidentes.model');
 
-router.post('/registrar-incidente', (req, res) => {
+router.post('/registrar/tipo-incidente', (req, res) => {
     let body = req.body;
-    let nuevo_incidente= new Incidente({
+    let nuevo_tipo_incidente= new TipoIncidente({
         nombre_siniestro: body.nombre_siniestro,
         icono: body.icono
     });
 
-    nuevo_incidente.save((error, incidenteDB) => {
+    nuevo_tipo_incidente.save((error, tipo_incidenteDB) => {
         if (error) {
             res.json({
                 resultado: false,
@@ -22,7 +22,7 @@ router.post('/registrar-incidente', (req, res) => {
             res.json({
                 resultado: true,
                 msj: 'Los datos se enviaron de forma exitosa',
-                incidenteDB
+                tipo_incidenteDB
             });
         }
     });
@@ -30,8 +30,8 @@ router.post('/registrar-incidente', (req, res) => {
 
 });
 
-router.get('/listar-incidentes', (req, res) => {
-    Incidente.find((error, lista_incidentes) => {
+router.get('/listar/tipo-incidentes', (req, res) => {
+    TipoIncidente.find((error, lista_incidentes) => {
         if (error) {
             res.json({
                 resultado: false,
@@ -48,10 +48,10 @@ router.get('/listar-incidentes', (req, res) => {
     });
 });
 
-router.put('/modificar-incidente', function (req, res) {
+router.put('/modificar/tipo-incidente', function (req, res) {
     let body = req.body;
 
-    Incidente.updateOne({
+    TipoIncidente.updateOne({
         _id: body._id
     }, {
         $set: req.body
@@ -71,10 +71,10 @@ router.put('/modificar-incidente', function (req, res) {
     });
 });
 
-router.delete('/eliminar-incidente', function (req, res) {
+router.delete('/eliminar/tipo-incidente', function (req, res) {
     let body = req.body;
 
-    Incidente.deleteOne({
+    TipoIncidente.deleteOne({
         _id: body._id
     }).then(resultado => {
 

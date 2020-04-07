@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Vehiculo = require('../models/vehiculos.models');
+const Vehiculo = require('../models/vehiculos.model');
 
 router.post('/registrar-vehiculo', (req, res) => {
     let body = req.body;
