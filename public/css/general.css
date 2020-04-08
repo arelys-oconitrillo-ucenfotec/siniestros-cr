@@ -274,6 +274,12 @@ header {
     font-size: 1.1rem;
 }
 
+.campo-frm p {
+    margin-right: 270px;
+    font-size: 19.5px; 
+}
+
+
 .fieldset-registro{
     height: 85px;
     width: 340px;
@@ -420,9 +426,14 @@ header {
 /*---------------FIN CSS REGISTRO USUARIOS ESPECIALIZADOS Y ENCARGADOS DE RUTA-----*/
 
 
-/*---------------------CSS LISTAR LOS USUARIOS-------------------*/
+/*---------------------CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
 
+.campo-frm p {
+    margin-right: 270px;
+    font-size: 19.5px; 
+}
 
-/*---------------------FIN CSS LISTAR LOS USUARIOS-------------------*/
+/*---------------------FIN CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
+
 
 

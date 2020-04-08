@@ -1,5 +1,6 @@
 'use strict';
 
+const input_icono = document.querySelector('#icon-img')
 let botonReservar = document.querySelector('#btnIncidentes');
 botonReservar.addEventListener('click', obtenerDatos);
 
