@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="w3-col l6">
-                        <form id="frm-registro">
+                        <form id="frm-incidentes">
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Nombre del Siniestro" name="txtNombreSiniestro" id="txtNombreSiniestro"  required>
@@ -49,7 +49,10 @@
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
-                                <p class="dim-gray-letra">Icono</p>
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Icono" name="txtUrlImg" id="txtUrlImg"  required disabled>
+                                    <label for="txtUrlImg" class="form__label dim-gray-letra">Icono</label>
+                                </div>
                             </div>
                             <div class="w3-row campo-frm">
                                 <img id="icon-img">
@@ -61,11 +64,6 @@
                             </div>
                         </form>
                     </div>
-                </div>
-                <div>
-                    <img id="user-photo">
-
-                    <button type="button" id="btn-foto">Subir Foto</button>
                 </div>
                     
             </section>

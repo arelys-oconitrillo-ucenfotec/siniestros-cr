@@ -274,12 +274,6 @@ header {
     font-size: 1.1rem;
 }
 
-.campo-frm p {
-    margin-right: 270px;
-    font-size: 19.5px; 
-}
-
-
 .fieldset-registro{
     height: 85px;
     width: 340px;
@@ -406,6 +400,7 @@ header {
   /* reset input */
 .frm__field:required, .frm__field:invalid {
     box-shadow: none;
+}
 
 .frm_campo textarea {
     width: 320px;
@@ -427,11 +422,6 @@ header {
 
 
 /*---------------------CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
-
-.campo-frm p {
-    margin-right: 270px;
-    font-size: 19.5px; 
-}
 
 /*---------------------FIN CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
 

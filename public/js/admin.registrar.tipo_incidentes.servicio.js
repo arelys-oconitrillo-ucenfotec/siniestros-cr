@@ -1,14 +1,15 @@
 'use strict';
 
+
 let registrar_tipo_incidente = async() => {
     let response;
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/registrar-incidente',
+        url: 'http://localhost:3000/api/registrar/tipo-incidente',
         headers: {},
         data: {
-            tipo_siniestro: txtNombreSiniestro.value,
-            icono: txtIcono.value
+            nombre_siniestro: txtNombreSiniestro.value,
+            icono: txtUrlImg.value
         }   
     })
     .then(function(res) {
