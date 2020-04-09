@@ -152,9 +152,14 @@
                             </div>
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
-                                    <input type="text" class="form__field dim-gray-letra" placeholder="Fotografía" name="txtFotografia" id="txtFotografia" required>
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Fotografía" name="txtFotografia" id="txtFotografia" required disabled>
                                     <label for="txtFotografia" class="form__label dim-gray-letra">Fotografía</label>
                                 </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <img id="icon-img">
+            
+                                <button type="button" class="btn2-registro beige-letra" id="btn-icono">Subir</button>
                             </div>
                             <div class="radio-genero">
                                 <fieldset id="field-genero" class="fieldset-registro dim-gray-letra">
@@ -188,6 +193,8 @@
             </section>
         </main>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+        <script src="../js/servicio-imagen.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="../js/registrar.usuario.servicio.js"></script>
         <script src="../js/registrar.usuario.controlador.js"></script>
