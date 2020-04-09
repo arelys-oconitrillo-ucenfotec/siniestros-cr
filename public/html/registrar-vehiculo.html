@@ -1,75 +1,105 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro de Vehiculo</title>
-    <link rel="stylesheet" href="/public/css/reset.css">
-    <link rel="stylesheet" href="/public/css/general.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar Vehículos</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/select.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
 
-<body>
-    <header class="header-registro sienna">
-        <div class="w3-col l4 w3-center tan-letra">
-            <h1>Siniestros Viales CR</h1>
-        </div>
-        <div class="w3-col l8"></div>
-    </header>
-    <main>
-        <form name="frm-registro" id="frm-registro">
-            <div class="w3-col l6">
-                <label for="">Digite la placa:</label>
-                <input type="text" required>
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l8"></div>
             </div>
+        </header>
+        <main>
+            <section id="registro" class="beige">
+                <div class="w3-row">
+                    <div class="w3-col l6 w3-right">
+                        <h2>REGISTRATE</h2>
+                        <p class="p1-registro dim-gray-letra">Es rápido y fácil</p>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l6">
+                        <div class="img-registro">
+                            <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+                        </div>
+                    </div>
+                    <div class="w3-col l6">
+                        <form id="frm-registro">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Placa" name="txtPlaca" id="txtPlaca"  required>
+                                    <label for="txtPlaca" class="form__label dim-gray-letra">Placa</label>
+                                </div>
+                            </div>
+                            <!-- <div class="w3-col l6">
+                                <p>Seleccione un tipo de vehículo</p>
+                                <select name="pvehiculo" id="pvehiculo" onchange="cambio_vehiculo(this.id, 'pmarcas','pmodelos')">
+                                    <option value="0" selected>Elija Vehiculo</option>
+                                    <option value="automovil">Automovil</option>
+                                    <option value="motocicleta">Motocicleta</option>
+                                </select>
+                            </div>-->
 
-            <div class="w3-col l6">
-                <p>Seleccione un tipo de vehículo</p>
-                <select name="pvehiculo" id="pvehiculo" onchange="cambio_vehiculo(this.id, 'pmarcas','pmodelos')">
-                    <option value="0" selected>Elija Vehiculo</option>
-                    <option value="automovil">Automovil</option>
-                    <option value="motocicleta">Motocicleta</option>
-                </select>
-            </div>
+                            <div>
+                                <p>Seleccione una marca</p>
+                                <select name="pmarcas" id="pmarcas"></select>
 
-            <div>
-                <p>Seleccione una marca</p>
-                <select name="pmarcas" id="pmarcas"></select>
+                            </div>
 
-            </div>
+                            <div>
+                                <p>Seleccione un modelo</p>
+                                <select name="pmodelos" id="pmodelos"></select>
+                                <optgroup label="Modelos"></optgroup>
+                            </div>
 
-            <div>
-                <p>Seleccione un modelo</p>
-                <select name="pmodelos" id="pmodelos"></select>
-                <optgroup label="Modelos"></optgroup>
-            </div>
-
-            <div>
-                <p>Seleccione las extras(Tecla Crtl + boton derecho mouse)</p>
-                <select name="pextras" id="pextras" multiple="multiple">
-                    <optgroup label="Automoviles">
-                        <option value="4x4">4x4</option>
-                        <option value="aireacondicionado">Aire Acondicionado</option>
-                        <option value="direccionhidraulica">Dirección Hidraulica</option>
-                        <option value="airbag">Air Bag</option>
-                    </optgroup>
-                    <optgroup label="Motocicletas">
-                        <option value="tubulares">Llantas Tubulares</option>
-                        <option value="led">Luz Led</option>
-                        <option value="radio">Radio</option>
-                        <option value="electrica">Eléctrica</option>
-                    </optgroup>
-                </select>
-            </div>
-            <button type="button" class="btn2-registro blanco negro-letra" id="btnRegistrar">Registrar</button>
-        </form>
-
+                            <div>
+                                <p>Seleccione las extras(Tecla Crtl + boton derecho mouse)</p>
+                                <select name="pextras" id="pextras" multiple="multiple">
+                                    <optgroup label="Automoviles">
+                                        <option value="4x4">4x4</option>
+                                        <option value="aireacondicionado">Aire Acondicionado</option>
+                                        <option value="direccionhidraulica">Dirección Hidraulica</option>
+                                        <option value="airbag">Air Bag</option>
+                                    </optgroup>
+                                    <optgroup label="Motocicletas">
+                                        <option value="tubulares">Llantas Tubulares</option>
+                                        <option value="led">Luz Led</option>
+                                        <option value="radio">Radio</option>
+                                        <option value="electrica">Eléctrica</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+        <script src="../js/servicio-imagen.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="/public/js/registrar.vehiculo.controlador.js"></script>
-
-    </main>
-    <footer>
-
-    </footer>
-
-</body></html>
+        <script src="../js/registrar.usuario.servicio.js"></script>
+        <script src="../js/registrar.usuario.controlador.js"></script>
+        </body>
+</html>
