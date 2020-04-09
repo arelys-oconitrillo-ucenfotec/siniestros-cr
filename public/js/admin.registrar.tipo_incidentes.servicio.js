@@ -2,7 +2,6 @@
 
 
 let registrar_tipo_incidente = async() => {
-    let response;
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar/tipo-incidente',
@@ -12,13 +11,31 @@ let registrar_tipo_incidente = async() => {
             icono: txtUrlImg.value
         }   
     })
-    .then(function(res) {
-        console.log(res);
-        response = res;
+    .then(function(response) {
+        console.log(response);
+        if(response.data.resultado){
+            Swal.fire({
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos se enviaron adecuadamente',
+                'icon': 'success'
+            }).then(() => {
+                limpiar();
+            });
+        } else {
+            Swal.fire({
+                'title': 'Sus datos no se pudieron enviar',
+                'text': 'Ocurrió un error, es posible que sus datos sean incorrectos o ya existen',
+                'icon': 'warning'
+            });
+        }
+        
     })
-    .catch(function(err) {
-        console.log(err);
+    .catch(function(error) {
+        console.log(error);
+        Swal.fire({
+            'title': 'Sus datos no se pudieron guardar',
+            'text': 'Ocurrió un error de conexión',
+            'icon': 'error'
+        });
     });
-
-    return response;
 }

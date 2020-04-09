@@ -1,13 +1,10 @@
 'use strict';
 
 const input_icono = document.querySelector('#icon-img');
-let botonIncidente = document.querySelector('#btnIncidentes');
-botonIncidente.addEventListener('click', obtenerDatos);
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-incidentes [required]');
     let error = false;
-    console.log(campos_requeridos);
 
     for (let i = 0; i < campos_requeridos.length; i++) {
         let label_campo_requerido = document.querySelector('[for="' + campos_requeridos[i].id + '"]');
@@ -30,7 +27,7 @@ let limpiar = () => {
     txtUrlImg.value = "";
 };
 
-function obtenerDatos(){
+let agregar_tipo_incidente = () => {
     let error = validar();
     if (error) {
         Swal.fire({
@@ -41,15 +38,10 @@ function obtenerDatos(){
     } else {
         console.log(txtNombreSiniestro.value);
         console.log(txtUrlImg.value);
-        Swal.fire({
-            'title': 'Proceso realizado con éxito',
-            'text': 'Sus datos se enviaron adecuadamente',
-            'icon': 'success'
-        }).then(() => {
-            limpiar();
-        });
-
+        registrar_tipo_incidente();
     }
 
 };
 
+let botonIncidente = document.querySelector('#btnIncidentes');
+botonIncidente.addEventListener('click', agregar_tipo_incidente);
