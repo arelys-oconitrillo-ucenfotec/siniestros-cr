@@ -2,7 +2,7 @@
 const tbody = document.querySelector('#tbl-usuarios tbody');
 
 let mostrar_datos = async() => {
-    let usuarios = await listar_usuarios();
+    let usuarios = await listar_usuarios_normales();
     tbody.innerHTML = '';
 
     for (let i = 0; i < usuarios.length; i++) {

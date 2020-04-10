@@ -68,41 +68,14 @@ let limpiar = () => {
     txtTelefono.value = "";
     sltTipoIdentificacion.value = "";
     txtIdentificacion.value = "";
-    txtFotografia.value = "";
-    sltGenero.value = "";
-
-    if(sltRol.value == "especializado"){
-        sltRol.value = "";
-        sltTipo.value = "";
-        sltProvincia.value = "";
-        sltCanton.value = "";
-        sltDistrito.value = "";
-        txtSenas.value = "";
-    }
-    
-    if(sltRol.value == "encargadoRuta"){
-        sltRol.value = "";
-    }
+    txtUrlImg.value = "";
+    document.querySelector('#field-genero input[type=radio]').checked = false;
+    txtRazonSocial.value = "";
+    txtNombreComercial.value = "";
+    txtInfoAponderado.value = "";
 };
 
-let agregar_usuario_especializado = async(p_response) => {
-    let response = registrar_especializado(p_response.data.usuarioDB._id, sltTipo.value, sltProvincia.value, sltCanton.value, sltDistrito.value, txtSenas.value)
-    .then(function (response) {
-        if(response.data.resultado){
-            Swal.fire({
-                'title': 'Proceso realizado con éxito',
-                'text': 'Sus datos se enviaron adecuadamente',
-                'icon': 'success'
-            }).then(() => {
-                limpiar();
-            });
-        } else {
-            console.log(response.data.msj);
-        }
-    });
-}
-
-let agregar_usuario = async() => {
+let agregar_usuario = () => {
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({
@@ -111,38 +84,9 @@ let agregar_usuario = async() => {
             'icon': 'warning'
         });
     } else {
-        let response = registrar_usuario()
-        .then(function (response) {
-            if(response.data.resultado){
-                if(sltRol.value == "especializado"){
-                    agregar_usuario_especializado(response);
-                } else {
-                    Swal.fire({
-                        'title': 'Proceso realizado con éxito',
-                        'text': 'Sus datos se enviaron adecuadamente',
-                        'icon': 'success'
-                    }).then(() => {
-                        limpiar();
-                    });
-                }
-            } else {
-                Swal.fire({
-                    'title': 'No se registró el usuario',
-                    'text': 'Ocurrió un error en el servidor',
-                    'icon': 'error'
-                });
-            }
-            
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        registrar_usuario_normal();
     }
 };
-
-let mostrar_campos_especializado = () => {
-
-}
 
 let ocultar_opciones_identificacion = () => {
     let opciones_identificacion = document.querySelectorAll('#identificationOptions .label');
@@ -196,6 +140,9 @@ let mostrar_campos_ced_juridica = () => {
 
     let contenedores_juridica = document.querySelectorAll('.contenedor-juridica');
     for(let i = 0; i < contenedores_juridica.length; i++){
+        contenedores_juridica[i].attributes.required = "required";
+        
+        console.log(contenedores_juridica[i].childNodes);
         contenedores_juridica[i].classList.remove('ocultar');
     }
 }

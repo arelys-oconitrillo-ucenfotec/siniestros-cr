@@ -60,8 +60,8 @@ function handleError(res, reason, message, code) {
 }
 
 // Conexión a todas la rutas.
-const usuarios = require('./routes/usuarios.route');
-app.use('/api', usuarios);
+const usuarios_normales = require('./routes/usuarios_normales.route');
+app.use('/api', usuarios_normales);
 
 const vehiculo = require('./routes/vehiculos.route');
 app.use('/api', vehiculo);

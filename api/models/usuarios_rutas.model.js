@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const schema_usuario = new mongoose.Schema({
+const schema_usuario_ruta = new mongoose.Schema({
     tipo_identificacion: { type: String, required: true, unique: false },
     identificacion: { type: String, required: true, unique: true },
     primer_nombre: { type: String, required: true, unique: false },
@@ -13,19 +13,9 @@ const schema_usuario = new mongoose.Schema({
     correo: { type: String, required: true, unique: true },
     telefono: { type: Number, required: true, unique: false },
     fotografia: { type: String, required: true, unique: false },
-    rol: { type: String, required: true, unique: false },
-    usuario_especializado: { 
-        tipo: { type: String, required: false, unique: false },
-        direccion: {
-            provincia: { type: String, required: false, unique: false },
-            canton: { type: String, required: false, unique: false },
-            distrito: { type: String, required: false, unique: false },
-            otras_senas: { type: String, required: false, unique: false }
-        } 
-    },
     codigo_activacion: { type: String, required: true, unique: false },
     contrasena: { type: String, required: true, unique: false },
     estado: { type: String, required: true, unique: false }
 });
 
-module.exports = mongoose.model('usuario', schema_usuario, 'usuarios');
+module.exports = mongoose.model('usuario_ruta', schema_usuario_ruta, 'usuarios_rutas');
