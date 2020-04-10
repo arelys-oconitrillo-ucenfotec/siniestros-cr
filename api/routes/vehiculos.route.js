@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const Vehiculo = require('../models/vehiculos.model');
 
-router.post('/registrar-vehiculo', (req, res) => {
+router.post('/registrar/vehiculo', (req, res) => {
     let body = req.body;
     let nuevo_vehiculo = new Vehiculo({
         numeroPlaca: body.numeroPlaca,
@@ -13,7 +13,8 @@ router.post('/registrar-vehiculo', (req, res) => {
         modelo: body.modelo,
         annoModelo: body.annoModelo,
         extras: body.extras,
-        estado: 'activo'
+        estado: 'activo',
+        caracteristicas: body.caracteristicas,
     });
 
     nuevo_vehiculo.save((error, vehiculo) => {
@@ -33,25 +34,25 @@ router.post('/registrar-vehiculo', (req, res) => {
     });
 });
 
-router.get('/listar-vehiculos', (req, res) => {
-    Vehiculo.find((error, lista_vehiculo) => {
+router.get('/listar/vehiculos', (req, res) => {
+    Vehiculo.find((error, lista_vehiculos) => {
         if (error) {
             res.json({
                 resultado: false,
-                msj: 'No se pudieron listar los vheiculos',
+                msj: 'No se pudieron listar los vehículos',
                 error
             });
         } else {
             res.json({
                 resultado: true,
-                msj: 'Los vehiculos se listaron adecuadamente',
-                lista_vehiculo
+                msj: 'Los vehículos se listaron adecuadamente',
+                lista_vehiculos
             });
         }
     });
 });
 
-router.delete('/eliminar-vehiculo', function (req, res) {
+router.delete('/eliminar/vehiculo', function (req, res) {
     let body = req.body;
 
     Vehiculo.deleteOne({
@@ -61,18 +62,18 @@ router.delete('/eliminar-vehiculo', function (req, res) {
         if (resultado.deletedCount == 1) {
             res.json({
                 resultado: true,
-                msg: 'Se eliminó el vhehiculo'
+                msg: 'Se eliminó el vehículo'
             });
         } else {
             res.json({
                 resultado: false,
-                msj: 'No se pudo eliminar el vehiculo'
+                msj: 'No se pudo eliminar el vehículo'
             });
         }
     });
 });
 
-router.put('/modificar-vehiculo', function (req, res) {
+router.put('/modificar/vehiculo', function (req, res) {
     let body = req.body;
 
     Vehiculo.updateOne({
@@ -83,7 +84,7 @@ router.put('/modificar-vehiculo', function (req, res) {
         if (error) {
             res.json({
                 resultado: false,
-                msg: 'No se pudo modificar el vehiculo',
+                msg: 'No se pudo modificar el vehículo',
                 error
             });
         } else {

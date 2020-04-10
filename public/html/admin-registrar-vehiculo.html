@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrar Vehículos</title>
         <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/select.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
         <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
@@ -41,7 +40,18 @@
                         </div>
                     </div>
                     <div class="w3-col l6">
-                        <form id="frm-registro">
+                        <form id="frm-vehiculo">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltTipoVehiculo" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="sedan">Sedan</option>
+                                        <option value="suv">SUV</option>
+                                        <option value="pickup">Pick Up</option>
+                                    </select>
+                                    <label id= "lblTipoIdentificacion" for="sltTipoVehiculo" class="form__label dim-gray-letra">Tipo Vehículo</label>
+                                </div>
+                            </div>
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Placa" name="txtPlaca" id="txtPlaca"  required>
@@ -61,6 +71,22 @@
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Año" name="txtAnnoModelo" id="txtAnnoModelo"  required>
+                                    <label for="txtAnnoModelo" class="form__label dim-gray-letra">Año</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div id="contenedorCaracteristicas" class="form__group field form__group_field-checkbox">
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                    <label for="vehicle1"> I have a bike</label><br>
+                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                                    <label for="vehicle2"> I have a car</label><br>
+                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                                    <label for="vehicle3"> I have a boat</label><br><br>
+                                </div>
+                            </div>
+                            <!-- <div class="w3-row campo-frm">
                                 <select id="sltCaractEspeciales" required>
                                     <option value="">Seleccione las características espeiales</option>
                                     <option value="4x4">4x4</option>
@@ -71,7 +97,7 @@
                                     <option value="luzLed">Luz Led</option>
                                     <option value="radio">Radio</option>
                                 </select>
-                            </div>  
+                            </div>  -->
                             <div class="btn2">
                                 <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
                             </div>
@@ -81,11 +107,9 @@
             </section>
         </main>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-        <script src="../js/servicio-imagen.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script src="/public/js/registrar.vehiculo.controlador.js"></script>
-        <script src="../js/registrar.usuario.servicio.js"></script>
-        <script src="../js/registrar.usuario.controlador.js"></script>
+        <script src="/public/js/admin.vehiculos_caracteristicas.servicio.js"></script>
+        <script src="/public/js/admin.vehiculos.servicio.js"></script>
+        <script src="/public/js/admin.registrar.vehiculo.controlador.js"></script>
         </body>
 </html>

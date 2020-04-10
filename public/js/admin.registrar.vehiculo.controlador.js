@@ -4,9 +4,7 @@ const pvehiculo = document.getElementById("pvehiculo");
 const pmarcas = document.getElementById("pmarcas");
 const pmodelos = document.getElementById("pmodelos");
 
-let botonRegistrar = document.querySelector('#btnRegistrar');
-
-
+const botonRegistrar = document.querySelector('#btnRegistrar');
 
 function cambio_vehiculo(s1, s2, s3) {
     var s1 = document.getElementById(s1);
@@ -48,21 +46,46 @@ function cambio_vehiculo(s1, s2, s3) {
 };
 
 let validar = () => {
-    let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
+    let campos_requeridos = document.querySelectorAll('#frm-vehiculo [required]');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
+        console.log(campos_requeridos[i]);
+        let label_campo_requerido = document.querySelector('[for="' + campos_requeridos[i].id + '"]');
         if (campos_requeridos[i].value == '') {
-            campos_requeridos[i].classList.add('input-error');
+            label_campo_requerido.classList.add('label-error');
+
             error = true;
         } else {
-            campos_requeridos[i].classList.remove('input-error');
+            label_campo_requerido.classList.remove('label-error');
         }
     }
 
-    error = validarEmail(error);
-
     return error;
-}
+      
+};
+
+let limpiar = () => {
+    txtPlaca.value = '';
+    sltTipoVehiculo = '';
+    txtMarca.value = '';
+    txtModelo.value = '';
+    txtAnnoModelo.value = '';
+};
+
+let agregar_vehiculo = () => {
+    let error = validar();
+    if (error) {
+        Swal.fire({
+            'title': 'Sus datos no se pudieron enviar',
+            'text': 'Por favor revise los campos resaltados',
+            'icon': 'warning'
+        });
+    } else {
+        registrar_vehiculo();
+    }
+
+};
+
 
 botonRegistrar.addEventListener('click', agregar_vehiculo);
