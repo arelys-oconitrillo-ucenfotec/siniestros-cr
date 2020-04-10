@@ -1,10 +1,11 @@
 /*TO DO
-funcion para mostrar los campos dependiendo del rol seleccionado
-funcion para mostrar los campos de ced juridica
 funcion que devuelva un numero random de 5 digitos
 funcion que envie un email para la activacion del usuario*/
 
 'use strict';
+
+const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
+const botonRegistrar = document.querySelector('#btnRegistrar');
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -88,74 +89,71 @@ let agregar_usuario = () => {
     }
 };
 
-let ocultar_opciones_identificacion = () => {
-    let opciones_identificacion = document.querySelectorAll('#identificationOptions .label');
-    let iconos_identificacion = document.querySelectorAll('#identificationOptions i');
+let establecer_identificacion = () => {
+    reiniciar_formulario_identificacion();
 
-    for (let i = 0; i < opciones_identificacion.length; i++) {
-        opciones_identificacion[i].classList.remove('mostrar-block');
-        iconos_identificacion[i].classList.remove('mostrar-block');
-        opciones_identificacion[i].classList.add('ocultar');
-        iconos_identificacion[i].classList.add('ocultar');
-    }
-}
-
-let mostrar_opciones_identificacion = () => {
-    document.querySelector('#option-bg').classList.add('mostrar-block');
-    let opciones_identificacion = document.querySelectorAll('#identificationOptions .label');
-    let iconos_identificacion = document.querySelectorAll('#identificationOptions i');
-    let opciones_val = document.querySelectorAll('#identificationOptions .opt-val');
-
-    for(let i= 0; i < opciones_val.length; i++){
-        opciones_val[i].classList.remove('opt-selected-opacity');
-    }
-
-    for (let i = 0; i < opciones_identificacion.length; i++) {
-        opciones_identificacion[i].classList.remove('ocultar');
-        iconos_identificacion[i].classList.remove('ocultar');
-        opciones_identificacion[i].classList.add('mostrar-block');
-        iconos_identificacion[i].classList.add('mostrar-block');
-    }
-}
-
-let reiniciar_formulario = () => {
-    let contenedores_juridica = document.querySelectorAll('.contenedor-juridica');
-    for(let i = 0; i < contenedores_juridica.length; i++){
-        contenedores_juridica[i].classList.add('ocultar');
-    }
-}
-
-let establecer_identificacion_fisica = () => {
-    reiniciar_formulario();
-    sltTipoIdentificacion.value = document.querySelector('#rbtFisica').value;
-    document.querySelector('#optValFisica').classList.add('opt-selected-opacity');
-    ocultar_opciones_identificacion();
-}
-
-let mostrar_campos_ced_juridica = () => {
-    reiniciar_formulario();
-    sltTipoIdentificacion.value = document.querySelector('#rbtJuridica').value;
-    document.querySelector('#optValJuridica').classList.add('opt-selected-opacity');
-    ocultar_opciones_identificacion();
-
-    let contenedores_juridica = document.querySelectorAll('.contenedor-juridica');
-    for(let i = 0; i < contenedores_juridica.length; i++){
-        contenedores_juridica[i].attributes.required = "required";
+    if(botonIdentificacion.value == ''){
+        document.querySelector('#contenedor-identificacion').classList.add('ocultar');
+        document.querySelector('#lblTipoIdentificacion').classList.remove('form__group_field_selected'); 
+        reiniciar_formulario_identificacion();
+    } else {
+        document.querySelector('#contenedor-identificacion').classList.remove('ocultar');
+        document.querySelector('#lblTipoIdentificacion').classList.add('form__group_field_selected'); 
         
-        console.log(contenedores_juridica[i].childNodes);
-        contenedores_juridica[i].classList.remove('ocultar');
+        if(botonIdentificacion.value == 'jurídica'){
+            let contenedores_juridicos = document.querySelectorAll('.contenedor-juridica');
+    
+            for(let i = 0; i < contenedores_juridicos.length; i++){
+                if(contenedores_juridicos[i].querySelector('input') != null){
+                    contenedores_juridicos[i].querySelector('input').setAttribute('required', 'required');
+                } else if(contenedores_juridicos[i].querySelector('textarea')){
+                    contenedores_juridicos[i].querySelector('textarea').setAttribute('required', 'required');
+                }
+    
+                contenedores_juridicos[i].classList.remove('ocultar');
+            }
+        }
     }
-}
+};
 
-let botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
-botonIdentificacion.addEventListener('click', mostrar_opciones_identificacion);
+let reiniciar_formulario_identificacion = () => {
+    document.querySelector('#contenedor-identificacion').classList.add('ocultar');
+    let contenedores_juridicos = document.querySelectorAll('.contenedor-juridica');
 
-let botonIdentificacionFisica = document.querySelector('#rbtFisica');
-botonIdentificacionFisica.addEventListener('click', establecer_identificacion_fisica);
+    for(let i = 0; i < contenedores_juridicos.length; i++){
+        if(contenedores_juridicos[i].querySelector('input') != null){
+            contenedores_juridicos[i].querySelector('input').removeAttribute('required');
+        } else if(contenedores_juridicos[i].querySelector('textarea')){
+            contenedores_juridicos[i].querySelector('textarea').removeAttribute('required');
+        }
 
-let botonIdentificacionJuridica = document.querySelector('#rbtJuridica');
-botonIdentificacionJuridica.addEventListener('click', mostrar_campos_ced_juridica);
+        contenedores_juridicos[i].classList.add('ocultar');
+    }
+};
 
-let botonRegistrar = document.querySelector('#btnRegistrar');
+botonIdentificacion.addEventListener('click', establecer_identificacion);
 botonRegistrar.addEventListener('click', agregar_usuario);
+
+/*let ready = (callbackFunc) => {
+    if (document.readyState !== 'loading') {
+        // Document is already ready, call the callback directly
+        callbackFunc();
+    } else if (document.addEventListener) {
+        // All modern browsers to register DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', callbackFunc);
+    } else {
+        // Old IE browsers
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState === 'complete') {
+            callbackFunc();
+        }
+        });
+    }
+}*/
+
+/*ready(function() {
+    if(botonIdentificacion.value = ""){
+
+    }
+});*/
 
