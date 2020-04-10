@@ -67,10 +67,10 @@ let validar = () => {
 
 let limpiar = () => {
     txtPlaca.value = '';
-    sltTipoVehiculo = '';
     txtMarca.value = '';
     txtModelo.value = '';
     txtAnnoModelo.value = '';
+    txtColor.value = '';
 };
 
 let agregar_vehiculo = () => {

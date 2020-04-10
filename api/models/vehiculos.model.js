@@ -8,11 +8,6 @@ const schema_vehiculo = new mongoose.Schema({
         required: true,
         unique: true
     },
-    tipoVehiculo: {
-        type: String,
-        required: true,
-        unique: false
-    },
     marca: {
         type: String,
         required: true,
@@ -28,16 +23,11 @@ const schema_vehiculo = new mongoose.Schema({
         required: true,
         unique: false
     },
-    extras: [
-        {
-            detalle: {
-                type: String,
-                required: true,
-                unique: false
-            }
-        }
-    ],
-    estado: String,
+    color: { 
+        type: String,
+        required: true,
+        unique: false
+    },
     caracteristicas: [
         {
             vehiculo_caracteristica_id: {type: String, required: true, unique: true},

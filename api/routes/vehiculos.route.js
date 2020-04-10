@@ -8,12 +8,10 @@ router.post('/registrar/vehiculo', (req, res) => {
     let body = req.body;
     let nuevo_vehiculo = new Vehiculo({
         numeroPlaca: body.numeroPlaca,
-        tipoVehiculo: body.tipoVehiculo,
         marca: body.marca,
         modelo: body.modelo,
         annoModelo: body.annoModelo,
-        extras: body.extras,
-        estado: 'activo',
+        color: body.color,
         caracteristicas: body.caracteristicas,
     });
 

@@ -31,12 +31,10 @@ let registrar_vehiculos = async() => {
         headers: {},
         data: {
             numeroPlaca: txtPlaca.value.toUpperCase(),
-            tipoVehiculo: sltTipoVehiculo.value,
             marca: txtMarca.value.toLowerCase(),
             modelo: txtModelo.value.toLowerCase(),
             annoModelo: txtAnnoModelo.value,
-            extras: [{}],
-            estado: 'activo',
+            color: txtColor.value.toLowerCase(),
             caracteristicas: [{}]
         }   
     })
