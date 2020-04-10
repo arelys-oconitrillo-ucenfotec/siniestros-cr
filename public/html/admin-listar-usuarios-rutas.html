@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listar tipos de incidentes</title>
+        <title>Listar usuarios ruta</title>
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
@@ -22,24 +22,22 @@
                 <div class="w3-col l8"></div>
             </div>
         </header>
-        <main>
-            <section id="lista-tipo-incidente"> 
-                <table id="tbl-tipo-incidente" class="tabla-informacion">
-                    <thead>
-                        <tr>
-                            <th>Nombre Siniestro</th>
-                            <th>Icono</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </section>
-        </main>
+        <table id="tbl-usuarios" class="tabla-informacion">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Identificación</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script src="../js/admin.tipo_incidentes.servicio.js"></script>
-        <script src="../js/admin.listar.tipo_incidentes.controlador.js"></script>
+        <script src="../js/admin.usuario_ruta.servicio.js"></script>
+        <script src="../js/admin.listar.usuarios_rutas.controlador.js"></script>
     </body>
 
 </html>
