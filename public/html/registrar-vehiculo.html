@@ -48,44 +48,30 @@
                                     <label for="txtPlaca" class="form__label dim-gray-letra">Placa</label>
                                 </div>
                             </div>
-                            <!-- <div class="w3-col l6">
-                                <p>Seleccione un tipo de vehículo</p>
-                                <select name="pvehiculo" id="pvehiculo" onchange="cambio_vehiculo(this.id, 'pmarcas','pmodelos')">
-                                    <option value="0" selected>Elija Vehiculo</option>
-                                    <option value="automovil">Automovil</option>
-                                    <option value="motocicleta">Motocicleta</option>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Marca" name="txtMarca" id="txtMarca"  required>
+                                    <label for="txtMarca" class="form__label dim-gray-letra">Marca</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Modelo" name="txtModelo" id="txtModelo"  required>
+                                    <label for="txtModelo" class="form__label dim-gray-letra">Modelo</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <select id="sltCaractEspeciales" required>
+                                    <option value="">Seleccione las características espeiales</option>
+                                    <option value="4x4">4x4</option>
+                                    <option value="aireAcondicionado">Aire Acondicionado</option>
+                                    <option value="direcciónHidráulica">Dirección Hidráulica</option>
+                                    <option value="airBag">Air Bag</option>
+                                    <option value="llantasTubulares">Llantas Tubulares</option>
+                                    <option value="luzLed">Luz Led</option>
+                                    <option value="radio">Radio</option>
                                 </select>
-                            </div>-->
-
-                            <div>
-                                <p>Seleccione una marca</p>
-                                <select name="pmarcas" id="pmarcas"></select>
-
-                            </div>
-
-                            <div>
-                                <p>Seleccione un modelo</p>
-                                <select name="pmodelos" id="pmodelos"></select>
-                                <optgroup label="Modelos"></optgroup>
-                            </div>
-
-                            <div>
-                                <p>Seleccione las extras(Tecla Crtl + boton derecho mouse)</p>
-                                <select name="pextras" id="pextras" multiple="multiple">
-                                    <optgroup label="Automoviles">
-                                        <option value="4x4">4x4</option>
-                                        <option value="aireacondicionado">Aire Acondicionado</option>
-                                        <option value="direccionhidraulica">Dirección Hidraulica</option>
-                                        <option value="airbag">Air Bag</option>
-                                    </optgroup>
-                                    <optgroup label="Motocicletas">
-                                        <option value="tubulares">Llantas Tubulares</option>
-                                        <option value="led">Luz Led</option>
-                                        <option value="radio">Radio</option>
-                                        <option value="electrica">Eléctrica</option>
-                                    </optgroup>
-                                </select>
-                            </div>
+                            </div>  
                             <div class="btn2">
                                 <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
                             </div>
