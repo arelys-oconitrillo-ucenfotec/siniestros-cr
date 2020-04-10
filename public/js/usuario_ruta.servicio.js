@@ -29,11 +29,7 @@ let registrar_usuario_ruta = async() => {
         url: 'http://localhost:3000/api/registrar/usuario-ruta',
         headers: {},
         data: {
-            tipo_identificacion: sltTipoIdentificacion.value,
             identificacion: txtIdentificacion.value,
-            razon_social: txtRazonSocial.value,
-            nombre_comercial: txtNombreComercial.value,
-            info_aponderado: txtInfoAponderado.value,
             primer_nombre: txtPrimerNombre.value,
             segundo_nombre: txtSegundoNombre.value,
             primer_apellido: txtPrimerApellido.value,

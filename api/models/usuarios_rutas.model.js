@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 
 const schema_usuario_ruta = new mongoose.Schema({
-    tipo_identificacion: { type: String, required: true, unique: false },
     identificacion: { type: String, required: true, unique: true },
     primer_nombre: { type: String, required: true, unique: false },
     segundo_nombre: { type: String, required: false, unique: false },

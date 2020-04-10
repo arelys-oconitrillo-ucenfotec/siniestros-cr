@@ -63,6 +63,9 @@ function handleError(res, reason, message, code) {
 const usuarios_normales = require('./routes/usuarios_normales.route');
 app.use('/api', usuarios_normales);
 
+const usuarios_rutas = require('./routes/usuarios_rutas.route');
+app.use('/api', usuarios_rutas);
+
 const vehiculo = require('./routes/vehiculos.route');
 app.use('/api', vehiculo);
 
