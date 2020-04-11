@@ -174,7 +174,8 @@ router.post('/agregar/tarjeta', function(req, res) {
             'tarjetas': {
                 tipoTarjeta: req.body.tipoTarjeta,
                 numeroTarjeta: req.body.numeroTarjeta,
-                fechaExp: req.body.fechaExp
+                fechaExp: req.body.fechaExp,
+                codigoCVV: req.body.codigoCVV
             }
         }
 
