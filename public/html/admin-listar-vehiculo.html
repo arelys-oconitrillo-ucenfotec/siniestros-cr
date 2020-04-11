@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listar características de vehículo</title>
+        <title>Listar Vehículos</title>
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
@@ -17,26 +17,33 @@
         <header class="header-registro sienna">
             <div class="w3-row">
                 <div class="w3-col l4 w3-center tan-letra">
-                    <h1>Vehículos</h1>
+                    <h1>Siniestros Viales CR</h1>
                 </div>
                 <div class="w3-col l8"></div>
             </div>
         </header>
         <main>
-            <section id="lista-vehiculos"> 
-                <table id="tbl-listar" class="tabla-informacion">
-                    <thead>
-                        <tr>
-                            <th>Placa</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Año</th>
-                            <th>Caracteristicas</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <section id="lista-vehiculos">
+                <div class="w3-row">
+                    <div class="w3-col l12">
+                        <div class="contenedor-tbl-centrada">
+                            <table id="tbl-listar" class="tabla-informacion">
+                                <thead>
+                                    <tr>
+                                        <th>Placa</th>
+                                        <th>Marca</th>
+                                        <th>Modelo</th>
+                                        <th>Año</th>
+                                        <th>Caracteristicas</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
