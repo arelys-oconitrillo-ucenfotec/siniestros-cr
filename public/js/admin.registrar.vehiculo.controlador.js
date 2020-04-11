@@ -4,6 +4,7 @@ const pvehiculo = document.getElementById("pvehiculo");
 const pmarcas = document.getElementById("pmarcas");
 const pmodelos = document.getElementById("pmodelos");
 
+const contenedorCaracteristicas = document.querySelector('#contenedorCaracteristicas');
 const botonRegistrar = document.querySelector('#btnRegistrar');
 
 function cambio_vehiculo(s1, s2, s3) {
@@ -43,6 +44,29 @@ function cambio_vehiculo(s1, s2, s3) {
 
     }
 
+};
+
+let mostrar_caracteristicas = async() => {
+    let caracteristicas = await listar_vehiculo_caracteristicas();
+    contenedorCaracteristicas.innerHTML = '';
+
+    for (let i = 0; i < caracteristicas.length; i++) {
+        let id = caracteristicas[i]['_id'];
+        let value = caracteristicas[i]['caracteristica'];
+
+        let inputCheckbox = document.createElement('input');
+        inputCheckbox.type = 'checkbox';
+        inputCheckbox.id = id;
+        inputCheckbox.name = id;
+        inputCheckbox.value = value;
+
+        let lblCheckbox = document.createElement('label');
+        lblCheckbox.setAttribute('for', id);
+        lblCheckbox.innerText = value;
+
+        contenedorCaracteristicas.appendChild(inputCheckbox);
+        contenedorCaracteristicas.appendChild(lblCheckbox);
+    }
 };
 
 let validar = () => {
@@ -87,5 +111,8 @@ let agregar_vehiculo = () => {
 
 };
 
-
 botonRegistrar.addEventListener('click', agregar_vehiculo);
+
+ready(function() {
+    mostrar_caracteristicas();
+});
