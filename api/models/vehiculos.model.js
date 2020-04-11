@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const schema_vehiculo = new mongoose.Schema({
     numeroPlaca: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
     },
@@ -19,7 +19,7 @@ const schema_vehiculo = new mongoose.Schema({
         unique: false
     },
     annoModelo: {
-        type: Date,
+        type: Number,
         required: true,
         unique: false
     },

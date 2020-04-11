@@ -1,5 +1,20 @@
 'use strict';
 
+let obtener_caracteristicas_seleccionadas = () => {
+    let caracteristicasSeleccionadas = document.querySelectorAll('#contenedorCaracteristicas input[type=checkbox]:checked');
+    let arrayCaracteristicas = [];
+
+    if(caracteristicasSeleccionadas){
+        for(let i = 0; i < caracteristicasSeleccionadas.length; i++){
+            let vehiculo_caracteristica_id = caracteristicasSeleccionadas[i].id;
+            let vehiculo_caracteristica = caracteristicasSeleccionadas[i].value;
+            arrayCaracteristicas[i] = {vehiculo_caracteristica_id, vehiculo_caracteristica};
+        }
+    }
+
+    return arrayCaracteristicas;
+}
+
 let listar_vehiculos = async() => {
     let vehiculos;
 
@@ -24,18 +39,18 @@ let listar_vehiculos = async() => {
 };
 
 
-let registrar_vehiculos = async() => {
+let registrar_vehiculo = async() => {
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar/vehiculo',
         headers: {},
         data: {
             numeroPlaca: txtPlaca.value.toUpperCase(),
-            marca: txtMarca.value.toLowerCase(),
-            modelo: txtModelo.value.toLowerCase(),
+            marca: primera_letra_mayuscula(txtMarca.value),
+            modelo: primera_letra_mayuscula(txtModelo.value),
             annoModelo: txtAnnoModelo.value,
-            color: txtColor.value.toLowerCase(),
-            caracteristicas: [{}]
+            color: primera_letra_mayuscula(txtColor.value),
+            caracteristicas: obtener_caracteristicas_seleccionadas()
         }   
     })
     .then(function(response) {
