@@ -1,6 +1,6 @@
 'use strict';
 
-const tbody = document.querySelector('#tbl-tipo-incidente tbody');
+const tbody = document.querySelector('#tbl-listar tbody');
 
 let mostrar_datos = async() => {
     let tipo_incidentes = await listar_tipo_incidentes();

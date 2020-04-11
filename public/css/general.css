@@ -121,6 +121,26 @@ h6 {
     color: #000;
 }
 
+#tbl-listar {
+    border-collapse: collapse;
+  }
+  
+  #tbl-listar td, #tbl-listar th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #tbl-listar tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #tbl-listar tr:hover {background-color: #ddd;}
+  
+  #tbl-listar th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #a5796d;
+    color: white;
+  }
 /*---------------------FIN VARIABLES-----------------------*/
 
 /*---------------------INPUT STYLE-------------------------*/

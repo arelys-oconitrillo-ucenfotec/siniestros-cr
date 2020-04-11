@@ -1,5 +1,5 @@
 'use strict';
-const tbody = document.querySelector('#tbl-usuarios tbody');
+const tbody = document.querySelector('#tbl-listar tbody');
 
 let mostrar_datos = async() => {
     let usuarios = await listar_usuarios_rutas();

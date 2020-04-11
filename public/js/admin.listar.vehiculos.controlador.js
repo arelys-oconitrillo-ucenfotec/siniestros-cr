@@ -1,6 +1,6 @@
 'use strict';
 
-const tbody = document.querySelector('#tbl-vehiculos tbody');
+const tbody = document.querySelector('#tbl-listar tbody');
 
 let mostrar_caracteristicas = (caracteristicas) => {
     let contenedor_caracteristicas = document.createElement('div');
