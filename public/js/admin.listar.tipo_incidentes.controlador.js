@@ -8,8 +8,9 @@ let mostrar_datos = async() => {
 
     for (let i = 0; i < tipo_incidentes.length; i++) {
         let fila = tbody.insertRow();
-        fila.insertCell().innerHTML = tipo_incidentes[i]['nombre_siniestro'];
-        fila.insertCell().innerHTML = tipo_incidentes[i]['icono'];
+        fila.insertCell().innerHTML = '<p>' + tipo_incidentes[i]['nombre_siniestro'] + '</p>';
+        fila.insertCell().innerHTML = '<p>' + tipo_incidentes[i]['icono'] + '</p>';
+        fila.insertCell().innerHTML = '<p>Acciones</p>';
     }
 };
 

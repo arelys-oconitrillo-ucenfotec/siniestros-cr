@@ -11,6 +11,7 @@ let mostrar_datos = async() => {
         fila.insertCell().innerHTML = usuarios[i]['primer_apellido'];
         fila.insertCell().innerHTML = usuarios[i]['identificacion'];
         fila.insertCell().innerHTML = usuarios[i]['correo'];
+        fila.insertCell().innerHTML = '<p>Acciones</p>';
     }
 };
 
