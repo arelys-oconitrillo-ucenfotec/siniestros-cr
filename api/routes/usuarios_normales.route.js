@@ -169,7 +169,7 @@ router.post('/validar_credenciales', function (req, res) {
 /* Inicio--- Agregar, Modificar, Borrar tarjetas de credito del registro del Usuario*/
 
 router.post('/agregar/tarjeta', function(req, res) {
-    UsuarioNormal.update({ _id: req.body._id }, {
+    UsuarioNormal.update({ identificacion: req.body.identificacion }, {
         $push: {
             'tarjetas': {
                 tipoTarjeta: req.body.tipoTarjeta,
