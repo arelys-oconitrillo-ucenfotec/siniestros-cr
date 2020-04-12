@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/listar-usuarios",
+					"raw": "http://localhost:3000/api/listar/usuarios-normales",
 					"protocol": "http",
 					"host": [
 						"localhost"

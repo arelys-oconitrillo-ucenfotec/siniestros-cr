@@ -216,23 +216,26 @@ router.get('/listar/tarjeta', (req, res) => {
     });
 });
 
+
+/* busqueda de tarjeta, pasando el parémetro  de Identificacion */
+
 router.get('/buscar/tarjeta/:tarjeta', function(req, res) {
     let tarjeta = req.params.tarjetas;
-    let u_id = req.params._id;
+    let identificacion = req.params.identificacion;
 
-    UsuarioNormal.find ({ _id: u_id,
-                    tarjetas: tarjeta }, function(err, usuario_normalDB) {
+    UsuarioNormal.find ({ identificacion: identificacion,
+                    tarjetas: tarjeta }, function(err, lista_tarjetas) {
 
                 if (err) {
                 return res.json({
                     success: false,
-                    msj: 'No se encontró ninguna tarjeta para ese cliente',
+                    msj: 'No se encontró ninguna tarjeta para ese Usuario',
                     err
                 })
             } else {
                 return res.json ({
                     success: true,
-                    cliente: personaDB
+                    tarjetasC: lista_tarjetas
                 });
             }
         })
@@ -240,9 +243,9 @@ router.get('/buscar/tarjeta/:tarjeta', function(req, res) {
 
 router.delete('/eliminar/tarjeta', function (req, res) {
     let body = req.body;
+    let identificacion = body.identificacion;
     
-    UsuarioNormal.deleteOne({
-        tarjetas: body.tarjetas
+    UsuarioNormal.deleteOne({identificacion: identificacion, tarjetas: body.tarjetas
     }).then(resultado => {
 
         if (resultado.deletedCount == 1) {
