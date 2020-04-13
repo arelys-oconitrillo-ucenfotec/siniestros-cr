@@ -13,15 +13,11 @@ const schema_usuario_especializado = new mongoose.Schema({
     correo: { type: String, required: true, unique: true },
     telefono: { type: Number, required: true, unique: false },
     fotografia: { type: String, required: true, unique: false },
-    usuario_especializado: { 
-        tipo: { type: String, required: false, unique: false },
-        direccion: {
-            provincia: { type: String, required: false, unique: false },
-            canton: { type: String, required: false, unique: false },
-            distrito: { type: String, required: false, unique: false },
-            otras_senas: { type: String, required: false, unique: false }
-        } 
-    },
+    tipo: { type: String, required: false, unique: false },
+    provincia: { type: String, required: false, unique: false },
+    canton: { type: String, required: false, unique: false },
+    distrito: { type: String, required: false, unique: false },
+    otras_senas: { type: String, required: false, unique: false },
     codigo_activacion: { type: String, required: true, unique: false },
     contrasena: { type: String, required: true, unique: false },
     estado: { type: String, required: true, unique: false }

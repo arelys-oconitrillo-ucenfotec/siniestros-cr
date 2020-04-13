@@ -10,6 +10,7 @@ let mostrar_datos = async() => {
         for (let i = 0; i < vehiculo_caracteristicas.length; i++) {
             let fila = tbody.insertRow();
             fila.insertCell().innerHTML = vehiculo_caracteristicas[i]['caracteristica'];
+            fila.insertCell().innerHTML = '<p>Acciones</p>';
         }
     }
 };
