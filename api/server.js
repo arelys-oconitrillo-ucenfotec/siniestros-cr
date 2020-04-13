@@ -66,6 +66,9 @@ app.use('/api', usuarios_normales);
 const usuarios_rutas = require('./routes/usuarios_rutas.route');
 app.use('/api', usuarios_rutas);
 
+const usuarios_especializados = require('./routes/usuarios_especializados.route');
+app.use('/api', usuarios_especializados);
+
 const vehiculo_caracteristicas = require('./routes/vehiculos_caracteristicas.route');
 app.use('/api', vehiculo_caracteristicas);
 

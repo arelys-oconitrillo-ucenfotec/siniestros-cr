@@ -107,34 +107,6 @@ router.delete('/eliminar/usuario-normal', function (req, res) {
     });
 });
 
-router.put('/agregar/especializado', function (req, res) {
-    if (req.body._id) {
-        UsuarioNormal.updateOne({
-            _id: req.body._id
-        }, {
-            $set: req.body
-        }, function (error) {
-            if (error) {
-                return res.json({
-                    resultado: false,
-                    msj: 'No se pudo agregar el usuario_normal especializado',
-                    error
-                });
-            } else {
-                return res.json({
-                    resultado: true,
-                    msj: 'Se agregó correctamente el usuario_normal especializado'
-                });
-            }
-        })
-    } else {
-        return res.json({
-            resultado: false,
-            msj: 'No se pudo agregar el usuario_normal especializado, por favor verifique que el _id sea correcto'
-        });
-    }
-});
-
 router.post('/validar_credenciales', function (req, res) {
     let body = req.body;
 
