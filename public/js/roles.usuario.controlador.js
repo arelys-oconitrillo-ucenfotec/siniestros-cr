@@ -31,12 +31,12 @@ if (conectado) {
             break; //
     }
 } else {
-    window.location.href = 'inicio-sesion.html';
+    window.location.href = 'registrar-usuarios-normales.html';
 }
 
 function cerrar_sesion() {
     sessionStorage.clear();
-    window.location.href = 'inicio-sesion.html';
+    window.location.href = 'registrar-usuarios-normales.html';
 };
 
 botonCerrarSesion.addEventListener('click', cerrar_sesion);

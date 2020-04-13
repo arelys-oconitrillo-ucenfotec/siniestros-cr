@@ -17,13 +17,16 @@ function validar_credenciales(pcorreo, pcontrasena) {
 
     peticion.done(function (response) {
         respuesta = response;
-        sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
-        sessionStorage.setItem('tipo_usuario', response.usuario.rol);
+        if(respuesta.success){
+            sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
+            sessionStorage.setItem('tipo_usuario', response.usuario_normal.rol);
+            nombre, apellido1, email
+        }
     });
 
     peticion.fail(function (response) {
         respuesta = response;
-        //console.log("Request fail error:" + _error);
+        console.log("Request fail error:" + respuesta);
     });
 
     return respuesta;

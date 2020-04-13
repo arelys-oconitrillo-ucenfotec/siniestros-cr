@@ -5,18 +5,12 @@ const inputContrasena = document.getElementById('txtContrasena');
 const botonIngresar = document.getElementById('btnIngresar');
 
 function obtenerDatos() {
+    console.log("obtenerDatos");
     let correo = inputCorreo.value;
     let contrasena = inputContrasena.value;
 
-    let errorBlancos = validar(correo, contrasena);
+    let errorBlancos = validarUsuario(correo, contrasena);
     let usuarioAceptado = false;
-
-    if (!errorBlancos) {
-        usuarioAceptado = validar_credenciales(correo, contrasena);
-        if (usuarioAceptado) {
-            window.location.href = 'bienvenido-sesion.html';
-        }
-    }
 
     if (errorBlancos) {
         Swal.fire({
@@ -24,12 +18,23 @@ function obtenerDatos() {
             'text': 'Revisar los campos resaltados en ROJO',
             'icon': 'warning'
         });
-        //}
+    } else {
+        let respuesta = validar_credenciales(correo,contrasena);
+        usuarioAceptado = respuesta.success;
+        if (usuarioAceptado) {
+            window.location.href = 'bienvenido-sesion.html';
+        } else {
+            Swal.fire({
+                'title': 'Sus datos no se pueden validar',
+                'text': 'Usuario o contraseña incorrectos',
+                'icon': 'warning'
+            });
+        }
     }
 
 };
 
-function validar(pcorreo, pcontrasena) {
+function validarUsuario(pcorreo, pcontrasena) {
     let error = false;
 
     if (pcorreo == '') {
