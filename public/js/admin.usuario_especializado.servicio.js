@@ -1,14 +1,14 @@
 'use strict';
-let listar_usuarios_normales = async() => {
-    let usuarios_normales;
+let listar_usuarios_especializados = async() => {
+    let usuarios_especializados;
 
     await axios({
         method: 'get',
-        url: 'http://localhost:3000/api/listar/usuarios-normales',
+        url: 'http://localhost:3000/api/listar/usuarios-especializados',
         responseType: 'json'
     }).then(function(res) {
         console.log(res);
-        usuarios_normales = res.data.lista_usuarios_normales;
+        usuarios_especializados = res.data.lista_usuarios_especializados;
     })
     .catch(function(err) {
         console.log(err);
@@ -19,21 +19,17 @@ let listar_usuarios_normales = async() => {
         });
     });
 
-    return usuarios_normales;
+    return usuarios_especializados;
 };
 
-let registrar_usuario_normal = async() => {
+let registrar_usuario_especializado = async() => {
     let response;
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/registrar/usuario-normal',
+        url: 'http://localhost:3000/api/registrar/usuario-especializado',
         headers: {},
         data: {
-            tipo_identificacion: sltTipoIdentificacion.value,
             identificacion: txtIdentificacion.value,
-            razon_social: txtRazonSocial.value,
-            nombre_comercial: txtNombreComercial.value,
-            info_aponderado: txtInfoAponderado.value,
             primer_nombre: txtPrimerNombre.value,
             segundo_nombre: txtSegundoNombre.value,
             primer_apellido: txtPrimerApellido.value,
@@ -42,7 +38,12 @@ let registrar_usuario_normal = async() => {
             correo: txtEmail.value,
             telefono: txtTelefono.value,
             fotografia: txtUrlImg.value,
-            rol: 'normal',
+            rol: 'especializado',
+            tipo: sltTipoEspecializado.value,
+            provincia: sltProvincia.value,
+            canton: sltCanton.value,
+            distrito: sltDistrito.value,
+            otras_senas: txtOtrasSenas.value,
             codigo_activacion: ' ',
             contrasena: ' ',
             estado: 'inactivo'

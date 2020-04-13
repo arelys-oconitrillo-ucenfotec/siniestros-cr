@@ -7,7 +7,6 @@ const UsuarioEspecializado = require('../models/usuarios_especializados.model');
 router.post('/registrar/usuario-especializado', (req, res) => {
     let body = req.body;
     let nuevo_usuario_especializado = new UsuarioEspecializado({
-        tipo_identificacion: body.tipo_identificacion,
         identificacion: body.identificacion,
         razon_social: body.razon_social,
         nombre_comercial: body.nombre_comercial,
