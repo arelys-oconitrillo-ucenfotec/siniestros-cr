@@ -13,7 +13,7 @@ let obtener_caracteristicas_seleccionadas = () => {
     }
 
     return arrayCaracteristicas;
-}
+};
 
 let listar_vehiculos = async() => {
     let vehiculos;
@@ -40,6 +40,7 @@ let listar_vehiculos = async() => {
 
 
 let registrar_vehiculo = async() => {
+    let vehiculo_registrado = false;
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar/vehiculo',
@@ -56,28 +57,88 @@ let registrar_vehiculo = async() => {
     .then(function(response) {
         console.log(response);
         if(response.data.resultado){
-            Swal.fire({
-                'title': 'Proceso realizado con éxito',
-                'text': 'Sus datos se enviaron adecuadamente',
-                'icon': 'success'
-            }).then(() => {
-                limpiar();
-            });
-        } else {
-            Swal.fire({
-                'title': 'Sus datos no se pudieron enviar',
-                'text': 'Ocurrió un error, es posible que sus datos sean incorrectos o ya existen',
-                'icon': 'warning'
-            });
+            vehiculo_registrado = true;
         }
-        
     })
     .catch(function(error) {
         console.log(error);
-        Swal.fire({
-            'title': 'Sus datos no se pudieron guardar',
-            'text': 'Ocurrió un error de conexión',
-            'icon': 'error'
-        });
     });
-}
+
+    return vehiculo_registrado;
+};
+
+let registrar_vehiculo_usuario = async(id, vehiculos) => {
+    await axios({
+        method: 'put',
+        url: 'http://localhost:3000/api/modificar/usuario-normal',
+        headers: {},
+        data: {
+          _id: id,
+          vehiculos: vehiculos
+        }   
+    })
+    .then(function(res) {
+        console.log(res);
+        if(res.data.resultado){
+            Swal.fire({
+                'title': 'Vehículo registrado',
+                'text': 'El vehículo fue registrado a su nombre exitosamente',
+                'icon': 'info'
+            });
+            limpiar();
+        } else {
+            Swal.fire({
+                'title': 'Error al registrar el vehiculo',
+                'text': 'No fue posible registrar el vehículo',
+                'icon': 'warning'
+            });
+        }
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+};
+
+let listar_usuarios = async() => {
+    let usuarios_normales;
+
+    await axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/listar/usuarios-normales',
+        responseType: 'json'
+    }).then(function(res) {
+        console.log(res);
+        usuarios_normales = res.data.lista_usuarios_normales;
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+
+    return usuarios_normales;
+};
+
+let obtener_usuario_actual = async() => {
+    //TO DO: Traer usuario desde la cookie de login, por ahora voy quemarlo aqui
+    let id_test = '5e93ca3c5bacb46d1075cc88';
+    let propietario;
+
+    let pUrl = 'http://localhost:3000/api/obtener/propietario-vehiculo/' + id_test;
+
+    await axios({
+        method: 'get',
+        url: pUrl,
+        responseType: 'json'
+    })
+    .then(function(response) {
+        if(response.data.existe){
+            propietario = response.data.propietario
+        }
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+
+    return propietario;
+};
+
+let enviar_notificacion = () => {};

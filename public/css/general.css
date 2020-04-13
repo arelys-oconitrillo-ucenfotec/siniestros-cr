@@ -464,5 +464,28 @@ header {
 
 /*---------------------FIN CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
 
+/*---------------------CSS ADMI REGISTRAR VEHICULO-------------------*/
+#registrar-vehiculo h2 {
+    color: dimgray;
+    text-align: center;
+}
 
+#registrar-vehiculo h3 {
+    color: dimgray;
+    text-align: center;
+}
 
+#registrar-vehiculo #frm-vehiculo .form__group {
+    width: 50%;
+}
+
+#registrar-vehiculo #contenedorCaracteristicas {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-checkbox input {
+    margin-right: 5px;
+}
+
+/*---------------------FIN CSS ADMI REGISTRAR VEHICULO-------------------*/

@@ -27,6 +27,11 @@ const schema_usuario_normal = new mongoose.Schema({
             codigoCVV: { type: Number, require: false, unique: false }
         }
     ],
+    vehiculos: [
+        {
+            placa: {type: String, require: false, unique: false }
+        }
+    ],
     estado: { type: String, required: true, unique: false }
 });
 

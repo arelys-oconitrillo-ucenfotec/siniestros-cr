@@ -30,8 +30,8 @@ const schema_vehiculo = new mongoose.Schema({
     },
     caracteristicas: [
         {
-            vehiculo_caracteristica_id: {type: String, required: true, unique: true},
-            vehiculo_caracteristica: {type: String, required: true, unique: true}
+            vehiculo_caracteristica_id: {type: String, required: true, unique: false},
+            vehiculo_caracteristica: {type: String, required: true, unique: false}
         }
     ]
 });
