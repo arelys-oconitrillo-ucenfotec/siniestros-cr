@@ -222,7 +222,7 @@ router.get('/listar/tarjeta', (req, res) => {
 router.get('/buscar/tarjeta/:tarjeta', function(req, res) {
     let tarjeta = req.params.tarjetas;
     let identificacion = req.params.identificacion;
-
+/* buscar el usuario completo esto me facilita el poder manipular la informacion del usuario*/
     UsuarioNormal.find ({ identificacion: identificacion,
                     tarjetas: tarjeta }, function(err, lista_tarjetas) {
 

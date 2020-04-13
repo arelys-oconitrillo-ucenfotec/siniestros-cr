@@ -4,7 +4,7 @@ let registrar_tarjetaCredito = async (pidentificacion, ptipoTarjeta, pnumeroTarj
 
     await axios({
         method: 'post',
-        url : 'http://localhost:3000/api/registrar/tarjeta',
+        url : 'http://localhost:3000/api/agregar/tarjeta',
         reponseType: 'json',
         data: {
             'identificacion' : pidentificacion,
