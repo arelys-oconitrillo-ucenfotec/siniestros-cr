@@ -3,7 +3,11 @@
 const mongoose = require('mongoose');
 
 const schema_usuario_especializado = new mongoose.Schema({
+    tipo_identificacion: { type: String, required: true, unique: false },
     identificacion: { type: String, required: true, unique: true },
+    razon_social: { type: String, required: false, unique: false },
+    nombre_comercial: { type: String, required: false, unique: false },
+    info_aponderado: { type: String, required: false, unique: false },
     primer_nombre: { type: String, required: true, unique: false },
     segundo_nombre: { type: String, required: false, unique: false },
     primer_apellido: { type: String, required: true, unique: false },

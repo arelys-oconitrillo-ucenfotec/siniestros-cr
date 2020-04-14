@@ -20,7 +20,6 @@ let validar = () => {
             if (campos_requeridos[i].id == 'txtInfoAponderado'){
                 campos_requeridos[i].classList.add('input-error');
             }
-            
             error = true;
         } else {
             label_campo_requerido.classList.remove('label-error');

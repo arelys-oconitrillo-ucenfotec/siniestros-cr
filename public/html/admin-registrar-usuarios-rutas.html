@@ -66,9 +66,37 @@
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltTipoIdentificacion" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="física">Física</option>
+                                        <option value="jurídica">Jurídica</option>
+                                    </select>
+                                    <label id= "lblTipoIdentificacion" for="sltTipoIdentificacion" class="form__label dim-gray-letra">Tipo Identificación</label>
+                                </div>
+                            </div>
+                            <div id="contenedor-identificacion" class="w3-row campo-frm ocultar">
                                 <div class="form__group field">
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Identificación" name="txtIdentificacion" id="txtIdentificacion" required>
                                     <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Razón social" name="txtRazonSocial" id="txtRazonSocial">
+                                    <label for="txtRazonSocial" class="form__label dim-gray-letra">Razón Social</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Nombre Comercial" name="txtNombreComercial" id="txtNombreComercial">
+                                    <label for="txtNombreComercial" class="form__label dim-gray-letra">Nombre Comercial</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
+                                <div class="form__group field">
+                                    <label class="form__label dim-gray-letra" for="txtInfoAponderado"></label>
+                                    <textarea name="txtInfoAponderado" id="txtInfoAponderado" rows="3" placeholder="Información general del aponderado" class="dim-gray-letra beige"></textarea>
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">

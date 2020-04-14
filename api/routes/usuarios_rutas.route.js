@@ -7,7 +7,11 @@ const UsuarioRuta = require('../models/usuarios_rutas.model');
 router.post('/registrar/usuario-ruta', (req, res) => {
     let body = req.body;
     let nuevo_usuario_ruta = new UsuarioRuta({
+        tipo_identificacion: body.tipo_identificacion,
         identificacion: body.identificacion,
+        razon_social: body.razon_social,
+        nombre_comercial: body.nombre_comercial,
+        info_aponderado: body.info_aponderado,
         primer_nombre: body.primer_nombre,
         segundo_nombre: body.segundo_nombre,
         primer_apellido: body.primer_apellido,

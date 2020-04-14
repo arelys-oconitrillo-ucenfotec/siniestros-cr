@@ -4,6 +4,7 @@ funcion que envie un email para la activacion del usuario*/
 
 'use strict';
 
+const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 const botonRegistrar = document.querySelector('#btnRegistrar');
 
 let validar = () => {
@@ -16,10 +17,18 @@ let validar = () => {
         if (campos_requeridos[i].value == '') {
             label_campo_requerido.classList.add('label-error');
 
+            if (campos_requeridos[i].id == 'txtInfoAponderado'){
+                campos_requeridos[i].classList.add('input-error');
+            }
+
             error = true;
 
         } else {
             label_campo_requerido.classList.remove('label-error');
+
+            if (campos_requeridos[i].id == 'txtInfoAponderado'){
+                campos_requeridos[i].classList.remove('input-error');
+            }
         }
     }
 
@@ -62,6 +71,10 @@ let limpiar = () => {
     txtIdentificacion.value = "";
     txtUrlImg.value = "";
     document.querySelector('#field-genero input[type=radio]').checked = false;
+    sltTipoIdentificacion.value = "";
+    txtRazonSocial.value = "";
+    txtNombreComercial.value = "";
+    txtInfoAponderado.value = "";
 };
 
 let agregar_usuario = () => {
@@ -77,6 +90,48 @@ let agregar_usuario = () => {
     }
 };
 
+let establecer_identificacion = () => {
+    reiniciar_formulario_identificacion();
+
+    if(botonIdentificacion.value == ''){
+        document.querySelector('#contenedor-identificacion').classList.add('ocultar');
+        document.querySelector('#lblTipoIdentificacion').classList.remove('form__group_field_selected'); 
+    } else {
+        document.querySelector('#contenedor-identificacion').classList.remove('ocultar');
+        document.querySelector('#lblTipoIdentificacion').classList.add('form__group_field_selected'); 
+        
+        if(botonIdentificacion.value == 'jurídica'){
+            let contenedores_juridicos = document.querySelectorAll('.contenedor-juridica');
+    
+            for(let i = 0; i < contenedores_juridicos.length; i++){
+                if(contenedores_juridicos[i].querySelector('input') != null){
+                    contenedores_juridicos[i].querySelector('input').setAttribute('required', 'required');
+                } else if(contenedores_juridicos[i].querySelector('textarea') != null){
+                    contenedores_juridicos[i].querySelector('textarea').setAttribute('required', 'required');
+                }
+    
+                contenedores_juridicos[i].classList.remove('ocultar');
+            }
+        }
+    }
+};
+
+let reiniciar_formulario_identificacion = () => {
+    document.querySelector('#contenedor-identificacion').classList.add('ocultar');
+    let contenedores_juridicos = document.querySelectorAll('.contenedor-juridica');
+
+    for(let i = 0; i < contenedores_juridicos.length; i++){
+        if(contenedores_juridicos[i].querySelector('input') != null){
+            contenedores_juridicos[i].querySelector('input').removeAttribute('required');
+        } else if(contenedores_juridicos[i].querySelector('textarea')){
+            contenedores_juridicos[i].querySelector('textarea').removeAttribute('required');
+        }
+
+        contenedores_juridicos[i].classList.add('ocultar');
+    }
+};
+
+botonIdentificacion.addEventListener('input', establecer_identificacion);
 botonRegistrar.addEventListener('click', agregar_usuario);
 
 /*let ready = (callbackFunc) => {
