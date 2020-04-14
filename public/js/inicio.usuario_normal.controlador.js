@@ -56,31 +56,4 @@ let validarUsuario = () => {
       
 };
 
-
-/*function validarUsuario(pcorreo, pcontrasena) {
-    let error = false;
-
-    if (pcorreo == '') {
-        error = true;
-        inputCorreo.classList.add('error_input');
-    } else {
-        inputCorreo.classList.remove('error_input');
-    }
-
-    if (!/^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/.test(inputCorreo.value)) {
-        inputCorreo.classList.add('error_input');
-        error = true;
-    }
-
-    if (pcontrasena == '') {
-        error = true;
-        inputContrasena.classList.add('error_input');
-    } else {
-        inputContrasena.classList.remove('error_input');
-    }
-
-    return error;
-
-};*/
-
 botonIngresar.addEventListener('click', obtenerDatos);
