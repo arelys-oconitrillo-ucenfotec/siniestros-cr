@@ -5,6 +5,9 @@ funcion que envie un email para la activacion del usuario*/
 'use strict';
 
 const botonRegistrar = document.querySelector('#btnRegistrar');
+const botonProvincias = document.querySelector('#sltProvincia');
+const botonCantones = document.querySelector('#sltCanton');
+const botonDistritos = document.querySelector('#sltDistrito');
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -76,6 +79,18 @@ let limpiar = () => {
     txtOtrasSenas.value = "";
 };
 
+let cargarCantones = () => {
+    let html_cantones = obtener_html_cantones(sltProvincia.value);
+    botonCantones.innerHTML = '';
+    botonCantones.innerHTML = html_cantones;
+};
+
+let cargarDistritos = () => {
+    let html_distritos = obtener_html_distritos(sltProvincia.value, sltCanton.value);
+    botonDistritos.innerHTML = '';
+    botonDistritos.innerHTML = html_distritos;
+}; 
+
 let agregar_usuario = () => {
     let error_validacion = validar();
     if (error_validacion) {
@@ -90,6 +105,9 @@ let agregar_usuario = () => {
 };
 
 botonRegistrar.addEventListener('click', agregar_usuario);
+botonProvincias.addEventListener('input', cargarCantones);
+botonCantones.addEventListener('input', cargarDistritos);
+
 
 /*let ready = (callbackFunc) => {
     if (document.readyState !== 'loading') {
