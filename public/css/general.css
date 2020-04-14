@@ -335,6 +335,7 @@ header {
 }
 
 .btn2-registro {
+    border: none;
     height: 55px;
     width: 100px;
     border-radius: 5px;
@@ -489,3 +490,31 @@ header {
 }
 
 /*---------------------FIN CSS ADMI REGISTRAR VEHICULO-------------------*/
+
+
+.btn-inicio-sesion {
+    border: none;
+    height: 35px;
+    width: 100px;
+    border-radius: 2px;
+    font-size: 15px;
+    background: #585551;
+}
+
+.btn-inicio-sesion:hover {
+    height: 38px;
+    width: 103px;
+    border-radius: 2px;
+    font-size: 15px;
+    background: #585551;
+}
+
+.btnInicio{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.margin{
+    margin-top: 10px;
+}

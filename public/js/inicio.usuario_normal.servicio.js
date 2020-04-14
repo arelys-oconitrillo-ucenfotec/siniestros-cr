@@ -20,7 +20,7 @@ function validar_credenciales(pcorreo, pcontrasena) {
         if(respuesta.success){
             sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
             sessionStorage.setItem('tipo_usuario', response.usuario_normal.rol);
-            nombre, apellido1, email
+            //nombre, apellido1, email
         }
     });
 

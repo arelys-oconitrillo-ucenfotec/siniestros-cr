@@ -34,7 +34,30 @@ function obtenerDatos() {
 
 };
 
-function validarUsuario(pcorreo, pcontrasena) {
+let validarUsuario = () => {
+    let campos_requeridos = document.querySelectorAll('#frm-inicio-sesion [required]');
+    let error = false;
+
+    for (let i = 0; i < campos_requeridos.length; i++) {
+        if (campos_requeridos[i].value == '') {
+            campos_requeridos[i].classList.add('input-error');
+            error = true;
+        } else {
+            campos_requeridos[i].classList.remove('input-error');
+        }
+    }
+
+    if (!/^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/.test(inputCorreo.value)) {
+        inputCorreo.classList.add('input-error');
+        error = true;
+    }
+
+    return error;
+      
+};
+
+
+/*function validarUsuario(pcorreo, pcontrasena) {
     let error = false;
 
     if (pcorreo == '') {
@@ -58,6 +81,6 @@ function validarUsuario(pcorreo, pcontrasena) {
 
     return error;
 
-};
+};*/
 
 botonIngresar.addEventListener('click', obtenerDatos);
