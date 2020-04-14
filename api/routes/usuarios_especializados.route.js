@@ -118,12 +118,12 @@ router.post('/validar_credenciales', function (req, res) {
     UsuarioEspecializado.findOne({
         correo: req.body.correo
     }).then(
-        function (usuario_normal) {
-            if (usuario_normal) {
-                if (usuario_normal.contrasena == req.body.contrasena) {
+        function (usuario_especializado) {
+            if (usuario_especializado) {
+                if (usuario_especializado.contrasena == req.body.contrasena) {
                     res.json({
                         success: true,
-                        usuario_normal: usuario_normal
+                        usuario_especializado: usuario_especializado
                     });
                 } else {
                     res.json({

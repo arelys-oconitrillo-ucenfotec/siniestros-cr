@@ -491,6 +491,8 @@ header {
 
 /*---------------------FIN CSS ADMI REGISTRAR VEHICULO-------------------*/
 
+/*---------------------INICIO SESIÓN USUARIO NORMAL-------------------*/
+
 
 .btn-inicio-sesion {
     border: none;
@@ -520,3 +522,55 @@ header {
 .height-50{
     height: 50px;
 }
+
+/*---------------------FIN INICIO SESIÓN USUARIO NORMAL-------------------*/
+
+/*---------------------INICIO SESIÓN USUARIO RUTAS-------------------*/
+
+
+.contenedor_inicio_ruta{
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top-75{
+    margin-top: 75px;
+}
+
+.inicio_ruta{
+    margin-bottom: 30px;
+}
+
+.inicio_ruta label{ 
+    width: 100%;
+    font-size: 22px;
+}
+.inicio_ruta input{ 
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.btnInicioSesion{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.btn-inicio{
+    border: none;
+    height: 45px;
+    width: 128px;
+    border-radius: 2px;
+    font-size: 20px;
+    background: linear-gradient(180deg, #dec3af 0%, #71323D 100%);
+}
+
+.btn-inicio:hover {
+    height: 50px;
+    width: 133px;
+    border-radius: 2px;
+    font-size: 20px;
+    background: linear-gradient(180deg, #dec3af 0%, #71323D 100%);
+}
+/*---------------------FIN INICIO SESIÓN USUARIO NORMAL-------------------*/
