@@ -85,12 +85,14 @@ let limpiar = () => {
     txtTelefono.value = "";
     txtIdentificacion.value = "";
     txtUrlImg.value = "";
-    document.querySelector('#field-genero input[type=radio]').checked = false;
+    rbtFemenino.checked = false;
+    rbtMasculino.checked = false;
     sltTipoEspecializado.value = "";
     sltProvincia.value = "";
     sltCanton.value = "";
     sltDistrito.value = "";
     txtOtrasSenas.value = "";
+    document.querySelector('#icon-img').src = "../css/imgs/blank-profile-picture-973460_1280.png";
 };
 
 let cargarCantones = () => {
@@ -106,6 +108,7 @@ let cargarDistritos = () => {
 }; 
 
 let agregar_usuario = () => {
+    limpiar();
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({

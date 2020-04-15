@@ -70,11 +70,13 @@ let limpiar = () => {
     txtTelefono.value = "";
     txtIdentificacion.value = "";
     txtUrlImg.value = "";
-    document.querySelector('#field-genero input[type=radio]').checked = false;
+    rbtFemenino.checked = false;
+    rbtMasculino.checked = false;
     sltTipoIdentificacion.value = "";
     txtRazonSocial.value = "";
     txtNombreComercial.value = "";
     txtInfoAponderado.value = "";
+    document.querySelector('#icon-img').src = "../css/imgs/blank-profile-picture-973460_1280.png";
 };
 
 let agregar_usuario = () => {

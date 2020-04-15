@@ -22,7 +22,7 @@ let validar = () => {
 };
 
 let limpiar = () => {
-    document.querySelector('#icon-img').src = "";
+    document.querySelector('#icon-img').src = "../css/imgs/icon.png";
     txtNombreSiniestro.value = "";
     txtUrlImg.value = "";
 };

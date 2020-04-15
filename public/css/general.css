@@ -239,10 +239,6 @@ header {
 
 /*----------------------REGISTRO----------------------------------*/
 
-#registro {
-    height: 1150px;
-}
-
 #registro h2 {
     font-weight: bold;
     text-align: center;
@@ -351,7 +347,11 @@ header {
     background: linear-gradient(180deg, #dec3af 0%, #71323D 100%);
 }
 
-
+#icon-img{
+    
+    height: 200px;
+    width: 200px;
+}
 
 /*----------------------FIN REGISTRO----------------------------------*/
 
