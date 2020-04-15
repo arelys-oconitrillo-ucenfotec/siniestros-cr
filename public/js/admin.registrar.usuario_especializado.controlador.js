@@ -108,7 +108,6 @@ let cargarDistritos = () => {
 }; 
 
 let agregar_usuario = () => {
-    limpiar();
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({
