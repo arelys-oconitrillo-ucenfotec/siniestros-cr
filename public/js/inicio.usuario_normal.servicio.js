@@ -7,7 +7,6 @@ function validar_credenciales(pcorreo, pcontrasena) {
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
-        //responseType: 'json',
         async: false,
         data: {
             correo: pcorreo,
