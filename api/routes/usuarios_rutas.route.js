@@ -107,7 +107,7 @@ router.delete('/eliminar/usuario-ruta', function (req, res) {
     });
 });
 
-router.post('/validar_credenciales', function (req, res) {
+router.post('/validar_credenciales/ruta', function (req, res) {
     let body = req.body;
 
     UsuarioRuta.findOne({

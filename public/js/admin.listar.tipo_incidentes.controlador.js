@@ -2,6 +2,8 @@
 
 const tbody = document.querySelector('#tbl-listar tbody');
 
+obtener_menu();
+
 let mostrar_datos = async() => {
     let tipo_incidentes = await listar_tipo_incidentes();
     tbody.innerHTML = '';

@@ -5,7 +5,6 @@ const inputContrasena = document.getElementById('txtContrasena');
 const botonIngresar = document.getElementById('btnIngresar');
 
 function obtenerDatos() {
-    console.log("obtenerDatos");
     let correo = inputCorreo.value;
     let contrasena = inputContrasena.value;
 
@@ -22,7 +21,7 @@ function obtenerDatos() {
         let respuesta = validar_credenciales(correo,contrasena);
         usuarioAceptado = respuesta.success;
         if (usuarioAceptado) {
-            window.location.href = 'bienvenido-sesion.html';
+            window.location.href = 'admin-listar-tipo-incidente.html';
         } else {
             Swal.fire({
                 'title': 'Sus datos no se pueden validar',

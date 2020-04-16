@@ -50,7 +50,7 @@ router.post('/registrar/usuario-especializado', (req, res) => {
 
 });
 
-router.get('/listar/usuarios-normales', (req, res) => {
+router.get('/listar/usuarios-especializados', (req, res) => {
     UsuarioEspecializado.find((error, lista_usuarios_especializados) => {
         if (error) {
             res.json({
@@ -113,7 +113,7 @@ router.delete('/eliminar/usuario-especializado', function (req, res) {
 });
 
 
-router.post('/validar_credenciales', function (req, res) {
+router.post('/validar_credenciales/especializado', function (req, res) {
     let body = req.body;
 
     UsuarioEspecializado.findOne({

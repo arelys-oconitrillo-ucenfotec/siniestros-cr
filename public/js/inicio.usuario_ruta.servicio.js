@@ -3,7 +3,7 @@
 function validar_credenciales(pcorreo, pcontrasena) {
     let respuesta = '';
     let peticion = $.ajax({
-        url: 'http://localhost:3000/api/validar_credenciales',
+        url: 'http://localhost:3000/api/validar_credenciales/ruta',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
@@ -19,11 +19,11 @@ function validar_credenciales(pcorreo, pcontrasena) {
         respuesta = response;
         if(respuesta.success){
             sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
-            sessionStorage.setItem('tipo_usuario', response.usuario_normal.rol);
-            sessionStorage.setItem('nombre', response.usuario_normal.primer_nombre);
-            sessionStorage.setItem('nombre_comercial', response.usuario_normal.nombre_comercial);
-            sessionStorage.setItem('apellido', response.usuario_normal.primer_apellido);
-            sessionStorage.setItem('correo', response.usuario_normal.correo);
+            sessionStorage.setItem('tipo_usuario', "ruta");
+            sessionStorage.setItem('nombre', response.usuario_ruta.primer_nombre);
+            sessionStorage.setItem('nombre_comercial', response.usuario_ruta.nombre_comercial);
+            sessionStorage.setItem('apellido', response.usuario_ruta.primer_apellido);
+            sessionStorage.setItem('correo', response.usuario_ruta.correo);
         }
     });
 
