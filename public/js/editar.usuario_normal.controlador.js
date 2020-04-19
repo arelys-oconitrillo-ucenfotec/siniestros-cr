@@ -42,8 +42,6 @@ let llenar_campos = async() => {
 
 };
 
-llenar_campos();
-
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
     let input_genero = document.querySelector('#field-genero input[type=radio]:checked');
@@ -114,6 +112,19 @@ let limpiar = () => {
     document.querySelector('#icon-img').src = "../css/imgs/blank-profile-picture-973460_1280.png";
 };
 
+let modificar_usuario = () => {
+    let error_validacion = validar();
+    if (error_validacion) {
+        Swal.fire({
+            'title': 'Sus datos no se pudieron enviar',
+            'text': 'Por favor revise los campos resaltados',
+            'icon': 'warning'
+        });
+    } else {
+        
+    }
+};
+
 let establecer_identificacion = () => {
     reiniciar_formulario_identificacion();
 
@@ -156,3 +167,6 @@ let reiniciar_formulario_identificacion = () => {
 };
 
 botonIdentificacion.addEventListener('input', establecer_identificacion);
+
+llenar_campos();
+//botonRegistrar.addEventListener('click', va);

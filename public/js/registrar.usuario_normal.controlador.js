@@ -6,6 +6,8 @@ funcion que envie un email para la activacion del usuario*/
 
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 const botonRegistrar = document.querySelector('#btnRegistrar');
+const regexSoloNumeros = new RegExp('^[0-9]+$');
+
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -39,25 +41,83 @@ let validar = () => {
     
     error = validarEmail(error);
 
+    if(txtIdentificacion.value != ''){
+        switch(botonIdentificacion.value) {
+            case 'física':
+                error = validarIdentificacion(error, 9);
+                break;
+            case 'dimex':
+                error = validarDimex(error);
+                break;
+            case 'nite':
+                error = validarIdentificacion(error, 10)
+                break;
+            case 'jurídica':
+                error = validarIdentificacion(error, 10)
+                break;
+            default:
+                break;
+        }
+    }
+
     return error;
       
 };
 
 let validarEmail = (pError) => {
     let error = pError;
+    let label_email = document.querySelector('[for="txtEmail"]');
 
     if (!error){
         if (txtEmail.value.includes('@')){
-            document.querySelector('#txtEmail').classList.remove('input-error');
+            label_email.classList.remove('label-error');
         }else{
             error = true;
-            document.querySelector('#txtEmail').classList.add('input-error');
+            label_email.classList.add('label-error');
         }
         
     }
     
     return error;
 };
+
+let validarIdentificacion = (pError, pNumeroDigitos) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+
+    if(!error){
+        if(regexSoloNumeros.test(txtIdentificacion.value)){
+            label_identificacion.classList.remove('label-error');
+            if(txtIdentificacion.value.length != pNumeroDigitos){
+                label_identificacion.classList.add('label-error');
+                error = true;
+            }
+        } else {
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    }
+
+    return error;
+}
+
+let validarDimex = (pError) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+    
+    if(regexSoloNumeros.test(txtIdentificacion.value)){
+        label_identificacion.classList.remove('label-error');
+        if(txtIdentificacion.value.length != 11 || txtIdentificacion.value.length != 12){
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    } else {
+        label_identificacion.classList.add('label-error');
+        error = true;
+    }
+
+    return error;
+}
 
 let limpiar = () => {
     txtPrimerNombre.value = "";
