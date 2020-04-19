@@ -90,5 +90,51 @@ let obtener_usuario_normal_id = async(identificacion) => {
     }
 };
 
+let actualizar_usuario = async() => {
+    await axios({
+        method: 'put',
+        url: 'http://localhost:3000/api/modificar/usuario-normal',
+        headers: {},
+        data: {
+          _id: id,
+          tipo_identificacion: sltTipoIdentificacion.value,
+          identificacion: txtIdentificacion.value,
+          razon_social: txtRazonSocial.value,
+          nombre_comercial: txtNombreComercial.value,
+          info_aponderado: txtInfoAponderado.value,
+          primer_nombre: txtPrimerNombre.value,
+          segundo_nombre: txtSegundoNombre.value,
+          primer_apellido: txtPrimerApellido.value,
+          segundo_apellido: txtSegundoApellido.value,
+          genero: document.querySelector('#field-genero input[type=radio]:checked').value,
+          correo: txtEmail.value,
+          telefono: txtTelefono.value,
+          fotografia: txtUrlImg.value
+        }   
+    })
+    .then(function(res) {
+        console.log(res);
+        if(res.data.resultado){
+            Swal.fire({
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos fueron modificados',
+                'icon': 'success'
+            })
+            .then(function() {
+                window.location.href = 'admin-listar-usuarios-normales.html';
+            });
+        } else {
+            Swal.fire({
+                'title': 'Error al modificar el usuario',
+                'text': 'No fue posible modificar el usuario',
+                'icon': 'warning'
+            });
+        }
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+};
+
 
 
