@@ -2,6 +2,13 @@
 
 const botonIdentificacion = document.querySelector('#txtIdentificacion');
 const botonRegistrar = document.querySelector('#btnRegistrar');
+/* para funcion limpiar_datos*/
+    let input_identificacion = document.querySelector('#txtIdentificacion');
+    let input_tipoTarjeta = document.querySelector('#txttipoTarjeta');
+    let input_numeroTarjeta = document.querySelector('#txtnumeroTarjeta');
+    let input_fechaExp = document.querySelector('#txtfechaExp');
+    let input_codigoCVV = document.querySelector('#txtcodigoCVV');
+ /* fin de variables */
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -19,12 +26,13 @@ let validar = () => {
     return error;
 };
 
-let limpiar = () => {
-    txtIdentificacion.value = "";
-    txttipoTarjeta.value = "";
-    txtnumeroTarjeta.value = "";
-    txtfechaExp.value = "";
-    txtcodigoCVV.value = "";
+let limpiar_datos = () => {
+    
+    input_identificacion.value = "";
+    input_tipoTarjeta.value = "";
+    input_numeroTarjeta.value = "";
+    input_fechaExp.value = "";
+    input_codigoCVV.value = "";
 };
 
 let agregar_tarjeta = () => {
@@ -47,6 +55,8 @@ let agregar_tarjeta = () => {
             'title': 'El proceso se realizó correntamente',
             'text': 'Tarjeta de crédito registrada correctamente',
             'icon': 'success'
+        }).then(() => {
+            limpiar_datos();
         });
     }
 };
