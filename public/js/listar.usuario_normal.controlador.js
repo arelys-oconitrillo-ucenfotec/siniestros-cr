@@ -10,11 +10,24 @@ let mostrar_datos = async() => {
 
     for (let i = 0; i < usuarios.length; i++) {
         let fila = tbody.insertRow();
+
         fila.insertCell().innerHTML = usuarios[i]['primer_nombre'];
         fila.insertCell().innerHTML = usuarios[i]['primer_apellido'];
         fila.insertCell().innerHTML = usuarios[i]['identificacion'];
         fila.insertCell().innerHTML = usuarios[i]['correo'];
-        fila.insertCell().innerHTML = '<p>Acciones</p>';
+        //fila.insertCell().innerHTML = '<p>Acciones</p>';
+
+        let celda_editar = fila.insertCell();
+        let boton_editar = document.createElement('button');
+        boton_editar.type = 'button';
+        boton_editar.innerText = 'Editar'; 
+
+        boton_editar.addEventListener('click', ()=> {
+            localStorage.setItem('identificacion_usuario_normal', usuarios[i]['identificacion']);
+            window.location.href = 'editar-usuario-normal.html'; 
+        });
+
+        celda_editar.appendChild(boton_editar);
     }
 };
 
