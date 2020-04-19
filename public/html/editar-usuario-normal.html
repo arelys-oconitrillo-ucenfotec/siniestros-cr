@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar usuarios</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l6 w3-right tan-letra">
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="registro" class="beige">
+                <div class="w3-row">
+                    <div class="w3-col l6 w3-right">
+                        <h2>Editar Perfil</h2>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l6">
+                        <div class="img-registro">
+                            <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+                        </div>
+                    </div>
+                    <div class="w3-col l6">
+                        <form id="frm-registro">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Primer Nombre" name="txtPrimerNombre" id="txtPrimerNombre"  required>
+                                    <label for="txtPrimerNombre" class="form__label dim-gray-letra">Primer Nombre</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Segundo Nombre" name="txtSegundoApellido" id="txtSegundoNombre">
+                                    <label for="txtSegundoNombre" class="form__label dim-gray-letra">Segundo Nombre</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Primer apellido" name="txtPrimerApellido" id="txtPrimerApellido" required>
+                                    <label for="txtPrimerApellido" class="form__label dim-gray-letra">Primer Apellido</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Segundo apellido" name="txtSegundoApellido" id="txtSegundoApellido">
+                                    <label for="txtSegundoApellido" class="form__label dim-gray-letra">Segundo Apellido</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltTipoIdentificacion" class="form__field dim-gray-letra" disabled required>
+                                        <option value="">Seleccione</option>
+                                        <option value="física">Física</option>
+                                        <option value="jurídica">Jurídica</option>
+                                    </select>
+                                    <label id= "lblTipoIdentificacion" for="sltTipoIdentificacion" class="form__label dim-gray-letra">Tipo Identificación</label>
+                                </div>
+                            </div>
+                            <div id="contenedor-identificacion" class="w3-row campo-frm ocultar">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Identificación" name="txtIdentificacion" id="txtIdentificacion" required>
+                                    <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Razón social" name="txtRazonSocial" id="txtRazonSocial">
+                                    <label for="txtRazonSocial" class="form__label dim-gray-letra">Razón Social</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Nombre Comercial" name="txtNombreComercial" id="txtNombreComercial">
+                                    <label for="txtNombreComercial" class="form__label dim-gray-letra">Nombre Comercial</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica ocultar">
+                                <div class="form__group field">
+                                    <label class="form__label dim-gray-letra" for="txtInfoAponderado"></label>
+                                    <textarea name="txtInfoAponderado" id="txtInfoAponderado" rows="3" placeholder="Información general del aponderado" class="dim-gray-letra beige"></textarea>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="tel" class="form__field dim-gray-letra" min="0" placeholder="Número Telefónico" name="txtTelefono" id="txtTelefono" required>
+                                    <label for="txtTelefono" class="form__label dim-gray-letra">Número Telefónico</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="email" class="form__field dim-gray-letra" placeholder="Correo Electrónico" name="txtEmail" id="txtEmail" required>
+                                    <label for="txtEmail" class="form__label dim-gray-letra">Correo Electrónico</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Fotografía" name="txtUrlImg" id="txtUrlImg" required disabled>
+                                    <label for="txtUrlImg" class="form__label dim-gray-letra">Fotografía</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <img id="icon-img" src="../css/imgs/blank-profile-picture-973460_1280.png">
+            
+                                <button type="button" class="btn2-registro beige-letra" id="btn-icono">Subir</button>
+                            </div>
+                            <div class="radio-genero">
+                                <fieldset id="field-genero" class="fieldset-registro dim-gray-letra">
+                                    <p>Género</p>
+                                    <div class="w3-row">
+                                        <div class="w3-col l6 radio">
+                                            <input type="radio" id="rbtFemenino" name="rbt-genero" value="femenino" required>
+                                            <label for="rbtFemenino">Femenino</label>
+                                        </div>
+                                        <div class="w3-col l6 radio">
+                                            <input type="radio" id="rbtMasculino" name="rbt-genero" value="masculino" required>
+                                            <label for="rbtMasculino">Masculino</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="w3-col l12 ocultar">
+                                <select id="sltRol">
+                                    <option value="normal">Rol</option>
+                                    <option value="especializado">Especializado</option>
+                                    <option value="encargadoRuta">Encargado de ruta</option>
+                                </select>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                    
+            </section>
+        </main>
+        <script src="/public/js/jquery-3.3.1.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../js/servicio-imagen.js"></script>
+        <script src="../js/usuario_normal.servicio.js"></script>
+        <script src="../js/editar.usuario_normal.controlador.js"></script>
+    </body>
+
+</html>

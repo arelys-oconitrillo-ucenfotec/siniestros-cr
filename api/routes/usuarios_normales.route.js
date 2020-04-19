@@ -45,6 +45,26 @@ router.post('/registrar/usuario-normal', (req, res) => {
 
 });
 
+router.get('/buscar/usuario-normal', function(req,res) {
+
+    let identificacion = req.query.identificacion
+
+    UsuarioNormal.findOne({ identificacion: identificacion }, (error, usuario_normalDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun usuario con esa identificación',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                usuario_normal: usuario_normalDB
+            });
+        }
+    });
+});
+
 router.get('/listar/usuarios-normales', (req, res) => {
     UsuarioNormal.find((error, lista_usuarios_normales) => {
         if (error) {
