@@ -41,7 +41,7 @@ let validar = () => {
     
     error = validarEmail(error);
 
-    if(txtIdentificacion.value != ''){
+    if(!error){
         switch(botonIdentificacion.value) {
             case 'física':
                 error = validarIdentificacion(error, 9);
@@ -99,7 +99,7 @@ let validarIdentificacion = (pError, pNumeroDigitos) => {
     }
 
     return error;
-}
+};
 
 let validarDimex = (pError) => {
     let error = pError;
@@ -117,7 +117,7 @@ let validarDimex = (pError) => {
     }
 
     return error;
-}
+};
 
 let limpiar = () => {
     txtPrimerNombre.value = "";

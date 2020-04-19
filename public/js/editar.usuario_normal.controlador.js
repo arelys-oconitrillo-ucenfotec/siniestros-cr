@@ -1,8 +1,8 @@
 'use strict';
+
 let identificacion = localStorage.getItem('identificacion_usuario_normal');
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
-
-
+let id;
 const input_primer_nombre = document.querySelector('#txtPrimerNombre');
 const input_segundo_nombre = document.querySelector('#txtSegundoNombre');
 const input_primer_apellido = document.querySelector('#txtPrimerApellido');
@@ -12,12 +12,14 @@ const input_identificacion = document.querySelector('#txtIdentificacion');
 const input_correo = document.querySelector('#txtEmail');
 const input_telefono = document.querySelector('#txtTelefono');
 const input_img = document.querySelector('#icon-img');
+const input_fotografia = document.querySelector('#txtUrlImg');
 const botonRegistrar = document.querySelector('#btnRegistrar');
    
 
 let llenar_campos = async() => {
     let usuario_normal = await obtener_usuario_normal_id(identificacion);
 
+    id = usuario_normal._id;
     input_primer_nombre.value = usuario_normal.primer_nombre;
     input_segundo_nombre.value = usuario_normal.segundo_nombre;
     input_primer_apellido.value = usuario_normal.primer_apellido;
@@ -27,6 +29,7 @@ let llenar_campos = async() => {
     input_correo.value = usuario_normal.correo;
     input_telefono.value = usuario_normal.telefono;
     input_img.src = usuario_normal.fotografia;
+    input_fotografia.value = usuario_normal.fotografia;
 
     switch(usuario_normal.genero){
         case 'femenino':
@@ -74,42 +77,82 @@ let validar = () => {
     
     error = validarEmail(error);
 
+    if(!error){
+        switch(botonIdentificacion.value) {
+            case 'física':
+                error = validarIdentificacion(error, 9);
+                break;
+            case 'dimex':
+                error = validarDimex(error);
+                break;
+            case 'nite':
+                error = validarIdentificacion(error, 10)
+                break;
+            case 'jurídica':
+                error = validarIdentificacion(error, 10)
+                break;
+            default:
+                break;
+        }
+    }
+
     return error;
       
 };
 
+let validarIdentificacion = (pError, pNumeroDigitos) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+
+    if(!error){
+        if(regexSoloNumeros.test(txtIdentificacion.value)){
+            label_identificacion.classList.remove('label-error');
+            if(txtIdentificacion.value.length != pNumeroDigitos){
+                label_identificacion.classList.add('label-error');
+                error = true;
+            }
+        } else {
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    }
+
+    return error;
+};
+
+let validarDimex = (pError) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+    
+    if(regexSoloNumeros.test(txtIdentificacion.value)){
+        label_identificacion.classList.remove('label-error');
+        if(txtIdentificacion.value.length != 11 || txtIdentificacion.value.length != 12){
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    } else {
+        label_identificacion.classList.add('label-error');
+        error = true;
+    }
+
+    return error;
+};
+
 let validarEmail = (pError) => {
     let error = pError;
+    let label_email = document.querySelector('[for="txtEmail"]');
 
     if (!error){
         if (txtEmail.value.includes('@')){
-            document.querySelector('#txtEmail').classList.remove('input-error');
+            label_email.classList.remove('label-error');
         }else{
             error = true;
-            document.querySelector('#txtEmail').classList.add('input-error');
+            label_email.classList.add('label-error');
         }
         
     }
     
     return error;
-};
-
-let limpiar = () => {
-    txtPrimerNombre.value = "";
-    txtSegundoNombre.value = "";
-    txtPrimerApellido.value = "";
-    txtSegundoApellido.value = "";
-    txtEmail.value = "";
-    txtTelefono.value = "";
-    sltTipoIdentificacion.value = "";
-    txtIdentificacion.value = "";
-    txtUrlImg.value = "";
-    rbtFemenino.checked = false;
-    rbtMasculino.checked = false;
-    txtRazonSocial.value = "";
-    txtNombreComercial.value = "";
-    txtInfoAponderado.value = "";
-    document.querySelector('#icon-img').src = "../css/imgs/blank-profile-picture-973460_1280.png";
 };
 
 let modificar_usuario = () => {
@@ -121,7 +164,7 @@ let modificar_usuario = () => {
             'icon': 'warning'
         });
     } else {
-        
+        actualizar_usuario();
     }
 };
 
@@ -169,4 +212,4 @@ let reiniciar_formulario_identificacion = () => {
 botonIdentificacion.addEventListener('input', establecer_identificacion);
 
 llenar_campos();
-//botonRegistrar.addEventListener('click', va);
+botonRegistrar.addEventListener('click', modificar_usuario);

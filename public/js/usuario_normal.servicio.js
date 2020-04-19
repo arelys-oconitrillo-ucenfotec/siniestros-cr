@@ -90,7 +90,7 @@ let obtener_usuario_normal_id = async(identificacion) => {
     }
 };
 
-let modificar_usuario = async() => {
+let actualizar_usuario = async() => {
     await axios({
         method: 'put',
         url: 'http://localhost:3000/api/modificar/usuario-normal',
@@ -116,15 +116,17 @@ let modificar_usuario = async() => {
         console.log(res);
         if(res.data.resultado){
             Swal.fire({
-                'title': 'Vehículo registrado',
-                'text': 'El vehículo fue registrado a su nombre exitosamente',
-                'icon': 'info'
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos fueron modificados',
+                'icon': 'success'
+            })
+            .then(function() {
+                window.location.href = 'admin-listar-usuarios-normales.html';
             });
-            limpiar();
         } else {
             Swal.fire({
-                'title': 'Error al registrar el vehiculo',
-                'text': 'No fue posible registrar el vehículo',
+                'title': 'Error al modificar el usuario',
+                'text': 'No fue posible modificar el usuario',
                 'icon': 'warning'
             });
         }
