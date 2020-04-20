@@ -23,4 +23,18 @@ let listar_usuarios_normal_tarjeta = async() => {
     return usuarios_normales;
 };
 
+let obtener_usuario_normal_id = async(identificacion) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { identificacion: identificacion },
+            url: 'http://localhost:3000/api/buscar/usuario-normal',
+            responseType: 'json'
+        });
+        return response.data.usuario_normal;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 

@@ -15,7 +15,7 @@ let mostrar_tarjetas = async() => {
         /* forma nueva*/
         let error = false;
 
-        for (let j = 0; j < usuarios[i].tarjetas.length; i++){
+        for (let j = 0; j < usuarios[i].tarjetas.length; j++){
             let existe;
             let uTarjetas = [];
             uTarjetas = usuarios[i].tarjetas[j];
@@ -31,9 +31,7 @@ let mostrar_tarjetas = async() => {
                 fila.insertCell().innerHTML = uTarjetas.tipoTarjeta;
             }
         /* fin de forma nueva*/
-        /*fila.insertCell().innerHTML = usuarios[i]['tarjetas'];*/
-        /*fila.insertCell().innerHTML = '<p>Acciones</p>';*/
-
+       
         /* forma vieja/
         fila.insertCell().innerHTML = usuarios[i]['primer_nombre'];
         fila.insertCell().innerHTML = usuarios[i]['primer_apellido'];
