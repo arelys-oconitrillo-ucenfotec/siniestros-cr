@@ -463,6 +463,11 @@ header {
 
 /*---------------------CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
 
+.lista-imgs{
+    height: 35px;
+    width: 35px;
+}
+
 /*---------------------FIN CSS ADMI REGISTRAR TIPO DE INCIDENTE-------------------*/
 
 /*---------------------CSS ADMI REGISTRAR VEHICULO-------------------*/

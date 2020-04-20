@@ -57,3 +57,52 @@ let registrar_tipo_incidente = async() => {
         });
     });
 }
+
+let obtener_siniestro_por_nombre = async(nombre_siniestro) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { nombre_siniestro: nombre_siniestro },
+            url: 'http://localhost:3000/api/buscar/tipo-incidente',
+            responseType: 'json'
+        });
+        return response.data.tipo_incidente;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+let actualizar_siniestro = async() => {
+    await axios({
+        method: 'put',
+        url: 'http://localhost:3000/api/modificar/tipo-incidente',
+        headers: {},
+        data: {
+          _id: id,
+          nombre_siniestro: txtNombreSiniestro.value,
+          icono: txtUrlImg.value,
+        }   
+    })
+    .then(function(res) {
+        console.log(res);
+        if(res.data.resultado){
+            Swal.fire({
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos fueron modificados',
+                'icon': 'success'
+            })
+            .then(function() {
+                window.location.href = 'admin-listar-tipo-incidente.html';
+            });
+        } else {
+            Swal.fire({
+                'title': 'Error al modificar el usuario',
+                'text': 'No fue posible modificar el usuario',
+                'icon': 'warning'
+            });
+        }
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+};

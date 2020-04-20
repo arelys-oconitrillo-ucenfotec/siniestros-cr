@@ -11,8 +11,19 @@ let mostrar_datos = async() => {
     for (let i = 0; i < tipo_incidentes.length; i++) {
         let fila = tbody.insertRow();
         fila.insertCell().innerHTML = '<p>' + tipo_incidentes[i]['nombre_siniestro'] + '</p>';
-        fila.insertCell().innerHTML = '<p>' + tipo_incidentes[i]['icono'] + '</p>';
-        fila.insertCell().innerHTML = '<p>Acciones</p>';
+        fila.insertCell().innerHTML = '<img class="lista-imgs" src="' + tipo_incidentes[i]['icono'] + '">';
+        
+        let celda_editar = fila.insertCell();
+        let boton_editar = document.createElement('button');
+        boton_editar.type = 'button';
+        boton_editar.innerText = 'Editar'; 
+
+        boton_editar.addEventListener('click', ()=> {
+            localStorage.setItem('nombre_siniestro', tipo_incidentes[i]['nombre_siniestro']);
+            window.location.href = 'editar-tipo-incidente.html'; 
+        });
+
+        celda_editar.appendChild(boton_editar);
     }
 };
 

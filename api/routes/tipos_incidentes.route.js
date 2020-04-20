@@ -92,4 +92,23 @@ router.delete('/eliminar/tipo-incidente', function (req, res) {
     });
 });
 
+router.get('/buscar/tipo-incidente', function(req,res) {
+
+    let nombre_siniestro = req.query.nombre_siniestro
+
+    TipoIncidente.findOne({ nombre_siniestro: nombre_siniestro }, (error, tipo_incidenteDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun siniestro con ese nombre',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                tipo_incidente: tipo_incidenteDB
+            });
+        }
+    });
+});
 module.exports = router;
