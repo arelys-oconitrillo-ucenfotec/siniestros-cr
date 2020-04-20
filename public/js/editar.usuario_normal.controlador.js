@@ -14,36 +14,6 @@ const input_telefono = document.querySelector('#txtTelefono');
 const input_img = document.querySelector('#icon-img');
 const input_fotografia = document.querySelector('#txtUrlImg');
 const botonRegistrar = document.querySelector('#btnRegistrar');
-   
-
-let llenar_campos = async() => {
-    let usuario_normal = await obtener_usuario_normal_id(identificacion);
-
-    id = usuario_normal._id;
-    input_primer_nombre.value = usuario_normal.primer_nombre;
-    input_segundo_nombre.value = usuario_normal.segundo_nombre;
-    input_primer_apellido.value = usuario_normal.primer_apellido;
-    input_segundo_apellido.value = usuario_normal.segundo_apellido;
-    input_tipo_identificacion.value = usuario_normal.tipo_identificacion;
-    input_identificacion.value = usuario_normal.identificacion;
-    input_correo.value = usuario_normal.correo;
-    input_telefono.value = usuario_normal.telefono;
-    input_img.src = usuario_normal.fotografia;
-    input_fotografia.value = usuario_normal.fotografia;
-
-    switch(usuario_normal.genero){
-        case 'femenino':
-            document.querySelector('#rbtFemenino').checked = true;
-        break;
-        case 'masculino':
-            document.querySelector('#rbtMasculino').checked = true;
-        break;
-    }
-
-
-    console.log(usuario_normal);
-
-};
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -209,7 +179,35 @@ let reiniciar_formulario_identificacion = () => {
     }
 };
 
-botonIdentificacion.addEventListener('input', establecer_identificacion);
+let llenar_campos = async() => {
+    let usuario_normal = await obtener_usuario_normal_id(identificacion);
+
+    id = usuario_normal._id;
+    input_primer_nombre.value = usuario_normal.primer_nombre;
+    input_segundo_nombre.value = usuario_normal.segundo_nombre;
+    input_primer_apellido.value = usuario_normal.primer_apellido;
+    input_segundo_apellido.value = usuario_normal.segundo_apellido;
+    input_tipo_identificacion.value = usuario_normal.tipo_identificacion;
+    input_identificacion.value = usuario_normal.identificacion;
+    input_correo.value = usuario_normal.correo;
+    input_telefono.value = usuario_normal.telefono;
+    input_img.src = usuario_normal.fotografia;
+    input_fotografia.value = usuario_normal.fotografia;
+
+    switch(usuario_normal.genero){
+        case 'femenino':
+            document.querySelector('#rbtFemenino').checked = true;
+        break;
+        case 'masculino':
+            document.querySelector('#rbtMasculino').checked = true;
+        break;
+    }
+
+    establecer_identificacion();
+
+};
 
 llenar_campos();
+
+botonIdentificacion.addEventListener('input', establecer_identificacion);
 botonRegistrar.addEventListener('click', modificar_usuario);
