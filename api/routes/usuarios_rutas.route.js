@@ -45,6 +45,26 @@ router.post('/registrar/usuario-ruta', (req, res) => {
 
 });
 
+router.get('/buscar/usuario-ruta', function(req,res) {
+
+    let identificacion = req.query.identificacion
+
+    UsuarioNormal.findOne({ identificacion: identificacion }, (error, usuario_rutaDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun usuario con esa identificación',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                usuario_ruta: usuario_rutaDB
+            });
+        }
+    });
+});
+
 router.get('/listar/usuarios-rutas', (req, res) => {
     UsuarioRuta.find((error, lista_usuarios_rutas) => {
         if (error) {

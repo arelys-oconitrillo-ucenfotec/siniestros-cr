@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 let identificacion = localStorage.getItem('identificacion_usuario_normal');
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 let id;

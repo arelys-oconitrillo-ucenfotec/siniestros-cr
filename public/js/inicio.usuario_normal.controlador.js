@@ -24,7 +24,7 @@ function obtenerDatos() {
             if(respuesta.usuario_normal.rol == "admin"){
                 window.location.href = 'admin-listar-usuarios-normales.html';
             } else {
-                window.location.href = 'bienvenido-sesion.html';
+                window.location.href = 'editar-usuario-normal.html';
             }
         } else {
             Swal.fire({

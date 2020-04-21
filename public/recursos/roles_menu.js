@@ -2,18 +2,19 @@
 
 const navPrincipal = document.querySelector('#nav_principal');
 
-let conectado = sessionStorage.getItem('conectado');
-let tipoUsuario = sessionStorage.getItem('tipo_usuario');
-let nombre = sessionStorage.getItem('nombre');
-let nombreComercial = sessionStorage.getItem('nombre_comercial');
-let apellido = sessionStorage.getItem('apellido');
+let menuConectado = sessionStorage.getItem('conectado');
+let menuTipoUsuario = sessionStorage.getItem('tipo_usuario');
+let menuNombre = sessionStorage.getItem('nombre');
+let menuNombreComercial = sessionStorage.getItem('nombre_comercial');
+let menuApellido = sessionStorage.getItem('apellido');
+let menuapellido = sessionStorage.getItem('identificacion');
 
 let obtener_menu = () => {
-    if(conectado) {
+    if(menuConectado) {
         let menu_seleccionado = '';
         let cerrar_sesion_seleccionado = '';
         
-        switch (tipoUsuario) {
+        switch (menuTipoUsuario) {
             case 'admin':
                 menu_seleccionado = obtener_menu_admin();
                 cerrar_sesion_seleccionado = "registrar-usuarios-normales.html";
@@ -52,7 +53,14 @@ let obtener_menu = () => {
 
 let obtener_menu_usuario = () => {
     let opciones_menu = 
-    '<a href="">' + nombre + ' ' + apellido + '</a>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">' + menuNombre + ' ' +menuApellido +'</button>' +
+        '<div class="dropdown-content">' +
+        obtener_boton_editar_perfil() +
+        '<a href="usuario-listar-tarjeta.html">Tarjetas Asociadas</a>' +
+        '</div>' +
+    '</div>' +
+    
     '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
 
     return opciones_menu;
@@ -60,7 +68,7 @@ let obtener_menu_usuario = () => {
 
 let obtener_menu_especializado = () => {
     let opciones_menu =
-    '<a href="">' + nombre + ' ' + apellido + '</a>' +
+    '<a href="">' + menuNombre + ' ' + menuApellido + '</a>' +
     '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
 
     return opciones_menu;
@@ -68,7 +76,7 @@ let obtener_menu_especializado = () => {
 
 let obtener_menu_ruta = () => {
     let opciones_menu =
-    '<a href="">' + nombre + ' ' + apellido + '</a>' +
+    '<a href="">' + menuNombre + ' ' + menuApellido + '</a>' +
     '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
 
     return opciones_menu;
@@ -97,8 +105,21 @@ let obtener_menu_admin = () => {
             '<a href="admin-listar-tipo-asistencia.html">Asistencias</a>' +
         '</div>' +
     '</div>' +
-    '<a href="">' + nombre + ' ' + apellido + '</a>' +
+    obtener_boton_editar_perfil() +
     '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
 
     return opciones_menu;
+};
+
+let obtener_boton_editar_perfil = () => {
+    let boton_editar_perfil = document.createElement('button');
+    boton_editar_perfil.type = 'button';
+    boton_editar_perfil.innerText = 'Editar'; 
+
+    boton_editar_perfil.addEventListener('click', ()=> {
+        localStorage.setItem('menuIdentificacion_usuario_normal', menuIdentificacion);
+        window.location.href = 'editar-usuario-normal.html'; 
+    });
+    console.log(boton_editar_perfil.innerHTML);
+    return boton_editar_perfil.outerHTML;
 };
