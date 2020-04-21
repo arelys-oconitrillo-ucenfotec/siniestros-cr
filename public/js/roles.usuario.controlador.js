@@ -20,12 +20,14 @@ if (conectado) {
             enlaces[0].classList.add('ocultar');
             enlaces[1].classList.add('ocultar');
             enlaces[2].classList.add('ocultar');
+            enlaces[5].classList.add('ocultar');
             break;
         case 'rutas':
             enlaces[0].classList.add('ocultar');
             enlaces[1].classList.add('ocultar');
             enlaces[2].classList.add('ocultar');
             enlaces[3].classList.add('ocultar');
+            enlaces[5].classList.add('ocultar');
             break;
         default:
 
