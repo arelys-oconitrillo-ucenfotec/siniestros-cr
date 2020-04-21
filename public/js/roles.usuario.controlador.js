@@ -5,6 +5,7 @@ const botonCerrarSesion = document.getElementById('btnCerrarSesion');
 
 let conectado = sessionStorage.getItem('conectado');
 let tipoUsuario = sessionStorage.getItem('tipo_usuario');
+let identificacionInicio = sessionStorage.getItem('identificacion')
 
 if (conectado) {
     switch (tipoUsuario) {
