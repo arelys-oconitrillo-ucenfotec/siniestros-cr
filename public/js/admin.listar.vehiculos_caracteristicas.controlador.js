@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 const tbody = document.querySelector('#tbl-listar tbody');
 
 let mostrar_datos = async() => {
