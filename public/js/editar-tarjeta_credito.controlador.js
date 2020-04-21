@@ -9,6 +9,7 @@ let _id;
     let input_numeroTarjeta = document.querySelector('#txtnumeroTarjeta');
     let input_fechaExp = document.querySelector('#txtfechaExp');
     let input_codigoCVV = document.querySelector('#txtcodigoCVV');
+
     
 let llenar_campos = async() =>{
 
@@ -77,14 +78,16 @@ let modificar_tarjeta = () => {
         let fechaExp = document.querySelector('#txtfechaExp').value;
         let codigoCVV = document.querySelector('#txtcodigoCVV').value;
 
-        /*modificar_tarjetaCredito(_id, identificacion, tipoTarjeta, numeroTarjeta, fechaExp, codigoCVV);*/
-        Swal.fire({
+        modificar_tarjetaCredito(_id, identificacion, tipoTarjeta, numeroTarjeta, fechaExp, codigoCVV);
+        
+        /*Swal.fire({
             'title': 'El proceso se realizó correntamente',
-            'text': 'Tarjeta de crédito registrada correctamente',
+            'text': 'Tarjeta de crédito modificada correctamente',
             'icon': 'success'
         }).then(() => {
             limpiar_datos();
-        });
+        });*/
+        limpiar_datos();
     }
 };
 

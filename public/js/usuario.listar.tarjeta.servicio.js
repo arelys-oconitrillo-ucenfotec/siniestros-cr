@@ -23,6 +23,7 @@ let listar_usuarios_normal_tarjeta = async() => {
     return usuarios_normales;
 };
 
+
 let obtener_usuario_normal_id = async(identificacion) => {
     try {
         const response = await axios({
