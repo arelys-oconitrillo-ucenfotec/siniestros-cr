@@ -15,6 +15,6 @@ let widget_cloudinary = cloudinary.createUploadWidget({
     } 
 });
 
-boton_icono.addEventListener('click', ()=>{
+boton_icono.addEventListener('click', () => {
     widget_cloudinary.open();
 }, false);

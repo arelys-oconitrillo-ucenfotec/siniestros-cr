@@ -91,6 +91,12 @@ let obtener_menu_admin = () => {
             '<a href="admin-listar-vehiculo-caracteristica.html">Características</a>' +
         '</div>' +
     '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Asistencias</button>' +
+        '<div class="dropdown-content">' +
+            '<a href="admin-listar-tipo-asistencia.html">Asistencias</a>' +
+        '</div>' +
+    '</div>' +
     '<a href="">' + nombre + ' ' + apellido + '</a>' +
     '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
 

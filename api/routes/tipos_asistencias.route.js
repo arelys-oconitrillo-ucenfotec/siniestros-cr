@@ -2,12 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const TipoAsistencia= require('../models/tipos_asistencias.model');
+const TipoAsistencia = require('../models/tipos_asistencias.model');
 
 router.post('/registrar/tipo-asistencia', (req, res) => {
     let body = req.body;
-    let nuevo_tipo_asistencia= new TipoAsistencia({
-        nombre_asistencia: body.nombre_asistencia,
+    let nuevo_tipo_asistencia = new TipoAsistencia({
+        nombre_asistencia: body.nombre_asistencia
     });
 
     nuevo_tipo_asistencia.save((error, tipo_asistenciaDB) => {

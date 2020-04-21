@@ -77,3 +77,6 @@ app.use('/api', vehiculo);
 
 const tipo_incidente = require('./routes/tipos_incidentes.route');
 app.use('/api', tipo_incidente);
+
+const tipo_asistencia = require('./routes/tipos_asistencias.route');
+app.use('/api', tipo_asistencia);
