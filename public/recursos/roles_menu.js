@@ -76,9 +76,21 @@ let obtener_menu_ruta = () => {
 
 let obtener_menu_admin = () => {
     let opciones_menu = 
-    '<a href="">Usuarios</a>' +
-    '<a href="">Incidentes</a>' +
-    '<a href="">Vehiculos</a>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Usuarios</button>' +
+        '<div class="dropdown-content">' +
+        '<a href="admin-listar-usuarios-normales.html">Usuarios</a>' +
+        '<a href="admin-listar-usuarios-especializados.html">Especializados</a>' +
+        '<a href="admin-listar-usuarios-rutas.html">Encargados de Ruta</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Vehículos</button>' +
+        '<div class="dropdown-content">' +
+            '<a href="admin-listar-vehiculo.html">Vehículos</a>' +
+            '<a href="admin-listar-vehiculo-caracteristica.html">Características</a>' +
+        '</div>' +
+    '</div>' +
     '<a href="">' + nombre + ' ' + apellido + '</a>' +
     '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
 

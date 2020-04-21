@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listar usuarios ruta</title>
+        <title>Listar tipos de asistencias</title>
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
@@ -28,17 +28,14 @@
             </div>
         </header>
         <main>
-            <section id="lista-usuarios-rutas"> 
+            <section id="lista-tipo-incidente"> 
                 <div class="w3-row">
                     <div class="w3-col l12">
                         <div class="contenedor-tbl-centrada">
                             <table id="tbl-listar" class="tabla-informacion">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Identificación</th>
-                                        <th>Email</th>
+                                        <th>Nombre Asistencia</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -53,8 +50,8 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="../recursos/roles_menu.js"></script>
-        <script src="../js/admin.usuario_ruta.servicio.js"></script>
-        <script src="../js/admin.listar.usuarios_rutas.controlador.js"></script>
+        <script src="../js/admin.tipo_asistencias.servicio.js"></script>
+        <script src="../js/admin.listar.tipo_asistencias.controlador.js"></script>
     </body>
 
 </html>

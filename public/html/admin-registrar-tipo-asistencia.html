@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar tipo asistencia</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l8"></div>
+            </div>
+        </header>
+        <main>
+            <section id="registro" class="beige">
+                <div class="w3-row">
+                    <div class="w3-col l6 w3-right">
+                        <h2>Tipo de Asistencias</h2>
+                        <p class="p1-registro dim-gray-letra">Registrar</p>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l6">
+                        <div class="img-registro">
+                            <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+                        </div>
+                    </div>
+                    <div class="w3-col l6">
+                        <form id="frm-asistencias">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Nombre de la asistencia" name="txtNombreAsistencia" id="txtNombreAsistencia"  required>
+                                    <label for="txtNombreAsistencia" class="form__label dim-gray-letra">Nombre de la asistencia</label>
+                                </div>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="btn2-registro beige-letra" id="btnAsistencias">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+        <script src="../js/servicio-imagen.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../js/admin.tipo_asistencias.servicio.js"></script>
+        <script src="../js/admin.registrar.tipos_asistencias.controlador.js"></script>
+    </body>
+
+</html>
