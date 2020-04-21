@@ -23,6 +23,7 @@ function validar_credenciales(pcorreo, pcontrasena) {
             sessionStorage.setItem('nombre_comercial', response.usuario_normal.nombre_comercial);
             sessionStorage.setItem('apellido', response.usuario_normal.primer_apellido);
             sessionStorage.setItem('correo', response.usuario_normal.correo);
+            sessionStorage.setItem('identificacion', response.usuario_normal.identificacion);
         }
     });
 
