@@ -41,6 +41,25 @@ let validar = () => {
     
     error = validarEmail(error);
 
+    if(!error){
+        switch(botonIdentificacion.value) {
+            case 'física':
+                error = validarIdentificacion(error, 9);
+                break;
+            case 'dimex':
+                error = validarDimex(error);
+                break;
+            case 'nite':
+                error = validarIdentificacion(error, 10)
+                break;
+            case 'jurídica':
+                error = validarIdentificacion(error, 10)
+                break;
+            default:
+                break;
+        }
+    }
+
     return error;
       
 };

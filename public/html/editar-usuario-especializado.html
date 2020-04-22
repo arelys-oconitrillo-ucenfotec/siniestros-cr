@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registrar usuarios ruta</title>
+        <title>Editar usuarios especializados</title>
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
@@ -14,20 +14,25 @@
     </head>
 
     <body>
-        <header class="sienna">
+        <header class="header-registro sienna">
             <div class="w3-row">
                 <div class="w3-col l4 w3-center tan-letra">
                     <h1>Siniestros Viales CR</h1>
                 </div>
-                <div class="w3-col l8"></div>
+                <div class="w3-col l5 w3-right">
+                    <div id="contenedor-menu">
+                        <nav id="nav_principal">
+                        </nav>
+                    </div>
+                </div>
             </div>
         </header>
         <main>
             <section id="registro" class="beige">
                 <div class="w3-row">
                     <div class="w3-col l6 w3-right">
-                        <h2>Encargado de Rutas</h2>
-                        <p class="p1-registro dim-gray-letra">Registrar</p>
+                        <h2>Usuario Especializado</h2>
+                        <p class="p1-registro dim-gray-letra">Editar</p>
                     </div>
                     <div class="w3-col l6 w3-left">
                         <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
@@ -124,6 +129,58 @@
             
                                 <button type="button" class="btn2-registro beige-letra" id="btn-icono">Subir</button>
                             </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltTipoEspecializado" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="Ambulancia">Ambulancia</option>
+                                        <option value="Bombero">Bombero</option>
+                                        <option value="Grúa">Grúa</option>
+                                        <option value="Mecánico">Mecánico</option>
+                                        <option value="Policía">Policía</option>
+                                        <option value="Oficial de Tránsito">Oficial de Tránsito</option>
+                                    </select>
+                                    <label id= "lblTipoEspecializado" for="sltTipoEspecializado" class="form__label dim-gray-letra">Tipo Usuario Especializado</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltProvincia" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="San José">San José</option>
+                                        <option value="Alajuela">Alajuela</option>
+                                        <option value="Cartago">Cartago</option>
+                                        <option value="Heredia">Heredia</option>
+                                        <option value="Guanacaste">Guanacaste</option>
+                                        <option value="Puntarenas">Puntarenas</option>
+                                        <option value="Limón">Limón</option>
+                                    </select>
+                                    <label id= "lblProvincia" for="sltProvincia" class="form__label dim-gray-letra">Provincia</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltCanton" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    <label id= "lblCanton" for="sltCanton" class="form__label dim-gray-letra">Cantón</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltDistrito" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    <label id= "lblDistrito" for="sltDistrito" class="form__label dim-gray-letra">Distrito</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm contenedor-juridica">
+                                <div class="form__group field">
+                                    <label class="form__label dim-gray-letra" for="txtOtrasSenas"></label>
+                                    <textarea name="txtOtrasSenas" id="txtOtrasSenas" rows="3" placeholder="Otras Señas" class="dim-gray-letra beige" required></textarea>
+                                </div>
+                            </div>
+                            
                             <div class="radio-genero">
                                 <fieldset id="field-genero" class="fieldset-registro dim-gray-letra">
                                     <p>Género</p>
@@ -140,7 +197,7 @@
                                 </fieldset>
                             </div>
                             <div class="btn2">
-                                <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Registrar</button>
+                                <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Editar</button>
                             </div>
                         </form>
                     </div>
@@ -150,10 +207,13 @@
         </main>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-        <script src="../js/servicio-imagen.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script src="../js/admin.usuario_ruta.servicio.js"></script>
-        <script src="../js/admin.registrar.usuario_ruta.controlador.js"></script>
+        <script src="../recursos/roles_menu.js"></script>
+        <script src="../js/servicio-imagen.js"></script>
+        <script src="../recursos/division_geografica.js"></script>
+        <script src="../js/division_geografica.servicio.js"></script>
+        <script src="../js/admin.usuario_especializado.servicio.js"></script>
+        <script src="../js/editar.usuario_especializado.controlador.js"></script>
     </body>
 
 </html>

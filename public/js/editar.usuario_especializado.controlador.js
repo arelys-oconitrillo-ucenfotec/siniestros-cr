@@ -1,14 +1,27 @@
-/*TO DO
-funcion que devuelva un numero random de 5 digitos
-funcion que envie un email para la activacion del usuario*/
-
 'use strict';
 
+obtener_menu();
+
+let identificacion = localStorage.getItem('identificacion_usuario_especializado');
+
+let id;
+const input_primer_nombre = document.querySelector('#txtPrimerNombre');
+const input_segundo_nombre = document.querySelector('#txtSegundoNombre');
+const input_primer_apellido = document.querySelector('#txtPrimerApellido');
+const input_segundo_apellido = document.querySelector('#txtSegundoApellido');
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
+const input_identificacion = document.querySelector('#txtIdentificacion');
+const input_correo = document.querySelector('#txtEmail');
+const input_telefono = document.querySelector('#txtTelefono');
+const input_img = document.querySelector('#icon-img');
+const input_fotografia = document.querySelector('#txtUrlImg');
 const botonRegistrar = document.querySelector('#btnRegistrar');
+const input_tipo = document.querySelector('#sltTipoEspecializado');
 const botonProvincias = document.querySelector('#sltProvincia');
 const botonCantones = document.querySelector('#sltCanton');
 const botonDistritos = document.querySelector('#sltDistrito');
+const input_otras_senas = document.querySelector('#txtOtrasSenas');
+
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -91,29 +104,6 @@ let validarEmail = (pError) => {
     return error;
 };
 
-let limpiar = () => {
-    sltTipoIdentificacion.value = "";
-    txtRazonSocial.value = "";
-    txtNombreComercial.value = "";
-    txtInfoAponderado.value = "";
-    txtPrimerNombre.value = "";
-    txtSegundoNombre.value = "";
-    txtPrimerApellido.value = "";
-    txtSegundoApellido.value = "";
-    txtEmail.value = "";
-    txtTelefono.value = "";
-    txtIdentificacion.value = "";
-    txtUrlImg.value = "";
-    rbtFemenino.checked = false;
-    rbtMasculino.checked = false;
-    sltTipoEspecializado.value = "";
-    sltProvincia.value = "";
-    sltCanton.value = "";
-    sltDistrito.value = "";
-    txtOtrasSenas.value = "";
-    document.querySelector('#icon-img').src = "../css/imgs/blank-profile-picture-973460_1280.png";
-};
-
 let cargarCantones = () => {
     let html_cantones = obtener_html_cantones(sltProvincia.value);
     botonCantones.innerHTML = '';
@@ -126,7 +116,7 @@ let cargarDistritos = () => {
     botonDistritos.innerHTML = html_distritos;
 }; 
 
-let agregar_usuario = () => {
+let modificar_usuario_especializado = () => {
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({
@@ -135,7 +125,7 @@ let agregar_usuario = () => {
             'icon': 'warning'
         });
     } else {
-        registrar_usuario_especializado();
+        actualizar_usuario_especializado();
     }
 };
 
@@ -180,7 +170,43 @@ let reiniciar_formulario_identificacion = () => {
     }
 };
 
+let llenar_campos = async() => {
+    console.log(identificacion);
+    let usuario_especializado = await obtener_usuario_especializado_id(identificacion);
+
+    id = usuario_especializado._id;
+    input_primer_nombre.value = usuario_especializado.primer_nombre;
+    input_segundo_nombre.value = usuario_especializado.segundo_nombre;
+    input_primer_apellido.value = usuario_especializado.primer_apellido;
+    input_segundo_apellido.value = usuario_especializado.segundo_apellido;
+    botonIdentificacion.value = usuario_especializado.tipo_identificacion;
+    input_identificacion.value = usuario_especializado.identificacion;
+    input_correo.value = usuario_especializado.correo;
+    input_telefono.value = usuario_especializado.telefono;
+    input_img.src = usuario_especializado.fotografia;
+    input_fotografia.value = usuario_especializado.fotografia;
+    input_tipo.value = usuario_especializado.tipo;
+    botonProvincias.value = usuario_especializado.provincia;
+    botonCantones.value = usuario_especializado.canton;
+    botonDistritos.value = usuario_especializado.distrito;
+    input_otras_senas.value = usuario_especializado.otras_senas;
+
+    switch(usuario_especializado.genero){
+        case 'femenino':
+            document.querySelector('#rbtFemenino').checked = true;
+        break;
+        case 'masculino':
+            document.querySelector('#rbtMasculino').checked = true;
+        break;
+    }
+
+    establecer_identificacion();
+
+};
+
+llenar_campos();
+
+botonRegistrar.addEventListener('click', modificar_usuario_especializado);
 botonIdentificacion.addEventListener('input', establecer_identificacion);
-botonRegistrar.addEventListener('click', agregar_usuario);
 botonProvincias.addEventListener('input', cargarCantones);
 botonCantones.addEventListener('input', cargarDistritos);
