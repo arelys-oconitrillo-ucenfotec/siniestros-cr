@@ -7,12 +7,12 @@ let menuTipoUsuario = sessionStorage.getItem('tipo_usuario');
 let menuNombre = sessionStorage.getItem('nombre');
 let menuNombreComercial = sessionStorage.getItem('nombre_comercial');
 let menuApellido = sessionStorage.getItem('apellido');
-let menuapellido = sessionStorage.getItem('identificacion');
+let menuIdentificacion = sessionStorage.getItem('identificacion');
+let cerrar_sesion_seleccionado = '';
 
 let obtener_menu = () => {
     if(menuConectado) {
         let menu_seleccionado = '';
-        let cerrar_sesion_seleccionado = '';
         
         switch (menuTipoUsuario) {
             case 'admin':
@@ -38,13 +38,7 @@ let obtener_menu = () => {
 
         navPrincipal.innerHTML = menu_seleccionado;
 
-        const botonCerrarSesion = document.getElementById('btnCerrarSesion');
-        let cerrar_sesion = () => {
-            sessionStorage.clear();
-            window.location.href = cerrar_sesion_seleccionado;
-        };
-        
-        botonCerrarSesion.addEventListener('click', cerrar_sesion);
+        establecer_eventos_botones();
 
     } else {
         window.location.href = 'registrar-usuarios-normales.html';
@@ -54,14 +48,12 @@ let obtener_menu = () => {
 let obtener_menu_usuario = () => {
     let opciones_menu = 
     '<div class="dropdown">' +
-        '<button class="dropbtn">' + menuNombre + ' ' +menuApellido +'</button>' +
+        '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
-        obtener_boton_editar_perfil() +
-        '<a href="usuario-listar-tarjeta.html">Tarjetas Asociadas</a>' +
+            '<button id="btnEditarPerfil">Editar</button>' +
+            '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>' +
         '</div>' +
-    '</div>' +
-    
-    '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
+    '</div>';
 
     return opciones_menu;
 };
@@ -105,21 +97,29 @@ let obtener_menu_admin = () => {
             '<a href="admin-listar-tipo-asistencia.html">Asistencias</a>' +
         '</div>' +
     '</div>' +
-    obtener_boton_editar_perfil() +
-    '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>';
+    '<div class="dropdown">' +
+        '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
+        '<div class="dropdown-content">' +
+            '<button id="btnEditarPerfil">Editar</button>' +
+            '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>' +
+        '</div>' +
+    '</div>';
 
     return opciones_menu;
 };
 
-let obtener_boton_editar_perfil = () => {
-    let boton_editar_perfil = document.createElement('button');
-    boton_editar_perfil.type = 'button';
-    boton_editar_perfil.innerText = 'Editar'; 
-
-    boton_editar_perfil.addEventListener('click', ()=> {
-        localStorage.setItem('menuIdentificacion_usuario_normal', menuIdentificacion);
+let establecer_eventos_botones = () => {
+    const botonEditarPerfil = document.getElementById('btnEditarPerfil');
+    let editar_perfil = () => {
+        localStorage.setItem('identificacion_usuario_normal', menuIdentificacion);
         window.location.href = 'editar-usuario-normal.html'; 
-    });
-    console.log(boton_editar_perfil.innerHTML);
-    return boton_editar_perfil.outerHTML;
+    };
+    botonEditarPerfil.addEventListener('click', editar_perfil);
+
+    const botonCerrarSesion = document.getElementById('btnCerrarSesion');
+    let cerrar_sesion = () => {
+        sessionStorage.clear();
+        window.location.href = cerrar_sesion_seleccionado;
+    };
+    botonCerrarSesion.addEventListener('click', cerrar_sesion);
 };
