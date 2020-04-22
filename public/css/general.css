@@ -207,6 +207,9 @@ h6 {
 }
 
 .form__group_field-select select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    border-radius: 0;
     padding: 14px 0 7px 0;
 }
 

@@ -16,6 +16,7 @@ function validar_credenciales(pcorreo, pcontrasena) {
     });
 
     peticion.done(function (response) {
+        console.log(response);
         respuesta = response;
         if(respuesta.success){
             sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
@@ -24,6 +25,7 @@ function validar_credenciales(pcorreo, pcontrasena) {
             sessionStorage.setItem('nombre_comercial', response.usuario_especializado.nombre_comercial);
             sessionStorage.setItem('apellido', response.usuario_especializado.primer_apellido);
             sessionStorage.setItem('correo', response.usuario_especializado.correo);
+            console.log(sessionStorage);
         }
     });
 
