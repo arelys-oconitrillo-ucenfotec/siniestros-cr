@@ -21,6 +21,8 @@ let validar = () => {
 
 let limpiar = () => {
     txtNombreAsistencia.value = "";
+    txtDescripcion.value = "";
+    txtCosto.value = "";
 };
 
 let agregar_tipo_asistencia = () => {

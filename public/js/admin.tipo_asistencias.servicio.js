@@ -25,7 +25,9 @@ let registrar_tipo_asistencia = async() => {
         url: 'http://localhost:3000/api/registrar/tipo-asistencia',
         headers: {},
         data: {
-            nombre_asistencia: txtNombreAsistencia.value
+            nombre_asistencia: txtNombreAsistencia.value,
+            descripcion: txtDescripcion.value,
+            costo: txtCosto.value
         }   
     })
     .then(function(response) {
@@ -78,7 +80,9 @@ let actualizar_asistencia = async() => {
         headers: {},
         data: {
           _id: id,
-          nombre_asistencia: txtNombreAsistencia.value
+          nombre_asistencia: txtNombreAsistencia.value,
+          descripcion: txtDescripcion.value,
+          costo: txtCosto.value
         }   
     })
     .then(function(res) {

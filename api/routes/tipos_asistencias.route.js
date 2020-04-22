@@ -7,7 +7,9 @@ const TipoAsistencia = require('../models/tipos_asistencias.model');
 router.post('/registrar/tipo-asistencia', (req, res) => {
     let body = req.body;
     let nuevo_tipo_asistencia = new TipoAsistencia({
-        nombre_asistencia: body.nombre_asistencia
+        nombre_asistencia: body.nombre_asistencia,
+        descripcion: body.descripcion,
+        costo: body.costo
     });
 
     nuevo_tipo_asistencia.save((error, tipo_asistenciaDB) => {

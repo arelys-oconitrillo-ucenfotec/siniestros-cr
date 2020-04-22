@@ -3,6 +3,8 @@
 let nombre_asistencia = localStorage.getItem('nombre_asistencia');
 let id;
 const input_nombre_asistencia = document.querySelector('#txtNombreAsistencia');
+const input_descripcion = document.querySelector('#txtDescripcion');
+const input_costo = document.querySelector('#txtCosto');
 
 let llenar_campos = async() => {
     let tipo_asistencia = await obtener_asistencia_por_nombre(nombre_asistencia);
@@ -11,6 +13,8 @@ let llenar_campos = async() => {
 
     id = tipo_asistencia._id;
     input_nombre_asistencia.value = tipo_asistencia.nombre_asistencia;
+    input_descripcion.value = tipo_asistencia.descripcion;
+    input_costo.value = tipo_asistencia.costo;
 };
 
 
