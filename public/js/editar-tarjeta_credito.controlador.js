@@ -61,7 +61,7 @@ let limpiar_datos = () => {
     input_numeroTarjeta.value = "";
     input_fechaExp.value = "";
     input_codigoCVV.value = "";
-};
+}; 
 
 let modificar_tarjeta = () => {
     let error_validacion = validar();

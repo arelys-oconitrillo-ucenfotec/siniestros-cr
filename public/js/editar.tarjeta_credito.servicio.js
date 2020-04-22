@@ -1,13 +1,13 @@
 'use strict'
 
-let modificar_tarjetaCredito = async (p_id, pidentificacion, ptipoTarjeta, pnumeroTarjeta, pfechaExp, pcodigoCVV) => {
+let modificar_tarjetaCredito = async (p_id, p_tarjetaId, ptipoTarjeta, pnumeroTarjeta, pfechaExp, pcodigoCVV) => {
     await axios({
         method: 'put',
         url : 'http://localhost:3000/api/modificar/tarjeta',
         reponseType: 'json',
         data: {
             '_id': p_id,
-            'identificacion' : pidentificacion,
+            'tarjetas._id' : p_tarjetaId,
             'tipoTarjeta' : ptipoTarjeta,
             'numeroTarjeta' : pnumeroTarjeta,
             'fechaExp' : pfechaExp,
