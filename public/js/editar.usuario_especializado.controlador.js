@@ -171,7 +171,6 @@ let reiniciar_formulario_identificacion = () => {
 };
 
 let llenar_campos = async() => {
-    console.log(identificacion);
     let usuario_especializado = await obtener_usuario_especializado_id(identificacion);
 
     id = usuario_especializado._id;
@@ -201,6 +200,8 @@ let llenar_campos = async() => {
     }
 
     establecer_identificacion();
+    cargarCantones();
+    cargarDistritos();
 
 };
 

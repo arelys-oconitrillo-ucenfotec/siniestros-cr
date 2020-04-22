@@ -12,8 +12,7 @@ let cerrar_sesion_seleccionado = '';
 
 let obtener_menu = () => {
     if(menuConectado) {
-        console.log("tipo usuario");
-        console.log(sessionStorage);
+
         switch (menuTipoUsuario) {
             case 'admin':
                 navPrincipal.innerHTML = obtener_menu_admin();
@@ -70,7 +69,7 @@ let obtener_menu_especializado = () => {
             '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>' +
         '</div>' +
     '</div>';
-    console.log(opciones_menu);
+
     return opciones_menu;
 };
 
@@ -128,8 +127,6 @@ let establecer_editar_perfil_normal = () => {
 let establecer_editar_perfil_especializado = () => {
     const botonEditarPerfilEsp = document.getElementById('btnEditarPerfilEsp');
     let editar_perfil_esp = () => {
-        console.log('editar perfil esp');
-        console.log(menuIdentificacion);
         localStorage.setItem('identificacion_usuario_especializado', menuIdentificacion);
         window.location.href = 'editar-usuario-especializado.html'; 
     };

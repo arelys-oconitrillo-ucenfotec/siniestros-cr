@@ -7,7 +7,6 @@ function validar_credenciales(pcorreo, pcontrasena) {
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         dataType: 'json',
-        //responseType: 'json',
         async: false,
         data: {
             correo: pcorreo,
@@ -18,12 +17,13 @@ function validar_credenciales(pcorreo, pcontrasena) {
     peticion.done(function (response) {
         respuesta = response;
         if(respuesta.success){
-            sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
+            sessionStorage.setItem('conectado', response.success); 
             sessionStorage.setItem('tipo_usuario', "ruta");
             sessionStorage.setItem('nombre', response.usuario_ruta.primer_nombre);
             sessionStorage.setItem('nombre_comercial', response.usuario_ruta.nombre_comercial);
             sessionStorage.setItem('apellido', response.usuario_ruta.primer_apellido);
             sessionStorage.setItem('correo', response.usuario_ruta.correo);
+            sessionStorage.setItem('identificacion', response.usuario_ruta.identificacion);
         }
     });
 
