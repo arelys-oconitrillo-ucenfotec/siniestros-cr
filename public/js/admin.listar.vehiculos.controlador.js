@@ -27,7 +27,18 @@ let mostrar_datos = async() => {
             fila.insertCell().innerHTML = '<p>' + vehiculos[i]['modelo'] + '</p>';
             fila.insertCell().innerHTML = '<p>' + vehiculos[i]['annoModelo'] + '</p>';
             fila.insertCell().appendChild(mostrar_caracteristicas(vehiculos[i]['caracteristicas']));
-            fila.insertCell().innerHTML = '<p>Acciones</p>';
+            
+            let celda_editar = fila.insertCell();
+            let boton_editar = document.createElement('button');
+            boton_editar.type = 'button';
+            boton_editar.innerText = 'Editar'; 
+
+            boton_editar.addEventListener('click', ()=> {
+                localStorage.setItem('placa_vehiculo', vehiculos[i]['numeroPlaca']);
+                window.location.href = 'editar-vehiculo.html'; 
+            });
+
+            celda_editar.appendChild(boton_editar);
         }
     }
 };

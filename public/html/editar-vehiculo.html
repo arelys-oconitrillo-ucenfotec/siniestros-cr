@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Vehículos</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l8"></div>
+            </div>
+        </header>
+        <main>
+            <section id="registrar-vehiculo" class="beige">
+                <div class="w3-row">
+                    <div class="w3-col l6 w3-right">
+                        <h2>Editar Vehículo</h2>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l6">
+                        <div class="img-registro">
+                            <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+                        </div>
+                    </div>
+                    <div class="w3-col l6">
+                        <form id="frm-vehiculo">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Placa" name="txtPlaca" id="txtPlaca"  required>
+                                    <label for="txtPlaca" class="form__label dim-gray-letra">Placa</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Marca" name="txtMarca" id="txtMarca"  required>
+                                    <label for="txtMarca" class="form__label dim-gray-letra">Marca</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Modelo" name="txtModelo" id="txtModelo"  required>
+                                    <label for="txtModelo" class="form__label dim-gray-letra">Modelo</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Año" name="txtAnnoModelo" id="txtAnnoModelo"  required>
+                                    <label for="txtAnnoModelo" class="form__label dim-gray-letra">Año</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Color" name="txtColor" id="txtColor"  required>
+                                    <label for="txtColor" class="form__label dim-gray-letra">Color</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div id="contenedorCaracteristicas" class="form__group field form__group_field-checkbox">
+                                </div>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="btn2-registro beige-letra" id="btnVehiculos">Editar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="/public/js/utilidades.js"></script>
+        <script src="/public/js/admin.vehiculos_caracteristicas.servicio.js"></script>
+        <script src="/public/js/admin.vehiculos.servicio.js"></script>
+        <script src="/public/js/editar.vehiculo.controlador.js"></script>
+        </body>
+</html>

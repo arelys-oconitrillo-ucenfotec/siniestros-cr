@@ -33,6 +33,27 @@ router.post('/registrar/vehiculo', (req, res) => {
     });
 });
 
+router.get('/buscar/vehiculo', function(req,res) {
+
+    let numeroPlaca = req.query.numeroPlaca
+
+    Vehiculo.findOne({ numeroPlaca: numeroPlaca }, (error,vehiculoDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun vehiculo con esa identificación',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+               vehiculo:vehiculoDB
+            });
+        }
+    });
+});
+
+
 router.get('/listar/vehiculos', (req, res) => {
     Vehiculo.find((error, lista_vehiculos) => {
         if (error) {

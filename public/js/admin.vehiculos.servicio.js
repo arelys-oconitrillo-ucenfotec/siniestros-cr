@@ -67,6 +67,61 @@ let registrar_vehiculo = async() => {
     return vehiculo_registrado;
 };
 
+let obtener_vehiculo_por_placa = async(placa_vehiculo) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { numeroPlaca: placa_vehiculo },
+            url: 'http://localhost:3000/api/buscar/vehiculo',
+            responseType: 'json'
+        });
+        return response.data.vehiculo;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+let actualizar_vehiculo = async() => {
+    await axios({
+        method: 'put',
+        url: 'http://localhost:3000/api/modificar/vehiculo',
+        headers: {},
+        data: {
+          _id: id,
+          numeroPlaca: txtPlaca.value.toUpperCase(),
+          marca: primera_letra_mayuscula(txtMarca.value),
+          modelo: primera_letra_mayuscula(txtModelo.value),
+          annoModelo: txtAnnoModelo.value,
+          color: primera_letra_mayuscula(txtColor.value),
+          caracteristicas: obtener_caracteristicas_seleccionadas()
+        }   
+    })
+    .then(function(res) {
+        console.log(res);
+        if(res.data.resultado){
+            Swal.fire({
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos fueron modificados',
+                'icon': 'success'
+            })
+            .then(function() {
+                window.location.href = 'admin-listar-vehiculo.html';
+            });
+        } else {
+            Swal.fire({
+                'title': 'Error al modificar el vehiculo',
+                'text': 'No fue posible modificar el vehiculo',
+                'icon': 'warning'
+            });
+        }
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+};
+
+
+
 let registrar_vehiculo_usuario = async(id, vehiculos) => {
     await axios({
         method: 'put',

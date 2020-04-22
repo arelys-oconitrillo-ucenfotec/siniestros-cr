@@ -8,7 +8,6 @@ let listar_vehiculo_caracteristicas = async() => {
         url: 'http://localhost:3000/api/listar/vehiculo-caracteristicas',
         responseType: 'json'
     }).then(function(res) {
-        console.log(res);
         vehiculo_caracteristicas = res.data.lista_caracteristicas;
     })
     .catch(function(error) {
