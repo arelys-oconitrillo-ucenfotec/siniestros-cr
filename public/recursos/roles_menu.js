@@ -51,7 +51,7 @@ let obtener_menu_usuario = () => {
         '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
             '<button id="btnEditarPerfilNormal">Editar</button>' +
-            '<a href="">Tarjetas Asociadas</a>' +
+            '<a href="usuario-listar-tarjeta.html">Tarjetas Asociadas</a>' +
             '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>' +
         '</div>' +
     '</div>';
