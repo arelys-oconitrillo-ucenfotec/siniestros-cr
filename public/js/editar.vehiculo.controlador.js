@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 let placa_vehiculo = localStorage.getItem('placa_vehiculo');
 let id;
 const input_numero_placa = document.querySelector('#txtPlaca');

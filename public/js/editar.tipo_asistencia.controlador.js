@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 let nombre_asistencia = localStorage.getItem('nombre_asistencia');
 let id;
 const input_nombre_asistencia = document.querySelector('#txtNombreAsistencia');
