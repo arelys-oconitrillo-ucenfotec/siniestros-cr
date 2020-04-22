@@ -81,6 +81,69 @@ let registrar_usuario_especializado = async() => {
     });
 }
 
+let obtener_usuario_especializado_id = async(identificacion) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { identificacion: identificacion },
+            url: 'http://localhost:3000/api/buscar/usuario-especializado',
+            responseType: 'json'
+        });
+        return response.data.usuario_especializado;
+    } catch (error) {
+        console.log(error);
+    }
+};
 
+let actualizar_usuario = async() => {
+    await axios({
+        method: 'put',
+        url: 'http://localhost:3000/api/modificar/usuario-especializado',
+        headers: {},
+        data: {
+          _id: id,
+          tipo_identificacion: sltTipoIdentificacion.value,
+          identificacion: txtIdentificacion.value,
+          razon_social: txtRazonSocial.value,
+          nombre_comercial: txtNombreComercial.value,
+          info_aponderado: txtInfoAponderado.value,
+          primer_nombre: txtPrimerNombre.value,
+          segundo_nombre: txtSegundoNombre.value,
+          primer_apellido: txtPrimerApellido.value,
+          segundo_apellido: txtSegundoApellido.value,
+          genero: document.querySelector('#field-genero input[type=radio]:checked').value,
+          correo: txtEmail.value,
+          telefono: txtTelefono.value,
+          fotografia: txtUrlImg.value,
+          tipo: sltTipoEspecializado.value,
+          provincia: sltProvincia.value,
+          canton: sltCanton.value,
+          distrito: sltDistrito.value,
+          otras_senas: txtOtrasSenas.value
+        }   
+    })
+    .then(function(res) {
+        console.log(res);
+        if(res.data.resultado){
+            Swal.fire({
+                'title': 'Proceso realizado con éxito',
+                'text': 'Sus datos fueron modificados',
+                'icon': 'success'
+            })
+            .then(function() {
+                window.location.href = 'admin-listar-usuarios-especializados.html';
+            });
+        } else {
+            Swal.fire({
+                'title': 'Error al modificar el usuario',
+                'text': 'No fue posible modificar el usuario',
+                'icon': 'warning'
+            });
+        }
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+};
 
 

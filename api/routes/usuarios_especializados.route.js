@@ -50,6 +50,27 @@ router.post('/registrar/usuario-especializado', (req, res) => {
 
 });
 
+router.get('/buscar/usuario-especializado', function(req,res) {
+
+    let identificacion = req.query.identificacion
+
+    UsuarioEspecializado.findOne({ identificacion: identificacion }, (error, usuario_especializadoDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun usuario con esa identificación',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                usuario_especializado: usuario_especializadoDB
+            });
+        }
+    });
+});
+
+
 router.get('/listar/usuarios-especializados', (req, res) => {
     UsuarioEspecializado.find((error, lista_usuarios_especializados) => {
         if (error) {
