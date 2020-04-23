@@ -80,3 +80,6 @@ app.use('/api', tipo_incidente);
 
 const tipo_asistencia = require('./routes/tipos_asistencias.route');
 app.use('/api', tipo_asistencia);
+
+const ruta = require('./routes/rutas.route');
+app.use('/api', ruta);

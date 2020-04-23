@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registrar tipo asistencia</title>
+        <title>Registrar ruta</title>
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
             <section id="registro" class="beige">
                 <div class="w3-row">
                     <div class="w3-col l6 w3-right">
-                        <h2>Tipo de Asistencias</h2>
+                        <h2>Rutas</h2>
                         <p class="p1-registro dim-gray-letra">Registrar</p>
                     </div>
                     <div class="w3-col l6 w3-left">
@@ -40,27 +40,39 @@
                         </div>
                     </div>
                     <div class="w3-col l6">
-                        <form id="frm-asistencias">
+                        <form id="frm-rutas">
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
-                                    <input type="text" class="form__field dim-gray-letra" placeholder="Nombre de la asistencia" name="txtNombreAsistencia" id="txtNombreAsistencia"  required>
-                                    <label for="txtNombreAsistencia" class="form__label dim-gray-letra">Nombre de la asistencia</label>
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Nombre de la ruta" name="txtNombreRuta" id="txtNombreRuta"  required>
+                                    <label for="txtNombreRuta" class="form__label dim-gray-letra">Nombre de la ruta</label>
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
-                                    <input type="text" class="form__field dim-gray-letra" placeholder="Descripción" name="txtDescripcion" id="txtDescripcion"  required>
-                                    <label for="txtDescripcion" class="form__label dim-gray-letra">Descripción</label>
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Latitud Inicio" name="txtLatInicio" id="txtLatInicio"  required>
+                                    <label for="txtLatInicio" class="form__label dim-gray-letra">Latitud Inicio</label>
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
-                                    <input type="number" class="form__field dim-gray-letra" placeholder="Costo" name="txtCosto" id="txtCosto">
-                                    <label for="txtCosto" class="form__label dim-gray-letra">Costo</label>
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Longitud Inicio" name="txtLongInicio" id="txtLongInicio" required>
+                                    <label for="txtLongInicio" class="form__label dim-gray-letra">Longitud Inicio</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Latitud Fin" name="txtLatFin" id="txtLatFin" required>
+                                    <label for="txtLatFin" class="form__label dim-gray-letra">Latitud Fin</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Longitud Fin" name="txtLongFin" id="txtLongFin" required>
+                                    <label for="txtLongFin" class="form__label dim-gray-letra">Longitud Fin</label>
                                 </div>
                             </div>
                             <div class="btn2">
-                                <button type="button" class="btn2-registro beige-letra" id="btnAsistencias">Registrar</button>
+                                <button type="button" class="btn2-registro beige-letra" id="btnRutas">Registrar</button>
                             </div>
                         </form>
                     </div>
@@ -69,8 +81,8 @@
         </main>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script src="../js/admin.tipo_asistencias.servicio.js"></script>
-        <script src="../js/admin.registrar.tipos_asistencias.controlador.js"></script>
+        <script src="../js/admin.rutas.servicio.js"></script>
+        <script src="../js/admin.registrar.rutas.controlador.js"></script>
     </body>
 
 </html>
