@@ -98,7 +98,7 @@ let actualizar_ruta = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-ruta.html';
+                window.location.href = 'admin-listar-rutas.html';
             });
         } else {
             Swal.fire({
