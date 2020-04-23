@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "6a57b200-0de0-423e-a610-5577ea4f7772",
+		"name": "Siniestros CR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user - list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/listar/usuarios-normales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"listar",
+						"usuarios-normales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"tipo_identificacion\": \"Física\",\n\t\"identificacion\": \"107180299\",\n\t\"razon_social\": \"\",\n\t\"nombre_comercial\": \"\",\n\t\"info_aponderado\": \"\",\n\t\"primer_nombre\": \"Oscar\",\n\t\"segundo_nombre\": \"Alberto\",\n\t\"primer_apellido\": \"Saenz\",\n\t\"segundo_apellido\": \"Soler\",\n\t\"genero\": \"masculino\",\n\t\"correo\": \"oscar.saenz@gmail.com\",\n\t\"telefono\": 88913294,\n\t\"fotografia\": \"imgs/perfiles/oscar.jpg\",\n\t\"rol\": \"administrador\",\n\t\"codigo_activacion\": \"aa22222\",\n\t\"contrasena\": \"123\",\n\t\"estado\": \"activo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/registrar/usuario-normal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"registrar",
+						"usuario-normal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"5e76e4d53f69eb6699fe8be3\",\n    \"rol\": \"especializado\",\n    \"contrasena\": \"contraseña2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/modificar-usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"modificar-usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"5e796a26e916903322af1617\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/eliminar-usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eliminar-usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar-tarjeta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tipoTarjeta",
+							"value": "MasterCard",
+							"type": "text"
+						},
+						{
+							"key": "numeroTarjeta",
+							"value": "455612234556",
+							"type": "text"
+						},
+						{
+							"key": "fechaExp",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "codigoCVV",
+							"value": "256",
+							"type": "text"
+						},
+						{
+							"key": "identificacion",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/agregar/tarjeta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"agregar",
+						"tarjeta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " listatr-tarjeta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/listar/tarjeta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"listar",
+						"tarjeta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar - tarjeta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/modificar/tarjeta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"modificar",
+						"tarjeta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar/usuario-normal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/buscar/usuario-normal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"buscar",
+						"usuario-normal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar/vehiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api//listar/vehiculos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"",
+						"listar",
+						"vehiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registrar/vehiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "numeroPlaca",
+							"value": "BDN-689",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "Ford",
+							"type": "text"
+						},
+						{
+							"key": "modelo",
+							"value": "Cortina",
+							"type": "text"
+						},
+						{
+							"key": "annoModelo",
+							"value": "1973",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "Amarillo",
+							"type": "text"
+						},
+						{
+							"key": "caracteristicas",
+							"value": "Sedan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/registrar/vehiculo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"registrar",
+						"vehiculo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

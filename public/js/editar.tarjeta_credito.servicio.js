@@ -7,7 +7,7 @@ let modificar_tarjetaCredito = async (p_id, p_tarjetaId, ptipoTarjeta, pnumeroTa
         reponseType: 'json',
         data: {
             '_id': p_id,
-            'tarjetas._id' : p_tarjetaId,
+            'p_tarjetaId' : p_tarjetaId,
             'tipoTarjeta' : ptipoTarjeta,
             'numeroTarjeta' : pnumeroTarjeta,
             'fechaExp' : pfechaExp,
@@ -20,7 +20,7 @@ let modificar_tarjetaCredito = async (p_id, p_tarjetaId, ptipoTarjeta, pnumeroTa
             text: 'Sus datos han sido modificados',
             icon: 'success'
         }).then(() => {
-            window.location.href = '../usuario-listar-tarjetas.html';
+            window.location.href = '../usuario-listar-tarjeta.html';
         });
     
     }).catch((err) => {
