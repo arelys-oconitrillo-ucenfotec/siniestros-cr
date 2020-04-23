@@ -260,10 +260,10 @@ router.put('/modificar/tarjeta', function (req, res) {
     UsuarioNormal.update({_id: body.p_id, 
                               'tarjetas._id': body.p_tarjetaId }, {
         $set: {
-            'tarjetas.$.tipoTarjeta': body.ptipoTarjeta,
-            'tarjetas.$.numeroTarjeta': body.pnumeroTarjeta,
-            'tarjetas.$.fechaExp': body.pfechExp,
-            'tarjetas.$.codigoCVV': body.pcodigoCVV
+            'tarjetas.$.tipoTarjeta': body.tipoTarjeta,
+            'tarjetas.$.numeroTarjeta': body.numeroTarjeta,
+            'tarjetas.$.fechaExp': body.fechExp,
+            'tarjetas.$.codigoCVV': body.codigoCVV
         }
     }, function (error, info) {
         if (error) {
