@@ -2,27 +2,21 @@
 
 obtener_menu();
 
-let identificacion = localStorage.getItem('identificacion_usuario_especializado');
-
+let identificacion = localStorage.getItem('identificacion_usuario_ruta');
+const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 let id;
 const input_primer_nombre = document.querySelector('#txtPrimerNombre');
 const input_segundo_nombre = document.querySelector('#txtSegundoNombre');
 const input_primer_apellido = document.querySelector('#txtPrimerApellido');
 const input_segundo_apellido = document.querySelector('#txtSegundoApellido');
-const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
+const input_tipo_identificacion = document.querySelector('#sltTipoIdentificacion');
 const input_identificacion = document.querySelector('#txtIdentificacion');
 const input_correo = document.querySelector('#txtEmail');
 const input_telefono = document.querySelector('#txtTelefono');
 const input_img = document.querySelector('#icon-img');
 const input_fotografia = document.querySelector('#txtUrlImg');
 const botonRegistrar = document.querySelector('#btnRegistrar');
-const input_tipo = document.querySelector('#sltTipoEspecializado');
-const botonProvincias = document.querySelector('#sltProvincia');
-const botonCantones = document.querySelector('#sltCanton');
-const botonDistritos = document.querySelector('#sltDistrito');
-const input_otras_senas = document.querySelector('#txtOtrasSenas');
 const regexSoloNumeros = new RegExp('^[0-9]+$');
-
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
@@ -34,10 +28,6 @@ let validar = () => {
         if (campos_requeridos[i].value == '') {
             label_campo_requerido.classList.add('label-error');
 
-            if (campos_requeridos[i].id == 'txtOtrasSenas'){
-                campos_requeridos[i].classList.add('input-error');
-            }
-
             if (campos_requeridos[i].id == 'txtInfoAponderado'){
                 campos_requeridos[i].classList.add('input-error');
             }
@@ -46,10 +36,6 @@ let validar = () => {
 
         } else {
             label_campo_requerido.classList.remove('label-error');
-
-            if (campos_requeridos[i].id == 'txtOtrasSenas'){
-                campos_requeridos[i].classList.remove('input-error');
-            }
 
             if (campos_requeridos[i].id == 'txtInfoAponderado'){
                 campos_requeridos[i].classList.remove('input-error');
@@ -105,19 +91,47 @@ let validarEmail = (pError) => {
     return error;
 };
 
-let cargarCantones = () => {
-    let html_cantones = obtener_html_cantones(sltProvincia.value);
-    botonCantones.innerHTML = '';
-    botonCantones.innerHTML = html_cantones;
+
+let validarIdentificacion = (pError, pNumeroDigitos) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+
+    if(!error){
+        if(regexSoloNumeros.test(txtIdentificacion.value)){
+            label_identificacion.classList.remove('label-error');
+            if(txtIdentificacion.value.length != pNumeroDigitos){
+                label_identificacion.classList.add('label-error');
+                error = true;
+            }
+        } else {
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    }
+
+    return error;
 };
 
-let cargarDistritos = () => {
-    let html_distritos = obtener_html_distritos(sltProvincia.value, sltCanton.value);
-    botonDistritos.innerHTML = '';
-    botonDistritos.innerHTML = html_distritos;
-}; 
+let validarDimex = (pError) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+    
+    if(regexSoloNumeros.test(txtIdentificacion.value)){
+        label_identificacion.classList.remove('label-error');
+        if(txtIdentificacion.value.length != 11 || txtIdentificacion.value.length != 12){
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    } else {
+        label_identificacion.classList.add('label-error');
+        error = true;
+    }
 
-let modificar_usuario_especializado = () => {
+    return error;
+};
+
+
+let modificar_usuario_ruta = () => {
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({
@@ -126,7 +140,7 @@ let modificar_usuario_especializado = () => {
             'icon': 'warning'
         });
     } else {
-        actualizar_usuario_especializado();
+        actualizar_usuario_ruta();
     }
 };
 
@@ -172,26 +186,21 @@ let reiniciar_formulario_identificacion = () => {
 };
 
 let llenar_campos = async() => {
-    let usuario_especializado = await obtener_usuario_especializado_id(identificacion);
+    let usuario_ruta = await obtener_usuario_ruta_id(identificacion);
 
-    id = usuario_especializado._id;
-    input_primer_nombre.value = usuario_especializado.primer_nombre;
-    input_segundo_nombre.value = usuario_especializado.segundo_nombre;
-    input_primer_apellido.value = usuario_especializado.primer_apellido;
-    input_segundo_apellido.value = usuario_especializado.segundo_apellido;
-    botonIdentificacion.value = usuario_especializado.tipo_identificacion;
-    input_identificacion.value = usuario_especializado.identificacion;
-    input_correo.value = usuario_especializado.correo;
-    input_telefono.value = usuario_especializado.telefono;
-    input_img.src = usuario_especializado.fotografia;
-    input_fotografia.value = usuario_especializado.fotografia;
-    input_tipo.value = usuario_especializado.tipo;
-    botonProvincias.value = usuario_especializado.provincia;
-    botonCantones.value = usuario_especializado.canton;
-    botonDistritos.value = usuario_especializado.distrito;
-    input_otras_senas.value = usuario_especializado.otras_senas;
+    id = usuario_ruta._id;
+    input_primer_nombre.value = usuario_ruta.primer_nombre;
+    input_segundo_nombre.value = usuario_ruta.segundo_nombre;
+    input_primer_apellido.value = usuario_ruta.primer_apellido;
+    input_segundo_apellido.value = usuario_ruta.segundo_apellido;
+    input_tipo_identificacion.value = usuario_ruta.tipo_identificacion;
+    input_identificacion.value = usuario_ruta.identificacion;
+    input_correo.value = usuario_ruta.correo;
+    input_telefono.value = usuario_ruta.telefono;
+    input_img.src = usuario_ruta.fotografia;
+    input_fotografia.value = usuario_ruta.fotografia;
 
-    switch(usuario_especializado.genero){
+    switch(usuario_ruta.genero){
         case 'femenino':
             document.querySelector('#rbtFemenino').checked = true;
         break;
@@ -201,14 +210,10 @@ let llenar_campos = async() => {
     }
 
     establecer_identificacion();
-    cargarCantones();
-    cargarDistritos();
 
 };
 
 llenar_campos();
 
-botonRegistrar.addEventListener('click', modificar_usuario_especializado);
 botonIdentificacion.addEventListener('input', establecer_identificacion);
-botonProvincias.addEventListener('input', cargarCantones);
-botonCantones.addEventListener('input', cargarDistritos);
+botonRegistrar.addEventListener('click', modificar_usuario_ruta);

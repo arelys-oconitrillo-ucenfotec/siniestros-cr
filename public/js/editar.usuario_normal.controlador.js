@@ -16,6 +16,7 @@ const input_telefono = document.querySelector('#txtTelefono');
 const input_img = document.querySelector('#icon-img');
 const input_fotografia = document.querySelector('#txtUrlImg');
 const botonRegistrar = document.querySelector('#btnRegistrar');
+const regexSoloNumeros = new RegExp('^[0-9]+$');
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');

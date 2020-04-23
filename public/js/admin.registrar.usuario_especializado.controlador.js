@@ -9,6 +9,7 @@ const botonRegistrar = document.querySelector('#btnRegistrar');
 const botonProvincias = document.querySelector('#sltProvincia');
 const botonCantones = document.querySelector('#sltCanton');
 const botonDistritos = document.querySelector('#sltDistrito');
+const regexSoloNumeros = new RegExp('^[0-9]+$');
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');

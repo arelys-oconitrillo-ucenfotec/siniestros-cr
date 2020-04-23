@@ -49,7 +49,7 @@ router.get('/buscar/usuario-ruta', function(req,res) {
 
     let identificacion = req.query.identificacion
 
-    UsuarioNormal.findOne({ identificacion: identificacion }, (error, usuario_rutaDB) => {
+    UsuarioRuta.findOne({ identificacion: identificacion }, (error, usuario_rutaDB) => {
         if (error) {
             res.json({
                 resultado: false,

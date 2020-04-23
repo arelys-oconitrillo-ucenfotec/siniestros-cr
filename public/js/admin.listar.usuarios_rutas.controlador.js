@@ -15,6 +15,17 @@ let mostrar_datos = async() => {
         fila.insertCell().innerHTML = usuarios[i]['identificacion'];
         fila.insertCell().innerHTML = usuarios[i]['correo'];
     
+        let celda_editar = fila.insertCell();
+        let boton_editar = document.createElement('button');
+        boton_editar.type = 'button';
+        boton_editar.innerText = 'Editar'; 
+
+        boton_editar.addEventListener('click', ()=> {
+            localStorage.setItem('identificacion_usuario_ruta', usuarios[i]['identificacion']);
+            window.location.href = 'editar-usuario-ruta.html'; 
+        });
+
+        celda_editar.appendChild(boton_editar);
     }
 };
 

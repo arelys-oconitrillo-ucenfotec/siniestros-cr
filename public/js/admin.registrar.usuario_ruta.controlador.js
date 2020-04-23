@@ -6,6 +6,7 @@ funcion que envie un email para la activacion del usuario*/
 
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 const botonRegistrar = document.querySelector('#btnRegistrar');
+const regexSoloNumeros = new RegExp('^[0-9]+$');
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
