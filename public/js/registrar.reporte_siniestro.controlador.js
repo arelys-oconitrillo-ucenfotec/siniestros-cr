@@ -21,8 +21,25 @@ let mostrar_rutas = async() => {
     }
 };
 
-/*let validar = (pCamposRequeridos) => {
-    let campos_requeridos = pCamposRequeridos;
+let mostrar_siniestros = async() => {
+    let siniestros = await listar_tipo_incidentes();
+    sltSiniestro.innerHTML = '<option value="">Seleccione</option>';
+
+    for (let i = 0; i < siniestros.length; i++) {
+        let id = siniestros[i]['_id'];
+        let nombre_siniestro = siniestros[i]['nombre_siniestro'];
+
+        let opcionSiniestro = document.createElement('option');
+        opcionSiniestro.id = id;
+        opcionSiniestro.value = nombre_siniestro;
+        opcionSiniestro.innerText = nombre_siniestro;
+
+        sltSiniestro.appendChild(opcionSiniestro);
+    }
+};
+
+let validar = () => {
+    let campos_requeridos = document.querySelectorAll('#frm-reporte-siniestro [required]');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
@@ -33,11 +50,11 @@ let mostrar_rutas = async() => {
             if (campos_requeridos[i].id == 'txtDescripcion'){
                 campos_requeridos[i].classList.add('input-error');
             }
-            
+
             error = true;
         } else {
             label_campo_requerido.classList.remove('label-error');
-            
+
             if (campos_requeridos[i].id == 'txtDescripcion'){
                 campos_requeridos[i].classList.remove('input-error');
             }
@@ -48,7 +65,8 @@ let mostrar_rutas = async() => {
       
 };
 
-let limpiar = () => {
+
+/*let limpiar = () => {
     txtPlaca.value = '';
     txtMarca.value = '';
     txtModelo.value = '';
@@ -127,4 +145,5 @@ botonReportar.addEventListener('click', agregar_vehiculo);*/
 
 ready(function() {
     mostrar_rutas();
+    mostrar_siniestros();
 });
