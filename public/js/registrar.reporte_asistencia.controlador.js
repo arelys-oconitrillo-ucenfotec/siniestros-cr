@@ -1,6 +1,8 @@
 'use strict';
 
-const sltUsuariosEsp = document.querySelector('#sltUsuariosEsp');
+obtener_menu();
+
+const sltTipoAsistencia = document.querySelector('#sltTipoAsistencia');
 const botonReportar = document.querySelector('#btnReportar');
 const botonProvincias = document.querySelector('#sltProvincia');
 const botonCantones = document.querySelector('#sltCanton');
@@ -9,25 +11,25 @@ const botonDistritos = document.querySelector('#sltDistrito');
 
 let mostrar_tipos_asistencias = async() => {
     let tipos_asistencias = await listar_tipo_asistencias();
-    sltUsuariosEsp.innerHTML = '<option value="">Seleccione</option>';
+    sltTipoAsistencia.innerHTML = '<option value="">Seleccione</option>';
     
-    Console.log(tipos_asistencias);
+    console.log(tipos_asistencias);
     for (let i = 0; i < tipos_asistencias.length; i++) {
         let id = tipos_asistencias[i]['_id'];
-        let tipo = tipos_asistencias[i]['tipo'];
+        let tipo = tipos_asistencias[i]['nombre_asistencia'];
 
         let opcionAsistencia = document.createElement('option');
         opcionAsistencia.id = id;
         opcionAsistencia.value = tipo;
         opcionAsistencia.innerText = tipo;
 
-        sltUsuariosEsp.appendChild(opcionAsistencia);
+        sltTipoAsistencia.appendChild(opcionAsistencia);
     }
 };
 
 
 let validar = () => {
-    let campos_requeridos = document.querySelectorAll('#frm-reporte-siniestro [required]');
+    let campos_requeridos = document.querySelectorAll('#frm-reporte-asistencia [required]');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
@@ -54,7 +56,7 @@ let validar = () => {
       
 };
 
-let agregar_reporte_siniestro = () => {
+let agregar_reporte_asistencia = () => {
     let error = validar();
     if (error) {
         Swal.fire({
@@ -63,14 +65,14 @@ let agregar_reporte_siniestro = () => {
             'icon': 'warning'
         });
     } else {
-        console.log(sltSiniestro.value);
-        registrar_reporte_siniestro();
+        console.log(sltTipoAsistencia.value);
+        registrar_reporte_asistencia();
     }
 };
 
 
 let limpiar = () => {
-    sltUsuariosEsp.value = "";
+    sltTipoAsistencia.value = "";
     sltProvincia.value = "";
     sltCanton.value = "";
     sltDistrito.value = "";
@@ -90,7 +92,7 @@ let cargarDistritos = () => {
 }; 
 
 
-botonReportar.addEventListener('click', agregar_reporte_siniestro);
+botonReportar.addEventListener('click', agregar_reporte_asistencia);
 botonProvincias.addEventListener('input', cargarCantones);
 botonCantones.addEventListener('input', cargarDistritos);
 

@@ -7,6 +7,7 @@ const ReporteSiniestro = require('../models/reportes_siniestros.model');
 router.post('/registrar/reporte-siniestro', (req, res) => {
     let body = req.body;
     let nuevo_reporte_siniestro = new ReporteSiniestro({
+        usuario_identificacion: body.usuario_identificacion,
         tipo_siniestro: body.tipo_siniestro,
         descripcion: body.descripcion,
         ruta_id: body.ruta_id,

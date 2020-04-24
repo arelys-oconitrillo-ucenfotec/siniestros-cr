@@ -1,5 +1,6 @@
 'use strict';
 
+obtener_menu();
 
 const tbody = document.querySelector('#tbl-listar tbody');
 /* esta es la identifacion que se recoge cuando se inicia sesion*/

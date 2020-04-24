@@ -19,7 +19,12 @@
                 <div class="w3-col l4 w3-center tan-letra">
                     <h1>Siniestros Viales CR</h1>
                 </div>
-                <div class="w3-col l8"></div>
+                <div class="w3-col l5 w3-right">
+                    <div id="contenedor-menu">
+                        <nav id="nav_principal">
+                        </nav>
+                    </div>
+                </div>
             </div>
         </header>
         <main>
@@ -39,12 +44,12 @@
                         </div>
                     </div>
                     <div class="w3-col l6">
-                        <form id="frm-reporte-siniestro">
+                        <form id="frm-reporte-asistencia">
                             <div class="w3-row campo-frm">
-                                <div id="contenedorUsuariosEsp" class="form__group field form__group_field-select">
-                                    <select id="sltUsuariosEsp" class="form__field dim-gray-letra" required>
+                                <div id="contenedorTipoAsistencia" class="form__group field form__group_field-select">
+                                    <select id="sltTipoAsistencia" class="form__field dim-gray-letra" required>
                                     </select>
-                                    <label id= "lblUsuariosEsp" for="sltUsuariosEsp" class="form__label dim-gray-letra">Usuarios Especializados</label>
+                                    <label id= "lblTipoAsistencia" for="sltTipoAsistencia" class="form__label dim-gray-letra">Tipo Asistencia</label>
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
@@ -94,11 +99,13 @@
         </main>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../recursos/roles_menu.js"></script>
         <script src="/public/js/utilidades.js"></script>
         <script src="../recursos//division_geografica.js"></script>
         <script src="../js/division_geografica.servicio.js"></script>
-        <script src="/public/js/admin.usuario_especializado.servicio.js"></script>
+        <script src="/public/js/admin.tipo_asistencias.servicio.js"></script>
         <script src="/public/js/reporte_asistencia.servicio.js"></script>
         <script src="/public/js/registrar.reporte_asistencia.controlador.js"></script>
+        
         </body>
 </html>

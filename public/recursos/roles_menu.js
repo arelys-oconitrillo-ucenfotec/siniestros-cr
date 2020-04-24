@@ -48,6 +48,20 @@ let obtener_menu = () => {
 let obtener_menu_usuario = () => {
     let opciones_menu = 
     '<div class="dropdown">' +
+        '<button class="dropbtn">Siniestros</button>' +
+        '<div class="dropdown-content">' +
+        '<a href="reporte-siniestro.html">Registrar</a>' +
+        '<a href="listar-siniestros.html">Listar</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Asistencias</button>' +
+        '<div class="dropdown-content">' +
+        '<a href="reporte-asistencia.html">Registrar</a>' +
+        '<a href="listar-asistencias.html">Listar</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
         '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
             '<button id="btnEditarPerfilNormal">Editar</button>' +

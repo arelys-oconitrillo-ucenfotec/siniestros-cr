@@ -1,5 +1,7 @@
 'use strict';
 
+const identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+
 let listar_reporte_siniestros = async() => {
     let reporte_siniestros;
 
@@ -25,6 +27,7 @@ let registrar_reporte_siniestro = async() => {
         url: 'http://localhost:3000/api/registrar/reporte-siniestro',
         headers: {},
         data: {
+            usuario_identificacion: identificacion_usuario_logueado,
             descripcion: txtDescripcion.value,
             latitud: txtLatitud.value,
             longitud: txtLongitud.value,

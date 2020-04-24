@@ -1,5 +1,7 @@
 'use strict';
 
+const identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+
 let listar_reporte_asistencias = async() => {
     let reporte_asistencias;
 
@@ -20,12 +22,14 @@ let listar_reporte_asistencias = async() => {
 
 
 let registrar_reporte_asistencia = async() => {
+    console.log(identificacion_usuario_logueado);
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar/reporte-asistencia',
         headers: {},
         data: {
-            tipo_asistencia: sltUsuariosEsp.value,
+            usuario_identificacion: identificacion_usuario_logueado,
+            tipo_asistencia: sltTipoAsistencia.value,
             provincia: sltProvincia.value,
             canton: sltCanton.value,
             distrito: sltDistrito.value,
@@ -82,6 +86,7 @@ let actualizar_reporte_asistencia = async() => {
         headers: {},
         data: {
             _id: id,
+            usuario_identificacion: identificacion_usuario_logueado,
             tipo_asistencia: sltUsuariosEsp.value,
             provincia: sltProvincia.value,
             canton: sltCanton.value,

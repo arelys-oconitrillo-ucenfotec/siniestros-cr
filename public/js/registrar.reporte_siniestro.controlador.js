@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 const sltRuta = document.querySelector('#sltRuta');
 const sltSiniestro = document.querySelector('#sltSiniestro');
 const botonReportar = document.querySelector('#btnReportar');
