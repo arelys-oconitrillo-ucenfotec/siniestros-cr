@@ -83,3 +83,6 @@ app.use('/api', tipo_asistencia);
 
 const ruta = require('./routes/rutas.route');
 app.use('/api', ruta);
+
+const reporte_siniestro = require('./routes/reportes_siniestros.route');
+app.use('/api', reporte_siniestro);

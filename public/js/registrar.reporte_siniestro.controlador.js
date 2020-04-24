@@ -1,36 +1,27 @@
 'use strict';
 
-const contenedorCaracteristicas = document.querySelector('#contenedorCaracteristicas');
-const botonRegistrar = document.querySelector('#btnRegistrar');
+const sltRuta = document.querySelector('#sltRuta');
+const sltSiniestro = document.querySelector('#sltSiniestro');
+const botonReportar = document.querySelector('#btnReportar');
 
-let mostrar_caracteristicas = async() => {
-    let caracteristicas = await listar_vehiculo_caracteristicas();
-    contenedorCaracteristicas.innerHTML = '';
+let mostrar_rutas = async() => {
+    let rutas = await listar_rutas();
+    sltRuta.innerHTML = '<option value="">Seleccione</option>';
 
-    for (let i = 0; i < caracteristicas.length; i++) {
-        let id = caracteristicas[i]['_id'];
-        let value = caracteristicas[i]['caracteristica'];
+    for (let i = 0; i < rutas.length; i++) {
+        let id = rutas[i]['_id'];
+        let nombre_ruta = rutas[i]['nombre_ruta'];
 
-        let contenedorCaracteristica = document.createElement('div');
-        contenedorCaracteristica.classList.add('form-checkbox');
+        let opcionRuta = document.createElement('option');
+        opcionRuta.id = id;
+        opcionRuta.value = nombre_ruta;
+        opcionRuta.innerText = nombre_ruta;
 
-        let inputCheckbox = document.createElement('input');
-        inputCheckbox.type = 'checkbox';
-        inputCheckbox.id = id;
-        inputCheckbox.name = id;
-        inputCheckbox.value = value;
-
-        let lblCheckbox = document.createElement('label');
-        lblCheckbox.setAttribute('for', id);
-        lblCheckbox.innerText = value;
-
-        contenedorCaracteristica.appendChild(inputCheckbox);
-        contenedorCaracteristica.appendChild(lblCheckbox);
-        contenedorCaracteristicas.appendChild(contenedorCaracteristica);
+        sltRuta.appendChild(opcionRuta);
     }
 };
 
-let validar = (pCamposRequeridos) => {
+/*let validar = (pCamposRequeridos) => {
     let campos_requeridos = pCamposRequeridos;
     let error = false;
 
@@ -39,7 +30,7 @@ let validar = (pCamposRequeridos) => {
         if (campos_requeridos[i].value == '') {
             label_campo_requerido.classList.add('label-error');
 
-            if (campos_requeridos[i].id == 'txtInfoAponderado'){
+            if (campos_requeridos[i].id == 'txtDescripcion'){
                 campos_requeridos[i].classList.add('input-error');
             }
             
@@ -47,7 +38,7 @@ let validar = (pCamposRequeridos) => {
         } else {
             label_campo_requerido.classList.remove('label-error');
             
-            if (campos_requeridos[i].id == 'txtInfoAponderado'){
+            if (campos_requeridos[i].id == 'txtDescripcion'){
                 campos_requeridos[i].classList.remove('input-error');
             }
         }
@@ -63,9 +54,9 @@ let limpiar = () => {
     txtModelo.value = '';
     txtAnnoModelo.value = '';
     txtColor.value = '';
-    let caracteristicas = document.querySelectorAll('#contenedorCaracteristicas input[type=checkbox]');
-    for(let i = 0; i < caracteristicas.length; i++){
-        caracteristicas[i].checked = false;
+    let rutas = document.querySelectorAll('#sltRutas input[type=checkbox]');
+    for(let i = 0; i < rutas.length; i++){
+        rutas[i].checked = false;
     }
 };
 
@@ -132,8 +123,8 @@ let obtener_propietarios_vehiculo = async() => {
     return propietarios;
 };
 
-botonRegistrar.addEventListener('click', agregar_vehiculo);
+botonReportar.addEventListener('click', agregar_vehiculo);*/
 
 ready(function() {
-    mostrar_caracteristicas();
+    mostrar_rutas();
 });
