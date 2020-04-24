@@ -65,83 +65,32 @@ let validar = () => {
       
 };
 
-
-/*let limpiar = () => {
-    txtPlaca.value = '';
-    txtMarca.value = '';
-    txtModelo.value = '';
-    txtAnnoModelo.value = '';
-    txtColor.value = '';
-    let rutas = document.querySelectorAll('#sltRutas input[type=checkbox]');
-    for(let i = 0; i < rutas.length; i++){
-        rutas[i].checked = false;
-    }
-};
-
-let agregar_vehiculo = async () => {
-    let errorFrmVehiculo = validar(document.querySelectorAll('#frm-vehiculo [required]'));
-
-    if (errorFrmVehiculo) {
+let agregar_reporte_siniestro = () => {
+    let error = validar();
+    if (error) {
         Swal.fire({
             'title': 'Sus datos no se pudieron enviar',
             'text': 'Por favor revise los campos resaltados',
             'icon': 'warning'
         });
     } else {
-        let usuario_actual = await obtener_usuario_actual();
-        if(usuario_actual){
-            let propietarios_vehiculo = await obtener_propietarios_vehiculo();
-            if(propietarios_vehiculo.length > 0){
-                //TODO Notificacion a usuarios con vehiculo registrado
-                Swal.fire({
-                    'title': 'Error de autorización',
-                    'text': 'El vehículo placa ' + txtPlaca.value + ' se encuentra registrado',
-                    'icon': 'warning'
-                });
-            } else {
-                let vehiculo_registrado = await registrar_vehiculo();
-
-                if(vehiculo_registrado){
-                    let vehiculos_usuario_actual = usuario_actual.vehiculos;
-                    vehiculos_usuario_actual.push({placa: txtPlaca.value});
-
-                    registrar_vehiculo_usuario(usuario_actual._id, vehiculos_usuario_actual);
-                } else {
-                    Swal.fire({
-                        'title': 'Error al registrar el vehiculo',
-                        'text': 'No fue posible registrar el vehículo',
-                        'icon': 'warning'
-                    });
-                }
-            }
-        } else {
-            Swal.fire({
-                'title': 'Error de autorización',
-                'text': 'Por favor inicie sesion para registrar un vehículo',
-                'icon': 'warning'
-            });
-        }
+        console.log(sltSiniestro.value);
+        registrar_reporte_siniestro();
     }
-
 };
 
-let obtener_propietarios_vehiculo = async() => {
-    let propietarios = [];
-    let usuarios = await listar_usuarios();
 
-    for(let i = 0; i < usuarios.length; i++){
-        let vehiculos_usuario = usuarios[i].vehiculos;
-        for(let j = 0; j < vehiculos_usuario.length; j++){
-            if(vehiculos_usuario[j].placa == txtPlaca.value){
-                propietarios.push(usuarios[i]);
-            }
-        }
-    }
+let limpiar = () => {
 
-    return propietarios;
+    txtDescripcion.value = '';
+    txtLatitud.value = '';
+    txtLongitud.value = '';
+    sltRuta.value = '';
+    sltSiniestro.value = '';
 };
 
-botonReportar.addEventListener('click', agregar_vehiculo);*/
+
+botonReportar.addEventListener('click', agregar_reporte_siniestro);
 
 ready(function() {
     mostrar_rutas();

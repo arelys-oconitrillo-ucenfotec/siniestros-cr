@@ -1,35 +1,35 @@
 'use strict';
 
-let listar_reporte_siniestros = async() => {
-    let reporte_siniestros;
+let listar_reporte_asistencias = async() => {
+    let reporte_asistencias;
 
     await axios({
         method: 'get',
-        url: 'http://localhost:3000/api/listar/reporte-siniestros',
+        url: 'http://localhost:3000/api/listar/reporte-asistencias',
         responseType: 'json'
     }).then(function(res) {
         console.log(res);
-        reporte_siniestros = res.data.lista_reporte_siniestros;
+        reporte_asistencias = res.data.lista_reporte_asistencias;
     })
     .catch(function(err) {
         console.log(err);
     });
 
-    return reporte_siniestros;
+    return reporte_asistencias;
 };
 
 
-let registrar_reporte_siniestro = async() => {
+let registrar_reporte_asistencia = async() => {
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/registrar/reporte-siniestro',
+        url: 'http://localhost:3000/api/registrar/reporte-asistencia',
         headers: {},
         data: {
-            descripcion: txtDescripcion.value,
-            latitud: txtLatitud.value,
-            longitud: txtLongitud.value,
-            ruta_id: sltRuta.value,
-            tipo_siniestro: sltSiniestro.value
+            tipo_asistencia: sltUsuariosEsp.value,
+            provincia: sltProvincia.value,
+            canton: sltCanton.value,
+            distrito: sltDistrito.value,
+            otras_senas: txtOtrasSenas.value
         }   
     })
     .then(function(response) {
@@ -61,32 +61,32 @@ let registrar_reporte_siniestro = async() => {
     });
 }
 
-let obtener_reporte_siniestro_por_id = async(usuario_identificacion) => {
+let obtener_reporte_asistencia_por_id = async(usuario_identificacion) => {
     try {
         const response = await axios({
             method: 'get',
             params: { usuario_identificacion: usuario_identificacion },
-            url: 'http://localhost:3000/api/buscar/reporte-siniestro',
+            url: 'http://localhost:3000/api/buscar/reporte-asistencia',
             responseType: 'json'
         });
-        return response.data.reporte_siniestro;
+        return response.data.reporte_asistencia;
     } catch (error) {
         console.log(error);
     }
 };
 
-let actualizar_reporte_siniestro = async() => {
+let actualizar_reporte_asistencia = async() => {
     await axios({
         method: 'put',
-        url: 'http://localhost:3000/api/modificar/reporte-siniestro',
+        url: 'http://localhost:3000/api/modificar/reporte-asistencia',
         headers: {},
         data: {
             _id: id,
-            descripcion: txtDescripcion.value,
-            latitud: txtLatitud.value,
-            longitud: txtLongitud.value,
-            ruta_id: sltRuta.value,
-            tipo_siniestro: sltSiniestro.value
+            tipo_asistencia: sltUsuariosEsp.value,
+            provincia: sltProvincia.value,
+            canton: sltCanton.value,
+            distrito: sltDistrito.value,
+            otras_senas: txtOtrasSenas.value
         }   
     })
     .then(function(res) {
@@ -98,12 +98,12 @@ let actualizar_reporte_siniestro = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-reporte-siniestro.html';
+                window.location.href = 'admin-listar-reporte-asistencia.html';
             });
         } else {
             Swal.fire({
-                'title': 'Error al modificar el reporte siniestro',
-                'text': 'No fue posible modificar el reporte siniestro',
+                'title': 'Error al modificar el reporte asistencia',
+                'text': 'No fue posible modificar el reporte asistencia',
                 'icon': 'warning'
             });
         }

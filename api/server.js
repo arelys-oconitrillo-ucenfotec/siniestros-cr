@@ -86,3 +86,6 @@ app.use('/api', ruta);
 
 const reporte_siniestro = require('./routes/reportes_siniestros.route');
 app.use('/api', reporte_siniestro);
+
+const reporte_asistencia = require('./routes/reportes_asistencias.route');
+app.use('/api', reporte_asistencia);

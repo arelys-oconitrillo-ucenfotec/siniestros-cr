@@ -2,30 +2,29 @@
 
 const express = require('express');
 const router = express.Router();
-const ReporteSiniestro = require('../models/reportes_siniestros.model');
+const ReporteAsistencia = require('../models/reportes_asistencias.model');
 
-router.post('/registrar/reporte-siniestro', (req, res) => {
+router.post('/registrar/reporte-asistencia', (req, res) => {
     let body = req.body;
-    let nuevo_reporte_siniestro = new ReporteSiniestro({
-        tipo_siniestro: body.tipo_siniestro,
-        descripcion: body.descripcion,
-        ruta_id: body.ruta_id,
-        latitud: body.latitud,
-        longitud: body.longitud
+    let nuevo_reporte_asistencia = new ReporteAsistencia({
+        tipo_asistencia: body.tipo_asistencia,
+        provincia: body.tipo_asistencia,
+        canton: body.tipo_asistencia,
+        distrito: body.tipo_asistencia
     });
 
-    nuevo_reporte_siniestro.save((error, reporte_siniestroDB) => {
+    nuevo_reporte_asistencia.save((error, reporte_asistenciaDB) => {
         if (error) {
             res.json({
                 resultado: false,
-                msj: 'No se pudo registrar el reporte siniestro, ocurrió el siguiente error:',
+                msj: 'No se pudo registrar el reporte asistencia, ocurrió el siguiente error:',
                 error
             });
         } else {
             res.json({
                 resultado: true,
                 msj: 'Los datos se enviaron de forma exitosa',
-                reporte_siniestroDB
+                reporte_asistenciaDB
             });
         }
     });
@@ -33,28 +32,28 @@ router.post('/registrar/reporte-siniestro', (req, res) => {
 
 });
 
-router.get('/listar/reporte-siniestros', (req, res) => {
-    ReporteSiniestro.find((error, lista_reportes_siniestros) => {
+router.get('/listar/reporte-asistencias', (req, res) => {
+    ReporteAsistencia.find((error, lista_reportes_asistencias) => {
         if (error) {
             res.json({
                 resultado: false,
-                msj: 'No se pudieron registrar los reportes siniestros',
+                msj: 'No se pudieron registrar los reportes asistencias',
                 error
             });
         } else {
             res.json({
                 resultado: true,
-                msj: 'Los reportes_siniestros se listaron adecuadamente',
-                lista_reportes_siniestros
+                msj: 'Los reportes asistencias se listaron adecuadamente',
+                lista_reportes_asistencias
             });
         }
     });
 });
 
-router.put('/modificar/reporte-siniestro', function (req, res) {
+router.put('/modificar/reporte-asistencia', function (req, res) {
     let body = req.body;
 
-    ReporteSiniestro.updateOne({
+    ReporteAsistencia.updateOne({
         _id: body._id
     }, {
         $set: req.body
@@ -62,7 +61,7 @@ router.put('/modificar/reporte-siniestro', function (req, res) {
         if (error) {
             res.json({
                 resultado: false,
-                msg: 'No se pudo modificar el reporte siniestro',
+                msg: 'No se pudo modificar el reporte asistencia',
                 error
             });
         } else {
@@ -74,62 +73,62 @@ router.put('/modificar/reporte-siniestro', function (req, res) {
     });
 });
 
-router.delete('/eliminar/reporte-siniestro', function (req, res) {
+router.delete('/eliminar/reporte-asistencia', function (req, res) {
     let body = req.body;
 
-    ReporteSiniestro.deleteOne({
+    ReporteAsistencia.deleteOne({
         _id: body._id
     }).then(resultado => {
 
         if (resultado.deletedCount == 1) {
             res.json({
                 resultado: true,
-                msg: 'Se eliminó el reporte siniestro'
+                msg: 'Se eliminó el reporte asistencia'
             });
         } else {
             res.json({
                 resultado: false,
-                msj: 'No se pudo eliminar el reporte siniestro'
+                msj: 'No se pudo eliminar el reporte asistencia'
             });
         }
     });
 });
 
-router.get('/buscar/reporte-siniestro/usuario', function(req,res) {
+router.get('/buscar/reporte-asistencia/usuario', function(req,res) {
 
     let usuario_identificacion = req.query.usuario_identificacion
 
-    ReporteSiniestro.find({ usuario_identificacion: usuario_identificacion }, (error, lista_reporte_siniestroDB) => {
+    ReporteAsistencia.find({ usuario_identificacion: usuario_identificacion }, (error, lista_reporte_asistenciaDB) => {
         if (error) {
             res.json({
                 resultado: false,
-                msj: 'No se encontró ningun reporte siniestro con ese usuario',
+                msj: 'No se encontró ningun reporte asistencia con ese usuario',
                 error
             });
         } else {
             res.json({
                 resultado: true,
-                lista_reporte_siniestroDB
+                lista_reporte_asistenciaDB
             });
         }
     });
 });
 
-router.get('/buscar/reporte-siniestro/tipo_siniestro', function(req,res) {
+router.get('/buscar/reporte-asistencia/tipo_asistencia', function(req,res) {
 
     let usuario_identificacion = req.query.usuario_identificacion
 
-    ReporteSiniestro.find({ usuario_identificacion: usuario_identificacion }, (error, lista_reporte_siniestroDB) => {
+    ReporteAsistencia.find({ usuario_identificacion: usuario_identificacion }, (error, lista_reporte_asistenciaDB) => {
         if (error) {
             res.json({
                 resultado: false,
-                msj: 'No se encontró ningun reporte siniestro con ese nombre',
+                msj: 'No se encontró ningun reporte asistencia con ese nombre',
                 error
             });
         } else {
             res.json({
                 resultado: true,
-                lista_reporte_siniestroDB
+                lista_reporte_asistenciaDB
             });
         }
     });
