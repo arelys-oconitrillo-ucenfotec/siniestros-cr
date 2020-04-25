@@ -1,6 +1,6 @@
 'use strict';
 
-//obtener_menu();
+obtener_menu();
 
 const tbody = document.querySelector('#tbl-listar tbody');
 

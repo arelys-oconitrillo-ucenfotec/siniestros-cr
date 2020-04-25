@@ -2,6 +2,20 @@
 
 obtener_menu();
 
+let conectado = sessionStorage.getItem('conectado');
+let tipo_usuario = sessionStorage.getItem('tipo_usuario');
+let identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+let vehiculos;
+
+if(conectado){
+    if(tipo_usuario == 'admin'){
+        vehiculos = await listar_vehiculos();
+    } else {
+        //vehiculos = await 
+    }
+}
+
+
 const tbody = document.querySelector('#tbl-listar tbody');
 
 let mostrar_caracteristicas = (caracteristicas) => {
@@ -16,7 +30,6 @@ let mostrar_caracteristicas = (caracteristicas) => {
 }
 
 let mostrar_datos = async() => {
-    let vehiculos = await listar_vehiculos();
     tbody.innerHTML = '';
 
     if(vehiculos){

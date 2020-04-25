@@ -6,7 +6,6 @@ const ReporteAsistencia = require('../models/reportes_asistencias.model');
 
 router.post('/registrar/reporte-asistencia', (req, res) => {
     let body = req.body;
-    console.log(body);
     let nuevo_reporte_asistencia = new ReporteAsistencia({
         usuario_identificacion: body.usuario_identificacion,
         tipo_asistencia: body.tipo_asistencia,

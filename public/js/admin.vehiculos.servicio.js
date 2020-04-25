@@ -173,11 +173,10 @@ let listar_usuarios = async() => {
 };
 
 let obtener_usuario_actual = async() => {
-    //TO DO: Traer usuario desde la cookie de login, por ahora voy quemarlo aqui
-    let id_test = '5e93ca3c5bacb46d1075cc88';
+    let identificacion = identificacion_usuario_logueado;
     let propietario;
 
-    let pUrl = 'http://localhost:3000/api/obtener/propietario-vehiculo/' + id_test;
+    let pUrl = 'http://localhost:3000/api/obtener/propietario-vehiculo/' + identificacion;
 
     await axios({
         method: 'get',
