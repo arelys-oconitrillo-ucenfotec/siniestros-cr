@@ -21,6 +21,7 @@ let validar_credenciales = async (pcorreo, pcontrasena) => {
             sessionStorage.setItem('apellido', response.data.usuario_normal.primer_apellido);
             sessionStorage.setItem('correo', response.data.usuario_normal.correo);
             sessionStorage.setItem('identificacion', response.data.usuario_normal.identificacion);
+            sessionStorage.setItem('identificacion_usuario_normal', respuesta.data.usuario_normal.identificacion);
         } else {
             console.log("Request fail error:");
             console.log(respuesta);

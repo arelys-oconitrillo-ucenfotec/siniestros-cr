@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-rutas [required]');
     let error = false;

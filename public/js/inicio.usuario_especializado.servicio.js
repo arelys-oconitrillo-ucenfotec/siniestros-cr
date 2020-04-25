@@ -1,35 +1,33 @@
 'use strict';
 
 let validar_credenciales = async (pcorreo, pcontrasena) => {
-    let respuesta = '';
-    let peticion = $.ajax({
+    let respuesta;
+
+    await axios({
+        method: 'post',
         url: 'http://localhost:3000/api/validar_credenciales/especializado',
-        type: 'post',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType: 'json',
-        async: false,
+        headers: {},
         data: {
             correo: pcorreo,
             contrasena: pcontrasena
         }
-    });
-
-    peticion.done(function (response) {
+    }).then(function(response) {
         respuesta = response;
-        if(respuesta.success){
-            sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
+        if(response.data.success){
+            sessionStorage.setItem('conectado', response.data.success); //resultado viene de users.api
             sessionStorage.setItem('tipo_usuario', "especializado");
-            sessionStorage.setItem('nombre', response.usuario_especializado.primer_nombre);
-            sessionStorage.setItem('nombre_comercial', response.usuario_especializado.nombre_comercial);
-            sessionStorage.setItem('apellido', response.usuario_especializado.primer_apellido);
-            sessionStorage.setItem('correo', response.usuario_especializado.correo);
-            sessionStorage.setItem('identificacion', response.usuario_especializado.identificacion);
+            sessionStorage.setItem('nombre', response.data.usuario_especializado.primer_nombre);
+            sessionStorage.setItem('nombre_comercial', response.data.usuario_especializado.nombre_comercial);
+            sessionStorage.setItem('apellido', response.data.usuario_especializado.primer_apellido);
+            sessionStorage.setItem('correo', response.data.usuario_especializado.correo);
+            sessionStorage.setItem('identificacion', response.data.usuario_especializado.identificacion);
+            sessionStorage.setItem('identificacion_usuario_especializado', respuesta.data.usuario_especializado.identificacion);
+        } else {
+            console.log("Request fail error:");
+            console.log(respuesta);
         }
-    });
-
-    peticion.fail(function (response) {
-        respuesta = response;
-        console.log("Request fail error:" + respuesta);
+    }).catch(function(error) {
+        console.log(error);
     });
 
     return respuesta;

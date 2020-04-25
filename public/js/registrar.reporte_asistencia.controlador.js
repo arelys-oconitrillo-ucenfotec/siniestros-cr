@@ -66,6 +66,9 @@ let agregar_reporte_asistencia = () => {
         });
     } else {
         console.log(sltTipoAsistencia.value);
+        console.log(sltCanton.value);
+        console.log(sltProvincia.value);
+        console.log(sltDistrito.value);
         registrar_reporte_asistencia();
     }
 };

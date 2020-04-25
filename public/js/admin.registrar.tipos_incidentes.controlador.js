@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 const input_icono = document.querySelector('#icon-img');
 
 let validar = () => {

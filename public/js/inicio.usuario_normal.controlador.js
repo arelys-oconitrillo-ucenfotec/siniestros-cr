@@ -22,7 +22,6 @@ let obtenerDatos = async() => {
         let respuesta = await validar_credenciales(correo, contrasena);
         usuarioAceptado = respuesta.data.success;
         if (usuarioAceptado) {
-            sessionStorage.setItem('identificacion_usuario_normal', respuesta.data.usuario_normal.identificacion);
             if(respuesta.data.usuario_normal.rol == "admin"){
                 window.location.href = 'admin-listar-usuarios-normales.html';
             } else {

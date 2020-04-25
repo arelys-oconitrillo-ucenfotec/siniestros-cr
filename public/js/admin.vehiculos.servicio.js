@@ -71,7 +71,7 @@ let listar_vehiculos_usuario_logueado = async() => {
     }
 
     return lista_vehiculos;
-}
+};
 
 
 let registrar_vehiculo = async() => {
