@@ -119,6 +119,13 @@ let obtener_menu_admin = () => {
         '</div>' +
     '</div>' +
     '<div class="dropdown">' +
+        '<button class="dropbtn">Reportes</button>' +
+        '<div class="dropdown-content">' +
+            '<a href="listar-reporte-asistencia.html">Asistencias</a>' +
+            '<a href="listar-reporte-siniestro.html">Siniestros</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
         '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
             '<button id="btnEditarPerfilNormal">Editar</button>' +
