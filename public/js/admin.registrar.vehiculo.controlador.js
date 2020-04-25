@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 const contenedorCaracteristicas = document.querySelector('#contenedorCaracteristicas');
 const botonRegistrar = document.querySelector('#btnRegistrar');
 

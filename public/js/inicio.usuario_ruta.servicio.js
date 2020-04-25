@@ -1,6 +1,6 @@
 'use strict';
 
-function validar_credenciales(pcorreo, pcontrasena) {
+let validar_credenciales = async (pcorreo, pcontrasena) => {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:3000/api/validar_credenciales/ruta',

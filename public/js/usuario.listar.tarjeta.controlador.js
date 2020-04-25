@@ -36,7 +36,7 @@ let mostrar_tarjetas = async() => {
         boton_editar.innerText = 'Editar'
 
         boton_editar.addEventListener('click', () => {
-            localStorage.setItem('identificacion_usuario', usuario.identificacion);
+            sessionStorage.setItem('identificacion_usuario', usuario.identificacion);
             console.log(usuario.identificacion);
             window.location.href = 'usuario-editar-tarjetas.html';
         });
@@ -49,7 +49,7 @@ let mostrar_tarjetas = async() => {
         celda_cancelar.appendChild(boton_cancelar);
 
         boton_cancelar.addEventListener('click', () => {
-            localStorage.setItem('identificacion_usuario', usuario.identificacion);
+            sessionStorage.setItem('identificacion_usuario', usuario.identificacion);
             console.log(usuario.identificacion);
             window.location.href = 'bienvenido-sesion.html';
         });
@@ -81,7 +81,7 @@ let mostrar_tarjetas = async() => {
             boton_editar.innerText = 'Editar'
 
             boton_editar.addEventListener('click', () => {
-            localStorage.setItem('identificacion_usuario', usuarios[i].identificacion);
+            sessionStorage.setItem('identificacion_usuario', usuarios[i].identificacion);
             console.log(usuarios[i].identificacion);
             window.location.href = 'usuario-editar-tarjetas.html';
         });

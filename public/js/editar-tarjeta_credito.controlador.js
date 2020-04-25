@@ -1,6 +1,6 @@
 'use strict'
 
-let identificacion = localStorage.getItem('identificacion_usuario');
+let identificacion = sessionStorage.getItem('identificacion_usuario');
 const botonGuardar = document.querySelector('#btnRegistrar');
 let _id;
 let tarjetaId

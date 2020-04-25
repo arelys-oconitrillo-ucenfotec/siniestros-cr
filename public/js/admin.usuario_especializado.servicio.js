@@ -95,7 +95,7 @@ let obtener_usuario_especializado_id = async(identificacion) => {
     }
 };
 
-let actualizar_usuario = async() => {
+let actualizar_usuario_especializado = async() => {
     await axios({
         method: 'put',
         url: 'http://localhost:3000/api/modificar/usuario-especializado',

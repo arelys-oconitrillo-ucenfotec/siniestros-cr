@@ -2,7 +2,7 @@
 
 obtener_menu();
 
-let identificacion = localStorage.getItem('identificacion_usuario_especializado');
+let identificacion = sessionStorage.getItem('identificacion_usuario_especializado');
 
 let id;
 const input_primer_nombre = document.querySelector('#txtPrimerNombre');

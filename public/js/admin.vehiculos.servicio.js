@@ -1,5 +1,9 @@
 'use strict';
 
+let conectado = sessionStorage.getItem('conectado');
+let tipo_usuario = sessionStorage.getItem('tipo_usuario');
+let identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+
 let obtener_caracteristicas_seleccionadas = () => {
     let caracteristicasSeleccionadas = document.querySelectorAll('#contenedorCaracteristicas input[type=checkbox]:checked');
     let arrayCaracteristicas = [];
@@ -37,6 +41,37 @@ let listar_vehiculos = async() => {
 
     return vehiculos;
 };
+
+let listar_vehiculos_usuario_logueado = async() => {
+    let lista_vehiculos = [];
+    let usuario_logueado;
+
+    switch(tipo_usuario){
+        case 'normal':
+            usuario_logueado = await obtener_usuario_normal_id(identificacion_usuario_logueado);
+            break;
+        case 'especializado':
+            usuario_logueado = await obtener_usuario_especializado_id(identificacion_usuario_logueado);
+            break;
+        case 'ruta':
+            usuario_logueado = await obtener_usuario_ruta_id(identificacion_usuario_logueado);
+            break;
+        default:
+            console.log("No se encontro el usuario");
+            break;
+    }
+
+    if(usuario_logueado){
+        let placas_vehiculos = usuario_logueado.vehiculos;
+
+        for(let i = 0; i < placas_vehiculos.length; i++){
+            let vehiculo = await obtener_vehiculo_por_placa(placas_vehiculos[i].placa);
+            lista_vehiculos.push(vehiculo);
+        }
+    }
+
+    return lista_vehiculos;
+}
 
 
 let registrar_vehiculo = async() => {

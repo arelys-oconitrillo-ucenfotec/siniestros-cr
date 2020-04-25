@@ -2,7 +2,7 @@
 
 obtener_menu();
 
-let identificacion = localStorage.getItem('identificacion_usuario_ruta');
+let identificacion = sessionStorage.getItem('identificacion_usuario_ruta');
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 let id;
 const input_primer_nombre = document.querySelector('#txtPrimerNombre');

@@ -139,7 +139,7 @@ let obtener_menu_admin = () => {
 let establecer_editar_perfil_normal = () => {
     const botonEditarPerfilNormal = document.getElementById('btnEditarPerfilNormal');
     let editar_perfil_normal = () => {
-        localStorage.setItem('identificacion_usuario_normal', menuIdentificacion);
+        sessionStorage.setItem('identificacion_usuario_normal', menuIdentificacion);
         window.location.href = 'editar-usuario-normal.html'; 
     };
     botonEditarPerfilNormal.addEventListener('click', editar_perfil_normal);
@@ -148,7 +148,7 @@ let establecer_editar_perfil_normal = () => {
 let establecer_editar_perfil_especializado = () => {
     const botonEditarPerfilEsp = document.getElementById('btnEditarPerfilEsp');
     let editar_perfil_esp = () => {
-        localStorage.setItem('identificacion_usuario_especializado', menuIdentificacion);
+        sessionStorage.setItem('identificacion_usuario_especializado', menuIdentificacion);
         window.location.href = 'editar-usuario-especializado.html'; 
     };
     botonEditarPerfilEsp.addEventListener('click', editar_perfil_esp);

@@ -18,7 +18,7 @@ let mostrar_datos = async() => {
         boton_editar.innerText = 'Editar'; 
 
         boton_editar.addEventListener('click', ()=> {
-            localStorage.setItem('nombre_asistencia', tipo_asistencias[i]['nombre_asistencia']);
+            sessionStorage.setItem('nombre_asistencia', tipo_asistencias[i]['nombre_asistencia']);
             window.location.href = 'editar-tipo-asistencia.html'; 
         });
 

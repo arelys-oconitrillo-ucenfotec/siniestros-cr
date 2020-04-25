@@ -19,7 +19,7 @@ let mostrar_datos = async() => {
         boton_editar.innerText = 'Editar'; 
 
         boton_editar.addEventListener('click', ()=> {
-            localStorage.setItem('nombre_ruta', rutas[i]['nombre_ruta']);
+            sessionStorage.setItem('nombre_ruta', rutas[i]['nombre_ruta']);
             window.location.href = 'editar-ruta.html'; 
         });
 
