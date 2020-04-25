@@ -3,6 +3,7 @@
 const inputCorreo = document.getElementById('txtCorreo');
 const inputContrasena = document.getElementById('txtContrasena');
 const botonIngresar = document.getElementById('btnIngresar');
+const botonOlvidoContrasena = document.getElementById('btnOlvidoContrasena');
 
 function obtenerDatos() {
     let correo = inputCorreo.value;
@@ -59,4 +60,10 @@ let validarUsuario = () => {
       
 };
 
+let generarClave = () => {
+    window.location.href = 'generar-contrasena.html';
+};
+
 botonIngresar.addEventListener('click', obtenerDatos);
+botonOlvidoContrasena.addEventListener('click', generarClave);
+
