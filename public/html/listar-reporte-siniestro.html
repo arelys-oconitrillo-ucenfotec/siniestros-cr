@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listar reporte de asistencias</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l5 w3-right">
+                    <div id="contenedor-menu">
+                        <nav id="nav_principal">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="lista-reporte-asistencia"> 
+                <div class="w3-row">
+                    <div class="w3-col l12">
+                        <div class="contenedor-tbl-centrada">
+                            <table id="tbl-listar" class="tabla-informacion">
+                                <thead>
+                                    <tr>
+                                        <th>Id Usuario</th>
+                                        <th>Tipo</th>
+                                        <th>Ruta</th>
+                                        <th>Latitud</th>
+                                        <th>Longitud</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../recursos/roles_menu.js"></script>
+        <script src="../js/reporte_siniestro.servicio.js"></script>
+        <script src="../js/listar.reporte_siniestros.controlador.js"></script>
+    </body>
+
+</html>

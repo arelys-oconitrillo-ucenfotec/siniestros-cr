@@ -9,9 +9,9 @@ router.post('/registrar/reporte-asistencia', (req, res) => {
     let nuevo_reporte_asistencia = new ReporteAsistencia({
         usuario_identificacion: body.usuario_identificacion,
         tipo_asistencia: body.tipo_asistencia,
-        provincia: body.tipo_asistencia,
-        canton: body.tipo_asistencia,
-        distrito: body.tipo_asistencia,
+        provincia: body.provincia,
+        canton: body.canton,
+        distrito: body.distrito,
         otras_senas: body.otras_senas
     });
 

@@ -51,8 +51,8 @@ let obtener_menu_usuario = () => {
     '<div class="dropdown">' +
         '<button class="dropbtn">Siniestros</button>' +
         '<div class="dropdown-content">' +
-        '<a href="reporte-siniestro.html">Registrar</a>' +
-        '<a href="listar-siniestros.html">Listar</a>' +
+        '<a href="reporte-siniestro.html">Reportar</a>' +
+        '<a href="listar-reporte-siniestro.html">Listar</a>' +
         '</div>' +
     '</div>' +
     '<div class="dropdown">' +
