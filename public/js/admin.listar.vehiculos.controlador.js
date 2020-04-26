@@ -18,6 +18,17 @@ let obtener_vehiculos = async() => {
     return lista_vehiculos;
 };
 
+let mostrar_caracteristicas = (caracteristicas) => {
+    let contenedor_caracteristicas = document.createElement('div');
+    for(let i = 0; i < caracteristicas.length; i++){
+        let elemento_caracteristica = document.createElement('p');
+        elemento_caracteristica.innerText = caracteristicas[i].vehiculo_caracteristica;
+        contenedor_caracteristicas.appendChild(elemento_caracteristica);
+    }
+
+    return contenedor_caracteristicas;
+}
+
 let mostrar_datos = async() => {
     tbody.innerHTML = '';
     let vehiculos = await obtener_vehiculos();
