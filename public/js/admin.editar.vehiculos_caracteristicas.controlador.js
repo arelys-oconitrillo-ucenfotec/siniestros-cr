@@ -2,8 +2,14 @@
 
 obtener_menu();
 
-const botonRegistrar = document.querySelector('#btnRegistrar');
-const input_icono = document.querySelector('#icon-img');
+const id = sessionStorage.getItem('id_vehiculo_caracteristica');
+const input_caracteristica = document.querySelector('#txtCaracteristica');
+const botonEditar = document.querySelector('#btnEditar');
+
+let llenar_campos = async() => {
+    let vehiculo_caracteristica = await obtener_vehiculo_caracteristica_por_id(id);
+    input_caracteristica.value = vehiculo_caracteristica.caracteristica;
+};
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-caracteristicas [required]');
@@ -24,11 +30,7 @@ let validar = () => {
       
 };
 
-let limpiar = () => {
-    txtCaracteristica.value = "";
-};
-
-let agregar_vehiculo_caracteristica = () => {
+let editar_vehiculo_caracteristica = () => {
     let error = validar();
     if (error) {
         Swal.fire({
@@ -37,10 +39,11 @@ let agregar_vehiculo_caracteristica = () => {
             'icon': 'warning'
         });
     } else {
-        console.log(txtCaracteristica.value);
-        registrar_vehiculo_caracteristica();
+        modificar_vehiculo_caracteristica();
     }
 
 };
 
-botonRegistrar.addEventListener('click', agregar_vehiculo_caracteristica);
+llenar_campos();
+
+botonEditar.addEventListener('click', editar_vehiculo_caracteristica);

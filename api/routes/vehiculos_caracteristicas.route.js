@@ -47,6 +47,26 @@ router.get('/listar/vehiculo-caracteristicas', (req, res) => {
     });
 });
 
+router.get('/obtener/vehiculo-caracteristica', function(req,res) {
+
+    let id = req.query.id
+
+    VehiculoCaracteristica.findOne({ _id: id }, (error, vehiculoCaracteristicaDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ninguna caracteristica con ese id',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                vehiculo_caracteristica: vehiculoCaracteristicaDB
+            });
+        }
+    });
+});
+
 router.put('/modificar/vehiculo-caracteristica', function (req, res) {
     let body = req.body;
 
