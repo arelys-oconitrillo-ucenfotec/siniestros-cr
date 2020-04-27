@@ -4,7 +4,7 @@ obtener_menu();
 
 const tbody = document.querySelector('#tbl-listar tbody');
 /* esta es la identifacion que se recoge cuando se inicia sesion*/
-let identificacionInicio = sessionStorage.getItem('identificacion');
+let identificacionInicio = localStorage.getItem('identificacion');
 
 let mostrar_tarjetas = async() => {
     let usuario = await obtener_usuario_normal_id(identificacionInicio);
@@ -36,7 +36,7 @@ let mostrar_tarjetas = async() => {
         boton_editar.innerText = 'Editar'
 
         boton_editar.addEventListener('click', () => {
-            sessionStorage.setItem('identificacion_usuario', usuario.identificacion);
+            localStorage.setItem('identificacion_usuario', usuario.identificacion);
             console.log(usuario.identificacion);
             window.location.href = 'usuario-editar-tarjetas.html';
         });
@@ -49,7 +49,7 @@ let mostrar_tarjetas = async() => {
         celda_cancelar.appendChild(boton_cancelar);
 
         boton_cancelar.addEventListener('click', () => {
-            sessionStorage.setItem('identificacion_usuario', usuario.identificacion);
+            localStorage.setItem('identificacion_usuario', usuario.identificacion);
             console.log(usuario.identificacion);
             window.location.href = 'bienvenido-sesion.html';
         });
@@ -81,7 +81,7 @@ let mostrar_tarjetas = async() => {
             boton_editar.innerText = 'Editar'
 
             boton_editar.addEventListener('click', () => {
-            sessionStorage.setItem('identificacion_usuario', usuarios[i].identificacion);
+            localStorage.setItem('identificacion_usuario', usuarios[i].identificacion);
             console.log(usuarios[i].identificacion);
             window.location.href = 'usuario-editar-tarjetas.html';
         });

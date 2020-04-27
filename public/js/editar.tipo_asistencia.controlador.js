@@ -2,7 +2,7 @@
 
 obtener_menu();
 
-let nombre_asistencia = sessionStorage.getItem('nombre_asistencia');
+let nombre_asistencia = localStorage.getItem('nombre_asistencia');
 let id;
 const input_nombre_asistencia = document.querySelector('#txtNombreAsistencia');
 const input_descripcion = document.querySelector('#txtDescripcion');

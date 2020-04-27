@@ -2,7 +2,7 @@
 
 obtener_menu();
 
-const id = sessionStorage.getItem('id_vehiculo_caracteristica');
+const id = localStorage.getItem('id_vehiculo_caracteristica');
 const input_caracteristica = document.querySelector('#txtCaracteristica');
 const botonEditar = document.querySelector('#btnEditar');
 

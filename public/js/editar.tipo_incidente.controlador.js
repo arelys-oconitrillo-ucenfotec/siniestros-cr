@@ -2,7 +2,7 @@
 
 obtener_menu();
 
-let nombre_siniestro = sessionStorage.getItem('nombre_siniestro');
+let nombre_siniestro = localStorage.getItem('nombre_siniestro');
 let id;
 const input_nombre_siniestro = document.querySelector('#txtNombreSiniestro');
 const input_icono = document.querySelector('#txtUrlImg');

@@ -17,13 +17,13 @@ function crear_contrasena(pcorreo, pcontrasena) {
     peticion.done(function (response) {
         respuesta = response;
         if(respuesta.success){
-            sessionStorage.setItem('conectado', response.success); //resultado viene de users.api
-            sessionStorage.setItem('tipo_usuario', response.usuario_normal.rol);
-            sessionStorage.setItem('nombre', response.usuario_normal.primer_nombre);
-            sessionStorage.setItem('nombre_comercial', response.usuario_normal.nombre_comercial);
-            sessionStorage.setItem('apellido', response.usuario_normal.primer_apellido);
-            sessionStorage.setItem('correo', response.usuario_normal.correo);
-            sessionStorage.setItem('identificacion', response.usuario_normal.identificacion);
+            localStorage.setItem('conectado', response.success); //resultado viene de users.api
+            localStorage.setItem('tipo_usuario', response.usuario_normal.rol);
+            localStorage.setItem('nombre', response.usuario_normal.primer_nombre);
+            localStorage.setItem('nombre_comercial', response.usuario_normal.nombre_comercial);
+            localStorage.setItem('apellido', response.usuario_normal.primer_apellido);
+            localStorage.setItem('correo', response.usuario_normal.correo);
+            localStorage.setItem('identificacion', response.usuario_normal.identificacion);
         }
     });
 

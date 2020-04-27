@@ -48,7 +48,7 @@ let mostrar_datos = async() => {
             boton_editar.innerText = 'Editar'; 
 
             boton_editar.addEventListener('click', () => {
-                sessionStorage.setItem('placa_vehiculo', vehiculos[i]['numeroPlaca']);
+                localStorage.setItem('placa_vehiculo', vehiculos[i]['numeroPlaca']);
                 window.location.href = 'editar-vehiculo.html'; 
             });
 

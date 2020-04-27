@@ -2,12 +2,12 @@
 
 const navPrincipal = document.querySelector('#nav_principal');
 
-let menuConectado = sessionStorage.getItem('conectado');
-let menuTipoUsuario = sessionStorage.getItem('tipo_usuario');
-let menuNombre = sessionStorage.getItem('nombre');
-let menuNombreComercial = sessionStorage.getItem('nombre_comercial');
-let menuApellido = sessionStorage.getItem('apellido');
-let menuIdentificacion = sessionStorage.getItem('identificacion');
+let menuConectado = localStorage.getItem('conectado');
+let menuTipoUsuario = localStorage.getItem('tipo_usuario');
+let menuNombre = localStorage.getItem('nombre');
+let menuNombreComercial = localStorage.getItem('nombre_comercial');
+let menuApellido = localStorage.getItem('apellido');
+let menuIdentificacion = localStorage.getItem('identificacion');
 let cerrar_sesion_seleccionado = '';
 
 let obtener_menu = () => {
@@ -168,7 +168,7 @@ let obtener_menu_admin = () => {
 let establecer_editar_perfil_normal = () => {
     const botonEditarPerfilNormal = document.getElementById('btnEditarPerfilNormal');
     let editar_perfil_normal = () => {
-        sessionStorage.setItem('identificacion_usuario_normal', menuIdentificacion);
+        localStorage.setItem('identificacion_usuario_normal', menuIdentificacion);
         window.location.href = 'editar-usuario-normal.html'; 
     };
     botonEditarPerfilNormal.addEventListener('click', editar_perfil_normal);
@@ -177,7 +177,7 @@ let establecer_editar_perfil_normal = () => {
 let establecer_editar_perfil_especializado = () => {
     const botonEditarPerfilEsp = document.getElementById('btnEditarPerfilEsp');
     let editar_perfil_esp = () => {
-        sessionStorage.setItem('identificacion_usuario_especializado', menuIdentificacion);
+        localStorage.setItem('identificacion_usuario_especializado', menuIdentificacion);
         window.location.href = 'editar-usuario-especializado.html'; 
     };
     botonEditarPerfilEsp.addEventListener('click', editar_perfil_esp);
@@ -186,7 +186,7 @@ let establecer_editar_perfil_especializado = () => {
 let establecer_editar_perfil_ruta = () => {
     const botonEditarPerfilRuta = document.getElementById('btnEditarPerfilRuta');
     let editar_perfil_ruta = () => {
-        sessionStorage.setItem('identificacion_usuario_ruta', menuIdentificacion);
+        localStorage.setItem('identificacion_usuario_ruta', menuIdentificacion);
         window.location.href = 'editar-usuario-ruta.html'; 
     };
     botonEditarPerfilRuta.addEventListener('click', editar_perfil_ruta);
@@ -195,7 +195,7 @@ let establecer_editar_perfil_ruta = () => {
 let establecer_cerrar_sesion = () => {
     const botonCerrarSesion = document.getElementById('btnCerrarSesion');
     let cerrar_sesion = () => {
-        sessionStorage.clear();
+        localStorage.clear();
         localStorage.clear();
         window.location.href = cerrar_sesion_seleccionado;
     };

@@ -1,8 +1,8 @@
 'use strict';
 
-let conectado = sessionStorage.getItem('conectado');
-let tipo_usuario = sessionStorage.getItem('tipo_usuario');
-let identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+let conectado = localStorage.getItem('conectado');
+let tipo_usuario = localStorage.getItem('tipo_usuario');
+let identificacion_usuario_logueado = localStorage.getItem('identificacion');
 
 let obtener_caracteristicas_seleccionadas = () => {
     let caracteristicasSeleccionadas = document.querySelectorAll('#contenedorCaracteristicas input[type=checkbox]:checked');

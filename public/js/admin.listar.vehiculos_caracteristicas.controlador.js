@@ -19,7 +19,7 @@ let mostrar_datos = async() => {
             boton_editar.innerText = 'Editar'; 
 
             boton_editar.addEventListener('click', () => {
-                sessionStorage.setItem('id_vehiculo_caracteristica', vehiculo_caracteristicas[i]['_id']);
+                localStorage.setItem('id_vehiculo_caracteristica', vehiculo_caracteristicas[i]['_id']);
                 window.location.href = 'admin-editar-vehiculo-caracteristica.html';
             });
 

@@ -3,7 +3,7 @@
 obtener_menu();
 
 let id;
-let identificacion = sessionStorage.getItem('identificacion_usuario_normal');
+let identificacion = localStorage.getItem('identificacion_usuario_normal');
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 const input_primer_nombre = document.querySelector('#txtPrimerNombre');
 const input_segundo_nombre = document.querySelector('#txtSegundoNombre');

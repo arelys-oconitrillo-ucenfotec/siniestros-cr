@@ -2,7 +2,7 @@
 
 obtener_menu();
 
-let nombre_ruta = sessionStorage.getItem('nombre_ruta');
+let nombre_ruta = localStorage.getItem('nombre_ruta');
 let id;
 const input_nombre_ruta = document.querySelector('#txtNombreRuta');
 const input_latitud_inicio = document.querySelector('#txtLatInicio');
