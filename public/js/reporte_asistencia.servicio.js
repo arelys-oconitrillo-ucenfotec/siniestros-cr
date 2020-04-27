@@ -23,7 +23,7 @@ let listar_reporte_asistencias = async() => {
 };
 
 let listar_reporte_asistencias_usuario_logueado = async() => {
-    let lista_reporte_asistencias = await obtener_reportes_asistencias_por_id(identificacion_usuario_logueado);
+    let lista_reporte_asistencias = await obtener_reportes_asistencias_por_id_usuario(identificacion_usuario_logueado);
 
     return lista_reporte_asistencias;
 };
@@ -73,7 +73,7 @@ let registrar_reporte_asistencia = async() => {
     });
 }
 
-let obtener_reportes_asistencias_por_id = async(p_usuario_identificacion) => {
+let obtener_reportes_asistencias_por_id_usuario = async(p_usuario_identificacion) => {
     try {
         const response = await axios({
             method: 'get',
@@ -88,6 +88,20 @@ let obtener_reportes_asistencias_por_id = async(p_usuario_identificacion) => {
     }
 };
 
+let obtener_reportes_asistencias_por_id = async(p_id) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { id: p_id },
+            url: 'http://localhost:3000/api/buscar/reporte-asistencia/id',
+            responseType: 'json'
+        });
+        return response.data.reporte_asistencia;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 let actualizar_reporte_asistencia = async() => {
     await axios({
         method: 'put',
@@ -96,7 +110,7 @@ let actualizar_reporte_asistencia = async() => {
         data: {
             _id: id,
             usuario_identificacion: identificacion_usuario_logueado,
-            tipo_asistencia: sltUsuariosEsp.value,
+            tipo_asistencia: sltTipoAsistencia.value,
             provincia: sltProvincia.value,
             canton: sltCanton.value,
             distrito: sltDistrito.value,
@@ -112,7 +126,7 @@ let actualizar_reporte_asistencia = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-reporte-asistencia.html';
+                window.location.href = 'listar-reporte-asistencia.html';
             });
         } else {
             Swal.fire({
