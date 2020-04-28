@@ -2,9 +2,9 @@
 
 obtener_menu();
 
+let id;
 let identificacion = localStorage.getItem('identificacion_usuario_normal');
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
-let id;
 const input_primer_nombre = document.querySelector('#txtPrimerNombre');
 const input_segundo_nombre = document.querySelector('#txtSegundoNombre');
 const input_primer_apellido = document.querySelector('#txtPrimerApellido');

@@ -4,7 +4,7 @@ obtener_menu();
 
 const tbody = document.querySelector('#tbl-listar tbody');
 /* esta es la identifacion que se recoge cuando se inicia sesion*/
-let identificacionInicio = sessionStorage.getItem('identificacion');
+let identificacionInicio = localStorage.getItem('identificacion');
 
 let mostrar_tarjetas = async() => {
     let usuario = await obtener_usuario_normal_id(identificacionInicio);

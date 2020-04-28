@@ -9,9 +9,9 @@ router.post('/registrar/reporte-asistencia', (req, res) => {
     let nuevo_reporte_asistencia = new ReporteAsistencia({
         usuario_identificacion: body.usuario_identificacion,
         tipo_asistencia: body.tipo_asistencia,
-        provincia: body.tipo_asistencia,
-        canton: body.tipo_asistencia,
-        distrito: body.tipo_asistencia,
+        provincia: body.provincia,
+        canton: body.canton,
+        distrito: body.distrito,
         otras_senas: body.otras_senas
     });
 
@@ -54,7 +54,6 @@ router.get('/listar/reporte-asistencias', (req, res) => {
 
 router.put('/modificar/reporte-asistencia', function (req, res) {
     let body = req.body;
-
     ReporteAsistencia.updateOne({
         _id: body._id
     }, {
@@ -111,6 +110,26 @@ router.get('/buscar/reporte-asistencia/usuario', function(req,res) {
             res.json({
                 resultado: true,
                 lista_reporte_asistenciaDB
+            });
+        }
+    });
+});
+
+router.get('/buscar/reporte-asistencia/id', function(req,res) {
+
+    let id = req.query.id
+
+    ReporteAsistencia.findOne({ _id: id }, (error, reporte_asistenciaDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun reporte asistencia con ese usuario',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                reporte_asistencia: reporte_asistenciaDB
             });
         }
     });

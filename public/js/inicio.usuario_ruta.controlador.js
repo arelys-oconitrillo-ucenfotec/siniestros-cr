@@ -3,9 +3,9 @@
 const inputCorreo = document.getElementById('txtCorreo');
 const inputContrasena = document.getElementById('txtContrasena');
 const botonIngresar = document.getElementById('btnIngresar');
+const botonOlvidoContrasena = document.getElementById('btnOlvidoContrasena');
 
-function obtenerDatos() {
-    console.log("obtenerDatos");
+let obtenerDatos = async() => {
     let correo = inputCorreo.value;
     let contrasena = inputContrasena.value;
 
@@ -19,10 +19,10 @@ function obtenerDatos() {
             'icon': 'warning'
         });
     } else {
-        let respuesta = validar_credenciales(correo,contrasena);
-        usuarioAceptado = respuesta.success;
+        let respuesta = await validar_credenciales(correo, contrasena);
+        usuarioAceptado = respuesta.data.success;
         if (usuarioAceptado) {
-            window.location.href = 'bienvenido-sesion.html';
+                window.location.href = 'admin-listar-rutas.html';
         } else {
             Swal.fire({
                 'title': 'Sus datos no se pueden validar',
@@ -56,4 +56,10 @@ let validarUsuario = () => {
       
 };
 
+let generarClave = () => {
+    window.location.href = 'generar-contrasena.html';
+};
+
 botonIngresar.addEventListener('click', obtenerDatos);
+botonOlvidoContrasena.addEventListener('click', generarClave);
+

@@ -2,18 +2,36 @@
 
 obtener_menu();
 
-const sltTipoAsistencia = document.querySelector('#sltTipoAsistencia');
+let id_asistencia = localStorage.getItem('id_asistencia');
+let id;
 const botonReportar = document.querySelector('#btnReportar');
-const botonProvincias = document.querySelector('#sltProvincia');
-const botonCantones = document.querySelector('#sltCanton');
-const botonDistritos = document.querySelector('#sltDistrito');
+const input_tipo_asistencia = document.querySelector('#sltTipoAsistencia');
+const input_provincia = document.querySelector('#sltProvincia');
+const input_canton = document.querySelector('#sltCanton');
+const input_distrito = document.querySelector('#sltDistrito');
+const input_otras_senas = document.querySelector('#txtOtrasSenas');
 
+
+let llenar_campos = async() => {
+    let reporte_asistencia = await obtener_reportes_asistencias_por_id(id_asistencia);
+
+    mostrar_tipos_asistencias()
+    .then(() => {
+        id = reporte_asistencia._id;
+        input_tipo_asistencia.value = reporte_asistencia.tipo_asistencia;
+        input_provincia.value = reporte_asistencia.provincia;
+        cargarCantones();
+        input_canton.value = reporte_asistencia.canton;
+        cargarDistritos();
+        input_distrito.value = reporte_asistencia.distrito;
+        input_otras_senas.value = reporte_asistencia.otras_senas;
+    });
+};
 
 let mostrar_tipos_asistencias = async() => {
     let tipos_asistencias = await listar_tipo_asistencias();
     sltTipoAsistencia.innerHTML = '<option value="">Seleccione</option>';
     
-    console.log(tipos_asistencias);
     for (let i = 0; i < tipos_asistencias.length; i++) {
         let id = tipos_asistencias[i]['_id'];
         let tipo = tipos_asistencias[i]['nombre_asistencia'];
@@ -26,7 +44,6 @@ let mostrar_tipos_asistencias = async() => {
         sltTipoAsistencia.appendChild(opcionAsistencia);
     }
 };
-
 
 let validar = () => {
     let campos_requeridos = document.querySelectorAll('#frm-reporte-asistencia [required]');
@@ -56,49 +73,34 @@ let validar = () => {
       
 };
 
-let agregar_reporte_asistencia = () => {
-    let error = validar();
-    if (error) {
+let modificar_tipo_asistencia = () => {
+    let error_validacion = validar();
+    if (error_validacion) {
         Swal.fire({
             'title': 'Sus datos no se pudieron enviar',
             'text': 'Por favor revise los campos resaltados',
             'icon': 'warning'
         });
     } else {
-        console.log(sltTipoAsistencia.value);
-        console.log(sltCanton.value);
-        console.log(sltProvincia.value);
-        console.log(sltDistrito.value);
-        registrar_reporte_asistencia();
+        actualizar_reporte_asistencia();
     }
-};
-
-
-let limpiar = () => {
-    sltTipoAsistencia.value = "";
-    sltProvincia.value = "";
-    sltCanton.value = "";
-    sltDistrito.value = "";
-    txtOtrasSenas.value = "";
 };
 
 let cargarCantones = () => {
     let html_cantones = obtener_html_cantones(sltProvincia.value);
-    botonCantones.innerHTML = '';
-    botonCantones.innerHTML = html_cantones;
+    input_canton.innerHTML = '';
+    input_canton.innerHTML = html_cantones;
 };
 
 let cargarDistritos = () => {
     let html_distritos = obtener_html_distritos(sltProvincia.value, sltCanton.value);
-    botonDistritos.innerHTML = '';
-    botonDistritos.innerHTML = html_distritos;
+    input_distrito.innerHTML = '';
+    input_distrito.innerHTML = html_distritos;
 }; 
 
+input_provincia.addEventListener('input', cargarCantones);
+input_canton.addEventListener('input', cargarDistritos);
 
-botonReportar.addEventListener('click', agregar_reporte_asistencia);
-botonProvincias.addEventListener('input', cargarCantones);
-botonCantones.addEventListener('input', cargarDistritos);
+llenar_campos();
 
-ready(function() {
-    mostrar_tipos_asistencias();
-});
+botonReportar.addEventListener('click', modificar_tipo_asistencia);

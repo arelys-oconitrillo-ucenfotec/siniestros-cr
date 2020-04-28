@@ -3,9 +3,9 @@
 const enlaces = document.querySelectorAll('#nav_principal a');
 const botonCerrarSesion = document.getElementById('btnCerrarSesion');
 
-let conectado = sessionStorage.getItem('conectado');
-let tipoUsuario = sessionStorage.getItem('tipo_usuario');
-let identificacionInicio = sessionStorage.getItem('identificacion')
+let conectado = localStorage.getItem('conectado');
+let tipoUsuario = localStorage.getItem('tipo_usuario');
+let identificacionInicio = localStorage.getItem('identificacion')
 
 if (conectado) {
     switch (tipoUsuario) {
@@ -38,7 +38,7 @@ if (conectado) {
 }
 
 function cerrar_sesion() {
-    sessionStorage.clear();
+    localStorage.clear();
     window.location.href = 'registrar-usuarios-normales.html';
 };
 

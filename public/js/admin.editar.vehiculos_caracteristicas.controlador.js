@@ -2,8 +2,17 @@
 
 obtener_menu();
 
+const id = localStorage.getItem('id_vehiculo_caracteristica');
+const input_caracteristica = document.querySelector('#txtCaracteristica');
+const botonEditar = document.querySelector('#btnEditar');
+
+let llenar_campos = async() => {
+    let vehiculo_caracteristica = await obtener_vehiculo_caracteristica_por_id(id);
+    input_caracteristica.value = vehiculo_caracteristica.caracteristica;
+};
+
 let validar = () => {
-    let campos_requeridos = document.querySelectorAll('#frm-rutas [required]');
+    let campos_requeridos = document.querySelectorAll('#frm-caracteristicas [required]');
     let error = false;
 
     for (let i = 0; i < campos_requeridos.length; i++) {
@@ -21,15 +30,7 @@ let validar = () => {
       
 };
 
-let limpiar = () => {
-    txtNombreRuta.value = "";
-    txtLatInicio.value = "";
-    txtLongInicio.value = "";
-    txtLatFin.value = "";
-    txtLongFin.value = "";
-};
-
-let agregar_ruta = () => {
+let editar_vehiculo_caracteristica = () => {
     let error = validar();
     if (error) {
         Swal.fire({
@@ -38,11 +39,11 @@ let agregar_ruta = () => {
             'icon': 'warning'
         });
     } else {
-        console.log(txtNombreRuta.value);
-        registrar_ruta();
+        modificar_vehiculo_caracteristica();
     }
 
 };
 
-let botonRuta = document.querySelector('#btnRutas');
-botonRuta.addEventListener('click', agregar_ruta);
+llenar_campos();
+
+botonEditar.addEventListener('click', editar_vehiculo_caracteristica);

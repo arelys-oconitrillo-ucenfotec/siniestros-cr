@@ -1,35 +1,33 @@
 'use strict';
 
-function validar_credenciales(pcorreo, pcontrasena) {
-    let respuesta = '';
-    let peticion = $.ajax({
+let validar_credenciales = async (pcorreo, pcontrasena) => {
+    let respuesta;
+
+    await axios({
+        method: 'post',
         url: 'http://localhost:3000/api/validar_credenciales/ruta',
-        type: 'post',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        dataType: 'json',
-        async: false,
+        headers: {},
         data: {
             correo: pcorreo,
             contrasena: pcontrasena
         }
-    });
-
-    peticion.done(function (response) {
+    }).then(function(response) {
         respuesta = response;
-        if(respuesta.success){
-            sessionStorage.setItem('conectado', response.success); 
-            sessionStorage.setItem('tipo_usuario', "ruta");
-            sessionStorage.setItem('nombre', response.usuario_ruta.primer_nombre);
-            sessionStorage.setItem('nombre_comercial', response.usuario_ruta.nombre_comercial);
-            sessionStorage.setItem('apellido', response.usuario_ruta.primer_apellido);
-            sessionStorage.setItem('correo', response.usuario_ruta.correo);
-            sessionStorage.setItem('identificacion', response.usuario_ruta.identificacion);
+        if(response.data.success){
+            localStorage.setItem('conectado', response.data.success); //resultado viene de users.api
+            localStorage.setItem('tipo_usuario', "ruta");
+            localStorage.setItem('nombre', response.data.usuario_ruta.primer_nombre);
+            localStorage.setItem('nombre_comercial', response.data.usuario_ruta.nombre_comercial);
+            localStorage.setItem('apellido', response.data.usuario_ruta.primer_apellido);
+            localStorage.setItem('correo', response.data.usuario_ruta.correo);
+            localStorage.setItem('identificacion', response.data.usuario_ruta.identificacion);
+            localStorage.setItem('identificacion_usuario_ruta', respuesta.data.usuario_ruta.identificacion);
+        } else {
+            console.log("Request fail error:");
+            console.log(respuesta);
         }
-    });
-
-    peticion.fail(function (response) {
-        respuesta = response;
-        console.log("Request fail error:" + respuesta);
+    }).catch(function(error) {
+        console.log(error);
     });
 
     return respuesta;

@@ -72,26 +72,6 @@ router.get('/listar/vehiculos', (req, res) => {
     });
 });
 
-router.get('/buscar/vehiculos/usuario', function(req,res) {
-
-    let usuario_identificacion = req.query.usuario_identificacion
-
-    Vehiculo.find({ identificacion: usuario_identificacion }, (error, lista_vehiculos) => {
-        if (error) {
-            res.json({
-                resultado: false,
-                msj: 'No se pudieron listar los vehículos',
-                error
-            });
-        } else {
-            res.json({
-                resultado: true,
-                ruta: lista_vehiculos
-            });
-        }
-    });
-});
-
 router.delete('/eliminar/vehiculo', function (req, res) {
     let body = req.body;
 

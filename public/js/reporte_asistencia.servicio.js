@@ -1,6 +1,8 @@
 'use strict';
 
-const identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+let conectado = localStorage.getItem('conectado');
+let tipo_usuario = localStorage.getItem('tipo_usuario');
+let identificacion_usuario_logueado = localStorage.getItem('identificacion');
 
 let listar_reporte_asistencias = async() => {
     let reporte_asistencias;
@@ -11,13 +13,19 @@ let listar_reporte_asistencias = async() => {
         responseType: 'json'
     }).then(function(res) {
         console.log(res);
-        reporte_asistencias = res.data.lista_reporte_asistencias;
+        reporte_asistencias = res.data.lista_reportes_asistencias;
     })
     .catch(function(err) {
         console.log(err);
     });
 
     return reporte_asistencias;
+};
+
+let listar_reporte_asistencias_usuario_logueado = async() => {
+    let lista_reporte_asistencias = await obtener_reportes_asistencias_por_id_usuario(identificacion_usuario_logueado);
+
+    return lista_reporte_asistencias;
 };
 
 
@@ -65,12 +73,27 @@ let registrar_reporte_asistencia = async() => {
     });
 }
 
-let obtener_reporte_asistencia_por_id = async(usuario_identificacion) => {
+let obtener_reportes_asistencias_por_id_usuario = async(p_usuario_identificacion) => {
     try {
         const response = await axios({
             method: 'get',
-            params: { usuario_identificacion: usuario_identificacion },
-            url: 'http://localhost:3000/api/buscar/reporte-asistencia',
+            params: { usuario_identificacion: p_usuario_identificacion },
+            url: 'http://localhost:3000/api/buscar/reporte-asistencia/usuario',
+            responseType: 'json'
+        });
+
+        return response.data.lista_reporte_asistenciaDB;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+let obtener_reportes_asistencias_por_id = async(p_id) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { id: p_id },
+            url: 'http://localhost:3000/api/buscar/reporte-asistencia/id',
             responseType: 'json'
         });
         return response.data.reporte_asistencia;
@@ -87,7 +110,7 @@ let actualizar_reporte_asistencia = async() => {
         data: {
             _id: id,
             usuario_identificacion: identificacion_usuario_logueado,
-            tipo_asistencia: sltUsuariosEsp.value,
+            tipo_asistencia: sltTipoAsistencia.value,
             provincia: sltProvincia.value,
             canton: sltCanton.value,
             distrito: sltDistrito.value,
@@ -103,7 +126,7 @@ let actualizar_reporte_asistencia = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-reporte-asistencia.html';
+                window.location.href = 'listar-reporte-asistencia.html';
             });
         } else {
             Swal.fire({

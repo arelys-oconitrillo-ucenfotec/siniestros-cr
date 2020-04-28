@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 let nombre_ruta = localStorage.getItem('nombre_ruta');
 let id;
 const input_nombre_ruta = document.querySelector('#txtNombreRuta');

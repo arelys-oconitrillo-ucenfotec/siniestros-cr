@@ -1,17 +1,19 @@
 'use strict';
 
-const identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
+let conectado = localStorage.getItem('conectado');
+let tipo_usuario = localStorage.getItem('tipo_usuario');
+let identificacion_usuario_logueado = localStorage.getItem('identificacion');
 
 let listar_reporte_siniestros = async() => {
     let reporte_siniestros;
-
+ 
     await axios({
         method: 'get',
         url: 'http://localhost:3000/api/listar/reporte-siniestros',
         responseType: 'json'
     }).then(function(res) {
         console.log(res);
-        reporte_siniestros = res.data.lista_reporte_siniestros;
+        reporte_siniestros = res.data.lista_reportes_siniestros;
     })
     .catch(function(err) {
         console.log(err);
@@ -20,6 +22,11 @@ let listar_reporte_siniestros = async() => {
     return reporte_siniestros;
 };
 
+let listar_reporte_siniestros_usuario_logueado = async() => {
+    let lista_reporte_siniestros = await obtener_reportes_siniestro_por_id(identificacion_usuario_logueado);
+
+    return lista_reporte_siniestros;
+};
 
 let registrar_reporte_siniestro = async() => {
     await axios({
@@ -64,15 +71,15 @@ let registrar_reporte_siniestro = async() => {
     });
 }
 
-let obtener_reporte_siniestro_por_id = async(usuario_identificacion) => {
+let obtener_reportes_siniestro_por_id = async(p_usuario_identificacion) => {
     try {
         const response = await axios({
             method: 'get',
-            params: { usuario_identificacion: usuario_identificacion },
-            url: 'http://localhost:3000/api/buscar/reporte-siniestro',
+            params: { usuario_identificacion: p_usuario_identificacion },
+            url: 'http://localhost:3000/api/buscar/reporte-siniestro/usuario',
             responseType: 'json'
         });
-        return response.data.reporte_siniestro;
+        return response.data.lista_reporte_siniestroDB;
     } catch (error) {
         console.log(error);
     }

@@ -1,5 +1,7 @@
 'use strict';
 
+obtener_menu();
+
 const botonRegistrar = document.querySelector('#btnRegistrar');
 const input_icono = document.querySelector('#icon-img');
 
@@ -36,7 +38,7 @@ let agregar_vehiculo_caracteristica = () => {
         });
     } else {
         console.log(txtCaracteristica.value);
-        registrar_vehiculo_caracteristicas();
+        registrar_vehiculo_caracteristica();
     }
 
 };

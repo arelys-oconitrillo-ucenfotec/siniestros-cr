@@ -5,7 +5,7 @@ const inputContrasena = document.getElementById('txtContrasena');
 const botonIngresar = document.getElementById('btnIngresar');
 const botonOlvidoContrasena = document.getElementById('btnOlvidoContrasena');
 
-function obtenerDatos() {
+let obtenerDatos = async() => {
     let correo = inputCorreo.value;
     let contrasena = inputContrasena.value;
 
@@ -19,10 +19,10 @@ function obtenerDatos() {
             'icon': 'warning'
         });
     } else {
-        let respuesta = validar_credenciales(correo,contrasena);
-        usuarioAceptado = respuesta.success;
+        let respuesta = await validar_credenciales(correo, contrasena);
+        usuarioAceptado = respuesta.data.success;
         if (usuarioAceptado) {
-            if(respuesta.usuario_normal.rol == "admin"){
+            if(respuesta.data.usuario_normal.rol == "admin"){
                 window.location.href = 'admin-listar-usuarios-normales.html';
             } else {
                 window.location.href = 'editar-usuario-normal.html';

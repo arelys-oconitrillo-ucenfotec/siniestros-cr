@@ -2,21 +2,21 @@
 
 obtener_menu();
 
-let conectado = sessionStorage.getItem('conectado');
-let tipo_usuario = sessionStorage.getItem('tipo_usuario');
-let identificacion_usuario_logueado = sessionStorage.getItem('identificacion');
-let vehiculos;
-
-if(conectado){
-    if(tipo_usuario == 'admin'){
-        vehiculos = await listar_vehiculos();
-    } else {
-        //vehiculos = await 
-    }
-}
-
-
 const tbody = document.querySelector('#tbl-listar tbody');
+
+let obtener_vehiculos = async() => {
+    let lista_vehiculos;
+
+    if(conectado){
+        if(tipo_usuario == 'admin'){
+            lista_vehiculos = await listar_vehiculos();
+        } else {
+            lista_vehiculos = await listar_vehiculos_usuario_logueado();
+        }
+    }
+
+    return lista_vehiculos;
+};
 
 let mostrar_caracteristicas = (caracteristicas) => {
     let contenedor_caracteristicas = document.createElement('div');
@@ -31,6 +31,7 @@ let mostrar_caracteristicas = (caracteristicas) => {
 
 let mostrar_datos = async() => {
     tbody.innerHTML = '';
+    let vehiculos = await obtener_vehiculos();
 
     if(vehiculos){
         for (let i = 0; i < vehiculos.length; i++) {
@@ -46,7 +47,7 @@ let mostrar_datos = async() => {
             boton_editar.type = 'button';
             boton_editar.innerText = 'Editar'; 
 
-            boton_editar.addEventListener('click', ()=> {
+            boton_editar.addEventListener('click', () => {
                 localStorage.setItem('placa_vehiculo', vehiculos[i]['numeroPlaca']);
                 window.location.href = 'editar-vehiculo.html'; 
             });
