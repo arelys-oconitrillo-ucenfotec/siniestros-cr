@@ -57,10 +57,10 @@ console.log( letraMinuscula(), letraMayuscula(), numeroAleatorio(), caracterEspe
 function crearContrasena() {
     let correo = input_Correo.value;
     let identificacion = input_Identificacion.value;
-    let minuscula = letraMinuscula();
-    let mayuscula = letraMayuscula();
-    let numero = numeroAleatorio();
-    let simbolo = caracterEspeciales();
+    let minuscula = "";
+    let mayuscula = "";
+    let numero = "";
+    let simbolo = "";
     let largoclave = 10;
     let caracter = "";
     let claveGenerada = "";
@@ -70,33 +70,43 @@ function crearContrasena() {
         let cantidad = i;
         switch (cantidad) {
             case 0:
+                minuscula = letraMinuscula();
                 caracter = minuscula;
             break;
             case 1:
+                mayuscula = letraMayuscula();
                 caracter = mayuscula;
             break;
             case 2:
+                numero = numeroAleatorio();
                 caracter = numero;
             break;
             case 3:
+                simbolo = caracterEspeciales();
                 caracter = simbolo ;
             break;
             case 4:
+                minuscula = letraMinuscula();
                 caracter = minuscula;
             break;
             case 5:
+                mayuscula = letraMayuscula();
                 caracter = mayuscula;
             break;
             case 6:
+                numero = numeroAleatorio();
                 caracter = numero;
             break;
             case 7:
-                caracter = simbolo;
+                minuscula = letraMinuscula();
+                caracter = minuscula;
             break;
             case 8:
+                simbolo = caracterEspeciales();
                 caracter = simbolo;
             break;
             case 9:
+                minuscula = letraMinuscula();
                 caracter = minuscula;
             break;
           default:
