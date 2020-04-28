@@ -257,7 +257,7 @@ router.delete('/eliminar/tarjeta', function (req, res) {
 router.put('/modificar/tarjeta', function (req, res) {
     let body = req.body;
 
-    UsuarioNormal.update({_id: body.p_id, 
+    UsuarioNormal.update({id: body.p__id, 
                               'tarjetas._id': body.p_tarjetaId }, {
         $set: {
             'tarjetas.$.tipoTarjeta': body.tipoTarjeta,
