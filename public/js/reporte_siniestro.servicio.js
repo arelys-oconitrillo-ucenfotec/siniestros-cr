@@ -23,7 +23,7 @@ let listar_reporte_siniestros = async() => {
 };
 
 let listar_reporte_siniestros_usuario_logueado = async() => {
-    let lista_reporte_siniestros = await obtener_reportes_siniestro_por_id(identificacion_usuario_logueado);
+    let lista_reporte_siniestros = await obtener_reportes_siniestros_por_id_usuario(identificacion_usuario_logueado);
 
     return lista_reporte_siniestros;
 };
@@ -71,7 +71,7 @@ let registrar_reporte_siniestro = async() => {
     });
 }
 
-let obtener_reportes_siniestro_por_id = async(p_usuario_identificacion) => {
+let obtener_reportes_siniestros_por_id_usuario = async(p_usuario_identificacion) => {
     try {
         const response = await axios({
             method: 'get',
@@ -79,7 +79,22 @@ let obtener_reportes_siniestro_por_id = async(p_usuario_identificacion) => {
             url: 'http://localhost:3000/api/buscar/reporte-siniestro/usuario',
             responseType: 'json'
         });
+
         return response.data.lista_reporte_siniestroDB;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+let obtener_reportes_siniestros_por_id = async(p_id) => {
+    try {
+        const response = await axios({
+            method: 'get',
+            params: { id: p_id },
+            url: 'http://localhost:3000/api/buscar/reporte-siniestro/id',
+            responseType: 'json'
+        });
+        return response.data.reporte_siniestro;
     } catch (error) {
         console.log(error);
     }
@@ -108,7 +123,7 @@ let actualizar_reporte_siniestro = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-reporte-siniestro.html';
+                window.location.href = 'listar-reporte-siniestro.html';
             });
         } else {
             Swal.fire({

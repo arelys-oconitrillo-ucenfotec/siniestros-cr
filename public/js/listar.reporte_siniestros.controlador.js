@@ -36,8 +36,8 @@ let mostrar_datos = async() => {
         boton_editar.innerText = 'Editar'; 
 
         boton_editar.addEventListener('click', ()=> {
-            localStorage.setItem('id_asistencia', reporte_siniestros[i]['_id']);
-            window.location.href = 'editar-reporte-asistencia.html'; 
+            localStorage.setItem('id_siniestro', reporte_siniestros[i]['_id']);
+            window.location.href = 'editar-reporte-siniestro.html'; 
         });
 
         celda_editar.appendChild(boton_editar);

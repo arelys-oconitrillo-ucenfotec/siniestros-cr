@@ -54,6 +54,7 @@ router.get('/listar/reporte-asistencias', (req, res) => {
 
 router.put('/modificar/reporte-asistencia', function (req, res) {
     let body = req.body;
+    
     ReporteAsistencia.updateOne({
         _id: body._id
     }, {

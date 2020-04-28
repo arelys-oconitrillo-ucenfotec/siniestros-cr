@@ -79,7 +79,7 @@ let registrar_usuario_especializado = async() => {
             'icon': 'error'
         });
     });
-}
+};
 
 let obtener_usuario_especializado_id = async(identificacion) => {
     try {

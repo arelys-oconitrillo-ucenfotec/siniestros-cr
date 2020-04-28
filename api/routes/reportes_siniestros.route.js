@@ -116,6 +116,26 @@ router.get('/buscar/reporte-siniestro/usuario', function(req,res) {
     });
 });
 
+router.get('/buscar/reporte-siniestro/id', function(req,res) {
+
+    let id = req.query.id
+
+    ReporteSiniestro.findOne({ _id: id }, (error, reporte_siniestroDB) => {
+        if (error) {
+            res.json({
+                resultado: false,
+                msj: 'No se encontró ningun reporte siniestro con ese usuario',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                reporte_siniestro: reporte_siniestroDB
+            });
+        }
+    });
+});
+
 router.get('/buscar/reporte-siniestro/tipo_siniestro', function(req,res) {
 
     let usuario_identificacion = req.query.usuario_identificacion

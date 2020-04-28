@@ -73,7 +73,7 @@ let validar = () => {
       
 };
 
-let modificar_tipo_asistencia = () => {
+let modificar_reporte_asistencia = () => {
     let error_validacion = validar();
     if (error_validacion) {
         Swal.fire({
@@ -103,4 +103,4 @@ input_canton.addEventListener('input', cargarDistritos);
 
 llenar_campos();
 
-botonReportar.addEventListener('click', modificar_tipo_asistencia);
+botonReportar.addEventListener('click', modificar_reporte_asistencia);

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Reporte Siniestro</title>
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <link href="../css/fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="header-registro sienna">
+            <div class="w3-row">
+                <div class="w3-col l4 w3-center tan-letra">
+                    <h1>Siniestros Viales CR</h1>
+                </div>
+                <div class="w3-col l5 w3-right">
+                    <div id="contenedor-menu">
+                        <nav id="nav_principal">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="registrar-vehiculo" class="beige">
+                <div class="w3-row">
+                    <div class="w3-col l6 w3-right">
+                        <h2>Editar Reporte Siniestro</h2>
+                    </div>
+                    <div class="w3-col l6 w3-left">
+                        <p class="p2-registro dim-gray-letra">Siniestros Viales CR te ayuda a reportar <br> y a prevenir accidentes en carretera</p>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l6">
+                        <div class="img-registro">
+                            <img src="../css/imgs/smartphone-car-technology-phone-33488.jpg" alt="imagen de registro">
+                        </div>
+                    </div>
+                    <div class="w3-col l6">
+                        <form id="frm-reporte-siniestro">
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <label class="form__label dim-gray-letra" for="txtDescripcion"></label>
+                                    <textarea name="txtDescripcion" id="txtDescripcion" rows="3" placeholder="Descripción del siniestro" class="dim-gray-letra beige" required></textarea>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="latitud" name="txtLatitud" id="txtLatitud"  required>
+                                    <label for="txtLatitud" class="form__label dim-gray-letra">latitud</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div class="form__group field">
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Longitud" name="txtLongitud" id="txtLongitud"  required>
+                                    <label for="txtLongitud" class="form__label dim-gray-letra">Longitud</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div id="contenedorRutas" class="form__group field form__group_field-select">
+                                    <select id="sltRuta" class="form__field dim-gray-letra" required>
+                                    </select>
+                                    <label id= "lblRuta" for="sltRuta" class="form__label dim-gray-letra">Rutas</label>
+                                </div>
+                            </div>
+                            <div class="w3-row campo-frm">
+                                <div id="contenedorSiniestros" class="form__group field form__group_field-select">
+                                    <select id="sltSiniestro" class="form__field dim-gray-letra" required>
+                                    </select>
+                                    <label id= "lblSiniestro" for="sltSiniestro" class="form__label dim-gray-letra">Siniestros</label>
+                                </div>
+                            </div>
+                            <div class="btn2">
+                                <button type="button" class="btn2-registro beige-letra" id="btnReportar">Editar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="../recursos/roles_menu.js"></script>
+        <script src="/public/js/utilidades.js"></script>
+        <script src="/public/js/admin.rutas.servicio.js"></script>
+        <script src="/public/js/admin.tipo_incidentes.servicio.js"></script>
+        <script src="/public/js/reporte_siniestro.servicio.js"></script>
+        <script src="/public/js/editar.reporte_siniestro.controlador.js"></script>
+        </body>
+</html>
