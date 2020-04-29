@@ -3,6 +3,7 @@
 obtener_menu();
 
 const tbody = document.querySelector('#tbl-listar tbody');
+const titulo_acciones = document.getElementById('titleAcciones');
 
 let mostrar_datos = async() => {
     let tipo_asistencias = await listar_tipo_asistencias();
@@ -27,6 +28,8 @@ let mostrar_datos = async() => {
                 });
         
                 celda_editar.appendChild(boton_editar);
+
+                titulo_acciones.classList.remove('ocultar');
             }
            
         } 
