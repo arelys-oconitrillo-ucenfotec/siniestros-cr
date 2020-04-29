@@ -258,10 +258,6 @@ h6 {
 }
 /*---------------------FIN INPUT STYLE---------------------*/
 
-/*---------------------CSS INICIO SESION-------------------*/
-
-
-/*---------------------FIN CSS INICIO SESION-------------------*/
 
 /*---------------------CSS REGISTRAR TODOS LOS USUARIOS-------------------*/
 
@@ -432,10 +428,6 @@ header {
     padding: 5px 0 5px 10px;
     width: 50%;
 }
-/*.campo-frm select {
-    height: 45px;
-    width: 50%;
-}*/
 
 .frm__field::placeholder {
     color: transparent;
@@ -493,6 +485,19 @@ header {
     display: flex;
     justify-content: left;
     margin-top: 40px;
+}
+
+#lista-usuarios a {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #71323d;
+}
+
+#lista-usuarios a:hover {
+    text-decoration: underline;
 }
 
 /*---------------FIN CSS REGISTRO USUARIOS ESPECIALIZADOS Y ENCARGADOS DE RUTA-----*/
@@ -646,3 +651,4 @@ header {
 }
 
 /*------------------Fin Olvido Contraseña---------------------------*/
+
