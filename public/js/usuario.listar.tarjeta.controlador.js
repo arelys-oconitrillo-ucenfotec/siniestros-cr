@@ -30,30 +30,19 @@ let mostrar_tarjetas = async() => {
                 fila.insertCell().innerHTML = uTarjetas.tipoTarjeta;
             }
         
-        let celda_editar = fila.insertCell();
-        let boton_editar = document.createElement('button');
-        boton_editar.type = 'button';
-        boton_editar.innerText = 'Editar'
+            let celda_editar = fila.insertCell();
+            let boton_editar = document.createElement('button');
+            boton_editar.type = 'button';
+            boton_editar.innerText = 'Editar'
 
-        boton_editar.addEventListener('click', () => {
-            localStorage.setItem('identificacion_usuario', usuario.identificacion);
-            console.log(usuario.identificacion);
-            window.location.href = 'usuario-editar-tarjetas.html';
-        });
-        celda_editar.appendChild(boton_editar);
+            boton_editar.addEventListener('click', () => {
+                localStorage.setItem('identificacion_usuario', usuario.identificacion);
+                console.log(usuario.identificacion);
+                window.location.href = 'usuario-editar-tarjetas.html';
+            });
+            
+            celda_editar.appendChild(boton_editar);
         }
-        let celda_cancelar = fila.insertCell();
-        let boton_cancelar = document.createElement('button');
-        boton_cancelar.type = 'button';
-        boton_cancelar.innerText = 'Cancelar'
-        celda_cancelar.appendChild(boton_cancelar);
-
-        boton_cancelar.addEventListener('click', () => {
-            localStorage.setItem('identificacion_usuario', usuario.identificacion);
-            console.log(usuario.identificacion);
-            window.location.href = 'bienvenido-sesion.html';
-        });
-
 
         /*  asi se listarian todos los usuarios
     

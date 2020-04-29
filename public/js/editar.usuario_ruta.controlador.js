@@ -91,7 +91,6 @@ let validarEmail = (pError) => {
     return error;
 };
 
-
 let validarIdentificacion = (pError, pNumeroDigitos) => {
     let error = pError;
     let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
@@ -129,7 +128,6 @@ let validarDimex = (pError) => {
 
     return error;
 };
-
 
 let modificar_usuario_ruta = () => {
     let error_validacion = validar();

@@ -1,5 +1,7 @@
 'use strict'
 
+obtener_menu();
+
 let identificacion = localStorage.getItem('identificacion_usuario');
 const botonGuardar = document.querySelector('#btnRegistrar');
 let _id;
@@ -39,14 +41,14 @@ let llenar_campos = async() =>{
       
       let fecha= "";
       let fechalarga = uTarjetas[0].fechaExp;
-      let contador = 0
+      let contador = 0;
 
       /*Ciclo para poder leer la fecha de expiracion guardada */
-      
-      for (let i = 0; i < uTarjetas[0].fechaExp.length-17; i++) {
+    for (let i = 0; i < uTarjetas[0].fechaExp.length-17; i++) {
         contador=i;
         fecha = fecha + fechalarga.charAt(contador);
-      }    
+    }    
+    
     input_fechaExp.value = fecha;
     input_codigoCVV.value = uTarjetas[0].codigoCVV;
 

@@ -105,6 +105,44 @@ let validarEmail = (pError) => {
     return error;
 };
 
+let validarIdentificacion = (pError, pNumeroDigitos) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+
+    if(!error){
+        if(regexSoloNumeros.test(txtIdentificacion.value)){
+            label_identificacion.classList.remove('label-error');
+            if(txtIdentificacion.value.length != pNumeroDigitos){
+                label_identificacion.classList.add('label-error');
+                error = true;
+            }
+        } else {
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    }
+
+    return error;
+};
+
+let validarDimex = (pError) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+    
+    if(regexSoloNumeros.test(txtIdentificacion.value)){
+        label_identificacion.classList.remove('label-error');
+        if(txtIdentificacion.value.length != 11 || txtIdentificacion.value.length != 12){
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    } else {
+        label_identificacion.classList.add('label-error');
+        error = true;
+    }
+
+    return error;
+};
+
 let cargarCantones = () => {
     let html_cantones = obtener_html_cantones(sltProvincia.value);
     botonCantones.innerHTML = '';
@@ -180,6 +218,7 @@ let llenar_campos = async() => {
     input_primer_apellido.value = usuario_especializado.primer_apellido;
     input_segundo_apellido.value = usuario_especializado.segundo_apellido;
     botonIdentificacion.value = usuario_especializado.tipo_identificacion;
+    establecer_identificacion();
     input_identificacion.value = usuario_especializado.identificacion;
     input_correo.value = usuario_especializado.correo;
     input_telefono.value = usuario_especializado.telefono;
@@ -187,8 +226,11 @@ let llenar_campos = async() => {
     input_fotografia.value = usuario_especializado.fotografia;
     input_tipo.value = usuario_especializado.tipo;
     botonProvincias.value = usuario_especializado.provincia;
+    cargarCantones();
     botonCantones.value = usuario_especializado.canton;
+    cargarDistritos();
     botonDistritos.value = usuario_especializado.distrito;
+
     input_otras_senas.value = usuario_especializado.otras_senas;
 
     switch(usuario_especializado.genero){
@@ -199,11 +241,6 @@ let llenar_campos = async() => {
             document.querySelector('#rbtMasculino').checked = true;
         break;
     }
-
-    establecer_identificacion();
-    cargarCantones();
-    cargarDistritos();
-
 };
 
 llenar_campos();
