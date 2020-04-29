@@ -49,6 +49,13 @@ let obtener_menu = () => {
 let obtener_menu_usuario = () => {
     let opciones_menu = 
     '<div class="dropdown">' +
+        '<button class="dropbtn">Tipos Incidentes</button>' +
+        '<div class="dropdown-content">' +
+            '<a href="admin-registrar-vehiculo.html">Registrar</a>' +
+            '<a href="admin-listar-vehiculo.html">Listar</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
         '<button class="dropbtn">Siniestros</button>' +
         '<div class="dropdown-content">' +
         '<a href="reporte-siniestro.html">Reportar</a>' +
@@ -85,11 +92,20 @@ let obtener_menu_usuario = () => {
 let obtener_menu_especializado = () => {
     let opciones_menu =
     '<div class="dropdown">' +
-        '<button class="dropbtn">Tipos Insidentes</button>' +
+        '<button class="dropbtn">Siniestros</button>' +
         '<div class="dropdown-content">' +
-            '<a href="admin-registrar-vehiculo.html">Registrar</a>' +
-            '<a href="admin-listar-vehiculo.html">Listar</a>' +
+        '<a href="reporte-siniestro.html">Reportar</a>' +
+        '<a href="listar-reporte-siniestro.html">Listar</a>' +
         '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Asistencias</button>' +
+        '<div class="dropdown-content">' +
+        '<a href="admin-listar-tipo-asistencia.html">Listar tipos asistencias</a>' +
+        '<a href="reporte-asistencia.html">Reportar</a>' +
+        '<a href="listar-reporte-asistencia.html">Listar mis reportes</a>' +
+        '</div>' +
+    '</div>' +
     '<div class="dropdown">' +
         '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
@@ -109,6 +125,21 @@ let obtener_menu_ruta = () => {
         '<div class="dropdown-content">' +
         '<a href="admin-registrar-ruta.html">Registar</a>' +
         '<a href="admin-listar-rutas.html">Listar</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Siniestros</button>' +
+        '<div class="dropdown-content">' +
+        '<a href="reporte-siniestro.html">Reportar</a>' +
+        '<a href="listar-reporte-siniestro.html">Listar</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Asistencias</button>' +
+        '<div class="dropdown-content">' +
+        '<a href="admin-listar-tipo-asistencia.html">Listar tipos asistencias</a>' +
+        '<a href="reporte-asistencia.html">Reportar</a>' +
+        '<a href="listar-reporte-asistencia.html">Listar mis reportes</a>' +
         '</div>' +
     '</div>' +
     '<div class="dropdown">' +
@@ -139,6 +170,13 @@ let obtener_menu_admin = () => {
             '<a href="admin-listar-vehiculo.html">Listar Vehículos</a>' +
             '<a href="admin-registrar-vehiculo-caracteristica.html">Registrar Característica</a>' +
             '<a href="admin-listar-vehiculo-caracteristica.html">Listar Características</a>' +
+        '</div>' +
+    '</div>' +
+    '<div class="dropdown">' +
+        '<button class="dropbtn">Tipos Incidentes</button>' +
+        '<div class="dropdown-content">' +
+            '<a href="admin-registrar-tipo-incidente.html">Registrar Incidente</a>' +
+            '<a href="admin-listar-tipo-incidente.html">Listar Incidentes</a>' +
         '</div>' +
     '</div>' +
     '<div class="dropdown">' +

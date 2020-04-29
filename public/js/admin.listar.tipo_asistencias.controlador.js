@@ -14,7 +14,7 @@ let mostrar_datos = async() => {
         fila.insertCell().innerHTML = '<p>' + tipo_asistencias[i]['descripcion'] + '</p>';
         fila.insertCell().innerHTML = '<p>' + tipo_asistencias[i]['costo'] + '</p>';
         
-        if () {
+        if ( ){
             let celda_editar = fila.insertCell();
             let boton_editar = document.createElement('button');
             boton_editar.type = 'button';

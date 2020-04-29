@@ -22,7 +22,7 @@ let obtenerDatos = async() => {
         let respuesta = await validar_credenciales(correo, contrasena);
         usuarioAceptado = respuesta.data.success;
         if (usuarioAceptado) {
-                window.location.href = 'admin-listar-tipo-incidente.html';
+                window.location.href = 'editar-usuario-especializado.html';
         } else {
             Swal.fire({
                 'title': 'Sus datos no se pueden validar',
