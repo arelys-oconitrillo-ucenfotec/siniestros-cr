@@ -4,6 +4,8 @@ funcion que envie un email para la activacion del usuario*/
 
 'use strict';
 
+obtener_menu();
+
 const botonIdentificacion = document.querySelector('#sltTipoIdentificacion');
 const botonRegistrar = document.querySelector('#btnRegistrar');
 const regexSoloNumeros = new RegExp('^[0-9]+$');
