@@ -500,6 +500,10 @@ header {
     text-decoration: underline;
 }
 
+.tabla-informacion{
+    max-width: 60%;
+}
+
 /*---------------FIN CSS REGISTRO USUARIOS ESPECIALIZADOS Y ENCARGADOS DE RUTA-----*/
 
 

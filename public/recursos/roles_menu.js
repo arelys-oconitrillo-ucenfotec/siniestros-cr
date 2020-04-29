@@ -58,8 +58,9 @@ let obtener_menu_usuario = () => {
     '<div class="dropdown">' +
         '<button class="dropbtn">Asistencias</button>' +
         '<div class="dropdown-content">' +
+        '<a href="admin-listar-tipo-asistencia.html">Listar tipos asistencias</a>' +
         '<a href="reporte-asistencia.html">Reportar</a>' +
-        '<a href="listar-reporte-asistencia.html">Listar</a>' +
+        '<a href="listar-reporte-asistencia.html">Listar mis reportes</a>' +
         '</div>' +
     '</div>' +
     '<div class="dropdown">' +
