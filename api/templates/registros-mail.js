@@ -3,7 +3,7 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-this.enviar_mail = (pnombre) => {
+this.enviar_mail = (pnombre, pcorreo) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -14,7 +14,7 @@ this.enviar_mail = (pnombre) => {
 
     let mail_options = {
         from: 'id2020cr@gmail.com',
-        to: 'mramirezj@ucenfotec.ac.cr',
+        to: pcorreo, //'mramirezj@ucenfotec.ac.cr',
         subject: `Bienvenido ${pnombre}`,
         html: `
                 <table border="0" cellpadding="0" cellspacing="0" width="600px" background-color="#71323D" bgcolor="#EFE4D9">

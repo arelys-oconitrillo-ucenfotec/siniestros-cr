@@ -6,30 +6,75 @@ const botonGenerar = document.getElementById('btnGenerarClave');
 //const botonOlvidoContrasena = document.getElementById('btnOlvidoContrasena');
 const botonCancelar = document.getElementById('btnCancelar');
 let contrasenaNueva ="";
-function recolectarDatos() {
+
+function generarContrasenaNueva() {
     let correo = input_Correo.value; 
     let identificacion = input_Identificacion.value;
 
     let errorBlancos = validarCampos(correo, identificacion);
     let usuarioAceptado = false;
-
-    if (errorBlancos) {
-        Swal.fire({
-            'title': 'Sus datos no se pueden validar',
-            'text': 'Revisar los campos resaltados en ROJO',
-            'icon': 'warning'
+    let existeU = existeUsuario(identificacion);
+    
+    if ((errorBlancos) || (existeU)) {
+        if(errorBlancos){
+            Swal.fire({
+                'title': 'Sus datos no se pueden validar',
+                'text': 'Revisar que los datos esten bien',
+                'icon': 'warning'
         });
+        } else {
+            
+            Swal.fire({
+                'title': 'La Identifiación no pertenece a ningun usuario registriado',
+                'text': 'Revisar y los campos resaltados en ROJO',
+                'icon': 'warning'
+            });
+            input_Identificacion.classList.add('input-error');
+        }
     } else {
         contrasenaNueva = crearContrasena();
-        //usuarioAceptado = respuesta.success;
-        //if (usuarioAceptado) {
+        guardar_contrasena(input_Identificacion.value, input_correo.value, contrasenaNueva)
             Swal.fire({
                 'title': 'Sus Clave fue generada exitósamente',
-                'text': 'Revise su correo para la nueva clave',
+                'text': 'Revise su correo con la nueva clave',
                 'icon': 'success'
             });
-            //window.location.href = 'registar-usuario-normal.html';
+            window.location.href = 'registar-usuario-normal.html';
         }
+};
+
+let  existeUsuario = () => {
+    let usuario = obtener_usuario_normal_id(input_Identificacion.value);
+    let error = false;
+
+    if(usuario) {
+        error = true;    
+    }else {
+        return error;
+    }
+    return error;
+};
+
+let validarCampos = () => {
+    let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
+    let error = false;
+
+    for (let i = 0; i < campos_requeridos.length; i++) {
+        if (campos_requeridos[i].value == '') {
+            campos_requeridos[i].classList.add('input-error');
+            error = true;
+        } else {
+            campos_requeridos[i].classList.remove('input-error');
+        }
+    }
+
+    /*if (!/^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/.test(inputCorreo.value)) {
+        input_Correo.classList.add('input-error');
+        error = true;
+    }*/
+
+    return error;
+      
 };
 
 /* -----------------funcion para generar la clave -------------------------------------*/
@@ -119,57 +164,13 @@ function crearContrasena() {
     console.log(claveGenerada, error);
     return claveGenerada
 };
-/*
-    if (errorBlancos) {
-        Swal.fire({
-            'title': 'Sus datos no se pueden validar',
-            'text': 'Revisar los campos resaltados en ROJO',
-            'icon': 'warning'
-        });
-    } else {
-        
-        usuarioAceptado = respuesta.success;
-        if (usuarioAceptado) {
-            window.location.href = '';
-        } else {
-            Swal.fire({
-                'title': 'Sus datos no se pueden validar',
-                'text': 'Usuario o contraseña incorrectos',
-                'icon': 'warning'
-            });
-        }
-    }
-
-};*/
-
-let validarCampos = () => {
-    let campos_requeridos = document.querySelectorAll('#frm-registro [required]');
-    let error = false;
-
-    for (let i = 0; i < campos_requeridos.length; i++) {
-        if (campos_requeridos[i].value == '') {
-            campos_requeridos[i].classList.add('input-error');
-            error = true;
-        } else {
-            campos_requeridos[i].classList.remove('input-error');
-        }
-    }
-
-    /*if (!/^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/.test(inputCorreo.value)) {
-        input_Correo.classList.add('input-error');
-        error = true;
-    }*/
-
-    return error;
-      
-};
 
 
 let cancelar = () => {
     window.location.href = 'bienvenido-sesion.html';
 };
 
-botonGenerar.addEventListener('click', recolectarDatos);
+botonGenerar.addEventListener('click', generarContrasenaNueva);
 
 botonCancelar.addEventListener('click', cancelar);
 

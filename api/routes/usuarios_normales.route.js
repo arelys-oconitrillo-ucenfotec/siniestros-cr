@@ -3,6 +3,9 @@
 const express = require('express');
 const router = express.Router();
 const UsuarioNormal = require('../models/usuarios_normales.model');
+const mailerPassword = require('../templates/envio-contrasena-mail');
+const mailer = require('../templates/envio-contrasena-mail');
+
 
 router.post('/registrar/usuario-normal', (req, res) => {
     let body = req.body;
@@ -281,5 +284,33 @@ router.put('/modificar/tarjeta', function (req, res) {
 });
 
 /* FIN-----Agregar, Modificar, Borrar tarjetas de credito del registro del Usuario*/
+
+/* --------Generar Contraseña Usuario normal...........*/
+
+router.put('/guardar_contrasena', function (req, res) {
+    let body = req.body;
+
+    UsuarioNormal.updateOne({id: body.p__id }, {
+        $set: {
+            'contrasena': body.contrasena,
+        }
+    }, function (error, info) {
+        if (error) {
+            res.json({
+                resultado: false,
+                msg: 'No se pudo modificar la contraseña',
+                error
+            });
+        } else {
+            res.json({
+                resultado: true,
+                info: info
+            });
+        }
+    });
+});
+
+
+/* FIN--------Generar Contraseña Usuario normal...........*/
 
 module.exports = router;
