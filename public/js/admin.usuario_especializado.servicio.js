@@ -49,8 +49,8 @@ let registrar_usuario_especializado = async() => {
             distrito: sltDistrito.value,
             otras_senas: txtOtrasSenas.value,
             codigo_activacion: ' ',
-            contrasena: ' ',
-            estado: 'inactivo'
+            contrasena: '123456',
+            estado: 'activo'
         }   
     })
     .then(function(res) {

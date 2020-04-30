@@ -95,7 +95,6 @@ let obtener_menu_especializado = () => {
         '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
             '<button id="btnEditarPerfilEsp">Editar</button>' +
-            '<a href="">Tarjetas Asociadas</a>' +
             '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>' +
         '</div>' +
     '</div>';
@@ -116,7 +115,6 @@ let obtener_menu_ruta = () => {
         '<button class="dropbtn">' + menuNombre + ' ' + menuApellido + '</button>' +
         '<div class="dropdown-content">' +
             '<button id="btnEditarPerfilRuta">Editar</button>' +
-            '<a href="">Tarjetas Asociadas</a>' +
             '<button type="button" id="btnCerrarSesion">Cerrar Sesión</button>' +
         '</div>' +
     '</div>';

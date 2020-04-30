@@ -44,8 +44,8 @@ let registrar_usuario_normal = async() => {
             fotografia: txtUrlImg.value,
             rol: 'normal',
             codigo_activacion: ' ',
-            contrasena: ' ',
-            estado: 'inactivo'
+            contrasena: '123456',
+            estado: 'activo'
         }   
     })
     .then(function(res) {

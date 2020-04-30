@@ -42,9 +42,9 @@ let registrar_usuario_ruta = async() => {
             telefono: txtTelefono.value,
             fotografia: txtUrlImg.value,
             rol: 'ruta',
-            codigo_activacion: ' ',
+            codigo_activacion: '123456',
             contrasena: ' ',
-            estado: 'inactivo'
+            estado: 'activo'
         }   
     })
     .then(function(res) {
