@@ -2,14 +2,12 @@
 
 obtener_menu();
 
-const botonIdentificacion = document.querySelector('#txtIdentificacion');
 const botonRegistrar = document.querySelector('#btnRegistrar');
 /* para funcion limpiar_datos*/
-    let input_identificacion = document.querySelector('#txtIdentificacion');
-    let input_tipoTarjeta = document.querySelector('#txttipoTarjeta');
-    let input_numeroTarjeta = document.querySelector('#txtnumeroTarjeta');
-    let input_fechaExp = document.querySelector('#txtfechaExp');
-    let input_codigoCVV = document.querySelector('#txtcodigoCVV');
+let input_tipoTarjeta = document.querySelector('#sltTipoTarjeta');
+let input_numeroTarjeta = document.querySelector('#txtnumeroTarjeta');
+let input_fechaExp = document.querySelector('#txtfechaExp');
+let input_codigoCVV = document.querySelector('#txtcodigoCVV');
  /* fin de variables */
 
 let validar = () => {
@@ -23,14 +21,12 @@ let validar = () => {
             error = true;
         } else {
             label_campo_requerido.classList.remove('label-error');
-          }
+        }
     }
     return error;
 };
 
 let limpiar_datos = () => {
-    
-    input_identificacion.value = "";
     input_tipoTarjeta.value = "";
     input_numeroTarjeta.value = "";
     input_fechaExp.value = "";
@@ -46,13 +42,12 @@ let agregar_tarjeta = () => {
             'icon': 'warning'
         });
     } else {
-        let identificacion = document.querySelector('#txtIdentificacion').value;
-        let tipoTarjeta = document.querySelector('#txttipoTarjeta').value;
+        let tipoTarjeta = document.querySelector('#sltTipoTarjeta').value;
         let numeroTarjeta = document.querySelector('#txtnumeroTarjeta').value;
         let fechaExp = document.querySelector('#txtfechaExp').value;
         let codigoCVV = document.querySelector('#txtcodigoCVV').value;
 
-        registrar_tarjetaCredito( identificacion, tipoTarjeta, numeroTarjeta, fechaExp, codigoCVV);
+        registrar_tarjeta_credito(tipoTarjeta, numeroTarjeta, fechaExp, codigoCVV);
         Swal.fire({
             'title': 'El proceso se realizó correntamente',
             'text': 'Tarjeta de crédito registrada correctamente',

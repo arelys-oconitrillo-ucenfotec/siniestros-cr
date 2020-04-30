@@ -177,7 +177,7 @@ router.post('/agregar/tarjeta', function(req, res) {
             return res.json({
                 success: false,
                 msj: 'No se pudo agregar la tarjeta',
-                err
+                error
             })
         } else {
             return res.json({
@@ -257,12 +257,11 @@ router.delete('/eliminar/tarjeta', function (req, res) {
 router.put('/modificar/tarjeta', function (req, res) {
     let body = req.body;
 
-    UsuarioNormal.update({id: body.p__id, 
-                              'tarjetas._id': body.p_tarjetaId }, {
+    UsuarioNormal.updateOne({id: body.p__id, 'tarjetas._id': body.p_tarjetaId }, {
         $set: {
             'tarjetas.$.tipoTarjeta': body.tipoTarjeta,
             'tarjetas.$.numeroTarjeta': body.numeroTarjeta,
-            'tarjetas.$.fechaExp': body.fechExp,
+            'tarjetas.$.fechaExp': body.fechaExp,
             'tarjetas.$.codigoCVV': body.codigoCVV
         }
     }, function (error, info) {

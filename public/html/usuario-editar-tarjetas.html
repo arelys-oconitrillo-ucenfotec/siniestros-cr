@@ -46,16 +46,15 @@
                     </div>
                     <div class="w3-col l6">
                         <form id="frm-registro">
-                            <div id="contenedor-identificacion" class="w3-row campo-frm">
-                                <div class="form__group field">
-                                    <input type="text" class="form__field dim-gray-letra" placeholder="Identificación" name="txtIdentificacion" id="txtIdentificacion" disabled required>
-                                    <label for="txtIdentificacion" class="form__label dim-gray-letra">Identificación</label>
-                                </div>
-                            </div>
                             <div class="w3-row campo-frm">
-                                <div class="form__group field">
-                                    <input type="text" class="form__field dim-gray-letra" placeholder="Tipo de Tarjeta" name="txttipoTarjeta" id="txttipoTarjeta"  required>
-                                    <label for="txttipoTarjeta" class="form__label dim-gray-letra">Tipo de Tarjeta</label>
+                                <div class="form__group field form__group_field-select">
+                                    <select id="sltTipoTarjeta" class="form__field dim-gray-letra" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="Visa">Visa</option>
+                                        <option value="Master Card">Master Card</option>
+                                        <option value="American Express">American Express</option>
+                                    </select>
+                                    <label id= "lblTipoTarjeta" for="sltTipoTarjeta" class="form__label dim-gray-letra">Tipo Tarjeta</label>
                                 </div>
                             </div>
                             <div class="w3-row campo-frm">
@@ -66,7 +65,7 @@
                             </div>
                             <div class="w3-row campo-frm">
                                 <div class="form__group field">
-                                    <input type="month" class="form__field dim-gray-letra" placeholder="Fecha Expiración" name="txtfechaExp" id="txtfechaExp" required>
+                                    <input type="text" class="form__field dim-gray-letra" placeholder="Fecha Expiración" name="txtfechaExp" id="txtfechaExp" required>
                                     <label for="txtfechaExp" class="form__label dim-gray-letra">Fecha Expiración</label>
                                 </div>
                             </div>
@@ -75,7 +74,8 @@
                                     <input type="text" class="form__field dim-gray-letra" placeholder="Código CVV" name="txtcodigoCVV" id="txtcodigoCVV" required>
                                     <label for="txtcodigoCVV" class="form__label dim-gray-letra">Código CVV</label>
                                 </div>
-                            <div class="btn2">
+                            </div>
+                            <div class="w3-row btn2">
                                 <button type="button" class="btn2-registro beige-letra" id="btnRegistrar">Modificar</button>
                             </div>
                         </form>
@@ -88,8 +88,7 @@
         <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="../recursos/roles_menu.js"></script>
-        <script src="../js/editar.tarjeta_credito.servicio.js"></script>
-        <script src="../js/usuario.listar.tarjeta.servicio.js"></script>
+        <script src="../js/tarjeta_credito.servicio.js"></script>
         <script src="../js/editar.tarjeta_credito.controlador.js"></script>
 
     </body> 

@@ -23,7 +23,7 @@ const schema_usuario_normal = new mongoose.Schema({
         {
             tipoTarjeta: {type: String, require: false, unique: false },
             numeroTarjeta: {type: Number, require: false, unique: false },
-            fechaExp: {type: Date, require: false, unique: false },
+            fechaExp: {type: String, require: false, unique: false },
             codigoCVV: { type: Number, require: false, unique: false }
         }
     ],
