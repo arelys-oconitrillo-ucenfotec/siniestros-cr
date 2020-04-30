@@ -49,13 +49,6 @@ let obtener_menu = () => {
 let obtener_menu_usuario = () => {
     let opciones_menu = 
     '<div class="dropdown">' +
-        '<button class="dropbtn">Tipos Incidentes</button>' +
-        '<div class="dropdown-content">' +
-            '<a href="admin-registrar-vehiculo.html">Registrar</a>' +
-            '<a href="admin-listar-vehiculo.html">Listar</a>' +
-        '</div>' +
-    '</div>' +
-    '<div class="dropdown">' +
         '<button class="dropbtn">Siniestros</button>' +
         '<div class="dropdown-content">' +
         '<a href="reporte-siniestro.html">Reportar</a>' +
