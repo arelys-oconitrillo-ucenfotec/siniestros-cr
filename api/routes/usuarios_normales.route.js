@@ -44,8 +44,6 @@ router.post('/registrar/usuario-normal', (req, res) => {
             });
         }
     });
-
-
 });
 
 router.get('/buscar/usuario-normal', function(req,res) {
@@ -73,7 +71,7 @@ router.get('/listar/usuarios-normales', (req, res) => {
         if (error) {
             res.json({
                 resultado: false,
-                msj: 'No se pudieron registrar los usuarios normales',
+                msj: 'No se pudieron listar los usuarios normales',
                 error
             });
         } else {

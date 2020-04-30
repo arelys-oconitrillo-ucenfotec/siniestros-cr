@@ -632,26 +632,8 @@ header {
 
 /*----------------------Olvido Contraseña----------------------------*/
 
-.btn-OlvidoContrasena {
-    border: none;
-    height: 48px;
-    width: 100px;
-    border-radius: 2px;
-    font-size: 15px;
-    background: #585551;
-}
-
-.btn-OlvidoContrasena:hover {
-    height: 48px;
-    width: 103px;
-    border-radius: 2px;
-    font-size: 15px;
-    color: #9b9b9b;
-    background: #585551;
-}
-
 .btnOlvidoContrasena{
-    margin-top: 10px;
+    text-decoration: none;
 }
 
 /*------------------Fin Olvido Contraseña---------------------------*/
