@@ -83,6 +83,45 @@ let validarEmail = (pError) => {
     return error;
 };
 
+let validarIdentificacion = (pError, pNumeroDigitos) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+
+    if(!error){
+        if(regexSoloNumeros.test(txtIdentificacion.value)){
+            label_identificacion.classList.remove('label-error');
+            if(txtIdentificacion.value.length != pNumeroDigitos){
+                label_identificacion.classList.add('label-error');
+                error = true;
+            }
+        } else {
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    }
+
+    return error;
+};
+
+let validarDimex = (pError) => {
+    let error = pError;
+    let label_identificacion = document.querySelector('[for="txtIdentificacion"]');
+    
+    if(regexSoloNumeros.test(txtIdentificacion.value)){
+        label_identificacion.classList.remove('label-error');
+        if(txtIdentificacion.value.length != 11 || txtIdentificacion.value.length != 12){
+            label_identificacion.classList.add('label-error');
+            error = true;
+        }
+    } else {
+        label_identificacion.classList.add('label-error');
+        error = true;
+    }
+
+    return error;
+};
+
+
 let limpiar = () => {
     txtPrimerNombre.value = "";
     txtSegundoNombre.value = "";
