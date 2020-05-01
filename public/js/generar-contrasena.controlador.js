@@ -6,8 +6,9 @@ const botonGenerar = document.getElementById('btnGenerarClave');
 //const botonOlvidoContrasena = document.getElementById('btnOlvidoContrasena');
 const botonCancelar = document.getElementById('btnCancelar');
 let contrasenaNueva ="";
+let _id = "";
 
-function generarContrasenaNueva() {
+function generarContrasenaNueva () {
     let correo = input_Correo.value; 
     let identificacion = input_Identificacion.value;
 
@@ -22,6 +23,18 @@ function generarContrasenaNueva() {
                 'text': 'Revisar que los datos esten bien',
                 'icon': 'warning'
         });
+        }
+        if (existeU) {
+
+            contrasenaNueva = crearContrasena();
+            _id = obtener_id ();
+            guardar_contrasena(_id, identificacion, correo, contrasenaNueva);
+                Swal.fire({
+                    'title': 'Sus Clave fue generada exitósamente',
+                    'text': 'Revise su correo con la nueva clave',
+                    'icon': 'success'
+                });
+                
         } else {
             
             Swal.fire({
@@ -31,21 +44,15 @@ function generarContrasenaNueva() {
             });
             input_Identificacion.classList.add('input-error');
         }
-    } else {
-        contrasenaNueva = crearContrasena();
-        guardar_contrasena(input_Identificacion.value, input_correo.value, contrasenaNueva)
-            Swal.fire({
-                'title': 'Sus Clave fue generada exitósamente',
-                'text': 'Revise su correo con la nueva clave',
-                'icon': 'success'
-            });
-            window.location.href = 'registar-usuario-normal.html';
-        }
+        
+    }
+    window.location.href = 'registrar-usuarios-normales.html'; 
 };
 
-let  existeUsuario = () => {
-    let usuario = obtener_usuario_normal_id(input_Identificacion.value);
+let  existeUsuario = async () => {
+    let usuario = await obtener_usuario_normal_identificacion(input_Identificacion.value);
     let error = false;
+    console.log(usuario);
 
     if(usuario) {
         error = true;    
@@ -54,6 +61,10 @@ let  existeUsuario = () => {
     }
     return error;
 };
+
+let obtener_id = async () => {
+    _id = await obtener_usuario_normal_id (input_Identificacion.value);
+}
 
 let validarCampos = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');

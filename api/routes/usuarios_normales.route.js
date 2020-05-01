@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const UsuarioNormal = require('../models/usuarios_normales.model');
 const mailerPassword = require('../templates/envio-contrasena-mail');
-const mailer = require('../templates/envio-contrasena-mail');
+const mailer = require('../templates/registros-mail');
 
 
 router.post('/registrar/usuario-normal', (req, res) => {
@@ -42,7 +42,8 @@ router.post('/registrar/usuario-normal', (req, res) => {
                 msj: 'Los datos se enviaron de forma exitosa',
                 usuario_normalDB
             });
-        }
+           // mailer.enviar_mail(usuario_normalDB.nombre, usuario_normalDB.correo);
+        } 
     });
 });
 
@@ -288,7 +289,7 @@ router.put('/modificar/tarjeta', function (req, res) {
 router.put('/guardar_contrasena', function (req, res) {
     let body = req.body;
 
-    UsuarioNormal.updateOne({id: body.p__id }, {
+    UsuarioNormal.updateOne({_id: body._id, identificacion: body.pidentificacion }, {
         $set: {
             'contrasena': body.contrasena,
         }
@@ -305,6 +306,7 @@ router.put('/guardar_contrasena', function (req, res) {
                 info: info
             });
         }
+        //MailerPassword.enviar_mail(identificacion, correo, contrasena);
     });
 });
 
