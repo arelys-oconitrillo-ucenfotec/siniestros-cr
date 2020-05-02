@@ -16,7 +16,7 @@ const botonReportar = document.querySelector('#btnReportar');
 let llenar_campos = async() => {
     let reporte_siniestro = await obtener_reportes_siniestros_por_id(id_siniestro);
 
-    mostrar_siniestros()
+    mostrar_siniestros();
     mostrar_rutas()
     .then(() => {
         id = reporte_siniestro._id;

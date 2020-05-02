@@ -121,7 +121,13 @@ let actualizar_usuario = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-usuarios-normales.html';
+                if (localStorage.getItem('conectado')){
+                    if (localStorage.getItem('tipo_usuario') == 'normal'){
+                        window.location.href = 'reporte-siniestro.html';
+                    } else {
+                        window.location.href = 'admin-listar-usuarios-normales.html';
+                    }
+                }
             });
         } else {
             Swal.fire({
