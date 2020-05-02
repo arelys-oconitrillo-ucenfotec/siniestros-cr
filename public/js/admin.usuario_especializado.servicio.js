@@ -131,7 +131,12 @@ let actualizar_usuario_especializado = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'editar-usuario-especializado.html';
+                if (localStorage.getItem('tipo_usuario') == 'especializado'){
+                    window.location.href = 'editar-usuario-especializado.html';
+                } else {
+                    window.location.href = 'admin-listar-usuarios-especializados.html';
+                }
+                
             });
         } else {
             Swal.fire({
