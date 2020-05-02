@@ -8,15 +8,29 @@ const botonCancelar = document.getElementById('btnCancelar');
 let contrasenaNueva ="";
 let _id = "";
 
-function generarContrasenaNueva () {
+let generarContrasenaNueva = async () => {
     let correo = input_Correo.value; 
     let identificacion = input_Identificacion.value;
-
+    let existeUsuario = false;
     let errorBlancos = validarCampos(correo, identificacion);
-    let usuarioAceptado = false;
-    let existeU = existeUsuario(identificacion);
+   
+    let usuario = await obtener_usuario_normal_identificacion(identificacion);
+    console.log (usuario)
+    if ((usuario !== null )){
+        _id = usuario._id
+        existeUsuario = true;
+        console.log (usuario);
+    }else {
+        Swal.fire({
+            'title': 'La Identifiación no pertenece a ningun usuario registriado',
+            'text': 'Revisar y los campos resaltados en ROJO',
+            'icon': 'warning'
+        });
+        input_Identificacion.classList.add('input-error');
+    }
+
     
-    if ((errorBlancos) || (existeU)) {
+    if ((errorBlancos) || (existeUsuario)) {
         if(errorBlancos){
             Swal.fire({
                 'title': 'Sus datos no se pueden validar',
@@ -24,16 +38,20 @@ function generarContrasenaNueva () {
                 'icon': 'warning'
         });
         }
-        if (existeU) {
+        if (existeUsuario) {
 
             contrasenaNueva = crearContrasena();
-            _id = obtener_id ();
-            guardar_contrasena(_id, identificacion, correo, contrasenaNueva);
+            
+            guardar_contrasena2(_id, identificacion, correo, contrasenaNueva);
                 Swal.fire({
                     'title': 'Sus Clave fue generada exitósamente',
                     'text': 'Revise su correo con la nueva clave',
                     'icon': 'success'
+                })
+                .then(() => {
+                    window.location.href = 'registrar-usuarios-normales.html';
                 });
+            }   
                 
         } else {
             
@@ -45,11 +63,10 @@ function generarContrasenaNueva () {
             input_Identificacion.classList.add('input-error');
         }
         
-    }
-    window.location.href = 'registrar-usuarios-normales.html'; 
+    //window.location.href = 'registrar-usuarios-normales.html'; 
 };
 
-let  existeUsuario = async () => {
+/*let  existeUsuario = async (identificacion) => {
     let usuario = await obtener_usuario_normal_identificacion(input_Identificacion.value);
     let error = false;
     console.log(usuario);
@@ -64,7 +81,7 @@ let  existeUsuario = async () => {
 
 let obtener_id = async () => {
     _id = await obtener_usuario_normal_id (input_Identificacion.value);
-}
+}*/
 
 let validarCampos = () => {
     let campos_requeridos = document.querySelectorAll('#frm-registro [required]');

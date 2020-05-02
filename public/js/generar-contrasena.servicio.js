@@ -15,6 +15,32 @@ function guardar_contrasena(p_id, pidentificacion, pcorreo, pcontrasena) {
     })   
 }; 
 
+let guardar_contrasena2 = async (p_id, pidentificacion, pcorreo, pcontrasena) => {
+
+    await axios({
+        method: 'put',
+        url : 'http://localhost:3000/api/guardar_contrasena',
+        reponseType: 'json',
+        data: {
+            '_id': p_id,
+            'identificacion' : pidentificacion,
+            'contrasena' : pcontrasena
+        }
+    }).then((res)=> {
+        swal.fire({
+            title: 'El proceso se realizó correctamente',
+            text: 'Sus Clave fue guardada en su perfil exitósamente',
+            icon: 'success'
+        }).then(() => {
+            //window.location.href = 'usuario-listar-tarjeta.html';
+        });
+    
+    }).catch((err) => {
+        console.log(err);
+    });
+
+};
+
 let obtener_usuario_normal_identificacion = async(pidentificacion) => {
     try {
         const response = await axios({
