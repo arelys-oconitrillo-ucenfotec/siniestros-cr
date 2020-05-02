@@ -131,7 +131,7 @@ let actualizar_usuario_especializado = async() => {
                 'icon': 'success'
             })
             .then(function() {
-                window.location.href = 'admin-listar-usuarios-especializados.html';
+                window.location.href = 'editar-usuario-especializado.html';
             });
         } else {
             Swal.fire({
